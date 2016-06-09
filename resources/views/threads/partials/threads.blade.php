@@ -11,7 +11,7 @@
 
         <div class="avatar pull-left">
             <a href="{{ $thread->author_url }}">
-                <img class="media-object img-thumbnail avatar-48" alt="{{{ $thread->user->username }}}" src="{{ $thread->user->avatar30}}"/>
+                <img class="media-object img-thumbnail avatar-48" alt="{{{ $thread->user->username }}}" src="{{ $thread->user->avatar_small}}"/>
             </a>
         </div>
 

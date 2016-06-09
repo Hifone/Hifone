@@ -155,19 +155,30 @@ class UserController extends Controller
 
     public function avatarupdate()
     {
-        Image::make(Input::file('avatar'))
-            ->resize(180, 180)
+        $user_id = Auth::id();
+        $originFile = Input::file('avatar');
+
+        $path = ($user_id % 10) . '/' . ($user_id % 10).'/';
+        $destinationPath = public_path().'/uploads/avatar/'.$path;
+        $saveName = $user_id.'.jpg';
+
+        $originFile->move($destinationPath, $saveName);
+        $img = Image::make($destinationPath.'/'.$saveName);
+
+        $img->resize(192, 192)
             ->encode('jpg')
-            ->save(base_path().'/public/images/avatar/avatar'.Auth::id().'.jpg');
-        Image::make(Input::file('avatar'))
-            ->resize(40, 40)
+            ->save();
+
+        $img->resize(48, 48)
             ->encode('jpg')
-            ->save(base_path().'/public/images/avatar/30avatar'.Auth::id().'.jpg');
+            ->save($destinationPath.$user_id.'_small.jpg');
+
         $user = Auth::user();
-        $user->avatar_url = '/images/avatar/avatar'.Auth::id().'.jpg';
+        $user->avatar_url = '/uploads/avatar/'.$path.$user_id.'.jpg';
         $user->save();
 
-        return Redirect::back();
+        return Redirect::back()
+            ->withSuccess('头像更新成功');
     }
 
     protected function resetPassword()
