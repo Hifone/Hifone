@@ -1,0 +1,98 @@
+body.forum {
+
+.navbar-default{
+    background-color: #333;
+    border-bottom: 2px solid #E84223;
+  }
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav>li>a {
+  float: none;
+  line-height: 19px;
+  color: #ccc;
+  text-decoration: none;
+}
+.nav>li>a:hover {
+  color: #fff;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: 0px;
+}
+
+
+.navbar-form {
+    padding: 0px 20px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+
+
+    .form-control {
+      font-size: 13px;
+      height: 28px;
+      border-radius: 2px;
+    }
+
+    .btn {
+      font-size: 13px;
+      color: #808080;
+      padding: 4px 9px;
+    }
+
+    .mac-style {
+      width: 180px;
+      transition: width 1s ease-in-out
+    }
+    .mac-style:focus {
+      width: 260px
+    }
+  }
+
+.notification .new {
+    color: #F86334 !important;
+}
+
+// start
+ @media (max-width: 767px) {
+    .navbar-header {
+      text-align: center;
+      padding: 0;
+      margin-bottom: -41px;
+      .navbar-brand {
+        font-size: 12px;
+        float: none;
+        margin: 0 auto;
+        line-height: 46px;
+      }
+    }
+    .navbar-nav {
+      float: left;
+      margin: 0px;
+    }
+    .navbar-nav > li {
+      float: left;
+    }
+    .navbar-nav.navbar-right {
+      float: right;
+    }
+    .user-bar {
+      .dropdown-toggle {
+        display: none;
+      }
+      .navbar-toggle {
+        display: block;
+        color: #fff;
+        border-radius: 0px;
+      }
+      .dropdown.open .navbar-toggle {
+        background-color: #EEF3F5;
+      }
+    }
+  }
+// end
+
+}

@@ -1,0 +1,16 @@
+$fa-font-path: "../../../fonts" !default;
+$fa-font-size-base:   10px !default;
+@import "./vendor/bower_components/font-awesome/scss/font-awesome";
+
+@import "./vendor/bower_components/sweetalert/dev/sweetalert";
+
+@import "modules/bootstrap";
+
+// Styles for plugins
+@import "plugins/markdown";
+@import "plugins/sortable";
+
+// Styles for specific page
+@import "install";
+@import "forum";
+@import "dashboard";

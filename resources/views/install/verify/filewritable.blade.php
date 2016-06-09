@@ -1,0 +1,1 @@
+<p class="hidden">file path of "<code>{{$directory}}</code>" is writtable (user: <code>{{$user}}</code>).</p>

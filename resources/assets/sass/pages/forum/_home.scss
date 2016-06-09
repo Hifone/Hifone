@@ -1,0 +1,59 @@
+body.forum {
+
+.home-icons {
+  .item {
+    text-align: center;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    background: #FFF;
+    border: 1px;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5 #dfe0e4;
+    .icon {
+      display: block;
+      a {
+        display: block;
+        padding: 20px 15px;
+      }
+      .fa {
+        font-size: 60px;
+      }
+    }
+    .text {
+      display: block;
+      text-align: left;
+      background: #F5F5F5;
+      border-top: 1px solid #E9E9E9;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 0 0 3px 3px;
+      a {
+        display: block;
+        color: #666;
+        padding: 6px 15px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      .fa {
+        margin-top: 3px;
+      }
+    }
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+  .item1 .icon .fa {
+    color: #A1B56C;
+  }
+  .item2 .icon .fa {
+    color: #ba68c8;
+  }
+  .item3 .icon .fa {
+    color: #4fc3f7;
+  }
+  .item4 .icon .fa {
+    color: #f06292;
+  }
+}
+
+}

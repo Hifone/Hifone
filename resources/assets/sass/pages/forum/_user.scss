@@ -1,0 +1,17 @@
+body.forum {
+    
+    .user-list {
+      h2 { font-size:14px; margin:0; }
+      .user {
+        text-align:center; margin-bottom:20px;
+        overflow: hidden;;
+        .avatar {
+          img { width:48px; height:48px; margin: 0 auto;}
+          margin-bottom: 5px;
+        }
+        .name {
+          a { color: #333; }
+        }
+      }
+    }
+}

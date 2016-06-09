@@ -1,0 +1,92 @@
+{
+    
+    "name": "hifone/hifone",
+    "description": "An open source forum software.",
+    "keywords": ["hifone","framework", "laravel", "forum", "bbs"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.2.36",
+        "laravelcollective/html": "~5.2",
+        "intervention/image": "^2.3",
+        "zizaco/entrust": "dev-laravel-5",
+        "guzzlehttp/guzzle": "~6.0",
+        "alt-three/validator": "^1.5",
+        "graham-campbell/exceptions": "^5.1",
+        "socialiteproviders/qq": "^2.0",
+        "socialiteproviders/weibo": "^2.0",
+        "socialiteproviders/weixin": "^2.1",
+        "socialiteproviders/weixin-web": "^2.0",
+        "socialiteproviders/gitlab": "^2.0",
+        "mews/purifier": "^2.0",
+        "league/html-to-markdown": "^4.1",
+        "jenssegers/date": "^3.2",
+        "mccool/laravel-auto-presenter": "^4.3",
+        "gregwar/captcha": "~1.1",
+        "roumen/feed": "^2.10",
+        "laravelcollective/bus": "~5.2",
+        "arrilot/laravel-widgets": "^3.3"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.5",
+        "gitaminhq/benchtest": "^0.1",
+        "mockery/mockery": "0.9.*",
+        "phpspec/phpspec": "~2.1",
+        "phpunit/phpunit": "^5.2",
+        "symfony/dom-crawler": "~3.0",
+        "symfony/css-selector": "~3.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "files":[
+            "app/Http/helpers.php"
+        ],
+        "psr-4": {
+            "Hifone\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hifone\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "php artisan key:generate"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize --force",
+            "php artisan config:cache",
+            "php artisan route:cache"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize --force",
+            "php artisan config:cache",
+            "php artisan route:cache"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "5.6.4"
+        },
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+
+}

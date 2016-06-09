@@ -1,0 +1,1 @@
+<p class="hidden">PHP extension "<code>{{$extension}}</code>" is installed.</p>
