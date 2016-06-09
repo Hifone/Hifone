@@ -20,6 +20,6 @@ return [
     |
     */
 
-    'timezone' => 'Aisa/Shanghai',
+    'timezone' => 'UTC',
 
 ];
