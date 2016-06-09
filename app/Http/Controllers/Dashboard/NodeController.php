@@ -56,7 +56,7 @@ class NodeController extends Controller
     public function create()
     {
         return View::make('dashboard.nodes.create_edit')
-            ->withParents(Node::where('parent_id', '=', 0)->orderBy('order')->get())
+            ->withSections(Section::orderBy('order')->get())
             ->withPageTitle(trans('dashboard.nodes.add.title').' - '.trans('dashboard.dashboard'));
     }
 

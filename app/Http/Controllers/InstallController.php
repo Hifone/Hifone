@@ -174,7 +174,7 @@ class InstallController extends Controller
             ]);
 
             Node::create([
-                'parent_id'   => $parent->id,
+                'section_id'   => $parent->id,
                 'name'        => 'Default',
                 'slug'        => 'default',
             ]);
