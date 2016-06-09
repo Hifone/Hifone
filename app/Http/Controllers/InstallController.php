@@ -175,8 +175,8 @@ class InstallController extends Controller
 
             Node::create([
                 'section_id'   => $parent->id,
-                'name'        => 'Default',
-                'slug'        => 'default',
+                'name'         => 'Default',
+                'slug'         => 'default',
             ]);
 
             // Pull the user details out.
