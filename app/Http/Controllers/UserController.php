@@ -158,7 +158,7 @@ class UserController extends Controller
         $user_id = Auth::id();
         $originFile = Input::file('avatar');
 
-        $path = ($user_id % 10) . '/' . ($user_id % 10).'/';
+        $path = ($user_id % 10).'/'.($user_id % 10).'/';
         $destinationPath = public_path().'/uploads/avatar/'.$path;
         $saveName = $user_id.'.jpg';
 
