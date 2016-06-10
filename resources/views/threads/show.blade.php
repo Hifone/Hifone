@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-{{{ $thread->title }}}_@parent
+{{{ $thread->title }}} - @parent
 @stop
 
 @section('description')

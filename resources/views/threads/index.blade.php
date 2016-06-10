@@ -1,14 +1,14 @@
 @extends('layouts.default')
 
 @section('title')
-@if (Request::is('/'))
-{{ trans('hifone.home') }}
+@if(Request::is('/'))
 @elseif (isset($node))
 {{ $node->name }}
+ - @parent
 @else
 {{ trans('hifone.threads.list') }}
-@endif
  - @parent
+@endif
 @stop
 
 @section('content')

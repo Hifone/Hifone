@@ -14,10 +14,10 @@
         </button>
         <ul class="dropdown-menu">
           <li>
-            <a href="/thread/create?node_id=21">Discovery</a>
+            <a href="/thread/create?node_id=9">Discovery</a>
           </li>
           <li>
-            <a href="/thread/create?node_id=11">Geek Talks</a>
+            <a href="/thread/create?node_id=4">Geek Talks</a>
           </li>
         </ul>
       </div>

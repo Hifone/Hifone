@@ -7,12 +7,11 @@
         {{ Config::get('setting.site_name') }}
         @endif</a>
         </div>
-
         <div id="main-nav-menu">
           <ul class="nav navbar-nav">
-          <li {!! set_active('/') !!}><a href="{!! route('home') !!}"><i class="fa fa-list"></i> {!! trans('hifone.home') !!}</a></li>
+          <li {!! set_active('/') !!}><a href="{!! route('home') !!}"><i class="fa fa-list hidden-xs"></i> {!! trans('hifone.home') !!}</a></li>
           <li {!! set_active('thread*',['hidden-sm hidden-xs']) !!}><a href="{!! route('thread.index') !!}"><i class="fa fa-comments-o"></i> {!! trans('hifone.threads.threads') !!}</a></li>
-          <li {!! set_active('excellent*') !!}><a href="{!! route('excellent') !!}"><i class="fa fa-diamond"></i> {!! trans('hifone.excellent') !!}</a></li>
+          <li {!! set_active('excellent*') !!}><a href="{!! route('excellent') !!}"><i class="fa fa-diamond hidden-xs"></i> {!! trans('hifone.excellent') !!}</a></li>
           </ul>
         </div>
         @if(Auth::check())
@@ -45,9 +44,9 @@
           </li>
           @if(Auth::check())
             @if($current_user->hasRole(['Founder','Admin']))
-                   <li>
-                     <a href="{{ route('dashboard.index') }}" data-pjax="no" title="{{ trans('dashboard.dashboard') }}"><i class="fa fa-wrench"></i> {{ trans('dashboard.dashboard') }}</a>
-                   </li>
+                 <li>
+                   <a href="{{ route('dashboard.index') }}" data-pjax="no" title="{{ trans('dashboard.dashboard') }}"><i class="fa fa-wrench hidden-xs"></i> {{ trans('dashboard.dashboard') }}</a>
+                 </li>
             @endif
           <li {!! set_active('notification*', ['notification']) !!}>
             <a href="{!! route('notification.index') !!}" class="notification-count {{ $current_user->notification_count ? 'new' : null }}"><i class="fa fa-bell"></i><span class="count"> {{ $current_user->notification_count }}</span></a>
