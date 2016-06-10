@@ -12,7 +12,7 @@
     @include('users.partials.basicinfo')
   </div>
 
-  <div class="main-col col-md-9 left-col">
+  <div class="col-md-9 left-col">
 
 
   <div class="panel panel-default">
