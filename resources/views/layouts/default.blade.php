@@ -3,7 +3,7 @@
 	<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@yield('title') {{ $site_name }}</title>
+        <title>@yield('title') {{ $site_name }}@if($site_about) - {{ $site_about }}@endif</title>
         <meta name="keywords" content="Hifone,BBS,Forum,PHP,Laravel" />
         <meta name="author" content="The Hifone Team." />
         <meta name="description" content="@section('description') Hifone" />
