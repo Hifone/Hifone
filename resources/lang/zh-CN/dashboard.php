@@ -12,7 +12,7 @@
 return [
 
     'dashboard' => '控制台',
-    'statuses'  => '系统状态',
+    'overview'  => '概况',
 
     'attentions' => [
         'attentions' => 'Attentions',
