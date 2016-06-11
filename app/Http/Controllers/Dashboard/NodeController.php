@@ -41,7 +41,7 @@ class NodeController extends Controller
      */
     public function index()
     {
-        $nodes = Node::orderBy('order')->orderBy('created_at')->get();
+        $nodes = Node::orderBy('order')->get();
 
         return View::make('dashboard.nodes.index')
         ->withPageTitle(trans('dashboard.nodes.nodes').' - '.trans('dashboard.dashboard'))

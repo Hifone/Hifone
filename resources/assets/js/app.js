@@ -250,20 +250,21 @@
 
         initSortable: function(){
             var self = this;
-            var linkList = document.getElementById("link-list");
+            var linkList = document.getElementById("item-list");
             if(linkList) {
+                var item_name = $('#item-list').data('item-name');
                 new Sortable(linkList,{
                     group: "omega",
                     handle: ".drag-handle",
                     onUpdate: function() {
                         var orderedLinkIds = $.map(
-                            $('#link-list .striped-list-item'),
+                            $('#item-list .striped-list-item'),
                             function(elem){
-                                return $(elem).data('link-id');
+                                return $(elem).data('item-id');
                         });
                         $.ajax({
                             async: true,
-                            url: '/dashboard/api/links/order',
+                            url: '/dashboard/api/' + item_name + '/order',
                             type: 'POST',
                             data:{ids: orderedLinkIds},
                             success: function(){

@@ -17,9 +17,9 @@
             </div>
             @include('partials.errors')
             <div class="row">
-                <div class="col-sm-12 striped-list" id="node-list">
+                <div class="col-sm-12 striped-list" id="item-list" data-item-name="node">
                     @forelse($nodes as $node)
-                    <div class="row striped-list-item" data-node-id="{{ $node->id }}">
+                    <div class="row striped-list-item" data-item-id="{{ $node->id }}">
                         <div class="col-xs-6">
                             <h4>
                                 @if($nodes->count() > 1)

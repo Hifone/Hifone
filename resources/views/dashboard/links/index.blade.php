@@ -17,9 +17,9 @@
         <div class="row">
             <div class="col-sm-12">
                 @include('partials.errors')
-                <div class="striped-list" id="link-list">
+                <div class="striped-list" id="item-list" data-item-name="link">
                     @forelse($links as $link)
-                    <div class="row striped-list-item" data-link-id="{{ $link->id }}">
+                    <div class="row striped-list-item" data-item-id="{{ $link->id }}">
                         <div class="col-md-6">
                             <span class="drag-handle"><i class="fa fa-navicon"></i></span> <i class="{{ $link->icon }}"></i> <strong>{{ $link->title }}</strong>
                             @if($link->description)
