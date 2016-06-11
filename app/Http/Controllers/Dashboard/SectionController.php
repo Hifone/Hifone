@@ -13,8 +13,8 @@ namespace Hifone\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
 use Hifone\Http\Controllers\Controller;
-use Hifone\Models\Section;
 use Hifone\Models\Node;
+use Hifone\Models\Section;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
@@ -56,6 +56,7 @@ class SectionController extends Controller
         ->withPageTitle(trans('dashboard.nodes.nodes').' - '.trans('dashboard.dashboard'))
         ->withNodes($nodes);
     }
+
     /**
      * Shows the add section view.
      *
