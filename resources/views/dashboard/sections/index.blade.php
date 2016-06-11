@@ -17,15 +17,15 @@
             </div>
             @include('partials.errors')
             <div class="row">
-                <div class="col-sm-12 striped-list" id="section-list">
+                <div class="col-sm-12 striped-list" id="item-list" data-item-name="section">
                     @forelse($sections as $section)
-                    <div class="row striped-list-item" data-section-id="{{ $section->id }}">
+                    <div class="row striped-list-item" data-item-id="{{ $section->id }}">
                         <div class="col-xs-6">
                             <h4>
                                 @if($sections->count() > 1)
                                 <span class="drag-handle"><i class="fa fa-navicon"></i></span>
                                 @endif
-                                {{ $section->id }}. {{ $section->name }} <small>{{ $section->human_status }}</small>
+                                <a href="/dashboard/section/{{ $section->id }}">{{ $section->id }}. {{ $section->name }}</a><small>{{ $section->human_status }}</small>
                             </h4>
                         </div>
                         <div class="col-xs-6 text-right">

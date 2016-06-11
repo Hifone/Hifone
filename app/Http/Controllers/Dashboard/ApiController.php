@@ -13,6 +13,8 @@ namespace Hifone\Http\Controllers\Dashboard;
 
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Link;
+use Hifone\Models\Node;
+use Hifone\Models\Section;
 use Illuminate\Support\Facades\Request;
 
 class ApiController extends Controller
@@ -28,5 +30,29 @@ class ApiController extends Controller
         }
 
         return $linkData;
+    }
+
+    public function postUpdateSectionOrder()
+    {
+        $sectionData = Request::get('ids');
+
+        foreach ($sectionData as $order => $sectionId) {
+            // Ordering should be 1-based, data comes in 0-based
+            Section::find($sectionId)->update(['order' => $order + 1]);
+        }
+
+        return $sectionData;
+    }
+
+    public function postUpdateNodeOrder()
+    {
+        $nodeData = Request::get('ids');
+
+        foreach ($nodeData as $order => $nodeId) {
+            // Ordering should be 1-based, data comes in 0-based
+            Node::find($nodeId)->update(['order' => $order + 1]);
+        }
+
+        return $nodeData;
     }
 }

@@ -13,6 +13,7 @@ namespace Hifone\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
 use Hifone\Http\Controllers\Controller;
+use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -45,6 +46,15 @@ class SectionController extends Controller
         return View::make('dashboard.sections.index')
         ->withPageTitle(trans('dashboard.sections.sections').' - '.trans('dashboard.dashboard'))
         ->withSections($sections);
+    }
+
+    public function show(Section $section)
+    {
+        $nodes = Node::where('section_id', $section->id)->orderBy('order')->get();
+
+        return View::make('dashboard.nodes.index')
+        ->withPageTitle(trans('dashboard.nodes.nodes').' - '.trans('dashboard.dashboard'))
+        ->withNodes($nodes);
     }
 
     /**

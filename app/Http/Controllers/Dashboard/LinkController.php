@@ -27,7 +27,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = Link::paginate(10);
+        $links = Link::orderBy('order')->paginate(10);
 
         return View::make('dashboard.links.index')
         ->withPageTitle(trans('dashboard.links.links').' - '.trans('dashboard.dashboard'))

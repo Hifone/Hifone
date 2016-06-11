@@ -68,7 +68,9 @@ class DashboardRoutes
 
             // Dashboard API
             $router->group(['prefix' => 'api'], function (Registrar $router) {
-                $router->post('links/order', 'ApiController@postUpdateLinkOrder');
+                $router->post('link/order', 'ApiController@postUpdateLinkOrder');
+                $router->post('section/order', 'ApiController@postUpdateSectionOrder');
+                $router->post('node/order', 'ApiController@postUpdateNodeOrder');
             });
         });
 
