@@ -1,7 +1,6 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="content-panel">
     @if(isset($sub_menu))
     @include('dashboard.partials.sub-sidebar')
     @endif
@@ -42,5 +41,4 @@
             </div>
         </div>
     </div>
-</div>
 @stop

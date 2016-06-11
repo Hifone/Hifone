@@ -1,7 +1,6 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="content-panel">
     <div class="content-wrapper">
         <div class="header sub-header">
             <span class="uppercase">
@@ -53,5 +52,4 @@
             <!-- Pager -->
             {!! $threads->appends(Request::except('page', '_pjax'))->render() !!}
     </div>
-</div>
 @stop

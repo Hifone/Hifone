@@ -1,16 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="content-panel">
-@if(isset($sub_menu))
-    @include('dashboard.partials.sub-sidebar')
-@endif
 <div class="content-wrapper">
     <div class="header sub-header" id="general">
         <span class="uppercase">
             {{ trans('dashboard.threads.edit.title') }}
         </span>
     </div>
+     @if(isset($sub_menu))
+    @include('dashboard.partials.sub-nav')
+    @endif
     <div class="row">
         <div class="col-md-12">
             @include('partials.errors')
