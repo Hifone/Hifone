@@ -177,8 +177,8 @@ return [
 
     'locations' => [
         'locations'        => '热门城市',
-        'name'        => '城市名',
-        'add'         => [
+        'name'             => '城市名',
+        'add'              => [
             'title'   => '添加热门城市',
             'success' => '热门城市添加成功.',
             'message' => '当前没有热门城市.',
