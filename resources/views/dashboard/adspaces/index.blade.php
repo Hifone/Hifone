@@ -18,11 +18,11 @@
             <div class="row">
                 <div class="col-sm-12">
                     @include('partials.errors')
-                    <div class="striped-list">
+                    <div class="striped-list" id="item-list" data-item-name="adspace">
                         @foreach($adspaces as $adspace)
-                        <div class="row striped-list-item">
+                        <div class="row striped-list-item" data-item-id="{{ $adspace->id }}">
                             <div class="col-xs-6">
-                                <i class="{{ $adspace->icon }}"></i> {{ $adspace->id }}. {{ $adspace->name }}
+                                <span class="drag-handle"><i class="fa fa-navicon"></i></span> <i class="{{ $adspace->icon }}"></i> {{ $adspace->id }}. {{ $adspace->name }}
                                 @if($adspace->adblock)
                                 <p>(<small>{{ $adspace->adblock->name }}</small>)</p>
                                 @endif

@@ -1,16 +1,18 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="header">
-        <div class="sidebar-toggler visible-xs">
-            <i class="fa fa-navicon"></i>
-        </div>
-        <span class="uppercase">
-            <i class="fa fa-tint"></i> {{ trans('dashboard.tips.tips') }}
-        </span>
-        > <small>{{ trans(isset($tip) ? 'dashboard.tips.edit.title': 'dashboard.tips.add.title') }}</small>
-    </div>
+<div class="content-panel">
+    @if(isset($sub_menu))
+    @include('dashboard.partials.sub-sidebar')
+    @endif
     <div class="content-wrapper">
+        <div class="header sub-header">
+            <span class="uppercase">
+                <i class="fa fa-tint"></i> {{ trans('dashboard.tips.tips') }}
+            </span>
+            <small>{{ trans(isset($tip) ? 'dashboard.tips.edit.title': 'dashboard.tips.add.title') }}</small>
+            <div class="clearfix"></div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 @include('partials.errors')

@@ -12,6 +12,7 @@
 namespace Hifone\Http\Controllers\Dashboard;
 
 use Hifone\Http\Controllers\Controller;
+use Hifone\Models\Adspace;
 use Hifone\Models\Link;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
@@ -54,5 +55,17 @@ class ApiController extends Controller
         }
 
         return $nodeData;
+    }
+
+    public function postUpdateAdspaceOrder()
+    {
+        $adspaceData = Request::get('ids');
+
+        foreach ($adspaceData as $order => $adspaceId) {
+            // Ordering should be 1-based, data comes in 0-based
+            Adspace::find($adspaceId)->update(['order' => $order + 1]);
+        }
+
+        return $adspaceData;
     }
 }

@@ -35,6 +35,8 @@ class Adspace extends Model
     protected $fillable = [
         'name',
         'route',
+        'adblock_id',
+        'order',
         'position',
     ];
 

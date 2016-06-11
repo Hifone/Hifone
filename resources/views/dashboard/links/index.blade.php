@@ -1,19 +1,20 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="header fixed">
-        <div class="sidebar-toggler visible-xs">
-            <i class="fa fa-navicon"></i>
+<div class="content-panel">
+    @if(isset($sub_menu))
+    @include('dashboard.partials.sub-sidebar')
+    @endif
+    <div class="content-wrapper">
+        <div class="header sub-header">
+            <span class="uppercase">
+                <i class="ion ion-ios-information-outline"></i> {{ trans('dashboard.links.links') }}
+            </span>
+            <a class="btn btn-sm btn-success pull-right" href="{{ route('dashboard.link.create') }}">
+                {{ trans('dashboard.links.add.title') }}
+            </a>
+            <div class="clearfix"></div>
         </div>
-        <span class="uppercase">
-            <i class="fa fa-link"></i> {{ trans('dashboard.links.links') }}
-        </span>
-        <a class="btn btn-sm btn-success pull-right" href="{{ route('dashboard.link.create') }}">
-            {{ trans('dashboard.links.add.title') }}
-        </a>
-        <div class="clearfix"></div>
-    </div>
-    <div class="content-wrapper header-fixed">
         <div class="row">
             <div class="col-sm-12">
                 @include('partials.errors')
@@ -37,5 +38,5 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
 @stop

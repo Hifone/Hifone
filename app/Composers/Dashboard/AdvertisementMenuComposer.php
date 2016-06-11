@@ -37,6 +37,12 @@ class AdvertisementMenuComposer
                 'icon'   => 'fa fa-columns',
                 'active' => false,
             ],
+            'adblocks' => [
+                'title'  => trans('dashboard.adblocks.adblocks'),
+                'url'    => route('dashboard.adblock.index'),
+                'icon'   => 'fa fa-object-group',
+                'active' => false,
+            ],
         ];
 
         $view->withSubMenu($subMenu);
