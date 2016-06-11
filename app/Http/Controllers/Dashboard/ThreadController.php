@@ -14,6 +14,7 @@ namespace Hifone\Http\Controllers\Dashboard;
 use Hifone\Commands\Thread\UpdateThreadCommand;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Node;
+use Hifone\Models\Section;
 use Hifone\Models\Thread;
 use Hifone\Parsers\Markdown;
 use Illuminate\Support\Facades\View;
@@ -37,7 +38,7 @@ class ThreadController extends Controller
 
     public function index()
     {
-        $threads = Thread::orderBy('created_at', 'desc')->paginate(10);
+        $threads = Thread::orderBy('order', 'desc')->orderBy('created_at', 'desc')->paginate(10);
 
         return View::make('dashboard.threads.index')
             ->withPageTitle(trans('dashboard.threads.threads').' - '.trans('dashboard.dashboard'))
@@ -87,6 +88,14 @@ class ThreadController extends Controller
 
         return Redirect::route('dashboard.thread.edit', ['id' => $thread->id])
             ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.threads.edit.success')));
+    }
+
+    public function pin(Thread $thread)
+    {
+        ($thread->order > 0) ? $thread->decrement('order', 1) : $thread->increment('order', 1);
+
+        return Redirect::route('dashboard.thread.index')
+            ->withSuccess(trans('dashboard.threads.edit.success'));
     }
 
     public function destroy(Thread $thread)

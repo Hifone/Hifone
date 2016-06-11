@@ -65,7 +65,7 @@ body.dashboard {
                 list-style: none;
 
                 li {
-                    font-size: $sidebar-text-size;
+                    font-size: 14px;
                     &.active {
                         background: lighten($sidebar-background-color, 2%);
                         a {
@@ -224,7 +224,7 @@ body.dashboard {
                     color: #666;
                     display: block;
                     padding: 13px 30px;
-                    font-size: 15px;
+                    font-size: 14px;
                     transition: all 0.2s linear;
                     text-decoration: none;
 

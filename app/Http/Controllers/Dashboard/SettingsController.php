@@ -212,6 +212,7 @@ class SettingsController extends Controller
             Lang::setLocale(Request::get('site_locale'));
         }
 
-        return Redirect::to($redirectUrl)->withSuccess(trans('dashboard.settings.edit.success'));
+        return Redirect::to($redirectUrl)
+            ->withSuccess(trans('dashboard.settings.edit.success'));
     }
 }

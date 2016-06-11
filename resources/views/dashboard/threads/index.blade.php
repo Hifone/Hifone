@@ -1,42 +1,57 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="content-panel">
-        @if(isset($sub_menu))
-        @include('dashboard.partials.sub-sidebar')
-        @endif
-        <div class="content-wrapper">
-            <div class="header sub-header">
-                <span class="uppercase">
-                    <i class="ion ion-ios-information-outline"></i> {{ trans('dashboard.threads.threads') }}
-                </span>
-                <div class="clearfix"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    @include('partials.errors')
-                    <div class="striped-list">
-                        @foreach($threads as $thread)
-                        <div class="row striped-list-item">
-                            <div class="col-xs-9">
-                                <i class="{{ $thread->icon }}"></i> {{ $thread->id }}. {{ $thread->title }}
-                                @if($thread->message)
-                                <p><small>{{ Str::words($thread->message, 5) }}</small></p>
-                                @endif
-                            </div>
-                            <div class="col-xs-3 text-right">
-                                <a href="{{ route('dashboard.thread.edit',['id'=>$thread->id]) }}" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
-                                <a href="{{ route('dashboard.thread.destroy',['id'=>$thread->id]) }}" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                     <div class="text-right">
-                    <!-- Pager -->
-                    {!! $threads->appends(Request::except('page', '_pjax'))->render() !!}
-                </div>
-                </div>
-            </div>
+<div class="content-panel">
+    <div class="content-wrapper">
+        <div class="header sub-header">
+            <span class="uppercase">
+                <i class="fa fa-file-text-o"></i> {{ trans('dashboard.content.content') }}
+            </span>
+            <div class="clearfix"></div>
         </div>
+    @if(isset($sub_menu))
+    @include('dashboard.partials.sub-nav')
+    @endif
+    <div class="row">
+        <div class="col-sm-12">
+            @include('partials.errors')
+
+            <table class="table table-bordered table-striped table-condensed">
+            <tbody>
+              <tr class="head">
+                <td class="first">#</td>
+                <td style="width:50%">标题</td>
+                <td>节点</td>
+                <td>发帖人</td>
+                <td>回帖</td>
+                <td>时间</td>
+                <td style="width:10%">操作</td>
+              </tr>
+             @foreach($threads as $thread)
+              <tr>
+                <td>{{ $thread->id }}</td>
+                <td>
+                  <a target="_blank" href="{{ $thread->url }}"><i class="{{ $thread->icon }}"></i> {{ $thread->title }}</a>
+                </td>
+                <td>{{ $thread->node->name }}</td>
+                <td><a data-name="{{ $thread->user->username }}" href="{{ $thread->author_url }}">{{ $thread->user->username }}</a></td>
+                <td>0</td>
+                <td>
+                    {{ $thread->created_at }}
+                </td>
+                <td>
+                    <a href="/dashboard/thread/{{$thread->id}}/pin" data-method="post" class="confirm-action"><i class="fa fa-thumb-tack"></i></a> 
+                    <a href="/dashboard/thread/{{ $thread->id }}/edit"><i class="fa fa-pencil"></i></a> 
+                    <a href="/dashboard/thread/{{ $thread->id }}" data-method="delete" class="confirm-action"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+            </table>
+
+            <div class="text-right">
+            <!-- Pager -->
+            {!! $threads->appends(Request::except('page', '_pjax'))->render() !!}
     </div>
+</div>
 @stop
