@@ -39,14 +39,14 @@ class SettingMenuComposer
             ],
             'tips' => [
                 'title'  => trans('dashboard.tips.tips'),
-                'url' => route('dashboard.tip.index'),
-                'icon' => 'fa fa-tint',
+                'url'    => route('dashboard.tip.index'),
+                'icon'   => 'fa fa-tint',
                 'active' => 'false',
             ],
             'links' => [
                 'title'  => trans('dashboard.links.links'),
-                'url' => route('dashboard.link.index'),
-                'icon' => 'fa fa-link',
+                'url'    => route('dashboard.link.index'),
+                'icon'   => 'fa fa-link',
                 'active' => 'false',
             ],
             'customization' => [

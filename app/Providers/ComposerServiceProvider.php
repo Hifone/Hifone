@@ -62,7 +62,7 @@ class ComposerServiceProvider extends ServiceProvider
         $factory->composer([
             'dashboard.tips.*',
             'dashboard.links.*',
-            'dashboard.settings.*'], SettingMenuComposer::class);
+            'dashboard.settings.*', ], SettingMenuComposer::class);
     }
 
     /**

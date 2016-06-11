@@ -32,6 +32,7 @@ class LinkController extends Controller
             'sub_title'    => trans_choice('dashboard.links.links', 2),
         ]);
     }
+
     /**
      * Shows the links view.
      *

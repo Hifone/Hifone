@@ -119,8 +119,8 @@ return [
 
     'adblocks' => [
         'adblocks' => '广告位类型',
-        'name' => '名称',
-        'slug' => '标识',
+        'name'     => '名称',
+        'slug'     => '标识',
         'add'      => [
             'title'   => '添加广告位类型',
             'success' => '广告位类型添加成功.',

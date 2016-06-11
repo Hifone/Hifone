@@ -44,7 +44,6 @@ class AdblockController extends Controller
 
     public function show(Adblock $adblock)
     {
-
         $adspaces = $adblock->adspaces()->orderBy('order')->paginate(10);
 
         return View::make('dashboard.adspaces.index')
