@@ -9,12 +9,7 @@
             </a>
         </div>
         <div class="clearfix"></div>
-        <div class="quick-add-incident">
-            <a class="btn btn-block btn-primary uppercase" href="">
-                <i class="ion ion-android-checkmark-circle visible-sm"></i>
-                <span class="hidden-sm">{{ trans('dashboard.attentions.add') }}</span>
-            </a>
-        </div>
+        <hr />
         <ul>
             <li {!! set_active('dashboard') !!}>
                 <a href="{{ route('dashboard.index') }}">

@@ -48,16 +48,6 @@ body.dashboard {
                     text-decoration: none;
                 }
             }
-            .quick-add-incident {
-                @extend .text-center;
-                padding: 10px;
-                i {
-                    @extend .visible-sm;
-                }
-                span {
-                    @extend .hidden-sm;
-                }
-            }
             ul {
                 clear: both;
                 margin: 0;
@@ -165,14 +155,6 @@ body.dashboard {
                 width: 80px;
                 .profile .avatar img {
                     width: 40px;
-                }
-                .quick-add-incident {
-                    .btn {
-                        padding: 3px 6px;
-                    }
-                    i {
-                        font-size: 20px;
-                    }
                 }
                 & > ul > li > a {
                     text-align: center;
