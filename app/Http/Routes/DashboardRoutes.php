@@ -71,12 +71,14 @@ class DashboardRoutes
                 $router->post('link/order', 'ApiController@postUpdateLinkOrder');
                 $router->post('section/order', 'ApiController@postUpdateSectionOrder');
                 $router->post('node/order', 'ApiController@postUpdateNodeOrder');
+                $router->post('adspace/order', 'ApiController@postUpdateAdspaceOrder');
             });
         });
 
         //Resources
         $router->group(['middleware' => ['web', 'auth', 'role:Admin|Founder'], 'prefix' => 'dashboard', 'namespace' => 'Dashboard'], function (Registrar $router) {
-            // Adspaces
+            // Advertisements
+            $router->resource('adblock', 'AdblockController');
             $router->resource('adspace', 'AdspaceController');
             $router->resource('advertisement', 'AdvertisementController');
              // Photos

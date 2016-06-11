@@ -45,6 +45,7 @@ class ComposerServiceProvider extends ServiceProvider
 
         // 广告
         $factory->composer([
+            'dashboard.adblocks.*',
             'dashboard.advertisements.*',
             'dashboard.adspaces.*', ], AdvertisementMenuComposer::class);
 
@@ -58,7 +59,10 @@ class ComposerServiceProvider extends ServiceProvider
         // 节点
         $factory->composer(['dashboard.nodes.*', 'dashboard.sections.*'], NodeMenuComposer::class);
         $factory->composer(['dashboard.users.*'], UserMenuComposer::class);
-        $factory->composer(['dashboard.settings.*'], SettingMenuComposer::class);
+        $factory->composer([
+            'dashboard.tips.*',
+            'dashboard.links.*',
+            'dashboard.settings.*'], SettingMenuComposer::class);
     }
 
     /**

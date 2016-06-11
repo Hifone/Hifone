@@ -37,10 +37,22 @@ class SettingMenuComposer
                 'icon'   => 'fa fa-image',
                 'active' => false,
             ],
+            'tips' => [
+                'title'  => trans('dashboard.tips.tips'),
+                'url' => route('dashboard.tip.index'),
+                'icon' => 'fa fa-tint',
+                'active' => 'false',
+            ],
+            'links' => [
+                'title'  => trans('dashboard.links.links'),
+                'url' => route('dashboard.link.index'),
+                'icon' => 'fa fa-link',
+                'active' => 'false',
+            ],
             'customization' => [
                 'title'  => trans('dashboard.settings.customization.customization'),
                 'url'    => route('dashboard.settings.customization'),
-                'icon'   => 'fa fa-link',
+                'icon'   => 'fa fa-plug',
                 'active' => false,
             ],
             'stylesheet' => [

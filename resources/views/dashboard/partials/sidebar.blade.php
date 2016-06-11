@@ -46,18 +46,6 @@
                     <span>{{ trans('dashboard.users.users') }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/link*') !!}>
-                <a href="{{ route('dashboard.link.index') }}">
-                    <i class="fa fa-link"></i>
-                    <span>{{ trans('dashboard.links.links') }}</span>
-                </a>
-            </li>
-            <li {!! set_active('dashboard/tip*') !!}>
-                <a href="{{ route('dashboard.tip.index') }}">
-                    <i class="fa fa-tint"></i>
-                    <span>{{ trans('dashboard.tips.tips') }}</span>
-                </a>
-            </li>
             <li {!! set_active('dashboard/settings*') !!}>
                 <a href="{{ route('dashboard.settings.general') }}">
                     <i class="fa fa-gears"></i>

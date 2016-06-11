@@ -20,6 +20,19 @@ use Input;
 class TipController extends Controller
 {
     /**
+     * Creates a tip controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        View::share([
+            'current_menu' => 'tips',
+            'sub_title'    => trans_choice('dashboard.tips.tips', 2),
+        ]);
+    }
+
+    /**
      * Shows the tips view.
      *
      * @return \Illuminate\View\View

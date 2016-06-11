@@ -21,6 +21,18 @@ use Input;
 class LinkController extends Controller
 {
     /**
+     * Creates a link controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        View::share([
+            'current_menu' => 'links',
+            'sub_title'    => trans_choice('dashboard.links.links', 2),
+        ]);
+    }
+    /**
      * Shows the links view.
      *
      * @return \Illuminate\View\View
