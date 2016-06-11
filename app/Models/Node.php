@@ -53,7 +53,6 @@ class Node extends Model implements HasPresenter
      */
     public $rules = [
         'name'      => 'required|string',
-        'slug'      => 'required|string',
         'order'     => 'int',
         'status'    => 'int',
     ];
