@@ -253,7 +253,7 @@
             var itemList = document.getElementById("item-list");
             if(itemList) {
                 var item_name = $('#item-list').data('item-name');
-                new Sortable(linkList,{
+                new Sortable(itemList,{
                     group: "omega",
                     handle: ".drag-handle",
                     onUpdate: function() {
