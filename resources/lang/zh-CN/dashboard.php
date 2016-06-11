@@ -175,6 +175,24 @@ return [
         ],
     ],
 
+    'locations' => [
+        'locations'        => '热门城市',
+        'name'        => '城市名',
+        'add'         => [
+            'title'   => '添加热门城市',
+            'success' => '热门城市添加成功.',
+            'message' => '当前没有热门城市.',
+        ],
+        'edit' => [
+            'title'   => '编辑热门城市',
+            'success' => '热门城市更新成功.',
+        ],
+        'delete' => [
+            'success' => '热门城市已删除。',
+            'failure' => 'The location could not be deleted, please try again.',
+        ],
+    ],
+
     'users' => [
         'users'       => '用户管理',
         'user'        => ':email, 注册于 :date',

@@ -49,6 +49,12 @@ class SettingMenuComposer
                 'icon'   => 'fa fa-link',
                 'active' => 'false',
             ],
+            'locations' => [
+                'title'  => trans('dashboard.locations.locations'),
+                'url'    => route('dashboard.location.index'),
+                'icon'   => 'fa fa-location-arrow',
+                'active' => 'false',
+            ],
             'customization' => [
                 'title'  => trans('dashboard.settings.customization.customization'),
                 'url'    => route('dashboard.settings.customization'),

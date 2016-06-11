@@ -18,6 +18,28 @@ class Location extends Model
 {
     use ValidatingTrait;
 
+    /**
+     * The fillable properties.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name',
+        'order',
+        'created_at',
+        'updated_at',
+    ];
+
+    /**
+     * The validation rules.
+     *
+     * @var string[]
+     */
+    public $rules = [
+        'name'   => 'string|required',
+        'order' => 'int',
+    ];
+
     public function users()
     {
         return $this->hasMany(User::class);
