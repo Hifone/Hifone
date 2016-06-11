@@ -28,13 +28,11 @@
                     <div class="form-group">
             <select class="selectpicker form-control" name="thread[node_id]" >
               <option value="" disabled {!! $node ?: 'selected'; !!}>{{ trans('hifone.threads.pick_node') }}</option>
-              @foreach ($nodes['top'] as $top_node)
-                <optgroup label="{{{ $top_node->name }}}">
-                  @if(isset($nodes['second'][$top_node->id]))
-                  @foreach ($nodes['second'][$top_node->id] as $snode)
+              @foreach ($sections as $section)
+                <optgroup label="{{{ $section->name }}}">
+                  @foreach ($section->nodes as $snode)
                     <option value="{{ $snode->id }}" {!! (Input::old('node_id') == $snode->id || (isset($node) && $node->id==$snode->id)) ? 'selected' : ''; !!} > - {{ $snode->name }}</option>
                   @endforeach
-                  @endif
                 </optgroup>
               @endforeach
             </select>

@@ -98,6 +98,8 @@ class DashboardRoutes
             $router->resource('link', 'LinkController');
             // Users
             $router->resource('user', 'UserController');
+
+            $router->post('thread/{thread}/pin', 'ThreadController@pin');
         });
     }
 }

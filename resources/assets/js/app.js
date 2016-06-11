@@ -32,6 +32,7 @@
             self.initSortable();
             self.sparkLine();
             self.initDeleteForm();
+            self.initTextareaAutoResize();
             self.initChangeRole();
             self.initSidebarToggle();
         },
@@ -164,10 +165,8 @@
                 .removeAttr('href')
                 .click(function() {
                     var button = $(this);
-                    if (button.attr('data-method') == 'post') {
-                        button.find("form").submit();
-                    }
-                    if (button.attr('data-method') == 'delete' && button.hasClass('confirm-action')) {
+
+                    if(button.hasClass('confirm-action')) {
                         swal({
                                 type: "warning",
                                 title: "Confirm your action",
@@ -178,6 +177,8 @@
                             }, function() {
                                 button.find("form").submit();
                         });
+                    } else {
+                        button.find("form").submit();
                     }
                 });
         },

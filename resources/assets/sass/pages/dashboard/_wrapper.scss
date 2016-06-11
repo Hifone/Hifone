@@ -4,5 +4,10 @@ body.dashboard {
         display: table;
         height: 100%;
         table-layout: fixed;
+
+
+        table tr td .fa {
+            margin-right: 4px;
+        }
     }
 }

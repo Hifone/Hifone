@@ -2,15 +2,15 @@
 
 @section('content')
     <div class="content-panel">
-        @if(isset($sub_menu))
-        @include('dashboard.partials.sub-sidebar')
-        @endif
         <div class="content-wrapper">
             <div class="header sub-header" id="pages">
                 <span class="uppercase">
                     {{ trans(isset($page) ? 'dashboard.pages.edit.title' : 'dashboard.pages.add.title') }}
                 </span>
             </div>
+            @if(isset($sub_menu))
+    @include('dashboard.partials.sub-nav')
+    @endif
             <div class="row">
                 <div class="col-sm-12">
     @if(isset($page))

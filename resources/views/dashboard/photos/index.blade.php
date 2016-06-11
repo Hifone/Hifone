@@ -2,9 +2,6 @@
 
 @section('content')
     <div class="content-panel">
-        @if(isset($sub_menu))
-        @include('dashboard.partials.sub-sidebar')
-        @endif
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
@@ -12,6 +9,9 @@
                 </span>
                 <div class="clearfix"></div>
             </div>
+    @if(isset($sub_menu))
+    @include('dashboard.partials.sub-nav')
+    @endif
             <div class="row">
                 <div class="col-sm-12">
                     @include('partials.errors')
