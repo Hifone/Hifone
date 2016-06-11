@@ -250,14 +250,14 @@
 
         initSortable: function(){
             var self = this;
-            var linkList = document.getElementById("item-list");
-            if(linkList) {
+            var itemList = document.getElementById("item-list");
+            if(itemList) {
                 var item_name = $('#item-list').data('item-name');
                 new Sortable(linkList,{
                     group: "omega",
                     handle: ".drag-handle",
                     onUpdate: function() {
-                        var orderedLinkIds = $.map(
+                        var orderedItemIds = $.map(
                             $('#item-list .striped-list-item'),
                             function(elem){
                                 return $(elem).data('item-id');
@@ -266,12 +266,12 @@
                             async: true,
                             url: '/dashboard/api/' + item_name + '/order',
                             type: 'POST',
-                            data:{ids: orderedLinkIds},
+                            data:{ids: orderedItemIds},
                             success: function(){
-                                 (new self.Notifier()).notify("Links order has been updated.",'success');
+                                 (new self.Notifier()).notify("Items order has been updated.",'success');
                             },
                             error: function(){
-                                (new self.Notifier()).notify("Links order could not be updated.",'error');
+                                (new self.Notifier()).notify("Items order could not be updated.",'error');
                             }
                         });
                     }
