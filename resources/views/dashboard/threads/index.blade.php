@@ -25,8 +25,8 @@
                                 @endif
                             </div>
                             <div class="col-xs-3 text-right">
-                                <a href="{{ route('dashboard.thread.edit',['id'=>$thread->id]) }}" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                                <a href="{{ route('dashboard.thread.destroy',['id'=>$thread->id]) }}" class="btn btn-danger confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                                <a href="{{ route('dashboard.thread.edit',['id'=>$thread->id]) }}" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
+                                <a href="{{ route('dashboard.thread.destroy',['id'=>$thread->id]) }}" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                             </div>
                         </div>
                         @endforeach

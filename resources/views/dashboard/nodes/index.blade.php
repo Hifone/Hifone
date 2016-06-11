@@ -20,17 +20,15 @@
                 <div class="col-sm-12 striped-list" id="item-list" data-item-name="node">
                     @forelse($nodes as $node)
                     <div class="row striped-list-item" data-item-id="{{ $node->id }}">
-                        <div class="col-xs-6">
-                            <h4>
-                                @if($nodes->count() > 1)
-                                <span class="drag-handle"><i class="fa fa-navicon"></i></span>
-                                @endif
-                                {{ $node->id }}. {{ $node->name }}
-                            </h4>
+                        <div class="col-xs-1">
+                            <span class="drag-handle"><i class="fa fa-navicon"></i></span>
                         </div>
-                        <div class="col-xs-6 text-right">
-                            <a href="{{ route('dashboard.node.edit',['id'=>$node->id]) }}" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                            <a data-url="{{ route('dashboard.node.destroy',['id'=>$node->id]) }}" class="btn btn-danger confirm-action" data-method="delete">{{ trans('forms.delete') }}</a>
+                        <div class="col-xs-6 drag-handle">
+                            {{ $node->name }}
+                        </div>
+                        <div class="col-xs-5 text-right">
+                            <a href="{{ route('dashboard.node.edit',['id'=>$node->id]) }}" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
+                            <a data-url="{{ route('dashboard.node.destroy',['id'=>$node->id]) }}" class="btn btn-danger btn-sm confirm-action" data-method="delete">{{ trans('forms.delete') }}</a>
                         </div>
                     </div>
                     @empty

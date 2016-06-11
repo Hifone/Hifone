@@ -41,7 +41,7 @@
                             <div class="col-xs-2"><small>{{ $reply->created_at }}</small></div>
                             <div class="col-xs-2 text-right">
                                 <a href="/dashboard/reply/{{ $reply->id }}/edit" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
-                                <a href="/dashboard/reply/{{ $reply->id }}/delete" class="btn btn-danger confirm-action btn-sm" data-method='delete'>{{ trans('forms.delete') }}</a>
+                                <a href="/dashboard/reply/{{ $reply->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                             </div>
                         </div>
                         @endforeach

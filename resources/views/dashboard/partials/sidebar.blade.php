@@ -34,7 +34,7 @@
                     <span>{{ trans('dashboard.nodes.nodes') }}</span>
                 </a>
             </li>
-            <li {!! set_active('dashboard/adspace*') !!} {!! set_active('dashboard/advertisement*') !!}>
+            <li {!! set_active('dashboard/adspace*') !!} {!! set_active('dashboard/advertisement*') !!} {!! set_active('dashboard/adblock*') !!}>
                 <a href="{{ route('dashboard.advertisement.index') }}">
                     <i class="fa fa-audio-description"></i>
                     <span>{{ trans('dashboard.advertisements.advertisements') }}</span>

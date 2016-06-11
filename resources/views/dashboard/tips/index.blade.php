@@ -28,8 +28,8 @@
                         @endif
                     </div>
                     <div class="col-md-4 text-right">
-                        <a href="{{ route('dashboard.tip.edit',['id'=>$tip->id]) }}" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                        <a data-url="{{ route('dashboard.tip.destroy',['id'=>$tip->id]) }}" class="btn btn-danger confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                        <a href="{{ route('dashboard.tip.edit',['id'=>$tip->id]) }}" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
+                        <a data-url="{{ route('dashboard.tip.destroy',['id'=>$tip->id]) }}" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                     </div>
                 </div>
                 @empty

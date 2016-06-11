@@ -22,14 +22,14 @@
                         @foreach($adblocks as $adblock)
                         <div class="row striped-list-item">
                             <div class="col-xs-6">
-                                <a href="/dashboard/adblock/{{ $adblock->id }}"><i class="{{ $adblock->icon }}"></i> {{ $adblock->id }}. {{ $adblock->name }}</a>
+                                <a href="/dashboard/adblock/{{ $adblock->id }}">{{ $adblock->name }}</a>
                             </div>
                             <div class="col-xs-3">
                                 {{ trans('dashboard.adblocks.slug') }}: {{ $adblock->slug }}
                             </div>
                             <div class="col-xs-3 text-right">
-                                <a href="/dashboard/adblock/{{ $adblock->id }}/edit" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                                <a href="/dashboard/adblock/{{ $adblock->id }}/delete" class="btn btn-danger confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                                <a href="/dashboard/adblock/{{ $adblock->id }}/edit" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
+                                <a href="/dashboard/adblock/{{ $adblock->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                             </div>
                         </div>
                         @endforeach

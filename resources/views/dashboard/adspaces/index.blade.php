@@ -21,19 +21,21 @@
                     <div class="striped-list" id="item-list" data-item-name="adspace">
                         @foreach($adspaces as $adspace)
                         <div class="row striped-list-item" data-item-id="{{ $adspace->id }}">
-                            <div class="col-xs-6">
-                                <span class="drag-handle"><i class="fa fa-navicon"></i></span> <i class="{{ $adspace->icon }}"></i> {{ $adspace->id }}. {{ $adspace->name }}
+                            <div class="col-xs-1">
+                                <span class="drag-handle"><i class="fa fa-navicon"></i></span> 
+                            </div>
+                            <div class="col-xs-5">
+                                {{ $adspace->name }}
                                 @if($adspace->adblock)
-                                <p>(<small>{{ $adspace->adblock->name }}</small>)</p>
+                                (<small>{{ $adspace->adblock->name }}</small>)
                                 @endif
                             </div>
                             <div class="col-xs-3">
                                 {{ trans('dashboard.adspaces.position') }}: {{ $adspace->position }}
                             </div>
                             <div class="col-xs-3 text-right">
-                                <a href="/dashboard/adspace/{{ $adspace->id }}/edit" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                                <a href="{{ route('dashboard.advertisement.create', ['adspace_id'=>$adspace->id]) }}" class="btn btn-default">{{ trans('forms.create') }}</a>
-                                <a href="/dashboard/adspace/{{ $adspace->id }}/delete" class="btn btn-danger confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                                <a href="/dashboard/adspace/{{ $adspace->id }}/edit" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
+                                <a href="/dashboard/adspace/{{ $adspace->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                             </div>
                         </div>
                         @endforeach

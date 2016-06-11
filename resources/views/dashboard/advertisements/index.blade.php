@@ -22,14 +22,14 @@
                         @foreach($advertisements as $advertisement)
                         <div class="row striped-list-item">
                             <div class="col-xs-9">
-                                <i class="{{ $advertisement->icon }}"></i> {{ $advertisement->id }}. {{ $advertisement->name }}
+                                {{ $advertisement->name }}
                                 @if($advertisement->adspace)
-                                <p><small>({{ $advertisement->adspace->name }})</small></p>
+                                <small>({{ $advertisement->adspace->name }})</small>
                                 @endif
                             </div>
                             <div class="col-xs-3 text-right">
-                                <a href="/dashboard/advertisement/{{ $advertisement->id }}/edit" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                                <a href="/dashboard/advertisement/{{ $advertisement->id }}/delete" class="btn btn-danger confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                                <a href="/dashboard/advertisement/{{ $advertisement->id }}/edit" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
+                                <a href="/dashboard/advertisement/{{ $advertisement->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                             </div>
                         </div>
                         @endforeach
