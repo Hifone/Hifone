@@ -72,6 +72,7 @@ class DashboardRoutes
                 $router->post('section/order', 'ApiController@postUpdateSectionOrder');
                 $router->post('node/order', 'ApiController@postUpdateNodeOrder');
                 $router->post('adspace/order', 'ApiController@postUpdateAdspaceOrder');
+                $router->post('location/order', 'ApiController@postUpdateLocationOrder');
             });
         });
 
@@ -93,6 +94,7 @@ class DashboardRoutes
             $router->resource('thread', 'ThreadController');
             $router->resource('reply', 'ReplyController');
             $router->resource('tip', 'TipController');
+            $router->resource('location', 'LocationController');
             $router->resource('link', 'LinkController');
             // Users
             $router->resource('user', 'UserController');

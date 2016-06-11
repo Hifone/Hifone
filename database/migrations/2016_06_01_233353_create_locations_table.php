@@ -24,6 +24,7 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('order')->default(0);
             $table->integer('user_count')->default(0);
             $table->timestamps();
 

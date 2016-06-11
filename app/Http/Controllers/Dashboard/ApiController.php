@@ -14,6 +14,7 @@ namespace Hifone\Http\Controllers\Dashboard;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Adspace;
 use Hifone\Models\Link;
+use Hifone\Models\Location;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Illuminate\Support\Facades\Request;
@@ -67,5 +68,17 @@ class ApiController extends Controller
         }
 
         return $adspaceData;
+    }
+
+    public function postUpdateLocationOrder()
+    {
+        $locationData = Request::get('ids');
+
+        foreach ($locationData as $order => $locationId) {
+            // Ordering should be 1-based, data comes in 0-based
+            Location::find($locationId)->update(['order' => $order + 1]);
+        }
+
+        return $locationData;
     }
 }
