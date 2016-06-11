@@ -5,11 +5,8 @@
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
-                    <i class="ion ion-ios-information-outline"></i> {{ trans('dashboard.pages.pages') }}
+                    <i class="fa fa-file-text-o"></i> {{ trans('dashboard.content.content') }}
                 </span>
-                <a class="btn btn-sm btn-success pull-right" href="{{ route('dashboard.page.create') }}">
-                    {{ trans('dashboard.pages.add.title') }}
-                </a>
                 <div class="clearfix"></div>
             </div>
             @if(isset($sub_menu))
@@ -18,6 +15,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     @include('partials.errors')
+                    <a class="btn btn-sm btn-success pull-right" href="{{ route('dashboard.page.create') }}">
+                    {{ trans('dashboard.pages.add.title') }}
+                </a>
                     <div class="striped-list">
                         @foreach($pages as $page)
                         <div class="row striped-list-item">

@@ -5,7 +5,7 @@
         <div class="content-wrapper">
             <div class="header sub-header">
                 <span class="uppercase">
-                    <i class="ion ion-ios-information-outline"></i> {{ trans('dashboard.photos.photos') }}
+                    <i class="fa fa-file-text-o"></i> {{ trans('dashboard.content.content') }}
                 </span>
                 <div class="clearfix"></div>
             </div>
