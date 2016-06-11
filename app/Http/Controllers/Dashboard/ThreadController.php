@@ -93,6 +93,7 @@ class ThreadController extends Controller
     public function pin(Thread $thread)
     {
         ($thread->order > 0) ? $thread->decrement('order', 1) : $thread->increment('order', 1);
+
         return Redirect::route('dashboard.thread.index')
             ->withSuccess(trans('dashboard.threads.edit.success'));
     }
