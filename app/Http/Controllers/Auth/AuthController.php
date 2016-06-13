@@ -11,6 +11,7 @@
 
 namespace Hifone\Http\Controllers\Auth;
 
+use AltThree\Validator\ValidationException;
 use Hifone\Commands\Identity\AddIdentityCommand;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Hashing\PasswordHasher;
@@ -140,14 +141,6 @@ class AuthController extends Controller
         } else {
             $registerData = Input::only(['username', 'email', 'password', 'password_confirmation', 'verifycode']);
 
-            $validator = $this->validator($registerData);
-
-            if ($validator->fails()) {
-                return Redirect::to('auth/register')
-                    ->withInput(Input::all())
-                    ->withErrors([trans('hifone.login.invalid')]);
-            }
-
             if ($registerData['verifycode'] != Session::get('phrase')) {
                 return Redirect::to('auth/register');
             }
@@ -155,8 +148,8 @@ class AuthController extends Controller
         try {
             $user = $this->create($registerData);
         } catch (ValidationException $e) {
-            return Redirect::to('auth.register')
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.tips.add.failure')))
+            return Redirect::to('auth/register')
+                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.users.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
@@ -169,22 +162,6 @@ class AuthController extends Controller
         Auth::guard($this->getGuard())->login($user);
 
         return redirect($this->redirectPath());
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param array $data
-     *
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'username'     => 'required|max:255',
-            'email'        => 'required|email|max:255|unique:users',
-            'password'     => 'required|confirmed',
-        ]);
     }
 
     /**
