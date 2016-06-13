@@ -54,8 +54,8 @@ gulp
 
 If you're making a lot of changes, you'll find that running `gulp watch` will really help you out!
 
-## Official Documentation 
+## Demo
 
-Documentation for Hifone can be found on the [Hifone website](http://hifone.com/docs).
+[Hifone website](http://hifone.com/).
 
 
