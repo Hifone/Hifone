@@ -23,11 +23,11 @@ class UpdateScoreEventHandler
     {
         $score = 0;
         if ($event instanceof ReplyWasAddedEvent) {
-            $score = 5;
-        } elseif ($event instanceof ThreadWasAddedEvent) {
-            $score = 10;
-        } elseif ($event instanceof ImageWasUploadedEvent) {
             $score = 2;
+        } elseif ($event instanceof ThreadWasAddedEvent) {
+            $score = 3;
+        } elseif ($event instanceof ImageWasUploadedEvent) {
+            $score = 1;
         }
 
         if ($score > 0) {

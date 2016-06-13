@@ -42,31 +42,5 @@
             </div>
         </div>
         </div>
-        <h4 class="sub-header">统计图表</h4>
-        <div class="row">
-            <div class="col-sm-12 col-lg-6">
-                <div class="stats-widget">
-                    <div class="stats-top">
-                        <span class="stats-value"><a href="{{ route('dashboard.thread.index') }}">{{ $threads->map(function($thread) { return count($thread); })->sum() }}</a></span>
-                        <span class="stats-label">{{ trans('dashboard.threads.threads') }}</span>
-                    </div>
-                    <div class="stats-chart">
-                        <div class="sparkline" data-type="line" data-resize="true" data-height="80" data-width="100%" data-line-width="2" data-min-spot-color="#e65100" data-max-spot-color="#ffb300" data-line-color="#3498db" data-spot-color="#00838f" data-fill-color="#3498db" data-highlight-line-color="#00acc1" data-highlight-spot-color="#ff8a65" data-spot-radius="false" data-data="[{{ $threads->map(function ($thread) { return count($thread); } )->implode(',') }}]"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-lg-6">
-                <div class="stats-widget">
-                    <div class="stats-top">
-                        <span class="stats-value"><a href="{{ route('dashboard.user.index') }}">{{ $users->map(function($users) { return count($users); })->sum() }}</a></span>
-                        <span class="stats-label">{{ trans('hifone.users.users') }}</span>
-                    </div>
-                    <div class="stats-chart">
-                        <div class="sparkline" data-type="line" data-resize="true" data-height="80" data-width="100%" data-line-width="2" data-min-spot-color="#e65100" data-max-spot-color="#ffb300" data-line-color="#3498db" data-spot-color="#00838f" data-fill-color="#3498db" data-highlight-line-color="#00acc1" data-highlight-spot-color="#ff8a65" data-spot-radius="false" data-data="[{{ $users->map(function ($user) { return count($user); } )->implode(',') }}]"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 @stop
