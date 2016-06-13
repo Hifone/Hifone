@@ -201,8 +201,9 @@ return [
         'password'    => '密码',
         'description' => '用户列表',
         'add'         => [
-            'title'   => '添加用户',
-            'success' => '用户添加成功.',
+            'title'   => '注册用户',
+            'success' => '用户注册成功.',
+            'failure' => '用户注册失败',
         ],
         'edit'     => [
             'title'   => '编辑用户',

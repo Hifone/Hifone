@@ -53,8 +53,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var string[]
      */
     public $rules = [
-        'username' => 'required',
-        'email'    => 'required',
+        'username' => 'required|max:15',
+        'email'    => 'required|max:255',
         'password' => 'required',
     ];
 
