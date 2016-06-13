@@ -11,13 +11,11 @@
 
 namespace Hifone\Http\Controllers\Dashboard;
 
-use Hifone\Models\Section;
 use Hifone\Models\Node;
 use Hifone\Models\Photo;
 use Hifone\Models\Reply;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
-use Hifone\Models\Photo;
 use Hifone\Models\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
