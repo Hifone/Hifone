@@ -15,9 +15,7 @@ use Hifone\Models\Node;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
-use Jenssegers\Date\Date;
 
 class DashboardController extends Controller
 {
