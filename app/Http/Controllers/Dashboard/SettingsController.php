@@ -55,18 +55,6 @@ class SettingsController extends Controller
     }
 
     /**
-     * Shows the settings analytics view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAnalyticsView()
-    {
-        return View::make('dashboard.settings.analytics')
-            ->withPageTitle(trans('dashboard.settings.analytics.analytics').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('analytics');
-    }
-
-    /**
      * Shows the settings customization view.
      *
      * @return \Illuminate\View\View
@@ -76,45 +64,6 @@ class SettingsController extends Controller
         return View::make('dashboard.settings.customization')
             ->withPageTitle(trans('dashboard.settings.customization.customization').' - '.trans('dashboard.dashboard'))
             ->withCurrentMenu('customization');
-    }
-
-    /**
-     * Shows the settings theme view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showThemeView()
-    {
-        return View::make('dashboard.settings.theme')
-            ->withPageTitle(trans('dashboard.settings.theme.theme').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('theme');
-    }
-
-    /**
-     * Shows the settings security view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showSecurityView()
-    {
-        $unsecureUsers = [];
-
-        return View::make('dashboard.settings.security')
-            ->withPageTitle(trans('dashboard.settings.security.security').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('security')
-            ->withUnsecureUsers($unsecureUsers);
-    }
-
-    /**
-     * Shows the settings stylesheet view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showStylesheetView()
-    {
-        return View::make('dashboard.settings.stylesheet')
-            ->withPageTitle(trans('dashboard.settings.stylesheet.stylesheet').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('stylesheet');
     }
 
     /**
