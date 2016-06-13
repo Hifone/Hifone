@@ -12,9 +12,9 @@
 namespace Hifone\Http\Controllers\Dashboard;
 
 use Hifone\Models\Node;
+use Hifone\Models\Reply;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Models\Reply;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
