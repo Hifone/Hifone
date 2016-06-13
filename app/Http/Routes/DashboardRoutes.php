@@ -39,22 +39,6 @@ class DashboardRoutes
                     'as'   => 'general',
                     'uses' => 'SettingsController@showGeneralView',
                 ]);
-                $router->get('analytics', [
-                    'as'   => 'analytics',
-                    'uses' => 'SettingsController@showAnalyticsView',
-                ]);
-                $router->get('security', [
-                    'as'   => 'security',
-                    'uses' => 'SettingsController@showSecurityView',
-                ]);
-                $router->get('theme', [
-                    'as'   => 'theme',
-                    'uses' => 'SettingsController@showThemeView',
-                ]);
-                $router->get('stylesheet', [
-                    'as'   => 'stylesheet',
-                    'uses' => 'SettingsController@showStylesheetView',
-                ]);
                 $router->get('customization', [
                     'as'   => 'customization',
                     'uses' => 'SettingsController@showCustomizationView',

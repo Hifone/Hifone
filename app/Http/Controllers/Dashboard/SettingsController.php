@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 use URL;
 
 class SettingsController extends Controller
@@ -55,18 +54,6 @@ class SettingsController extends Controller
     }
 
     /**
-     * Shows the settings analytics view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showAnalyticsView()
-    {
-        return View::make('dashboard.settings.analytics')
-            ->withPageTitle(trans('dashboard.settings.analytics.analytics').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('analytics');
-    }
-
-    /**
      * Shows the settings customization view.
      *
      * @return \Illuminate\View\View
@@ -76,45 +63,6 @@ class SettingsController extends Controller
         return View::make('dashboard.settings.customization')
             ->withPageTitle(trans('dashboard.settings.customization.customization').' - '.trans('dashboard.dashboard'))
             ->withCurrentMenu('customization');
-    }
-
-    /**
-     * Shows the settings theme view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showThemeView()
-    {
-        return View::make('dashboard.settings.theme')
-            ->withPageTitle(trans('dashboard.settings.theme.theme').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('theme');
-    }
-
-    /**
-     * Shows the settings security view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showSecurityView()
-    {
-        $unsecureUsers = [];
-
-        return View::make('dashboard.settings.security')
-            ->withPageTitle(trans('dashboard.settings.security.security').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('security')
-            ->withUnsecureUsers($unsecureUsers);
-    }
-
-    /**
-     * Shows the settings stylesheet view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showStylesheetView()
-    {
-        return View::make('dashboard.settings.stylesheet')
-            ->withPageTitle(trans('dashboard.settings.stylesheet.stylesheet').' - '.trans('dashboard.dashboard'))
-            ->withCurrentMenu('stylesheet');
     }
 
     /**
@@ -140,68 +88,14 @@ class SettingsController extends Controller
 
         $setting = app('setting');
 
-        if (Request::get('remove_banner') === '1') {
-            $setting->set('site_banner', null);
-        }
-
         $parameters = Request::all();
-
-        if (isset($parameters['header'])) {
-            if ($header = Request::get('header', null, false, false)) {
-                $setting->set('header', $header);
-            } else {
-                $setting->delete('header');
-            }
-        }
-
-        if (isset($parameters['footer'])) {
-            if ($footer = Request::get('footer', null, false, false)) {
-                $setting->set('footer', $footer);
-            } else {
-                $setting->delete('footer');
-            }
-        }
-
-        if (Request::hasFile('site_banner')) {
-            $file = Request::file('site_banner');
-
-            // Image Validation.
-            // Image size in bytes.
-            $maxSize = $file->getMaxFilesize();
-
-            if ($file->getSize() > $maxSize) {
-                return Redirect::to($redirectUrl)->withErrors(trans('dashboard.settings.general.too-big', ['size' => $maxSize]));
-            }
-
-            if (!$file->isValid() || $file->getError()) {
-                return Redirect::to($redirectUrl)->withErrors($file->getErrorMessage());
-            }
-
-            if (!Str::startsWith($file->getMimeType(), 'image/')) {
-                return Redirect::to($redirectUrl)->withErrors(trans('dashboard.settings.general.images-only'));
-            }
-
-            // Store the banner.
-            $setting->set('site_banner', base64_encode(file_get_contents($file->getRealPath())));
-
-            // Store the banner type.
-            $setting->set('site_banner_type', $file->getMimeType());
-        }
 
         $excludedParams = [
             '_token',
-            'site_banner',
-            'remove_banner',
-            'header',
-            'footer',
         ];
 
         try {
             foreach (Request::except($excludedParams) as $settingName => $settingValue) {
-                if ($settingName === 'site_analytics_pi_url') {
-                    $settingValue = rtrim($settingValue, '/');
-                }
-
                 $setting->set($settingName, $settingValue);
             }
         } catch (Exception $e) {

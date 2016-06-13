@@ -31,12 +31,6 @@ class SettingMenuComposer
                 'icon'   => 'fa fa-gear',
                 'active' => false,
             ],
-            'theme' => [
-                'title'  => trans('dashboard.settings.theme.theme'),
-                'url'    => route('dashboard.settings.theme'),
-                'icon'   => 'fa fa-image',
-                'active' => false,
-            ],
             'tips' => [
                 'title'  => trans('dashboard.tips.tips'),
                 'url'    => route('dashboard.tip.index'),
@@ -59,24 +53,6 @@ class SettingMenuComposer
                 'title'  => trans('dashboard.settings.customization.customization'),
                 'url'    => route('dashboard.settings.customization'),
                 'icon'   => 'fa fa-plug',
-                'active' => false,
-            ],
-            'stylesheet' => [
-                'title'  => trans('dashboard.settings.stylesheet.stylesheet'),
-                'url'    => route('dashboard.settings.stylesheet'),
-                'icon'   => 'fa fa-magic',
-                'active' => false,
-            ],
-            'security' => [
-                'title'  => trans('dashboard.settings.security.security'),
-                'url'    => route('dashboard.settings.security'),
-                'icon'   => 'fa fa-key',
-                'active' => false,
-            ],
-            'analytics' => [
-                'title'  => trans('dashboard.settings.analytics.analytics'),
-                'url'    => route('dashboard.settings.analytics'),
-                'icon'   => 'fa fa-line-chart',
                 'active' => false,
             ],
             'aboutus' => [
