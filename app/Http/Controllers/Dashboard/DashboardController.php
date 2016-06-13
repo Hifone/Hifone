@@ -24,6 +24,7 @@ class DashboardController extends Controller
     {
         $nodes = Node::orderBy('order')->get();
 
+
         $recentThreads = Thread::orderBy('created_at', 'desc')->take(5)->get();
         $recentReplies = Reply::orderBy('created_at', 'desc')->take(5)->get();
         $recentUsers = User::orderBy('id', 'desc')->take(5)->get();
