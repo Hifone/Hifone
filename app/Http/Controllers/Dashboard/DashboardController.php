@@ -11,11 +11,11 @@
 
 namespace Hifone\Http\Controllers\Dashboard;
 
-use Hifone\Models\Section;
 use Hifone\Models\Node;
-use Hifone\Models\Reply;
-use Hifone\Models\Thread;
 use Hifone\Models\Photo;
+use Hifone\Models\Reply;
+use Hifone\Models\Section;
+use Hifone\Models\Thread;
 use Hifone\Models\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
@@ -42,9 +42,9 @@ class DashboardController extends Controller
     public function index()
     {
         $components = [];
-        $composer_lock = json_decode(file_get_contents(base_path() . '/composer.lock'));
-        foreach($composer_lock->packages as $package) {
-            if(in_array($package->name, $this->show_components)) {
+        $composer_lock = json_decode(file_get_contents(base_path().'/composer.lock'));
+        foreach ($composer_lock->packages as $package) {
+            if (in_array($package->name, $this->show_components)) {
                 $components[] = $package;
             }
         }
