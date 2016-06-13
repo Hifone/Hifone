@@ -30,7 +30,6 @@
             self.initAjax();
             self.initMessenger();
             self.initSortable();
-            self.sparkLine();
             self.initDeleteForm();
             self.initTextareaAutoResize();
             self.initChangeRole();
@@ -286,38 +285,6 @@
                 $(".wrapper").toggleClass("toggled");
             });
         },
-
-        sparkLine: function () {
-            $('.sparkline').each(function () {
-                var data = $(this).data();
-                data.valueSpots = {
-                    '0:': data.spotColor
-                };
-
-                $(this).sparkline(data.data, data);
-                var composite = data.compositedata;
-
-                if (composite) {
-                    var stlColor = $(this).attr("data-stack-line-color"),
-                        stfColor = $(this).attr("data-stack-fill-color"),
-                        sptColor = $(this).attr("data-stack-spot-color"),
-                        sptRadius = $(this).attr("data-stack-spot-radius");
-
-                    $(this).sparkline(composite, {
-                        composite: true,
-                        lineColor: stlColor,
-                        fillColor: stfColor,
-                        spotColor: sptColor,
-                        highlightSpotColor: sptColor,
-                        spotRadius: sptRadius,
-                        valueSpots: {
-                            '0:': sptColor
-                        }
-                    });
-                };
-            });
-        },
-
 
         /*------------------------------------
         *   Forum section
