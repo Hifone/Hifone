@@ -21,7 +21,6 @@ use Hifone\Models\Provider;
 use Hifone\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -29,7 +28,6 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Input;
 use Laravel\Socialite\Two\InvalidStateException;
-use Validator;
 
 class AuthController extends Controller
 {
