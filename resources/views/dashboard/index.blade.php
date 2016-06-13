@@ -2,78 +2,77 @@
 
 @section('content')
 <div class="content-wrapper">
-    <div class="header sub-header">
-            <span class="uppercase">
-                <i class="fa fa-dashboard"></i> {{ trans('dashboard.overview') }}
-            </span>
-            <div class="clearfix"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-info hidden" id="update-alert">{!! trans('cachet.system.update') !!}</div>
+  <div class="header sub-header">
+          <span class="uppercase">
+              <i class="fa fa-dashboard"></i> {{ trans('dashboard.overview') }}
+          </span>
+          <div class="clearfix"></div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="alert alert-info hidden" id="update-alert">{!! trans('hifone.system.update') !!}</div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">系统状态</div>
+        <div class="panel-body">
+           <div class="col-sm-4">
+              <h4>统计</h4>
+              <hr>
+              <p>Sections/Nodes <span class="pull-right">{{ $section_count }}/{{ $node_count }}</span></p>
+              <p>Threads<span class="pull-right">{{ $thread_count }}</span></p>
+              <p>Replies<span class="pull-right">{{ $reply_count }}</span></p>
+              <p>Users<span class="pull-right">{{ $user_count }}</span></p>
+              <p>Photos<span class="pull-right">{{ $photo_count }}</span></p>
+           </div>
+           <div class="col-sm-4">
+              <h4>组件</h4>
+              <hr>
+                <p>hifone<span class="pull-right">{{ HIFONE_VERSION }}</span></p>
+                @foreach($components as $index => $component)
+                <p>{{ $component->name }}<span class="pull-right">{{ $component->version }}</span></p>
+               @endforeach
+           </div>
+           <div class="col-sm-4">
+              <h4>系统</h4>
+              <hr>
+              <p>PHP<span class="pull-right">{{ PHP_VERSION }}</span></p>
+              <p>{{ trans('dashboard.settings.aboutus.webserver') }}<span class="pull-right">{{ Request::server('SERVER_SOFTWARE') }}</span></p>
+              <p>{{ trans('dashboard.settings.aboutus.db') }}<span class="pull-right">{{ Config::get('database.default') }}</span></p>
+              <p>{{ trans('dashboard.settings.aboutus.cache') }}<span class="pull-right">{{ Config::get('cache.default') }}</span></p>
+              <p>{{ trans('dashboard.settings.aboutus.session') }}<span class="pull-right">{{ Config::get('session.driver') }}</span></p>
+           </div>
         </div>
     </div>
-    <div class="row">
-        <div class="panel panel-default">
-                <div class="panel-heading">
-                    <p>Welcome to Hifone! We've assembled some links to get your started:</p>
-                </div>
-                <div class="panel-body">
-                   <div class="col-sm-4">
-                       <h4>Get Stared</h4>
-                       <hr>
-                       <p><a href="/dashboard/settings/general" class="btn btn-info">Customize Your Site</a></p>
-                       <p>or, change your theme completely.</p>
-                   </div>
-                   <div class="col-sm-4">
-                       <h4>Next Steps</h4>
-                       <hr>
-                       <p><i class="fa fa-sitemap"></i> <a href="/dashboard/node">Node manage</a></p>
-                       <p><i class="fa fa-plus"></i> <a href="/dashboard/page/create">Add an About page</a></p>
-                       <p><i class="fa fa-desktop"></i> <a href="/">View your site</a>
-                   </div>
-                   <div class="col-sm-4">
-                       <h4>More Actions</h4>
-                       <hr>
-                       <p><i class="fa fa-tint"></i> <a href="/dashboard/tip">Tip manage</a></p>
-                       <p><i class="fa fa-audio-description"></i> <a href="/dashboard/advertisement">Advertisement manage</a></p>
-                       <p><i class="fa fa-link"></i> <a href="/dashboard/link">Friend links</a></p>
-                   </div>
-                </div>
-        </div>
-    </div>
-    <h4 class="sub-header">最新动态</h4>
-    <div class="row">
+  </div>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">最新动态</div>
+      <div class="panel-body">
         <div class="col-sm-4">
-            <div class="panel panel-default corner-radius">
-                <div class="panel-heading">最新话题</div>
-                <ul class="list-group">
-                       @foreach($recent_threads as $index => $thread)
-                       <li class="list-group-item"> {{ $index+1 }}. <a href="{{ $thread->url }}"  target="_blank"> {{ $thread->title }}</a></li>
-                       @endforeach
-                </ul>
-            </div>
+        <h4>最新话题</h4>
+        <hr>
+         @foreach($recent_threads as $index => $thread)
+            <p> {{ $index+1 }}. <a href="{{ $thread->url }}"  target="_blank"> {{ $thread->title }}</a></p>
+        @endforeach
         </div>
         <div class="col-sm-6">
-           <div class="panel panel-default corner-radius">
-                <div class="panel-heading">最新回帖</div>
-                <ul class="list-group">
-                       @foreach($recent_replies as $index => $reply)
-                       <li class="list-group-item"> {{ $index+1 }}. <a href="{{ $reply->url }}"  target="_blank"><small>{{ Str::words($reply->body_original,5) }}</small></a></li>
-                       @endforeach
-                </ul>
-            </div>
+        <h4>最新回帖</h4>
+        <hr>
+         @foreach($recent_replies as $index => $reply)
+            <p> {{ $index+1 }}. <a href="{{ $reply->url }}"  target="_blank"><small>{{ Str::words($reply->body_original,5) }}</small></a></p>
+        @endforeach
         </div>
         <div class="col-sm-2">
-             <div class="panel panel-default corner-radius">
-                <div class="panel-heading">新进用户</div>
-                <ul class="list-group">
-                       @foreach($recent_users as $index => $user)
-                       <li class="list-group-item"> {{ $index+1 }}. <a href="{{ $user->url }}"  target="_blank"> {{ $user->username }}</a></li>
-                       @endforeach
-                </ul>
-            </div>
+        <h4>新进用户</h4>
+        <hr>
+         @foreach($recent_users as $index => $user)
+          <p>{{ $index+1 }}. <a href="{{ $user->url }}"  target="_blank"> {{ $user->username }}</a></p>
+         @endforeach
         </div>
+      </div>
     </div>
+  </div>
 </div>
 @stop
