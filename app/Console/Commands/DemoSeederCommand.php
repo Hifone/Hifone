@@ -82,12 +82,15 @@ class DemoSeederCommand extends Command
         $nodes = [
             [
                 'name'         => 'Announcements',
+                'icon'         => '',
                 'section_id'   => 1,
             ], [
                 'name'         => 'Internet',
+                'icon'         => '',
                 'section_id'   => 2,
             ], [
                 'name'         => 'Discovery',
+                'icon'         => '',
                 'section_id'   => 3,
             ],
         ];
