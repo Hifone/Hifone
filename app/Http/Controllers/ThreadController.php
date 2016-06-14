@@ -13,6 +13,7 @@ namespace Hifone\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Auth;
+use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Append\AddAppendCommand;
 use Hifone\Commands\Like\AddLikeCommand;
 use Hifone\Commands\Thread\AddThreadCommand;
@@ -196,7 +197,8 @@ class ThreadController extends Controller
     public function destroy(Thread $thread)
     {
         $this->needAuthorOrAdminPermission($thread->user_id);
-        $thread->delete();
+
+        dispatch(new RemoveThreadCommand($thread));
 
         return Redirect::route('thread.index')
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
