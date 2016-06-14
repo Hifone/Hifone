@@ -521,15 +521,11 @@
             var self = this;
 
             if (Config.user_id > 0) {
-                function scheduleGetNotification(){
-                    $.get( Config.routes.notification_count, function( data ) {
+                $.get( Config.routes.notification_count, function( data ) {
 
-                        nCount = parseInt(data);
-                        self._resetTitle();
-                        setTimeout(scheduleGetNotification, 15000);
-                    });
-                };
-                setTimeout(scheduleGetNotification, 15000);
+                    nCount = parseInt(data);
+                    self._resetTitle();
+                });
             }
         },
 
