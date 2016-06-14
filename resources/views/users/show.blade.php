@@ -25,6 +25,7 @@
             <div class="user-card">
                 <div class="header">
                   <a class="avatar" href="{{ $user->url }}" target="_blank"><img src="{{ $user->avatar }}"><strong><span>{{ '@'.$user->username }}</span></strong></a>
+                  @if($current_user && $current_user->id != $user->id)
                   <a class="button" data-method="post" data-url="{{ route('follow.user',$user->id) }}" target="_blank">
                     @if (Auth::check() && $user->follows()->byWhom(Auth::user()->id)->count())
                       <i class="fa fa-minus"></i> {!! trans('forms.cancel') !!}
@@ -32,7 +33,7 @@
                       <i class="fa fa-plus"></i> {!! trans('hifone.follow') !!}
                     @endif
                   </a>
-
+                  @endif
                 </div>
                 <ul class="status">
                   <li><a href="{!! route('user.threads', $user->id) !!}"><strong>{{ $user->thread_count }}</strong>{{ trans('hifone.threads.threads') }}</a></li>
@@ -47,8 +48,4 @@
 </div>
 </div>
 </div>
-
-
-
-
 @stop
