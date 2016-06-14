@@ -87,7 +87,7 @@ class ThreadController extends Controller
         }
 
         return Redirect::route('dashboard.thread.edit', ['id' => $thread->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.threads.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.threads.edit.success')));
     }
 
     public function pin(Thread $thread)

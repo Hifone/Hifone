@@ -60,6 +60,9 @@ class EventServiceProvider extends ServiceProvider
             'Hifone\Handlers\Events\Stats\UpdateStatsEventHandler',
             'Hifone\Handlers\Events\User\UpdateScoreEventHandler',
         ],
+        'Hifone\Events\Reply\ReplyWasRemovedEvent' => [
+            'Hifone\Handlers\Events\Reply\UpdateReplyThreadEventHandler',
+        ],
 
         //
         'Hifone\Events\Thread\ThreadWasAddedEvent' => [

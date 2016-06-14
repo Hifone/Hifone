@@ -52,6 +52,9 @@ return [
     ],
     'replies' => [
         'replies' => '回帖',
+        'edit' => [
+            'title' => '编辑回贴',
+        ],
     ],
 
     'sections' => [
