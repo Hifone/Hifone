@@ -1,8 +1,8 @@
 ## Hifone
 
-![Screenshot](https://camo.githubusercontent.com/872cfd7f1b0b2380dce94216623b56ada2b6947c/687474703a2f2f7777772e363438322e636f6d2f6869666f6e65352e706e67)
+![Screenshot](https://camo.githubusercontent.com/b7d53bb60a3b98e42ad3e04974a57aaacce460e7/687474703a2f2f363438322e636f6d2f6869666f6e65312e706e67)
 
-Hifone is a free bulletin board software solution written in Laravel.
+Hifone is a free, open-source, self-hosted forum software based on the Laravel PHP Framework.
 
 ## Features
 
