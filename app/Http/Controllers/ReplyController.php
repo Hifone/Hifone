@@ -15,6 +15,7 @@ use AltThree\Validator\ValidationException;
 use Auth;
 use Hifone\Commands\Like\AddLikeCommand;
 use Hifone\Commands\Reply\AddReplyCommand;
+use Hifone\Commands\Reply\RemoveReplyCommand;
 use Hifone\Models\Like;
 use Hifone\Models\Reply;
 use Input;
@@ -57,11 +58,8 @@ class ReplyController extends Controller
     public function destroy(Reply $reply)
     {
         $this->needAuthorOrAdminPermission($reply->user_id);
-        $reply->delete();
 
-        $reply->thread->decrement('reply_count', 1);
-
-        $reply->thread->generateLastReplyUserInfo();
+        dispatch(new RemoveReplyCommand($reply));
 
         return Redirect::route('thread.show', $reply->thread_id)
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
