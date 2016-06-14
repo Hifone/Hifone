@@ -11,8 +11,6 @@
 
 namespace Hifone\Install\Verify;
 
-use Illuminate\View\View;
-
 /**
  * Verifies if a certain condition is met. Verifiers are mainly used by the
  * installer to verify certain server conditions.
@@ -27,11 +25,4 @@ interface Verifier
      * @return bool TRUE when condition is met, FALSE otherwise
      */
     public function verify();
-
-    /**
-     * Returns a view explaing how to make this verifier verify as OK.
-     *
-     * @return View
-     */
-    public function getHelpView();
 }

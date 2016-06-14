@@ -11,8 +11,6 @@
 
 namespace Hifone\Install\Verify;
 
-use Illuminate\Support\Facades\View;
-
 class PhpExtensionVerifier extends AbstractVerifier
 {
     public function __construct($extension)
@@ -33,16 +31,5 @@ class PhpExtensionVerifier extends AbstractVerifier
     public function verify()
     {
         return extension_loaded($this->extension);
-    }
-
-    /**
-     * Returns a view explaing how to make this verifier verify as OK.
-     *
-     * @return View
-     */
-    public function getHelpView()
-    {
-        return View::make('install.verify.phpextension')
-            ->withEextension($this->extension);
     }
 }
