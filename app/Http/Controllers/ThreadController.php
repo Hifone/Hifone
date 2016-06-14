@@ -13,10 +13,10 @@ namespace Hifone\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Auth;
-use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Append\AddAppendCommand;
 use Hifone\Commands\Like\AddLikeCommand;
 use Hifone\Commands\Thread\AddThreadCommand;
+use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Thread\UpdateThreadCommand;
 use Hifone\Models\Append;
 use Hifone\Models\Node;

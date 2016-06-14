@@ -12,10 +12,8 @@
 namespace Hifone\Handlers\Events\Thread;
 
 use Hifone\Events\Thread\ThreadWasRemovedEvent;
-use Hifone\Models\Thread;
-use Hifone\Models\Reply;
 use Hifone\Models\Notification;
-
+use Hifone\Models\Thread;
 
 class CleanupThreadRepliesHandler
 {
@@ -24,7 +22,7 @@ class CleanupThreadRepliesHandler
         $thread = $event->thread;
 
         // Cleanup the replies.
-        foreach($thread->replies as $reply) {
+        foreach ($thread->replies as $reply) {
             $reply->delete();
         }
 
