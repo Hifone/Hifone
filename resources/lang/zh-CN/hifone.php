@@ -30,6 +30,7 @@ return [
     'awesome'          => '恭喜，',
     'whoops'           => '很遗憾，',
     'success'          => '操作成功!',
+    'failure'          => '操作失败!',
     'powered_by'       => 'Copyright &copy; 2015-2016 <a href="http://hifone.com">Hifone</a> ',
     'feed'             => 'Feed',
 // 节点
