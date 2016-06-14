@@ -55,8 +55,6 @@ class AuthRoutes
                 'uses'       => 'AuthController@postRegister',
             ]);
 
-            $router->get('login-required', 'AuthController@loginRequired');
-            $router->get('admin-required', 'AuthController@adminRequired');
             $router->get('user-banned', 'AuthController@userBanned');
 
             $router->get('landing', [
