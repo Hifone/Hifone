@@ -138,7 +138,9 @@ class Thread extends Model implements HasPresenter
 
     public function scopeSearch($query, $search)
     {
-        if(!$search) return;
+        if (!$search) {
+            return;
+        }
 
         return  $query->where(function ($query) use ($search) {
             $query->where('title', 'LIKE', "%$search%");

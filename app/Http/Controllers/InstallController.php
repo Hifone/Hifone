@@ -18,7 +18,7 @@ use Hifone\Install\Verify\PhpExtensionVerifier;
 use Hifone\Install\Verify\PhpVersionVerifier;
 use Hifone\Models\Node;
 use Hifone\Models\Role;
-Use Hifone\Models\Section;
+use Hifone\Models\Section;
 use Hifone\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -247,7 +247,7 @@ class InstallController extends Controller
        ];
 
         $rootVerifier = new CompositeVerifier('Requirements', $verifiers);
-   
+
         View::share([
             'root_verifier' => $rootVerifier,
             'verifiers'     => $verifiers,
