@@ -33,7 +33,7 @@ class FollowController extends Controller
             return Redirect::route('user.home', $user->username)
             ->withErrors(sprintf('%s %s', trans('hifone.whoops'), trans('hifone.failure')));
         }
-        exit;
+
         dispatch(new AddFollowCommand($user));
 
         return Redirect::route('user.home', $user->username)
