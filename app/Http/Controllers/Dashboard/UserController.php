@@ -81,12 +81,12 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.user.create')
                 ->withInput(Input::get('user'))
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.users.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.user.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.users.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.users.add.success')));
     }
 
     public function edit(User $user)
@@ -113,11 +113,11 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.user.edit', ['id' => $user->id])
                 ->withInput(Input::except('password'))
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.users.edit.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.user.edit', ['id' => $user->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.users.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.users.edit.success')));
     }
 }

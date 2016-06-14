@@ -147,7 +147,7 @@ class AuthController extends Controller
             $user = $this->create($registerData);
         } catch (ValidationException $e) {
             return Redirect::to('auth/register')
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.users.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 

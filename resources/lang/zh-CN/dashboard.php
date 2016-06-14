@@ -301,11 +301,6 @@ return [
         ],
     ],
 
-    'notifications' => [
-        'awesome' => '恭喜，',
-        'whoops'  => '很遗憾，',
-    ],
-
     // Sidebar footer
     'help'        => '帮助',
     'home'        => '首页',

@@ -71,12 +71,12 @@ class TipController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.tip.create')
                 ->withInput($tipData)
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.tips.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.tips.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.tip.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.tips.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.tips.add.success')));
     }
 
     /**
@@ -107,7 +107,7 @@ class TipController extends Controller
         $tip->update($tipData);
 
         return Redirect::route('dashboard.tip.edit', ['id' => $tip->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.tips.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.tips.edit.success')));
     }
 
     /**
@@ -122,6 +122,6 @@ class TipController extends Controller
         $tip->delete();
 
         return Redirect::route('dashboard.tip.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.tips.delete.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.tips.delete.success')));
     }
 }

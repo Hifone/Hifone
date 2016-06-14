@@ -57,12 +57,12 @@ class PageController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.page.create')
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.pages.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.pages.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.page.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.pages.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.pages.add.success')));
     }
 
     /**
@@ -91,11 +91,11 @@ class PageController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.page.edit', ['id' => $page->id])
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.pages.edit.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.pages.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.page.edit', ['id' => $page->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.pages.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.pages.edit.success')));
     }
 }

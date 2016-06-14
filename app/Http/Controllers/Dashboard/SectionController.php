@@ -82,12 +82,12 @@ class SectionController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.section.create')
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.sections.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.sections.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.section.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.sections.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.sections.add.success')));
     }
 
     /**
@@ -120,12 +120,12 @@ class SectionController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.section.edit', ['id' => $section->id])
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.sections.edit.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.sections.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.section.edit', ['id' => $section->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.sections.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.sections.edit.success')));
     }
 
     /**
@@ -141,7 +141,7 @@ class SectionController extends Controller
         $section->remove();
 
         return Redirect::route('dashboard.section.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.sections.delete.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.sections.delete.success')));
     }
 
     //Groups

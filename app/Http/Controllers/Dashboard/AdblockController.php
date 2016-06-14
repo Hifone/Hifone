@@ -77,12 +77,12 @@ class AdblockController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.adblock.edit', ['id' => $adblock->id])
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.adblocks.edit.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.adblocks.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.adblock.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.adblocks.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.adblocks.edit.success')));
     }
 
     public function store()
@@ -94,11 +94,11 @@ class AdblockController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.adblock.create')
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.adblocks.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.adblocks.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.adblock.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.adblocks.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.adblocks.edit.success')));
     }
 }

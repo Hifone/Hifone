@@ -71,12 +71,12 @@ class LocationController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.location.create')
                 ->withInput($locationData)
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.locations.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.locations.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.location.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.locations.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.locations.add.success')));
     }
 
     /**
@@ -107,7 +107,7 @@ class LocationController extends Controller
         $location->update($locationData);
 
         return Redirect::route('dashboard.location.edit', ['id' => $location->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.locations.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.locations.edit.success')));
     }
 
     /**
@@ -122,6 +122,6 @@ class LocationController extends Controller
         $location->delete();
 
         return Redirect::route('dashboard.location.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.locations.delete.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.locations.delete.success')));
     }
 }

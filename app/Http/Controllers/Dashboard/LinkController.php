@@ -72,12 +72,12 @@ class LinkController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.link.create')
                 ->withInput($linkData)
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.links.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.links.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.link.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.links.add.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.links.add.success')));
     }
 
     /**
@@ -110,7 +110,7 @@ class LinkController extends Controller
         dispatch(new LinkWasUpdatedEvent($link));
 
         return Redirect::route('dashboard.link.edit', ['id' => $link->id])
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.links.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.links.edit.success')));
     }
 
     /**
@@ -125,6 +125,6 @@ class LinkController extends Controller
         $link->delete();
 
         return Redirect::route('dashboard.link.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.links.delete.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.links.delete.success')));
     }
 }

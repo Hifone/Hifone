@@ -69,12 +69,12 @@ class AdspaceController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.adspace.edit', ['id' => $adspace->id])
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.adspaces.edit.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.adspaces.edit.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.adspace.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.adspaces.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.adspaces.edit.success')));
     }
 
     public function store()
@@ -86,11 +86,11 @@ class AdspaceController extends Controller
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.adspace.create')
                 ->withInput(Request::all())
-                ->withTitle(sprintf('%s %s', trans('dashboard.notifications.whoops'), trans('dashboard.adspaces.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.adspaces.add.failure')))
                 ->withErrors($e->getMessageBag());
         }
 
         return Redirect::route('dashboard.adspace.index')
-            ->withSuccess(sprintf('%s %s', trans('dashboard.notifications.awesome'), trans('dashboard.adspaces.edit.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.adspaces.edit.success')));
     }
 }
