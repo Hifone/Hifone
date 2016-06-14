@@ -32,25 +32,25 @@ class AjaxRoutes
             //下沉
             $router->post('thread/{thread}/sink', [
                 'as'         => 'thread.sink',
-                'middleware' => 'admin',
+                'middleware' => ['permission:manage_threads'],
                 'uses'       => 'ThreadController@sink',
             ]);
              //推荐
             $router->post('thread/{thread}/recomend', [
                 'as'         => 'thread.recomend',
-                'middleware' => 'admin',
+                'middleware' => ['permission:manage_threads'],
                 'uses'       => 'ThreadController@recomend',
             ]);
             //置顶
             $router->post('thread/{thread}/pin', [
                 'as'         => 'thread.pin',
-                'middleware' => 'admin',
+                'middleware' => ['permission:manage_threads'],
                 'uses'       => 'ThreadController@pin',
             ]);
             //删除
             $router->delete('thread/{thread}/delete', [
                 'as'         => 'thread.destroy',
-                'middleware' => 'admin',
+                'middleware' => ['permission:manage_threads'],
                 'uses'       => 'ThreadController@destroy',
             ]);
 
@@ -108,7 +108,7 @@ class AjaxRoutes
 
             $router->post('user/{user}/blocking', [
                 'as'         => 'user.blocking',
-                'middleware' => 'admin',
+                'middleware' => ['permission:manage_users'],
                 'uses'       => 'UserController@blocking',
             ]);
         });
