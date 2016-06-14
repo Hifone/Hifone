@@ -11,8 +11,6 @@
 
 namespace Hifone\Install\Verify;
 
-use Illuminate\Support\Facades\View;
-
 class PhpVersionVerifier extends AbstractVerifier
 {
     private $majorVersion;
@@ -37,18 +35,5 @@ class PhpVersionVerifier extends AbstractVerifier
     public function verify()
     {
         return version_compare(PHP_VERSION, $this->majorVersion.'.'.$this->minorVersion, '>=');
-    }
-
-    /**
-     * Returns a view explaing how to make this verifier verify as OK.
-     *
-     * @return View
-     */
-    public function getHelpView()
-    {
-        return View::make('install.verify.phpversion')
-            ->withMajor($this->majorVersion)
-            ->withMinor($this->minorVersion)
-            ->withActualVersion(PHP_VERSION);
     }
 }

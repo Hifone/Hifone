@@ -11,8 +11,6 @@
 
 namespace Hifone\Install\Verify;
 
-use Illuminate\View\View;
-
 class CompositeVerifier extends AbstractVerifier
 {
     public function __construct($name, array $verifiers)
@@ -45,15 +43,5 @@ class CompositeVerifier extends AbstractVerifier
     public function getVerifiers()
     {
         return $this->verifiers;
-    }
-
-    /**
-     * Returns a view explaing how to make this verifier verify as OK.
-     *
-     * @return View
-     */
-    public function getHelpView()
-    {
-        // TODO: Implement getHelpView() method.
     }
 }

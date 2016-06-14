@@ -14,7 +14,7 @@ namespace Hifone\Http\Controllers;
 use Hifone\Models\Node;
 use Hifone\Models\Thread;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 
 class NodeController extends Controller
@@ -29,7 +29,7 @@ class NodeController extends Controller
 
     public function show(Node $node)
     {
-        $threads = Thread::NodeThreads(Request::get('filter'), $node->id)->search(Request::query('q'))->paginate(Config::get('setting.per_page'));
+        $threads = Thread::NodeThreads(Input::get('filter'), $node->id)->search(Input::query('q'))->paginate(Config::get('setting.per_page'));
 
         return View::make('threads.index')
             ->withThreads($threads)

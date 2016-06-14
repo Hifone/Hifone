@@ -11,8 +11,6 @@
 
 namespace Hifone\Install\Verify;
 
-use Illuminate\Support\Facades\View;
-
 class FileWritableVerifier extends AbstractVerifier
 {
     public function __construct($path)
@@ -33,17 +31,5 @@ class FileWritableVerifier extends AbstractVerifier
     public function verify()
     {
         return \File::isWritable($this->path);
-    }
-
-    /**
-     * Returns a view explaing how to make this verifier verify as OK.
-     *
-     * @return View
-     */
-    public function getHelpView()
-    {
-        return View::make('install.verify.filewritable')
-            ->withDirectory($this->path)
-            ->withUser(get_current_user());
     }
 }

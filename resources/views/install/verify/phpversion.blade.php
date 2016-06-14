@@ -1,1 +1,0 @@
-<p class="hidden">Require PHP {{$major}}.{{$minor}}, your website {{$actualVersion}} installed.</p>

@@ -136,16 +136,20 @@ class Thread extends Model implements HasPresenter
         }
     }
 
-    /**
-     * 边栏同一节点下的话题列表.
-     */
     public function scopeSearch($query, $search)
     {
+        if (!$search) {
+            return;
+        }
+
         return  $query->where(function ($query) use ($search) {
             $query->where('title', 'LIKE', "%$search%");
         });
     }
 
+    /**
+     * 边栏同一节点下的话题列表.
+     */
     public function getSameNodeThreads($limit = 8)
     {
         return $this->where('node_id', '=', $this->node_id)

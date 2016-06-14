@@ -18,6 +18,7 @@ use Hifone\Install\Verify\PhpExtensionVerifier;
 use Hifone\Install\Verify\PhpVersionVerifier;
 use Hifone\Models\Node;
 use Hifone\Models\Role;
+use Hifone\Models\Section;
 use Hifone\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -168,13 +169,12 @@ class InstallController extends Controller
         if ($v->passes()) {
 
             // Default node
-            $parent = Node::create([
+            $section = Section::create([
                 'name' => 'Hifone',
-                'slug' => 'hifone',
             ]);
 
             Node::create([
-                'section_id'   => $parent->id,
+                'section_id'   => $section->id,
                 'name'         => 'Default',
                 'slug'         => 'default',
             ]);
@@ -242,7 +242,7 @@ class InstallController extends Controller
             new FileWritableVerifier(storage_path('framework/views')),
             new FileWritableVerifier(storage_path('logs')),
 
-            new FileWritableVerifier(public_path('images/avatar')),
+            new FileWritableVerifier(public_path('uploads/avatar')),
             new FileWritableVerifier(public_path('uploads/images')),
        ];
 
@@ -264,8 +264,6 @@ class InstallController extends Controller
      */
     protected function writeEnv($key, $value)
     {
-        // later.
-        return;
         static $path = null;
         if ($path === null || ($path !== null && file_exists($path))) {
             $path = base_path('.env');
