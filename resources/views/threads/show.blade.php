@@ -79,9 +79,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
   {{ trans('hifone.replies.replies') }}
-  <span class="pull-right">
-  <a href="#"><i class="fa fa-arrow-up"></i></a>
-  </span>
   </div>
   <div class="panel-body">
     <div class="reply-box form">
