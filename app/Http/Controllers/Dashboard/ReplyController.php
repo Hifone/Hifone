@@ -11,11 +11,11 @@
 
 namespace Hifone\Http\Controllers\Dashboard;
 
+use Hifone\Commands\Reply\RemoveReplyCommand;
+use Hifone\Commands\Reply\UpdateReplyCommand;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Reply;
 use Hifone\Parsers\Markdown;
-use Hifone\Commands\Reply\UpdateReplyCommand;
-use Hifone\Commands\Reply\RemoveReplyCommand;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
@@ -53,13 +53,12 @@ class ReplyController extends Controller
      */
     public function edit(Reply $reply)
     {
-
         return View::make('dashboard.replies.create_edit')
             ->withPageTitle(trans('dashboard.replies.edit.title').' - '.trans('dashboard.dashboard'))
             ->withReply($reply);
     }
 
-     /**
+    /**
      * Edit a reply.
      *
      * @param \Hifone\Models\Reply $reply
@@ -85,7 +84,7 @@ class ReplyController extends Controller
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
     }
 
-     /**
+    /**
      * Destroy a reply.
      *
      * @param \Hifone\Models\Reply $reply

@@ -29,7 +29,6 @@ final class RemoveReplyCommand
      *
      * @return void
      */
-
     public function __construct(Reply $reply)
     {
         $this->reply = $reply;

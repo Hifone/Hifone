@@ -11,9 +11,7 @@
 
 namespace Hifone\Handlers\Events\Reply;
 
-use Auth;
 use Hifone\Events\EventInterface;
-use Hifone\Events\Reply\ReplyWasRemovedEvent;
 
 class UpdateReplyThreadEventHandler
 {

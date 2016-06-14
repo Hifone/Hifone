@@ -52,7 +52,7 @@ return [
     ],
     'replies' => [
         'replies' => '回帖',
-        'edit' => [
+        'edit'    => [
             'title' => '编辑回贴',
         ],
     ],
