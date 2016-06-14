@@ -16,6 +16,7 @@ use Auth;
 use Hifone\Commands\Append\AddAppendCommand;
 use Hifone\Commands\Like\AddLikeCommand;
 use Hifone\Commands\Thread\AddThreadCommand;
+use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Thread\UpdateThreadCommand;
 use Hifone\Models\Append;
 use Hifone\Models\Node;
@@ -196,7 +197,8 @@ class ThreadController extends Controller
     public function destroy(Thread $thread)
     {
         $this->needAuthorOrAdminPermission($thread->user_id);
-        $thread->delete();
+
+        dispatch(new RemoveThreadCommand($thread));
 
         return Redirect::route('thread.index')
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));

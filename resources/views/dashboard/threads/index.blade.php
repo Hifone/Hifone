@@ -34,7 +34,7 @@
                 </td>
                 <td>{{ $thread->node->name }}</td>
                 <td><a data-name="{{ $thread->user->username }}" href="{{ $thread->author_url }}">{{ $thread->user->username }}</a></td>
-                <td>0</td>
+                <td>{{ $thread->reply_count }}</td>
                 <td>
                     {{ $thread->created_at }}
                 </td>

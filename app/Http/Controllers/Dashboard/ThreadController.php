@@ -11,6 +11,7 @@
 
 namespace Hifone\Http\Controllers\Dashboard;
 
+use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Thread\UpdateThreadCommand;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Node;
@@ -100,6 +101,9 @@ class ThreadController extends Controller
 
     public function destroy(Thread $thread)
     {
-        echo $thread->id;
+        dispatch(new RemoveThreadCommand($thread));
+
+        return Redirect::route('dashboard.thread.index')
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
     }
 }

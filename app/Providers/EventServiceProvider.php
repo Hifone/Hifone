@@ -77,6 +77,11 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         //
+        'Hifone\Events\Thread\ThreadWasRemovedEvent' => [
+            'Hifone\Handlers\Events\Thread\CleanupThreadRepliesHandler',
+        ],
+
+        //
         'Hifone\Events\Thread\ThreadWasUpdatedEvent' => [
             //
         ],
