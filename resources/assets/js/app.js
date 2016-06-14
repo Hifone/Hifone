@@ -442,7 +442,8 @@
          * lightbox
          */
         initLightBox: function(){
-            $(document).delegate('.content-body img:not(.emoji)', 'click', function(event) {
+
+            $('.content-body').delegate('img:not(.emoji)', 'click', function(event) {
                 event.preventDefault();
                 return $(this).ekkoLightbox({
                     onShown: function() {
