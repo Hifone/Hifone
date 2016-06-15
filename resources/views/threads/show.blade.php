@@ -42,7 +42,7 @@
     @foreach ($thread->appends as $index => $append)
 
         <div class="appends">
-            <span class="meta">{!! trans('hifone.appends.appends') !!} {!! $index !!} &nbsp;·&nbsp; <abbr title="{!! $append->created_at !!}" class="timeago">{{ $append->created_at }}</abbr></span>
+            <span class="meta">{{ trans('hifone.appends.appends') }} {{ $index + 1 }} &nbsp;·&nbsp; <abbr title="{!! $append->created_at !!}" class="timeago">{{ $append->created_at }}</abbr></span>
             <div class="sep5"></div>
             <div class="markdown-reply append-content">
                 {!! $append->content !!}

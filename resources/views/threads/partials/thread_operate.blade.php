@@ -80,7 +80,7 @@
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">{{ trans('hifone.appends.ontent') }}</h4>
+        <h4 class="modal-title" id="exampleModalLabel">{{ trans('hifone.appends.content') }}</h4>
       </div>
 
      {!! Form::open(['route' => ['thread.append', $thread->id],'method' => 'post']) !!}
