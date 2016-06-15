@@ -49,6 +49,11 @@
                     </div>
                     @endforeach
                 </div>
+
+                <div class="text-right">
+                <!-- Pager -->
+                {!! $users->appends(Request::except('page', '_pjax'))->render() !!}
+                </div>
             </div>
         </div>
     </div>
