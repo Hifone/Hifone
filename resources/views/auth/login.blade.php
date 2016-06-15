@@ -37,7 +37,7 @@
 				</div>
 				<div class="panel-footer">
 					<a href="/auth/register">{{ trans('forms.register') }}</a>
-					<a href="/password/email">忘记密码?</a>
+					<!--<a href="/password/email">忘记密码?</a>-->
 				</div>
 			</div>
 		</div>
