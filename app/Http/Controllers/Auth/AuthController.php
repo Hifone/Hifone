@@ -140,7 +140,10 @@ class AuthController extends Controller
             $registerData = Input::only(['username', 'email', 'password', 'password_confirmation', 'verifycode']);
 
             if ($registerData['verifycode'] != Session::get('phrase')) {
-                return Redirect::to('auth/register');
+                return Redirect::to('auth/register')
+                    ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
+                    ->withInput(Input::all())
+                    ->withErrors([trans('hifone.captcha.failure')]);
             }
         }
         try {
@@ -148,6 +151,7 @@ class AuthController extends Controller
         } catch (ValidationException $e) {
             return Redirect::to('auth/register')
                 ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
+                ->withInput(Input::all())
                 ->withErrors($e->getMessageBag());
         }
 
