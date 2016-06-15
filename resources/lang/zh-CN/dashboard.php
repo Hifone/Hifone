@@ -245,6 +245,7 @@ return [
             'too-big'     => '您上传的文件太大了。上传的图像大小应小于:size',
             'site_name'   => '网站名称',
             'site_domain' => '网址',
+            'site_logo'   => '网站logo',
             'site_cdn'    => 'CDN地址',
             'site_about'  => '关于我们',
             'logo'        => 'Logo设置',

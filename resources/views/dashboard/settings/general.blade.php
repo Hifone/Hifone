@@ -35,6 +35,14 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
+                                <label>{{ trans('dashboard.settings.general.site_logo') }}</label>
+                                <input type="text" class="form-control" name="site_logo" value="{{ $site_logo }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
                                 <label>{{ trans('dashboard.settings.general.site_cdn') }}</label>
                                 <input type="text" class="form-control" name="site_cdn" value="{{ $site_cdn }}" required>
                             </div>
