@@ -9,18 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Reply;
+namespace Hifone\Handlers\Events\Link;
 
+use Cache;
 use Hifone\Events\EventInterface;
 
-class UpdateReplyThreadEventHandler
+class RemoveLinkCacheHandler
 {
     public function handle(EventInterface $event)
     {
-        $reply = $event->reply;
-
-        $reply->thread->decrement('reply_count', 1);
-
-        $reply->thread->generateLastReplyUserInfo();
+        Cache::forget('links');
+        \Log::info('forget cache: links');
     }
 }

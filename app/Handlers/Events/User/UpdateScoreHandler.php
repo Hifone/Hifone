@@ -17,7 +17,7 @@ use Hifone\Events\Image\ImageWasUploadedEvent;
 use Hifone\Events\Reply\ReplyWasAddedEvent;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 
-class UpdateScoreEventHandler
+class UpdateScoreHandler
 {
     public function handle(EventInterface $event)
     {

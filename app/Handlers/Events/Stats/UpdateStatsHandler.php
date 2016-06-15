@@ -19,7 +19,7 @@ use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Models\Stats;
 
-class UpdateStatsEventHandler
+class UpdateStatsHandler
 {
     public function handle(EventInterface $event)
     {

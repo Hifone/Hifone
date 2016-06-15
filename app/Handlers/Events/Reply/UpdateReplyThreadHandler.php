@@ -9,15 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Advertisement;
+namespace Hifone\Handlers\Events\Reply;
 
-use Cache;
 use Hifone\Events\EventInterface;
 
-class AdvertisementWasUpdatedEventHandler
+class UpdateReplyThreadHandler
 {
     public function handle(EventInterface $event)
     {
-        Cache::forget('ads_'.$event->advertisement->adspace_id);
+        $reply = $event->reply;
+
+        $reply->thread->decrement('reply_count', 1);
+
+        $reply->thread->generateLastReplyUserInfo();
     }
 }
