@@ -1,10 +1,16 @@
 ## Hifone
 
-![Screenshot](https://camo.githubusercontent.com/b7d53bb60a3b98e42ad3e04974a57aaacce460e7/687474703a2f2f363438322e636f6d2f6869666f6e65312e706e67)
+[![StyleCI](https://styleci.io/repos/60775510/shield)](https://styleci.io/repos/60775510/)
+[![Build Status](https://img.shields.io/travis/Hifone/Hifone/master.svg?style=flat-square)](https://travis-ci.org/Hifone/Hifone)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
+![Screenshot](https://camo.githubusercontent.com/d0e2887410b6c68b84707412b9235950c58cefa1/687474703a2f2f363438322e636f6d2f6869666f6e65322e706e67)
 
 Hifone is a free, open-source, self-hosted forum software based on the Laravel PHP Framework.
 
 ## Features
+
+This package is currently in (very-)alpha stage, so all of the following features may or may not work yet. However, feel free to post issues and features requests [here](https://github.com/Hifone/Hifone/issues) . We will try to fix and improve the package as fast as we can based on your help!
 
 * Fast and simple
 * Beautiful and responsive
@@ -63,4 +69,6 @@ If you're making a lot of changes, you'll find that running `gulp watch` will re
 
 [Hifone website](http://hifone.com/).
 
+## License
 
+Hifone is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
