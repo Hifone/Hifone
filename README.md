@@ -42,12 +42,17 @@ git clone https://github.com/Hifone/Hifone
 cd Hifone
 composer install --no-dev -o
 cp .env.example .env
-php artisan migrate
+vi .env  # write database settings
 php artisan key:generate
+php artisan migrate
 php artisan config:cache
 ```
 
 Once cloned to your local machine, you'll need some demo data! Simply run `php artisan hifone:seed` to get the demo installation on the go.
+
+### Directory Permissions
+
+After installing Hifone, you may need to configure some permissions. Directories within the `storage` and the `bootstrap/cache` directories should be writable by your web server or Hifone will not run. 
 
 ## Development
 
