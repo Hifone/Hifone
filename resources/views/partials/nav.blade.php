@@ -49,7 +49,7 @@
                  </li>
             @endif
           <li {!! set_active('notification*', ['notification']) !!}>
-            <a href="{!! route('notification.index') !!}" class="notification-count {{ $current_user->notification_count ? 'new' : null }}"><i class="fa fa-bell"></i><span class="count"> {{ $current_user->notification_count }}</span></a>
+            <a href="{!! route('notification.index') !!}" class="notification-count {{ $current_user->notification_count ? 'new' : null }}"><i class="fa fa-bell"></i><span class="count"></span></a>
           </li>
           @else
           <li {!! set_active('auth/register') !!}><a href="{!! url('auth/register') !!}" id="signup-btn">{!! trans('hifone.signup') !!}</a></li>

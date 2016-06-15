@@ -537,7 +537,7 @@
                 document.title = '(' + nCount + ') '+ original_title;
             } else {
                 document.title =  original_title;
-                $('.notification-count').html('<i class="fa fa-bell"></i>  0' );
+                $('.notification-count').html('<i class="fa fa-bell"></i>' );
                 $('.notification-count').removeClass('new');
             }
         },
