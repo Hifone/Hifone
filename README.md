@@ -27,6 +27,10 @@ There are a few things that you will need to have set up in order to run Gitamin
 
 ## Installation
 
+By default Hifone comes with a .env.example file. You'll need to rename this file to just .env regardless of what environment you're working on.
+
+If you're using SQLite then your .env file should not contain a DB_HOST key. You'll also need to touch ./database/hifone.sqlite and give it the required permissions.
+
 ```shell
 git clone https://github.com/Hifone/Hifone
 cd Hifone
@@ -36,6 +40,7 @@ php artisan migrate
 php artisan key:generate
 php artisan config:cache
 ```
+
 Once cloned to your local machine, you'll need some demo data! Simply run `php artisan hifone:seed` to get the demo installation on the go.
 
 ## Development
