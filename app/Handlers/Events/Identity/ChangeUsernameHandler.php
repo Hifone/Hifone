@@ -17,7 +17,7 @@ use Hifone\Models\Identity;
 use Hifone\Models\User;
 use Illuminate\Support\Str;
 
-class ChangeUsernameEventHandler
+class ChangeUsernameHandler
 {
     public function handle(EventInterface $event)
     {

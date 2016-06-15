@@ -9,16 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Link;
+namespace Hifone\Handlers\Events\Photo;
 
-use Cache;
+use Auth;
 use Hifone\Events\EventInterface;
+use Hifone\Models\Photo;
 
-class LinkWasUpdatedEventHandler
+class AddPhotoRecordHandler
 {
     public function handle(EventInterface $event)
     {
-        Cache::forget('links');
-        \Log::info('forget cache: links');
+        Photo::create([
+            'user_id' => Auth::user()->id,
+            'image'   => $event->file['filename'],
+        ]);
     }
 }

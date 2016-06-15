@@ -13,7 +13,7 @@ namespace Hifone\Handlers\Events\Reply;
 
 use Hifone\Events\EventInterface;
 
-class UpdateReplyThreadEventHandler
+class UpdateReplyThreadHandler
 {
     public function handle(EventInterface $event)
     {

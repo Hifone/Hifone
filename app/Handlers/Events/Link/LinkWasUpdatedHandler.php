@@ -9,15 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Advertisement;
+namespace Hifone\Handlers\Events\Link;
 
 use Cache;
 use Hifone\Events\EventInterface;
 
-class AdvertisementWasUpdatedEventHandler
+class LinkWasUpdatedHandler
 {
     public function handle(EventInterface $event)
     {
-        Cache::forget('ads_'.$event->advertisement->adspace_id);
+        Cache::forget('links');
+        \Log::info('forget cache: links');
     }
 }

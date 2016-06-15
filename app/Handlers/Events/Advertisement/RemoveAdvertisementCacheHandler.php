@@ -9,19 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Photo;
+namespace Hifone\Handlers\Events\Advertisement;
 
-use Auth;
+use Cache;
 use Hifone\Events\EventInterface;
-use Hifone\Models\Photo;
 
-class AddPhotoRecordEventHandler
+class RemoveAdvertisementCacheHandler
 {
     public function handle(EventInterface $event)
     {
-        Photo::create([
-            'user_id' => Auth::user()->id,
-            'image'   => $event->file['filename'],
-        ]);
+        Cache::forget('ads_'.$event->advertisement->adspace_id);
     }
 }

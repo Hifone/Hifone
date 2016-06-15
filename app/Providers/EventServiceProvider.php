@@ -44,9 +44,9 @@ class EventServiceProvider extends ServiceProvider
         // Image
 
         'Hifone\Events\Image\ImageWasUploadedEvent' => [
-            'Hifone\Handlers\Events\Photo\AddPhotoRecordEventHandler',
-            'Hifone\Handlers\Events\Stats\UpdateStatsEventHandler',
-            'Hifone\Handlers\Events\User\UpdateScoreEventHandler',
+            'Hifone\Handlers\Events\Photo\AddPhotoRecordHandler',
+            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Events\User\UpdateScoreHandler',
         ],
 
         // 按赞
@@ -57,18 +57,18 @@ class EventServiceProvider extends ServiceProvider
         // 回帖
         'Hifone\Events\Reply\ReplyWasAddedEvent' => [
             'Hifone\Handlers\Events\Notification\SendReplyNotificationHandler',
-            'Hifone\Handlers\Events\Stats\UpdateStatsEventHandler',
-            'Hifone\Handlers\Events\User\UpdateScoreEventHandler',
+            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Events\User\UpdateScoreHandler',
         ],
         'Hifone\Events\Reply\ReplyWasRemovedEvent' => [
-            'Hifone\Handlers\Events\Reply\UpdateReplyThreadEventHandler',
+            'Hifone\Handlers\Events\Reply\UpdateReplyThreadHandler',
         ],
 
         //
         'Hifone\Events\Thread\ThreadWasAddedEvent' => [
             'Hifone\Handlers\Events\Notification\SendThreadNotificationHandler',
-            'Hifone\Handlers\Events\Stats\UpdateStatsEventHandler',
-            'Hifone\Handlers\Events\User\UpdateScoreEventHandler',
+            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Events\User\UpdateScoreHandler',
         ],
 
         //
@@ -87,8 +87,8 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         'Hifone\Events\User\UserWasAddedEvent' => [
-            'Hifone\Handlers\Events\Stats\UpdateStatsEventHandler',
-            'Hifone\Handlers\Events\Identity\ChangeUsernameEventHandler',
+            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Events\Identity\ChangeUsernameHandler',
         ],
 
         'SocialiteProviders\Manager\SocialiteWasCalled' => [
