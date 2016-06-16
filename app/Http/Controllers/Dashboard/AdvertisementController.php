@@ -70,7 +70,7 @@ class AdvertisementController extends Controller
 
         try {
             $advertisement->update($advertisementData);
-            dispatch(new AdvertisementWasUpdatedEvent($advertisement));
+            event(new AdvertisementWasUpdatedEvent($advertisement));
         } catch (ValidationException $e) {
             return Redirect::route('dashboard.advertisement.edit', ['id' => $advertisement->id])
                 ->withInput(Request::all())
