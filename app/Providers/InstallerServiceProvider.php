@@ -13,9 +13,9 @@ namespace Hifone\Providers;
 
 use Hifone\Console\Commands\InstallCommand;
 use Hifone\Console\Commands\ResetCommand;
-use Hifone\Console\Commands\UpdateCommand;
 use Hifone\Console\Commands\SeedCommand;
 use Hifone\Console\Commands\Subscribers\CommandSubscriber;
+use Hifone\Console\Commands\UpdateCommand;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,7 +28,7 @@ class InstallerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->commands('command.hifone_update', 'command.hifone_install', 'command.hifone_reset','command.hifone_seed');
+        $this->commands('command.hifone_update', 'command.hifone_install', 'command.hifone_reset', 'command.hifone_seed');
 
         $this->setupListeners();
     }
