@@ -20,7 +20,7 @@ use Hifone\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 
-class DemoSeederCommand extends Command
+class SeedCommand extends Command
 {
     use ConfirmableTrait;
 

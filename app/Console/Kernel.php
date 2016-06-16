@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        DemoSeederCommand::class,
+        // Commands\Inspire::class,
     ];
 
     /**

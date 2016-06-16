@@ -178,6 +178,7 @@ return [
         Hifone\Providers\ConfigServiceProvider::class,
         Hifone\Providers\EventServiceProvider::class,
         Hifone\Providers\RouteServiceProvider::class,
+        Hifone\Providers\InstallerServiceProvider::class,
     ],
 
     /*
