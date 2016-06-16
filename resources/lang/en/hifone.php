@@ -42,18 +42,18 @@ return [
 
 // 话题
     'threads' => [
-        'threads'        => 'Thread',
+        'threads'        => 'Threads',
         'title'          => 'Title',
         'body'           => 'Content',
         'add'            => 'Add a new thread',
         'list'           => 'Threads',
         'recent'         => 'Recent',
-        'excellent'      => 'Excent',
+        'excellent'      => 'Excellent threads',
         'like'           => 'Popular',
         'noreply'        => 'No reply',
         'stick'          => 'Stick',
-        'recommended'    => '推荐',
-        'last_reply_by'  => 'last reply by',
+        'recommended'    => 'Recommended',
+        'last_reply_by'  => 'by',
         'more'           => 'more',
         'noitem'         => 'There are no threads.',
         'is_excellent'   => 'The thread has been marked excellent！',
@@ -66,9 +66,9 @@ return [
 
         // Create or Edit
         'pick_node'      => 'Select node',
-        'mark_excellent' => '设为推荐主题',
-        'mark_stick'     => '置顶此主题',
-        'mark_sink'      => '下沉此主题',
+        'mark_excellent' => 'Mark excelent',
+        'mark_stick'     => 'Mark stick',
+        'mark_sink'      => 'Mark sink',
     ],
 
 // 备注
@@ -80,13 +80,13 @@ return [
 
 // 收藏
     'favorites' => [
-        'favorites' => '收藏',
-        'noitem'    => '暂未收藏任何主题',
+        'favorites' => 'Favorites',
+        'noitem'    => 'There are no favorites.',
     ],
 
 // 回复
     'replies' => [
-        'replies'        => '回复',
+        'replies'        => 'Replies',
         'body'           => 'Content',
         'recent'         => 'Recent',
         'total'          => 'Total',
@@ -105,7 +105,7 @@ return [
         'company'                   => 'Company',
         'score'                     => 'Score',
         'location'                  => 'City',
-        'location_help'             => '请用中文填写所在城市',
+        'location_help'             => 'Please fill in the city name exactly.',
         'blog'                      => 'Blog',
         'edit'                      => 'Settings',
         'block'                     => 'Block',
@@ -129,22 +129,22 @@ return [
 
 // 通知
     'notifications' => [
-        'my'                    => '我的通知',
-        'deleted'               => '信息已被删除.',
-        'noitem'                => '还未收到通知!',
-        'new_reply'             => '回复了你的主题:',
-        'follow'                => '回复了你关注的主题:',
-        'at'                    => '在主题中提及你:',
-        'thread_favorite'       => '收藏了你的主题',
-        'thread_follow'         => '关注了你的主题',
-        'user_follow'           => '关注了你',
-        'user_follow_thread'    => '发表了新话题',
-        'thread_like'           => '赞了你的主题',
-        'reply_like'            => '赞了你的回复',
-        'thread_mark_excellent' => '推荐了你的主题',
-        'thread_move'           => '移动了你的主题',
-        'comment_append'        => '留言的话题有新备注',
-        'follow_append'         => '关注的话题有新备注',
+        'my'                    => 'My notifications',
+        'deleted'               => 'The item has beeen deleted.',
+        'noitem'                => 'There are no notifications!',
+        'new_reply'             => 'commented on thread:',
+        'follow'                => 'commented on your favorite thread:',
+        'at'                    => 'mentioned you on:',
+        'thread_favorite'       => 'added favorite thread:',
+        'thread_follow'         => 'followed your thread:',
+        'user_follow'           => 'followed you',
+        'user_follow_thread'    => 'added a new thread',
+        'thread_like'           => 'liked your thread',
+        'reply_like'            => 'liked your reply',
+        'thread_mark_excellent' => 'recommended your thread',
+        'thread_move'           => 'moved your thread',
+        'comment_append'        => 'added a new append',
+        'follow_append'         => 'added a new append on thread',
     ],
 
 // 小贴士
@@ -166,9 +166,9 @@ return [
     ],
 
     'captcha' => [
-        'captcha' => '验证码',
-        'refresh' => '看不清，点击图片刷新',
-        'failure' => '验证码有误，请重新输入',
+        'captcha' => 'CAPTCHA',
+        'refresh' => 'Refresh',
+        'failure' => 'Incorrect captcha',
     ],
 
 // 登录
