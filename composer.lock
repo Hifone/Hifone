@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d860dd5421b30e53701df71d0a7a24b7",
-    "content-hash": "368d4c37b2b674726775abda93c06f44",
+    "hash": "afa9d9babb08535cd74ccdd275823a25",
+    "content-hash": "b57f6d753c9c1cbcb33000e0322c81cd",
     "packages": [
         {
             "name": "alt-three/validator",
@@ -2908,6 +2908,62 @@
             "time": "2016-06-06 15:08:35"
         },
         {
+            "name": "symfony/dom-crawler",
+            "version": "v3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dom-crawler.git",
+                "reference": "12aa63fd41b060d2bee9a34623d29eda70bc8fe3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/symfony/dom-crawler/12aa63fd41b060d2bee9a34623d29eda70bc8fe3.zip",
+                "reference": "12aa63fd41b060d2bee9a34623d29eda70bc8fe3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "symfony/css-selector": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-05-13 15:49:09"
+        },
+        {
             "name": "symfony/event-dispatcher",
             "version": "v3.1.1",
             "source": {
@@ -5208,115 +5264,6 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-02-04 12:56:52"
-        },
-        {
-            "name": "symfony/css-selector",
-            "version": "v3.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/css-selector.git",
-                "reference": "c526d7b3cb4fe1673c6a34e13be2ff63f519df99"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/css-selector/c526d7b3cb4fe1673c6a34e13be2ff63f519df99.zip",
-                "reference": "c526d7b3cb4fe1673c6a34e13be2ff63f519df99",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\CssSelector\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony CssSelector Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-06-06 11:42:41"
-        },
-        {
-            "name": "symfony/dom-crawler",
-            "version": "v3.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "12aa63fd41b060d2bee9a34623d29eda70bc8fe3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/dom-crawler/12aa63fd41b060d2bee9a34623d29eda70bc8fe3.zip",
-                "reference": "12aa63fd41b060d2bee9a34623d29eda70bc8fe3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/css-selector": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DomCrawler Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-05-13 15:49:09"
         },
         {
             "name": "symfony/yaml",
