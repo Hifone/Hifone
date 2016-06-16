@@ -54,7 +54,7 @@
 
             @if ($thread->reply_count > 0 && count($thread->lastReplyUser))
                 <span> • </span>{{ trans('hifone.threads.last_reply_by') }}
-                <a href="{{{ URL::route('user.show', [$thread->lastReplyUser->username]) }}}">
+                <a href="{{{ URL::route('user.home', [$thread->lastReplyUser->username]) }}}">
                   {{{ $thread->lastReplyUser->username }}}
                 </a>
                 <span> • </span>
