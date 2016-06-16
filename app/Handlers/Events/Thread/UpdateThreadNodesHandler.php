@@ -12,7 +12,6 @@
 namespace Hifone\Handlers\Events\Thread;
 
 use Hifone\Events\Thread\ThreadWasMovedEvent;
-
 use Hifone\Models\Thread;
 
 class UpdateThreadNodesHandler

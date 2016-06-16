@@ -11,8 +11,8 @@
 
 namespace Hifone\Events\Thread;
 
-use Hifone\Models\Thread;
 use Hifone\Models\Node;
+use Hifone\Models\Thread;
 
 final class ThreadWasMovedEvent implements ThreadEventInterface
 {
