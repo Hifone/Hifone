@@ -21,7 +21,7 @@
     <input type="file" name="file" class="input-file" style="display: none;" />
   </div>
   <ul class="nav nav-pills" style="clear:none;">
-    <li class="edit active"><a href="#">编辑</a></li>
-    <li class="preview"><a href="#">预览</a></li>
+    <li class="edit active"><a href="#">{{ trans('forms.edit') }}</a></li>
+    <li class="preview"><a href="#">{{ trans('forms.preview') }}</a></li>
   </ul>
 </div>

@@ -78,7 +78,7 @@
   <!-- Reply Box -->
 <div class="panel panel-default">
   <div class="panel-heading">
-  {{ trans('hifone.replies.replies') }}
+  {{ trans('hifone.replies.add') }}
   </div>
   <div class="panel-body">
     <div class="reply-box form">
@@ -97,7 +97,7 @@
         </div>
 
         <div class="form-group status-post-submit">
-              {!! Form::submit(trans('hifone.replies.replies'), ['class' => 'btn btn-primary', 'id' => 'reply-create-submit']) !!}
+              {!! Form::submit(trans('forms.publish'), ['class' => 'btn btn-primary', 'id' => 'reply-create-submit']) !!}
             &nbsp;<span class="help-inline" title="Or Command + Enter">Ctrl+Enter</span>
         </div>
     {!! Form::close() !!}

@@ -87,6 +87,7 @@ return [
 // 回复
     'replies' => [
         'replies'        => '回复',
+        'add'            => '发表回复',
         'body'           => '内容',
         'recent'         => '最近回帖',
         'total'          => '回复总数',
