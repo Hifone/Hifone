@@ -100,7 +100,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function notifications()
     {
-        return $this->hasMany(Notification::class)->recent()->with('thread', 'fromUser')->paginate(20);
+        return $this->hasMany(Notification::class);
     }
 
     public function follows()

@@ -12,13 +12,14 @@
 namespace Hifone\Http\Controllers;
 
 use Auth;
+use Config;
 use Illuminate\Support\Facades\View;
 
 class NotificationController extends Controller
 {
     public function index()
     {
-        $notifications = Auth::user()->notifications();
+        $notifications = Auth::user()->notifications()->recent()->with('thread', 'fromUser')->paginate(Config::get('setting.per_page'));
 
         Auth::user()->notification_count = 0;
         Auth::user()->save();
