@@ -41,6 +41,9 @@ class NotificationPresenter extends AbstractPresenter
             case 'thread_mark_excellent':
                 $label = trans('hifone.notifications.thread_mark_excellent');
                 break;
+            case 'thread_move':
+                $label = trans('hifone.notifications.thread_move');
+                break;
             case 'comment_append':
                 $label = trans('hifone.notifications.comment_append');
                 break;
