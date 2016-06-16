@@ -39,6 +39,10 @@ class DashboardRoutes
                     'as'   => 'general',
                     'uses' => 'SettingsController@showGeneralView',
                 ]);
+                $router->get('localization', [
+                    'as'   => 'localization',
+                    'uses' => 'SettingsController@showLocalizationView',
+                ]);
                 $router->get('customization', [
                     'as'   => 'customization',
                     'uses' => 'SettingsController@showCustomizationView',

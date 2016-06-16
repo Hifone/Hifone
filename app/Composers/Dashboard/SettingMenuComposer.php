@@ -31,6 +31,12 @@ class SettingMenuComposer
                 'icon'   => 'fa fa-gear',
                 'active' => false,
             ],
+            'localization' => [
+                'title'  => trans('dashboard.settings.localization.localization'),
+                'url'    => route('dashboard.settings.localization'),
+                'icon'   => 'fa fa-language',
+                'active' => false,
+            ],
             'tips' => [
                 'title'  => trans('dashboard.tips.tips'),
                 'url'    => route('dashboard.tip.index'),

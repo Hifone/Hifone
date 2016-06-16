@@ -116,13 +116,14 @@ return [
         'total'                     => '会员总数',
         'list'                      => '会员列表',
         'create'                    => '创建账号',
-        'folloers'                  => '粉丝',
+        'followers'                 => '粉丝',
         'signature'                 => '个性签名',
         'bio'                       => '自我介绍',
         'password'                  => '密码',
         'password_confirmation'     => '确认密码',
-
         'website'                   => '网址',
+        'profile'                   => '我的主页',
+        'favorites'                 => '我的收藏',
 
     ],
 

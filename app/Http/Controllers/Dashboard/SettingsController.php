@@ -54,6 +54,19 @@ class SettingsController extends Controller
     }
 
     /**
+     * Shows the settings localization view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLocalizationView()
+    {
+        return View::make('dashboard.settings.localization')
+            ->withPageTitle(trans('dashboard.settings.localization.localization').' - '.trans('dashboard.dashboard'))
+            ->withCurrentMenu('localization')
+            ->withRawSiteAbout(Config::get('setting.site_about'));
+    }
+
+    /**
      * Shows the settings customization view.
      *
      * @return \Illuminate\View\View

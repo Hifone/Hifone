@@ -22,10 +22,10 @@
               <span class="sr-only">Toggle</span>
               <i class="fa fa-reorder"></i>
             </button>
-            <ul class="dropdown-menu" role="menu"><li class=""><a href="{{ route('user.home', $current_user->username) }}">我的主页</a></li>
+            <ul class="dropdown-menu" role="menu"><li class=""><a href="{{ route('user.home', $current_user->username) }}">{{ trans('hifone.users.profile') }}</a></li>
             <li><div class='divider'></div></li>
                 <li><a href="{!! route('user.edit', Auth::user()->id) !!}">{{ trans('hifone.users.edit') }}</a></li>
-                <li><a href="{{ route('user.favorites',$current_user->id) }}">我的收藏</a></li>
+                <li><a href="{{ route('user.favorites',$current_user->id) }}">{{ trans('hifone.users.favorites') }}</a></li>
                 <li class='divider'></li>
                 <li><a href="{!! url('auth/logout') !!}" onclick=" return confirm('{!! trans('hifone.logout_confirm') !!}')"><i class="fa fa-sign-out"></i> {!! trans('hifone.logout') !!}
                     </a></li>

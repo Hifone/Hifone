@@ -47,27 +47,14 @@ class ConfigServiceProvider extends ServiceProvider
             $this->app->config->set('app.url', $appDomain);
         }
 
-        if ($appLocale = $this->app->config->get('setting.app.locale')) {
+        if ($appLocale = $this->app->config->get('setting.site_locale')) {
             $this->app->config->set('app.locale', $appLocale);
             $this->app->translator->setLocale($appLocale);
         }
 
-        if ($appTimezone = $this->app->config->get('setting.app_timezone')) {
+        if ($appTimezone = $this->app->config->get('setting.site_timezone')) {
             $this->app->config->set('cachet.timezone', $appTimezone);
         }
-
-        $allowedOrigins = $this->app->config->get('cors.defaults.allowedOrigins');
-
-        if ($allowedDomains = $this->app->config->get('setting.allowed_domains')) {
-            $domains = explode(',', $allowedDomains);
-            foreach ($domains as $domain) {
-                $allowedOrigins[] = $domain;
-            }
-        } else {
-            $allowedOrigins[] = $this->app->config->get('app.url');
-        }
-
-        $this->app->config->set('cors.paths.api/v1/*.allowedOrigins', $allowedOrigins);
     }
 
     /**
