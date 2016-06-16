@@ -37,22 +37,30 @@ By default Hifone comes with a .env.example file. You'll need to rename this fil
 
 If you're using SQLite then your .env file should not contain a DB_HOST key. You'll also need to touch ./database/hifone.sqlite and give it the required permissions.
 
+Directories within the `storage` and the `bootstrap/cache` directories should be writable by your web server or Hifone will not run. 
+
+
+### Step 1: Shell
+
 ```shell
 git clone https://github.com/Hifone/Hifone
 cd Hifone
-composer install --no-dev -o
+
 cp .env.example .env
 vi .env  # write database settings
-php artisan key:generate
-php artisan migrate
-php artisan config:cache
+
+composer install --no-dev -o
+
+php artisan hifone:install
+
+chmod -R 777 storage
+chmod -R 777 bootstrap/cache
 ```
 
-Once cloned to your local machine, you'll need some demo data! Simply run `php artisan hifone:seed` to get the demo installation on the go.
+### Step 2: Browser
 
-### Directory Permissions
+Now go to http://your_site_domain/ and have fun!
 
-After installing Hifone, you may need to configure some permissions. Directories within the `storage` and the `bootstrap/cache` directories should be writable by your web server or Hifone will not run. 
 
 ## Development
 
