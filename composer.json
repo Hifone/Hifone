@@ -27,7 +27,8 @@
         "gregwar/captcha": "~1.1",
         "roumen/feed": "^2.10",
         "laravelcollective/bus": "~5.2",
-        "arrilot/laravel-widgets": "^3.3"
+        "arrilot/laravel-widgets": "^3.3",
+        "symfony/dom-crawler": "~3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",
