@@ -11,8 +11,8 @@
 
 return [
 
-    'dashboard' => '控制台',
-    'overview'  => '概况',
+    'dashboard' => 'Dashboard',
+    'overview'  => 'Overview',
 
     'attentions' => [
         'attentions' => 'Attentions',
@@ -20,13 +20,13 @@ return [
     ],
 
     'content' => [
-        'content' => '内容管理',
+        'content' => 'Content',
     ],
     'pages' => [
-        'pages'   => '页面',
-        'slug'    => '路径',
-        'title'   => '标题',
-        'body'    => '内容',
+        'pages'   => 'Page',
+        'slug'    => 'Slug',
+        'title'   => 'Title',
+        'body'    => 'Content',
         'add'     => [
             'title'   => '添加页面',
             'success' => '页面添加成功.',

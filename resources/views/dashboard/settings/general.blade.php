@@ -68,8 +68,6 @@
                         </div>
                     </div>
                 </div>
-
-                <input type="hidden" name="remove_banner" value="">
             </form>
         </div>
     </div>
