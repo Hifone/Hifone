@@ -31,6 +31,7 @@ elixir(function (mix) {
             'vendor/bower_components/marked/marked.min.js',
             'vendor/bower_components/markdown/lib/markdown.js',
             'vendor/bower_components/prism/prism.js',
+            'vendor/bower_components/prism/components/prism-php*.min.js',
             'vendor/bower_components/localforage/dist/localforage.min.js',
             'vendor/bower_components/emoji/lib/emoji.js',
             'vendor/bower_components/emojify/dist/js/emojify.min.js',
