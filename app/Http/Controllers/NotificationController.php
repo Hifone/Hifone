@@ -12,8 +12,8 @@
 namespace Hifone\Http\Controllers;
 
 use Auth;
-use Illuminate\Support\Facades\View;
 use Config;
+use Illuminate\Support\Facades\View;
 
 class NotificationController extends Controller
 {
