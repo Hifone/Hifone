@@ -468,52 +468,6 @@
             self.hookPreview($(".editor-toolbar"), $(".topic-editor"));
         },
 
-        initEditorUploader: function() {
-            var self = this;
-            /**
-             * Upload attachment
-             */
-            $('#btn-upload').click(function() {
-                $('.input-file').click();
-            });
-
-            $('.input-file').change(function() {
-                var $form = $('.create_form');
-                var formData = new FormData($form[0]);
-                var progressText = '![Uploading file...]()';
-                var urlText = "![file]({filename})";
-                var filenameTag = '{filename}';
-                var txtBox = $(".topic-editor");
-
-                $.ajax({
-                    url: Config.routes.upload_image,
-                    type: 'POST',
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    beforeSend: function () {
-                        $('#btn-upload').attr('disabled', 'disabled');
-                        txtBox.val(txtBox.val() + progressText);
-                    },
-                    success: function (result) {
-                        var text = txtBox.val().replace(progressText, urlText.replace(filenameTag, result.filename));
-                        txtBox.val(text);
-                    },
-                    error: function (err) {
-                        var text = txtBox.val().replace(progressText, "");
-                        txtBox.val(text);
-                    },
-                    complete: function() {
-                        $('#btn-upload').removeAttr('disabled');
-                    }
-                }, 'json');
-                console.log(formData);
-                return false;
-            });
-
-        },
-
         /**
          * Notify user unread notifications when they stay on the
          *
@@ -608,6 +562,7 @@
          */
         initInlineAttach: function() {
             var self = this;
+
             $('#body_field').inlineattach({
                 uploadUrl: Config.routes.upload_image,
                 extraParams: {
@@ -617,6 +572,74 @@
                     //
                 },
             });
+        },
+
+        initEditorUploader: function() {
+            var self = this;
+            /**
+             * Upload attachment
+             */
+            $('#btn-upload').click(function() {
+                $('.input-file').click();
+            });
+
+            $('.input-file').change(function() {
+                var $form = $('.create_form');
+                var formData = new FormData($form[0]);
+                var progressText = '![Uploading file...]()';
+                var urlText = "![file]({filename})";
+                var filenameTag = '{filename}';
+                var txtBox = $(".topic-editor");
+
+                $.ajax({
+                    url: Config.routes.upload_image,
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function () {
+                        $('#btn-upload').attr('disabled', 'disabled');
+                        self._caretPos(txtBox,progressText,0);
+                    },
+                    success: function (result) {
+                        var text = txtBox.val().replace(progressText, urlText.replace(filenameTag, result.filename));
+                        txtBox.val(text);
+                    },
+                    error: function (err) {
+                        var text = txtBox.val().replace(progressText, "");
+                        txtBox.val(text);
+                    },
+                    complete: function() {
+                        $('#btn-upload').removeAttr('disabled');
+                    }
+                }, 'json');
+                return false;
+            });
+        },
+
+        _caretPos: function(txtBox, merged_txt, pos) {
+            caret_pos = txtBox.caret();
+            src_merged = merged_txt + "\n";
+            source = txtBox.val();
+            before_text = source.slice(0, caret_pos);
+            txtBox.val(before_text + src_merged + source.slice(caret_pos + 1, source.count));
+            txtBox.caret(caret_pos + src_merged.length - pos);
+        },
+
+        /**
+         * Upload avatar of user
+         */
+        uploadAvatar: function() {
+
+            $('.upload-btn').on('click',function(){
+                $('#avatarinput').click();
+            });
+            //upload avatar
+            $('#avatarinput').change(function () {
+                $('#avatarinput-submit').click();
+            });
+
         },
 
         preview: function(body) {
@@ -662,36 +685,16 @@
         },
 
         appendCodesFromHint: function(link) {
+            self = this;
             var before_text, caret_pos, language, prefix_break, source, src_merged, txtBox;
             language = link.data("lang");
             txtBox = $(".topic-editor");
-            caret_pos = txtBox.caret();
-            prefix_break = "";
-            if (txtBox.val().length > 0) {
-              prefix_break = "\n";
-            }
-            src_merged = prefix_break + "```" + language + "\n\n```\n";
-            source = txtBox.val();
-            before_text = source.slice(0, caret_pos);
-            txtBox.val(before_text + src_merged + source.slice(caret_pos + 1, source.count));
-            txtBox.caret(caret_pos + src_merged.length - 5);
+            
+            merged_txt = "\n```" + language + "\n\n```";
+            self._caretPos(txtBox, merged_txt, 5);
             txtBox.focus();
             txtBox.trigger('click');
             return false;
-        },
-        /**
-         * Upload avatar of user
-         */
-        uploadAvatar: function() {
-
-            $('.upload-btn').on('click',function(){
-                $('#avatarinput').click();
-            });
-            //upload avatar
-            $('#avatarinput').change(function () {
-                $('#avatarinput-submit').click();
-            });
-
         },
 
         initCaptcha: function() {
