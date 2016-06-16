@@ -19,15 +19,6 @@ class Adblock extends Model
     use ValidatingTrait;
 
     /**
-     * List of attributes that have default values.
-     *
-     * @var mixed[]
-     */
-    protected $attributes = [
-        'description' => '',
-    ];
-
-    /**
      * The fillable properties.
      *
      * @var string[]
@@ -35,7 +26,6 @@ class Adblock extends Model
     protected $fillable = [
         'name',
         'slug',
-        'description',
     ];
 
     /**
