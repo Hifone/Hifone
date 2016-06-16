@@ -17,6 +17,7 @@ use Hifone\Events\Favorite\FavoriteEventInterface;
 use Hifone\Events\Follow\FollowEventInterface;
 use Hifone\Events\Like\LikeEventInterface;
 use Hifone\Events\Thread\ThreadWasMarkedExcellentEvent;
+use Hifone\Events\Thread\ThreadWasMovedEvent;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
 
@@ -36,6 +37,8 @@ class SendSingleNotificationHandler extends AbstractNotificationHandler
             $this->favorite($event->target);
         } elseif ($event instanceof ThreadWasMarkedExcellentEvent) {
             $this->markedExcellent($event->target);
+        } elseif ($event instanceof ThreadWasMovedEvent) {
+            $this->movedThread($event->target);
         }
     }
 
@@ -68,5 +71,10 @@ class SendSingleNotificationHandler extends AbstractNotificationHandler
     protected function markedExcellent($target)
     {
         $this->notify('thread_mark_excellent', Auth::user(), $target->user, $target);
+    }
+
+    protected function movedThread($target)
+    {
+        $this->notify('thread_move', Auth::user(), $target->user, $target);
     }
 }

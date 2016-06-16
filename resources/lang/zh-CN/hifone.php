@@ -141,6 +141,7 @@ return [
         'thread_like'           => '赞了你的主题',
         'reply_like'            => '赞了你的回复',
         'thread_mark_excellent' => '推荐了你的主题',
+        'thread_move'           => '移动了你的主题',
         'comment_append'        => '留言的话题有新备注',
         'follow_append'         => '关注的话题有新备注',
     ],
