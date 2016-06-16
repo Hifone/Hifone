@@ -29,8 +29,8 @@ return [
     'deleted'          => 'The item has been deleted.',
     'awesome'          => 'Awesome.',
     'whoops'           => 'Whoops',
-    'success'          => 'Success!',
-    'failure'          => 'Failure!',
+    'success'          => 'Operation ran successfully!',
+    'failure'          => 'Operation ran failure!',
     'powered_by'       => 'Copyright &copy; 2015-2016 <a href="http://hifone.com">Hifone</a> ',
     'feed'             => 'Feed',
 // 节点
