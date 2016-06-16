@@ -48,7 +48,7 @@ return [
         'add'            => 'Add a new thread',
         'list'           => 'Threads',
         'recent'         => 'Recent',
-        'excellent'      => 'Excellent threads',
+        'excellent'      => 'Excellent',
         'like'           => 'Popular',
         'noreply'        => 'No reply',
         'stick'          => 'Stick',
