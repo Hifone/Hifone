@@ -11,7 +11,6 @@
 
 namespace Hifone\Console;
 
-use Hifone\Console\Commands\DemoSeederCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -23,7 +22,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        DemoSeederCommand::class,
+        // Commands\Inspire::class,
     ];
 
     /**
