@@ -13,6 +13,7 @@
         "zizaco/entrust": "dev-laravel-5",
         "guzzlehttp/guzzle": "~6.0",
         "alt-three/validator": "^1.5",
+        "doctrine/dbal": "^2.5",
         "graham-campbell/exceptions": "^5.1",
         "socialiteproviders/qq": "^2.0",
         "socialiteproviders/weibo": "^2.0",
