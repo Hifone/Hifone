@@ -29,6 +29,7 @@ class CommandSubscriber
     {
         $this->config = $config;
     }
+
     /**
      * Register the listeners for the subscriber.
      *
