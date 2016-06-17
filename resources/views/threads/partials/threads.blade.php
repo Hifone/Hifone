@@ -43,11 +43,11 @@
                 {{{ $thread->node->name }}}
             </a>
 
+            <span> • </span>
+            <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">
+                {{{ $thread->user->username }}}
+            </a>
             @if ($thread->reply_count == 0)
-                <span> • </span>
-                <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">
-                    {{{ $thread->user->username }}}
-                </a>
                 <span> • </span>
                 <span class="timeago" data-toggle="tooltip" data-placement="top" title="{{ $thread->created_at }}">{{ $thread->created_at }}</span>
             @endif
