@@ -19,7 +19,7 @@ use Hifone\Console\Commands\UpdateCommand;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 
-class InstallerServiceProvider extends ServiceProvider
+class ConsoleServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
@@ -56,7 +56,6 @@ class InstallerServiceProvider extends ServiceProvider
         $this->registerInstallCommand();
         $this->registerResetCommand();
         $this->registerSeedCommand();
-        $this->registerCommandSubscriber();
     }
 
     /**
@@ -112,18 +111,6 @@ class InstallerServiceProvider extends ServiceProvider
             $events = $app['events'];
 
             return new SeedCommand($events);
-        });
-    }
-
-    /**
-     * Register the command subscriber class.
-     *
-     * @return void
-     */
-    protected function registerCommandSubscriber()
-    {
-        $this->app->singleton(CommandSubscriber::class, function () {
-            return new CommandSubscriber();
         });
     }
 
