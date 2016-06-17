@@ -17,7 +17,7 @@
         <li><a data-lang="shell" href="#">Shell / Bash</a></li>
       </ul>
     </span>
-    <a id="btn-upload" href="javascript:void(0);" data-toggle="tooltip" data-placement="bottom" title="上传图片"><i class="fa fa-image"></i> </a>
+    <a class="btn-upload" href="javascript:void(0);" data-toggle="tooltip" data-placement="bottom" title="上传图片"><i class="fa fa-image"></i> </a>
     <input type="file" name="file" class="input-file" style="display: none;" />
   </div>
   <ul class="nav nav-pills" style="clear:none;">

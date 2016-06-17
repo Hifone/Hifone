@@ -579,7 +579,7 @@
             /**
              * Upload attachment
              */
-            $('#btn-upload').click(function() {
+            $('.btn-upload').click(function() {
                 $('.input-file').click();
             });
 
@@ -599,7 +599,7 @@
                     contentType: false,
                     processData: false,
                     beforeSend: function () {
-                        $('#btn-upload').attr('disabled', 'disabled');
+                        $('.btn-upload').attr('disabled', 'disabled');
                         self._caretPos(txtBox,progressText,0);
                     },
                     success: function (result) {
@@ -611,7 +611,7 @@
                         txtBox.val(text);
                     },
                     complete: function() {
-                        $('#btn-upload').removeAttr('disabled');
+                        $('.btn-upload').removeAttr('disabled');
                     }
                 }, 'json');
                 return false;
@@ -670,6 +670,7 @@
               $(textarea).show();
               $('.status-post-submit').show();
               $('#editor-toolbar-insert-code').show();
+              $('.btn-upload').show();
               return false;
             });
             return $(".preview a", switcher).click(function() {
@@ -679,6 +680,7 @@
               $(textarea).hide();
               $('.status-post-submit').hide();
               $('#editor-toolbar-insert-code').hide();
+              $('.btn-upload').hide();
               self.preview($(textarea).val());
               return false;
             });

@@ -19,7 +19,7 @@ return [
     'logout_confirm'   => 'Are you sure want to sign out?',
     'signup'           => 'Sign up',
     'noitem'           => 'No items',
-    'markdown_support' => 'Support markdown',
+    'markdown_support' => 'Styling with Markdown is supported',
     'at'               => 'at',
     'view_count'       => 'Views',
     'follow'           => 'Follow',
@@ -53,7 +53,7 @@ return [
         'noreply'        => 'No reply',
         'stick'          => 'Stick',
         'recommended'    => 'Recommended',
-        'last_reply_by'  => 'by',
+        'last_reply_by'  => 'replied by',
         'more'           => 'more',
         'noitem'         => 'There are no threads.',
         'is_excellent'   => 'The thread has been marked excellent！',
@@ -93,6 +93,11 @@ return [
         'total'          => 'Total',
         'noitem'         => 'There are no replies.',
         'login_required' => 'Sign in required.',
+    ],
+
+// 图片
+    'photos' => [
+        'drag_drop' => 'Image files by dragging & dropping,<a class="btn-upload" href="javascript:void(0);">selecting them</a>, or pasting from the clipboard.',
     ],
 
 // 用户

@@ -95,6 +95,11 @@ return [
         'login_required' => '需要登录后才能发表评论.',
     ],
 
+// 图片
+    'photos' => [
+        'drag_drop' => '支持在编辑框拖拽、复制粘贴或<a class="btn-upload" href="javascript:void(0);">浏览本地文件</a>进行图片上传.',
+    ],
+
 // 用户
     'users' => [
         'users'                     => '用户',

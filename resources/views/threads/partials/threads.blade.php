@@ -31,18 +31,15 @@
           </div>
          
           <div class="media-body meta">
-
             @if ($thread->like_count > 0)
                 <a href="{{ route('thread.show', [$thread->id]) }}" class="remove-padding-left" id="pin-{{ $thread->id }}">
                     <span class="fa fa-thumbs-o-up"> {{ $thread->like_count }} </span>
                 </a>
-                <span> •  </span>
+                <span> • </span>
             @endif
-
             <a href="{{ $thread->node->url }}" title="{{{ $thread->node->name }}}" {{ $thread->like_count == 0 || 'class="remove-padding-left"'}}>
                 {{{ $thread->node->name }}}
             </a>
-
             <span> • </span>
             <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">
                 {{{ $thread->user->username }}}
@@ -51,11 +48,10 @@
                 <span> • </span>
                 <span class="timeago" data-toggle="tooltip" data-placement="top" title="{{ $thread->created_at }}">{{ $thread->created_at }}</span>
             @endif
-
             @if ($thread->reply_count > 0 && count($thread->lastReplyUser))
-                <span> • </span>{{ trans('hifone.threads.last_reply_by') }}
-                <a href="{{{ URL::route('user.home', [$thread->lastReplyUser->username]) }}}">
-                  {{{ $thread->lastReplyUser->username }}}
+                <span> • {{ trans('hifone.threads.last_reply_by') }}</span>
+                <a href="{{ route('user.home', [$thread->lastReplyUser->username]) }}">
+                  {{ $thread->lastReplyUser->username }}
                 </a>
                 <span> • </span>
                 <span class="timeago" data-toggle="tooltip" data-placement="top" title="{{ $thread->updated_at }}">{{ $thread->updated_at }}</span>

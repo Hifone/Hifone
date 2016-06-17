@@ -42,7 +42,7 @@
         <!-- end -->
         <div class="form-group">
           {!! Form::textarea('thread[body]', isset($thread) ? $thread->body_original : null, ['class' => 'topic-editor form-control',
-                                            'rows' => 20,
+                                            'rows' => 15,
                                             'style' => "overflow:hidden",
                                             'id' => 'body_field',
                                             'placeholder' => trans('hifone.markdown_support')]) !!}
@@ -51,7 +51,9 @@
         <div class="form-group status-post-submit">
           {!! Form::submit(trans('forms.publish'), ['class' => 'btn btn-primary col-xs-2', 'id' => 'thread-create-submit']) !!}
           <div class="pull-right">
+            <small>{!! trans('hifone.photos.drag_drop') !!}</small>
             <a href="/markdown" target="_blank"><i class="fa fa-lightbulb-o"></i> 排版说明</a>
+            </small>
           </div>
         </div>
 

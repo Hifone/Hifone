@@ -99,6 +99,9 @@
         <div class="form-group status-post-submit">
               {!! Form::submit(trans('forms.publish'), ['class' => 'btn btn-primary', 'id' => 'reply-create-submit']) !!}
             &nbsp;<span class="help-inline" title="Or Command + Enter">Ctrl+Enter</span>
+            <span class="pull-right">
+              <small>{!! trans('hifone.photos.drag_drop') !!}</small>
+            </span>
         </div>
     {!! Form::close() !!}
     @else
