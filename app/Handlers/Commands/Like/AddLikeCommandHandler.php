@@ -65,7 +65,7 @@ class AddLikeCommandHandler
             $target->increment('like_count', 2);
         } else {
             // first time click
-            $target->likes()->create(['user_id' => Auth::id(), 'rating' => Like::UNLIKE]);
+            $target->likes()->create(['user_id' => Auth::id(), 'rating' => Like::LIKE]);
             $target->increment('like_count', 1);
 
             event(new LikeWasAddedEvent($target));
@@ -81,7 +81,7 @@ class AddLikeCommandHandler
         } elseif ($target->likes()->ByWhom(Auth::id())->WithUp()->count()) {
             // user already clicked like once
             $target->likes()->ByWhom(Auth::id())->WithUp()->delete();
-            $target->likes()->create(['user_id' => Auth::id(), 'rating' => Like::LIKE]);
+            $target->likes()->create(['user_id' => Auth::id(), 'rating' => Like::UNLIKE]);
             $target->decrement('like_count', 2);
         } else {
             // click first time
