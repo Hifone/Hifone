@@ -49,7 +49,12 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login')
+                $method = 'guest';
+                if($request->method() === 'POST') {
+                    app('session')->put('url.intended',back_url());
+                    $method = 'to';
+                }
+                return redirect()->$method('auth/login')
                     ->withInfo(trans('hifone.login.auth_prompt'));
             }
         }
