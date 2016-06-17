@@ -50,10 +50,11 @@ class Authenticate
                 return response('Unauthorized.', 401);
             } else {
                 $method = 'guest';
-                if($request->method() === 'POST') {
-                    app('session')->put('url.intended',back_url());
+                if ($request->method() === 'POST') {
+                    app('session')->put('url.intended', back_url());
                     $method = 'to';
                 }
+
                 return redirect()->$method('auth/login')
                     ->withInfo(trans('hifone.login.auth_prompt'));
             }
