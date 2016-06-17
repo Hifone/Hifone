@@ -155,11 +155,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Arrilot\Widgets\ServiceProvider::class,
+        BackupManager\Laravel\Laravel5ServiceProvider::class,
+        Collective\Bus\BusServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
-        Arrilot\Widgets\ServiceProvider::class,
-        Collective\Bus\BusServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         //Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
@@ -178,7 +178,7 @@ return [
         Hifone\Providers\ConfigServiceProvider::class,
         Hifone\Providers\EventServiceProvider::class,
         Hifone\Providers\RouteServiceProvider::class,
-        Hifone\Providers\InstallerServiceProvider::class,
+        Hifone\Providers\ConsoleServiceProvider::class,
     ],
 
     /*

@@ -11,11 +11,25 @@
 
 namespace Hifone\Console\Commands\Subscribers;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class CommandSubscriber
 {
+    /**
+     * The config repository instance.
+     *
+     * @var \Illuminate\Contracts\Config\Repository
+     */
+    protected $config;
+
+    public function __construct(Repository $config)
+    {
+        $this->config = $config;
+    }
+
     /**
      * Register the listeners for the subscriber.
      *
@@ -33,6 +47,37 @@ class CommandSubscriber
         $events->listen('command.runmigrations', __CLASS__.'@onRunMigrations', 5);
         $events->listen('command.runseeding', __CLASS__.'@onRunSeeding', 5);
         $events->listen('command.updatecache', __CLASS__.'@onUpdateCache', 5);
+
+        $events->listen('command.installing', __CLASS__.'@onRunBackup', 5);
+        $events->listen('command.updating', __CLASS__.'@onRunBackup', 5);
+        $events->listen('command.resetting', __CLASS__.'@onRunBackup', 5);
+    }
+
+    /**
+     * Clear the settings cache, and backup the databases.
+     *
+     * @param \Illuminate\Console\Command $command
+     *
+     * @return void
+     */
+    public function onRunBackup(Command $command)
+    {
+        $command->line('Clearing settings cache...');
+        $command->line('Settings cache cleared!');
+        $command->line('Backing up database...');
+        try {
+            $command->call('db:backup', [
+                '--compression'     => 'gzip',
+                '--database'        => $this->config->get('database.default'),
+                '--destination'     => 'local',
+                '--destinationPath' => Carbon::now()->format('Y-m-d_H.i.s'),
+                '--no-interaction'  => true,
+            ]);
+        } catch (Exception $e) {
+            $command->error($e->getMessage());
+            $command->line('Backup skipped!');
+        }
+        $command->line('Backup completed!');
     }
 
     /**
