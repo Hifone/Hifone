@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-xs-5 text-right">
                     <a href="/dashboard/section/{{ $section->id }}/edit" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
-                    <a href="/dashboard/section/{{ $section->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method="delete">{{ trans('forms.delete') }}</a>
+                    <a data-url="/dashboard/section/{{ $section->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method="delete">{{ trans('forms.delete') }}</a>
                 </div>
             </div>
             @empty

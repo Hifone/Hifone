@@ -31,7 +31,7 @@
             <td>{{ $reply->created_at }}</td>
             <td>
                 <a href="/dashboard/reply/{{ $reply->id }}/edit"><i class="fa fa-pencil"></i></a> 
-                <a href="/dashboard/reply/{{ $reply->id }}" data-method="delete" class="confirm-action"><i class="fa fa-trash"></i></a>
+                <a data-url="/dashboard/reply/{{ $reply->id }}" data-method="delete" class="confirm-action"><i class="fa fa-trash"></i></a>
             </td>
             </tr>
             @endforeach

@@ -27,7 +27,7 @@
                         <a href="{{ route('user.home', $photo->user->username) }}" target="_blank">{{ $photo->user->username }}</a>
                     </div>
                     <div class="col-xs-3 text-right">
-                        <a href="/dashboard/photo/{{ $photo->id }}" class="btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                        <a data-url="/dashboard/photo/{{ $photo->id }}" class="btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                     </div>
                 </div>
                 @endforeach

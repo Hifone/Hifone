@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-xs-2 text-right">
                             <a href="/dashboard/user/{{ $user->id }}/edit" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
-                            <a href="/dashboard/user/{{ $user->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                            <a data-url="/dashboard/user/{{ $user->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                         </div>
                     </div>
                     @endforeach

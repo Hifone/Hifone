@@ -39,9 +39,9 @@
                     {{ $thread->created_at }}
                 </td>
                 <td>
-                    <a href="/dashboard/thread/{{$thread->id}}/pin" data-method="post" class="confirm-action"><i class="fa fa-thumb-tack"></i></a> 
+                    <a data-url="/dashboard/thread/{{$thread->id}}/pin" data-method="post" class="confirm-action"><i class="fa fa-thumb-tack"></i></a> 
                     <a href="/dashboard/thread/{{ $thread->id }}/edit"><i class="fa fa-pencil"></i></a> 
-                    <a href="/dashboard/thread/{{ $thread->id }}" data-method="delete" class="confirm-action"><i class="fa fa-trash"></i></a>
+                    <a data-url="/dashboard/thread/{{ $thread->id }}" data-method="delete" class="confirm-action"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
               @endforeach

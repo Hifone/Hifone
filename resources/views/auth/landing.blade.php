@@ -24,7 +24,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">2. 还没有Hifone账号</div>
                         <div class="panel-body text-center">
-                            <a href="/auth/register" class="btn btn-info btn-lg" data-method='post'>自动注册</a>
+                            <a data-url="/auth/register" class="btn btn-info btn-lg" data-method='post'>自动注册</a>
                         </div>
                     </div>
                 </div>
