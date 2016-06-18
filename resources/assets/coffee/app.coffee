@@ -3,18 +3,17 @@ AppView = Backbone.View.extend
   repliesPerPage: 50
   windowInActive: true
 
-  events:
-    "click a.likeable": "likeable"
-    "click a.captcha-image-box": "reLoadCaptchaImage"
-
   initialize: ->
     @initComponents()
 
-    if $('body').data('controller-name') in ['thread', 'reply']
-      window._threadView = new ThreadView({parentView: @})
+    if $('body').data('page') in ['forum']
+      window._forumView = new ForumView({parentView: @})
 
-    if $('body').data('controller-name') in ['page']
-      window._pageView = new PageView({parentView: @})
+    if $('body').data('page') in ['dashboard']
+      window._dashboardView = new DashboardView({parentView: @})
+
+    if $('body').data('page') in ['install']
+      window._installView = new InstallView({parentView: @})
 
   initComponents: () ->
     #$("abbr.timeago").timeago()
@@ -31,59 +30,6 @@ AppView = Backbone.View.extend
 
     $(window).off "blur.inactive focus.inactive"
     $(window).on "blur.inactive focus.inactive", @updateWindowActiveState
-
-  likeable : (e) ->
-    if !App.isLogined()
-      location.href = "/auth/login"
-      return false
-
-    $target = $(e.currentTarget)
-    likeable_type = $target.data("type")
-    likeable_id = $target.data("id")
-    likes_count = parseInt($target.data("count"))
-
-    $el = $(".likeable[data-type='#{likeable_type}'][data-id='#{likeable_id}']")
-
-    if $el.data("state") != "active"
-      $.ajax
-        url : "/like"
-        type : "POST"
-        data :
-          type : likeable_type
-          id : likeable_id
-
-      likes_count += 1
-      $el.data('count', likes_count)
-      @likeableAsLiked($el)
-      $("i.fa", $el).attr("class","fa fa-heart")
-    else
-      $.ajax
-        url : "/like/#{likeable_id}"
-        type : "DELETE"
-        data :
-          type : likeable_type
-      if likes_count > 0
-        likes_count -= 1
-      $el.data("state","").data('count', likes_count).attr("title", "").removeClass("active")
-      if likes_count == 0
-        $('span', $el).text("")
-      else
-        $('span', $el).text("#{likes_count} 个赞")
-      $("i.fa", $el).attr("class","fa fa-heart-o")
-    false
-
-  likeableAsLiked : (el) ->
-    likes_count = el.data("count")
-    el.data("state","active").attr("title", "取消赞").addClass("active")
-    $('span',el).text("#{likes_count} 个赞")
-    $("i.fa",el).attr("class","fa fa-heart")
-
-  reLoadCaptchaImage: (e) ->
-    btn = $(e.currentTarget)
-    img = btn.find('img:first')
-    currentSrc = img.attr('src')
-    img.attr('src', currentSrc.split('?')[0] + '?' + (new Date()).getTime())
-    return false
 
   updateWindowActiveState: (e) ->
     prevType = $(this).data("prevType")
@@ -128,14 +74,72 @@ window.App =
   openUrl : (url) ->
     window.open(url)
 
-  # scan logins in jQuery collection and returns as a object,
-  # which key is login, and value is the name.
-  scanLogins: (query) ->
-    result = {}
-    for e in query
-      $e = $(e)
-      result[$e.text()] = $e.attr('data-name')
-    result
+  initTextareaAutoResize: ->
+    $('textarea').autosize()
+    return
+
+  initAjax: ->
+    # Ajax Setup
+    $.ajaxPrefilter (options, originalOptions, jqXHR) ->
+      token = undefined
+      if !options.crossDomain
+        token = $('meta[name="token"]').attr('content')
+        if token
+          jqXHR.setRequestHeader 'X-CSRF-Token', token
+      jqXHR
+    $.ajaxSetup beforeSend: (xhr) ->
+      xhr.setRequestHeader 'Accept', 'application/json'
+      # xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+      return
+    # Prevent double form submission
+    $('form').submit ->
+      $form = $(this)
+      $form.find(':submit').prop 'disabled', true
+      return
+    return
+
+  initDeleteForm: ->
+    $('[data-method]').append(->
+      data_url = $(this).attr('data-url')
+      '\n' + '<form action=\'' + data_url + '\' method=\'POST\' style=\'display:none\'>\n' + '   <input type=\'hidden\' name=\'_method\' value=\'' + $(this).attr('data-method') + '\'>\n' + '   <input type=\'hidden\' name=\'_token\' value=\'' + Config.token + '\'>\n' + '</form>\n'
+    ).attr('style', 'cursor:pointer;').removeAttr('href').click ->
+      button = $(this)
+      if button.hasClass('confirm-action')
+        swal {
+          type: 'warning'
+          title: 'Confirm your action'
+          text: 'Are you sure you want to do this?'
+          confirmButtonText: 'Yes'
+          confirmButtonColor: '#FF6F6F'
+          showCancelButton: true
+        }, ->
+          button.find('form').submit()
+          return
+      else
+        button.find('form').submit()
+      return
+    return
+
+  initMessenger: ->
+    # Messenger config
+    Messenger.options =
+      extraClasses: 'messenger-fixed messenger-on-top'
+      theme: 'air'
+    return
+
+  Notifier: ->
+    @notify = (message, type, options) ->
+      if _.isPlainObject(message)
+        message = message.detail
+      type = if typeof type == 'undefined' or type == 'error' then 'error' else type
+      defaultOptions = 
+        message: message
+        type: type
+        showCloseButton: true
+      options = _.extend(defaultOptions, options)
+      Messenger().post options
+      return
+    return
 
 $ ->
   window._appView = new AppView()

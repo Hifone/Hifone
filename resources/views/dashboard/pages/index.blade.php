@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-xs-3 text-right">
                         <a href="/dashboard/page/{{ $page->id }}/edit" class="btn btn-default">{{ trans('forms.edit') }}</a>
-                        <a href="/dashboard/page/{{ $page->id }}" class="btn btn-danger confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                        <a data-url="/dashboard/page/{{ $page->id }}" class="btn btn-danger confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                     </div>
                 </div>
                 @endforeach

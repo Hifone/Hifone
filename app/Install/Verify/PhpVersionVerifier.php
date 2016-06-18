@@ -24,7 +24,7 @@ class PhpVersionVerifier extends AbstractVerifier
 
     public function getName()
     {
-        return 'PHP Versie >= '.$this->majorVersion.'.'.$this->minorVersion.' ('.PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION.')';
+        return 'PHP Version >= '.$this->majorVersion.'.'.$this->minorVersion.' ('.PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION.')';
     }
 
     /**
