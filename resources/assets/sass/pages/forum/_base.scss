@@ -206,6 +206,14 @@ body.forum {
   a:hover {
     color: rgb(240, 148, 87);
   }
+
+  @media (min-width: 1026px) {
+    .hideable { display: none; }
+  }
+  &:hover {
+    .hideable { display: inline-block; }
+  }
+
 }
 
 .badge-reply-count {

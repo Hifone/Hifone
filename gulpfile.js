@@ -1,4 +1,13 @@
-var elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir'),
+    gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    coffee = require('gulp-coffee');
+
+gulp.task('coffee', function() {
+  gulp.src('./resouces/assets/coffee/**/*.coffee')
+    .pipe(gulp.dest('./public/dist/coffee/'))
+    .pipe(coffee({bare: true}).on('error', gutil.log));
+});
 
 elixir.config.production = true;
 elixir.config.sourcemaps = false;
@@ -14,9 +23,12 @@ elixir(function (mix) {
             'vendor/bower_components/ekko-lightbox/dist/ekko-lightbox.css',
             'public/dist/css/app.css'
         ], 'public/dist/css/all.css', './')
+        .coffee()
         .scripts([
             'vendor/bower_components/jquery/dist/jquery.js',
             'vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+            'vendor/bower_components/underscore/underscore-min.js',
+            'vendor/bower_components/backbone/backbone-min.js',
             'vendor/bower_components/sweetalert/dist/sweetalert.min.js',
             'vendor/bower_components/moment/min/moment-with-locales.js',
             'vendor/bower_components/lodash/lodash.js',
@@ -40,7 +52,8 @@ elixir(function (mix) {
             'vendor/bower_components/select2/dist/js/select2.min.js',
             'vendor/bower_components/inline-attachment/src/inline-attach.js',
             'vendor/bower_components/inline-attachment/src/jquery.inline-attach.js',
-            'resources/assets/js/*.js'
+            'resources/assets/js/*.js',
+            'public/js/app.js'
         ], 'public/dist/js/all.js', './')
         .version(['public/dist/css/all.css', 'public/dist/js/all.js'])
         .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/')
