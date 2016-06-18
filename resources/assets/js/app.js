@@ -72,7 +72,6 @@
             self.uploadAvatar();
             self.forceImageDataType();
             self.initToolTips();
-            self.initCaptcha();
             self.initLightBox();
             self.initNotificationsCount();
         },
@@ -698,15 +697,6 @@
             txtBox.trigger('click');
             return false;
         },
-
-        initCaptcha: function() {
-            var captchaImg = $('.captcha_img');
-            captchaImg.attr('style','cursor:pointer;')
-            .on('click', function(){
-                captchaImg.attr('src', "/captcha?random=" + Math.random());
-            });
-        },
-
         /**
          * Force image data type, fixing the "Could not detect remote target type..."
          * problem.

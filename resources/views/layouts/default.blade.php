@@ -23,6 +23,7 @@
                 },
                 'token': '{{ csrf_token() }}',
             };
+            App.current_user_id = {{ Auth::user() ? Auth::user()->id : 'null' }};
         </script>
 
         @yield('styles')

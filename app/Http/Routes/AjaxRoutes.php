@@ -54,6 +54,7 @@ class AjaxRoutes
                 'uses'       => 'ThreadController@destroy',
             ]);
 
+            $router->resource('like', 'LikeController');
             //
             $router->post('/thread/{thread}/like', [
                 'as'   => 'thread.like',
