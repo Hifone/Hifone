@@ -47,5 +47,5 @@ window.InstallView = Backbone.View.extend
     # validation was ok. We can go on next step.
     $('.block-' + current).removeClass('show').addClass 'hidden'
     $('.block-' + next).removeClass('hidden').addClass 'show'
-    $('.steps .step').removeClass('active').filter(':lt(' + next + 1 + ')').addClass 'active'
+    $('.steps .step').removeClass('active').filter(':lt(' + (next + 1) + ')').addClass 'active'
     return

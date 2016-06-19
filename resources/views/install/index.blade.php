@@ -39,7 +39,7 @@
                     <tr>
                         <th></th>
                         <th>Requirement</th>
-                        <th>is OK?</th>
+                        <th>Pass?</th>
                     </tr>
                 </thead>
                 <tbody>
