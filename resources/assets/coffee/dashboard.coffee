@@ -9,10 +9,9 @@ window.DashboardView = Backbone.View.extend
   initComponents : ->
     self = this
     
-    App.initAjax()
-    App.initTextareaAutoResize()
-    App.initDeleteForm()
-    App.initMessenger()
+    Hifone.initAjax()
+    Hifone.initTextareaAutoResize()
+    Hifone.initDeleteForm()
 
     self.initSortable()
     self.initSidebarToggle()
@@ -43,10 +42,10 @@ window.DashboardView = Backbone.View.extend
             type: 'POST'
             data: ids: orderedItemIds
             success: ->
-              (new (App.Notifier)).notify 'Items order has been updated.', 'success'
+              $.notifier.notify 'Items order has been updated.', 'success'
               return
             error: ->
-              (new (App.Notifier)).notify 'Items order could not be updated.', 'error'
+              $.notifier.notify 'Items order could not be updated.', 'error'
               return
           return
       )

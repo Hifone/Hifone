@@ -17,9 +17,9 @@ window.ForumView = Backbone.View.extend
   initComponents : ->
     self = this
 
-    App.initAjax()
-    App.initTextareaAutoResize()
-    App.initDeleteForm()
+    Hifone.initAjax()
+    Hifone.initTextareaAutoResize()
+    Hifone.initDeleteForm()
 
     self.initScrollToTop()
     self.forceImageDataType()
@@ -106,7 +106,7 @@ window.ForumView = Backbone.View.extend
 
   initEmoji: ->
     emojify.setConfig
-      img_dir: App.emoj_cdn + '/assets/images/emoji'
+      img_dir: Hifone.Config.emoj_cdn + '/assets/images/emoji'
       ignored_tags:
         'SCRIPT': 1
         'TEXTAREA': 1
@@ -122,7 +122,7 @@ window.ForumView = Backbone.View.extend
         )
         return
       template: (value) ->
-        '<img src="' + App.emoj_cdn + '/assets/images/emoji/' + value + '.png"></img>' + value
+        '<img src="' + Hifone.Config.emoj_cdn + '/assets/images/emoji/' + value + '.png"></img>' + value
       replace: (value) ->
         ':' + value + ': '
       index: 1
@@ -140,8 +140,8 @@ window.ForumView = Backbone.View.extend
 
   initInlineAttach: ->
     $('#body_field').inlineattach
-      uploadUrl: App.uploader_url
-      extraParams: '_token': App.token
+      uploadUrl: Hifone.Config.uploader_url
+      extraParams: '_token': Hifone.Config.token
       onUploadedFile: (response) ->
         #
         return
@@ -158,8 +158,8 @@ window.ForumView = Backbone.View.extend
 
   initNotificationsCount: ->
     self = this
-    if App.current_user_id > 0
-      $.get App.notification_url, (data) ->
+    if Hifone.Config.current_user_id > 0
+      $.get Hifone.Config.notification_url, (data) ->
         nCount = parseInt(data)
         self.resetTitle(nCount)
         return
@@ -178,7 +178,7 @@ window.ForumView = Backbone.View.extend
       filenameTag = '{filename}'
       txtBox = $('.post-editor')
       $.ajax {
-        url: App.uploader_url
+        url: Hifone.Config.uploader_url
         type: 'POST'
         data: formData
         cache: false
@@ -363,7 +363,7 @@ window.ForumView = Backbone.View.extend
     return
 
   likeable : (e) ->
-    if !App.isLogined()
+    if !Hifone.isLogined()
       location.href = "/auth/login"
       return false
 

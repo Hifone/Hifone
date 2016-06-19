@@ -14,14 +14,14 @@ elixir.config.sourcemaps = false;
 
 elixir(function (mix) {
     mix
-        .sass('app.scss', 'public/dist/css/app.css')
+        .sass('hifone.scss', 'public/dist/css/hifone.css')
         .styles([
             'vendor/bower_components/prism/themes/prism-okaidia.css',
             'vendor/bower_components/nprogress/nprogress.css',
             'vendor/bower_components/messenger/build/css/messenger*.css',
             'vendor/bower_components/select2/dist/css/select2.css',
             'vendor/bower_components/ekko-lightbox/dist/ekko-lightbox.css',
-            'public/dist/css/app.css'
+            'public/dist/css/hifone.css'
         ], 'public/dist/css/all.css', './')
         .coffee()
         .scripts([

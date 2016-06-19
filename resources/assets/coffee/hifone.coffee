@@ -1,4 +1,4 @@
-AppView = Backbone.View.extend
+HifoneView = Backbone.View.extend
   el: "body"
   repliesPerPage: 50
   windowInActive: true
@@ -43,7 +43,17 @@ AppView = Backbone.View.extend
 
     $(this).data("prevType", e.type)
 
-window.App =
+window.Hifone =
+  Config:
+    locale: 'zh-CN'
+    current_user_id: null
+    token: ''
+    emoj_cdn : ''
+    notification_url: ''
+    uploader_url: ''
+    asset_url : ''
+    root_url : ''
+
   locale: 'zh-CN'
   current_user_id: null
   token : ''
@@ -54,7 +64,7 @@ window.App =
   root_url : ''
 
   isLogined : ->
-    App.current_user_id != null
+    Hifone.Config.current_user_id != null
 
   loading : () ->
     console.log "loading..."
@@ -102,7 +112,7 @@ window.App =
   initDeleteForm: ->
     $('[data-method]').append(->
       data_url = $(this).attr('data-url')
-      '\n' + '<form action=\'' + data_url + '\' method=\'POST\' style=\'display:none\'>\n' + '   <input type=\'hidden\' name=\'_method\' value=\'' + $(this).attr('data-method') + '\'>\n' + '   <input type=\'hidden\' name=\'_token\' value=\'' + App.token + '\'>\n' + '</form>\n'
+      '\n' + '<form action=\'' + data_url + '\' method=\'POST\' style=\'display:none\'>\n' + '   <input type=\'hidden\' name=\'_method\' value=\'' + $(this).attr('data-method') + '\'>\n' + '   <input type=\'hidden\' name=\'_token\' value=\'' + Hifone.Config.token + '\'>\n' + '</form>\n'
     ).attr('style', 'cursor:pointer;').removeAttr('href').click ->
       button = $(this)
       if button.hasClass('confirm-action')
@@ -121,26 +131,5 @@ window.App =
       return
     return
 
-  initMessenger: ->
-    # Messenger config
-    Messenger.options =
-      extraClasses: 'messenger-fixed messenger-on-top'
-      theme: 'air'
-    return
-
-  Notifier: ->
-    @notify = (message, type, options) ->
-      if _.isPlainObject(message)
-        message = message.detail
-      type = if typeof type == 'undefined' or type == 'error' then 'error' else type
-      defaultOptions = 
-        message: message
-        type: type
-        showCloseButton: true
-      options = _.extend(defaultOptions, options)
-      Messenger().post options
-      return
-    return
-
 $ ->
-  window._appView = new AppView()
+  window._hifoneView = new HifoneView()
