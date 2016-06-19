@@ -55,6 +55,5 @@ elixir(function (mix) {
             'public/js/app.js'
         ], 'public/dist/js/all.js', './')
         .version(['public/dist/css/all.css', 'public/dist/js/all.js'])
-        .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/')
-        .copy('vendor/bower_components/ionicons/fonts/', 'public/fonts/');
+        .copy('vendor/bower_components/font-awesome/fonts/', 'public/fonts/');
 });
