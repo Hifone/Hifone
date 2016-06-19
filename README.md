@@ -55,6 +55,7 @@ php artisan hifone:install
 
 chmod -R 777 storage
 chmod -R 777 bootstrap/cache
+chmod -R 777 public/uploads
 ```
 
 ### Step 2: Browser
