@@ -6,6 +6,7 @@ window.ForumView = Backbone.View.extend
   events:
     "click a.likeable": "likeable"
     "click a.captcha-image-box": "reLoadCaptchaImage"
+    "click a.btn-reply2reply": "reply2reply"
 
   initialize: (opts) ->
     @parentView = opts.parentView
@@ -38,9 +39,6 @@ window.ForumView = Backbone.View.extend
     self.initAutocompleteAtUser()
     self.initEditorPreview()
     self.initLocalStorage()
-
-    self.initReplyOnPressKey()
-    self.initReply2Reply()
 
     self.uploadAvatar()
 
@@ -108,7 +106,7 @@ window.ForumView = Backbone.View.extend
 
   initEmoji: ->
     emojify.setConfig
-      img_dir: Config.cdnDomain + '/assets/images/emoji'
+      img_dir: App.emoj_cdn + '/assets/images/emoji'
       ignored_tags:
         'SCRIPT': 1
         'TEXTAREA': 1
@@ -124,7 +122,7 @@ window.ForumView = Backbone.View.extend
         )
         return
       template: (value) ->
-        '<img src="' + Config.cdnDomain + '/assets/images/emoji/' + value + '.png"></img>' + value
+        '<img src="' + App.emoj_cdn + '/assets/images/emoji/' + value + '.png"></img>' + value
       replace: (value) ->
         ':' + value + ': '
       index: 1
@@ -142,8 +140,8 @@ window.ForumView = Backbone.View.extend
 
   initInlineAttach: ->
     $('#body_field').inlineattach
-      uploadUrl: Config.routes.upload_image
-      extraParams: '_token': Config.token
+      uploadUrl: App.uploader_url
+      extraParams: '_token': App.token
       onUploadedFile: (response) ->
         #
         return
@@ -160,8 +158,8 @@ window.ForumView = Backbone.View.extend
 
   initNotificationsCount: ->
     self = this
-    if Config.user_id > 0
-      $.get Config.routes.notification_count, (data) ->
+    if App.current_user_id > 0
+      $.get App.notification_url, (data) ->
         nCount = parseInt(data)
         self.resetTitle(nCount)
         return
@@ -178,9 +176,9 @@ window.ForumView = Backbone.View.extend
       progressText = '![Uploading file...]()'
       urlText = '![file]({filename})'
       filenameTag = '{filename}'
-      txtBox = $('.topic-editor')
+      txtBox = $('.post-editor')
       $.ajax {
-        url: Config.routes.upload_image
+        url: App.uploader_url
         type: 'POST'
         data: formData
         cache: false
@@ -210,7 +208,7 @@ window.ForumView = Backbone.View.extend
     self = this
     $('.insert-codes a').on 'click', ->
       self.appendCodesFromHint $(this)
-    self.hookPreview $('.editor-toolbar'), $('.topic-editor')
+    self.hookPreview $('.editor-toolbar'), $('.post-editor')
     return
 
   initAutocompleteAtUser: ->
@@ -285,7 +283,7 @@ window.ForumView = Backbone.View.extend
     src_merged = undefined
     txtBox = undefined
     language = link.data('lang')
-    txtBox = $('.topic-editor')
+    txtBox = $('.post-editor')
     merged_txt = '\n```' + language + '\n\n```'
     self._caretPos txtBox, merged_txt, 5
     txtBox.focus()
@@ -339,44 +337,20 @@ window.ForumView = Backbone.View.extend
       return
     return
 
-  initReplyOnPressKey: ->
-    $(document).on 'keydown', '#body_field', (e) ->
-      if (e.keyCode == 10 or e.keyCode == 13) and e.ctrlKey
-        $(this).parents('form').submit()
-        return false
-      return
-    return
-
-  initReply2Reply: ->
-    $('.btn-reply2reply').on 'click', ->
-      button = $(this)
-      username = button.attr('data-username')
-      replyContent = $('#body_field')
-      oldContent = replyContent.val()
-      prefix = '@' + username + ' '
-      newContent = ''
-      if oldContent.length > 0
-        if oldContent != prefix
-          newContent = oldContent + '\n' + prefix
-      else
-        newContent = prefix
-      replyContent.focus()
-      replyContent.val newContent
-      self._moveEnd $('#body_field')
-      return
-    return
-
-  _moveEnd: (obj) ->
-    obj.focus()
-    len = if obj.value == undefined then 0 else obj.value.length
-    if document.selection
-      sel = obj.createTextRange()
-      sel.moveStart 'character', len
-      sel.collapse()
-      sel.select()
-    else if typeof obj.selectionStart == 'number' and typeof obj.selectionEnd == 'number'
-      obj.selectionStart = obj.selectionEnd = len
-    return
+  reply2reply: (e) ->
+    _el = $(e.target)
+    username = _el.data('username')
+    replyContent = $('#body_field')
+    oldContent = replyContent.val()
+    prefix = '@' + username + ' '
+    newContent = ''
+    if oldContent.length > 0
+      if oldContent != prefix
+        newContent = oldContent + '\n' + prefix
+    else
+      newContent = prefix
+    replyContent.focus()
+    replyContent.val newContent
 
   uploadAvatar: ->
     $('.upload-btn').on 'click', ->

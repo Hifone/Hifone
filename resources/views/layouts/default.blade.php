@@ -14,16 +14,11 @@
         <link rel="alternate" type="application/atom+xml" href="/feed" />
         <script src="{{ elixir('dist/js/all.js') }}"></script>
         <script>
-            Config = {
-                'cdnDomain': '{{ cdn() }}',
-                'user_id': {{ Auth::user() ? Auth::user()->id : 0 }},
-                'routes': {
-                    'notification_count' : '{{ route('notification.count') }}',
-                    'upload_image' : '{{ route('upload_image') }}'
-                },
-                'token': '{{ csrf_token() }}',
-            };
             App.current_user_id = {{ Auth::user() ? Auth::user()->id : 'null' }};
+            App.token = '{{ csrf_token() }}';
+            App.emoj_cdn = '{{ cdn() }}';
+            App.uploader_url = '{{ route('upload_image') }}';
+            App.notification_url = '{{ route('notification.count') }}';
         </script>
 
         @yield('styles')

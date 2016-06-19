@@ -22,8 +22,8 @@ AppView = Backbone.View.extend
     $('.bootstrap-select').remove()
 
     # 绑定评论框 Ctrl+Enter 提交事件
-    $(".cell_comments_new textarea").unbind "keydown"
-    $(".cell_comments_new textarea").bind "keydown", "ctrl+return", (el) ->
+    $(".post-editor textarea").unbind "keydown"
+    $(".post-editor textarea").bind "keydown", "ctrl+return", (el) ->
       if $(el.target).val().trim().length > 0
         $(el.target).parent().parent().submit()
       return false
@@ -45,11 +45,12 @@ AppView = Backbone.View.extend
 
 window.App =
   locale: 'zh-CN'
-  notifier : null
   current_user_id: null
-  access_token : ''
+  token : ''
+  emoj_cdn : ''
+  notification_url: ''
+  uploader_url: ''
   asset_url : ''
-  twemoji_url: 'https://twemoji.maxcdn.com/'
   root_url : ''
 
   isLogined : ->
@@ -101,7 +102,7 @@ window.App =
   initDeleteForm: ->
     $('[data-method]').append(->
       data_url = $(this).attr('data-url')
-      '\n' + '<form action=\'' + data_url + '\' method=\'POST\' style=\'display:none\'>\n' + '   <input type=\'hidden\' name=\'_method\' value=\'' + $(this).attr('data-method') + '\'>\n' + '   <input type=\'hidden\' name=\'_token\' value=\'' + Config.token + '\'>\n' + '</form>\n'
+      '\n' + '<form action=\'' + data_url + '\' method=\'POST\' style=\'display:none\'>\n' + '   <input type=\'hidden\' name=\'_method\' value=\'' + $(this).attr('data-method') + '\'>\n' + '   <input type=\'hidden\' name=\'_token\' value=\'' + App.token + '\'>\n' + '</form>\n'
     ).attr('style', 'cursor:pointer;').removeAttr('href').click ->
       button = $(this)
       if button.hasClass('confirm-action')
