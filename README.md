@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/travis/Hifone/Hifone/master.svg?style=flat-square)](https://travis-ci.org/Hifone/Hifone)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-![Screenshot](https://camo.githubusercontent.com/d0e2887410b6c68b84707412b9235950c58cefa1/687474703a2f2f363438322e636f6d2f6869666f6e65322e706e67)
+![Screenshot](http://hifone.com/images/screenshot.png)
 
 Hifone is a free, open-source, self-hosted forum software based on the Laravel PHP Framework.
 
