@@ -89,7 +89,7 @@
         @include('threads.partials.editor_toolbar')
         <!-- end -->
         <div class="form-group">
-              {!! Form::textarea('reply[body]', null, ['class' => 'topic-editor form-control',
+              {!! Form::textarea('reply[body]', null, ['class' => 'post-editor form-control',
                                                 'rows' => 5,
                                                 'placeholder' => trans('hifone.markdown_support'),
                                                 'style' => "overflow:hidden",

@@ -41,7 +41,7 @@
         @include('threads.partials.editor_toolbar')
         <!-- end -->
         <div class="form-group">
-          {!! Form::textarea('thread[body]', isset($thread) ? $thread->body_original : null, ['class' => 'topic-editor form-control',
+          {!! Form::textarea('thread[body]', isset($thread) ? $thread->body_original : null, ['class' => 'post-editor form-control',
                                             'rows' => 15,
                                             'style' => "overflow:hidden",
                                             'id' => 'body_field',
