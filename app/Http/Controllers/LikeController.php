@@ -12,8 +12,8 @@
 namespace Hifone\Http\Controllers;
 
 use Hifone\Commands\Like\AddLikeCommand;
-use Hifone\Models\Thread;
 use Hifone\Models\Reply;
+use Hifone\Models\Thread;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -25,7 +25,7 @@ class LikeController extends Controller
         $data = Input::all();
         if ($data['type'] == 'Thread') {
             $target = Thread::findOrFail($data['id']);
-        } else if($data['type'] == 'Reply') {
+        } elseif ($data['type'] == 'Reply') {
             $target = Reply::findOrFail($data['id']);
         }
         dispatch(new AddLikeCommand($target));
@@ -38,7 +38,7 @@ class LikeController extends Controller
         $data = Input::all();
         if ($data['type'] == 'Thread') {
             $target = Thread::findOrFail($data['id']);
-        } else if($data['type'] == 'Reply') {
+        } elseif ($data['type'] == 'Reply') {
             $target = Reply::findOrFail($data['id']);
         }
 
