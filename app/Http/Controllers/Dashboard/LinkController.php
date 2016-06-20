@@ -107,7 +107,7 @@ class LinkController extends Controller
 
         $link->update($linkData);
 
-        dispatch(new LinkWasUpdatedEvent($link));
+        event(new LinkWasUpdatedEvent($link));
 
         return Redirect::route('dashboard.link.edit', ['id' => $link->id])
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.links.edit.success')));

@@ -54,6 +54,11 @@ class EventServiceProvider extends ServiceProvider
             'Hifone\Handlers\Events\Notification\SendSingleNotificationHandler',
         ],
 
+        // Links
+        'Hifone\Events\Link\LinkWasUpdatedEvent' => [
+            'Hifone\Handlers\Events\Link\RemoveLinkCacheHandler',
+        ],
+
         // 回帖
         'Hifone\Events\Reply\ReplyWasAddedEvent' => [
             'Hifone\Handlers\Events\Notification\SendReplyNotificationHandler',
