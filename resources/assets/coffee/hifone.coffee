@@ -66,6 +66,11 @@ window.Hifone =
   isLogined : ->
     Hifone.Config.current_user_id != null
 
+  needLogined : ->
+    if !Hifone.isLogined()
+      location.href = "/auth/login"
+      return false
+
   loading : () ->
     console.log "loading..."
 

@@ -5,6 +5,8 @@ window.ForumView = Backbone.View.extend
 
   events:
     "click a.likeable": "likeable"
+    "click a.followable": "followable"
+    "click a.favoriteable": "favoriteable"
     "click a.captcha-image-box": "reLoadCaptchaImage"
     "click a.btn-reply2reply": "reply2reply"
 
@@ -387,6 +389,66 @@ window.ForumView = Backbone.View.extend
           console.log('error')
           return
     }, 'json'
+
+  followable: (e) ->
+    if !Hifone.isLogined()
+      location.href = "/auth/login"
+      return false
+
+    $target = $(e.currentTarget)
+    followable_type = $target.data("type")
+    followable_id = $target.data("id")
+    action = $target.data("action")
+    url = $target.data("url")
+    console.log('followable')
+
+    $.ajax {
+        url: url
+        type: 'POST'
+        data:
+          type : followable_type
+          id : followable_id
+        success: (result) ->
+
+          if $target.hasClass("active")
+            $target.removeClass('active')
+          else
+            $target.addClass('active')
+
+          $.notifier.notify 'Operation ran successfully.', 'success'
+          return
+        error: (err) ->
+          console.log('error')
+          $.notifier.notify 'An error occurred.', 'error'
+    }, 'json'
+    false
+
+  favoriteable: (e) ->
+    Hifone.needLogined()
+
+    $target = $(e.currentTarget)
+    favoriteable_type = $target.data("type")
+    favoriteable_id = $target.data("id")
+    url = $target.data("url")
+    console.log('favoriteable')
+    $.ajax {
+        url: url
+        type: 'POST'
+        data:
+          type : favoriteable_type
+          id : favoriteable_id
+        success: (result) ->
+          $.notifier.notify 'Operation ran successfully.', 'success'
+          if $target.hasClass("active")
+            $target.removeClass('active')
+          else
+            $target.addClass('active')
+          return
+        error: (err) ->
+          console.log('error')
+          $.notifier.notify 'An error occurred.', 'error'
+    }, 'json'
+    false
 
   reLoadCaptchaImage: (e) ->
     btn = $(e.currentTarget)
