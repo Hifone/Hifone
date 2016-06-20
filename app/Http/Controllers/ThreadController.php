@@ -14,7 +14,6 @@ namespace Hifone\Http\Controllers;
 use AltThree\Validator\ValidationException;
 use Auth;
 use Hifone\Commands\Append\AddAppendCommand;
-use Hifone\Commands\Like\AddLikeCommand;
 use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Thread\UpdateThreadCommand;
@@ -148,20 +147,6 @@ class ThreadController extends Controller
 
         return Redirect::route('thread.show', $thread->id)
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
-    }
-
-    public function like(Thread $thread)
-    {
-        dispatch(new AddLikeCommand($thread));
-
-        return Redirect::route('thread.show', $thread->id);
-    }
-
-    public function unlike(Thread $thread)
-    {
-        dispatch(new AddLikeCommand($thread, 'unlike'));
-
-        return Redirect::route('thread.show', $thread->id);
     }
 
     public function recomend(Thread $thread)

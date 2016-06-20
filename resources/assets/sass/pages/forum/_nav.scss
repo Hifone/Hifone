@@ -86,6 +86,10 @@
     }
   }
 
+  .notification .new {
+    color: #F86334 !important;
+  }
+
   .form-search {
     font-size: 14px;
     position: relative;
@@ -93,8 +97,8 @@
     margin-right: 10px;
 
     .fa {
-      color: #333;
-      &:hover { color: #666; }
+      color: #ccc;
+      &:hover { color: #fff; }
     }
 
     .fa-search{

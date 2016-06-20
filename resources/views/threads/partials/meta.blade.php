@@ -17,7 +17,7 @@
 
   @if (count($thread->lastReplyUser))
     {{ trans('hifone.threads.last_reply_by') }}
-      <a href="{{{ URL::route('user.home', [$thread->lastReplyUser->username]) }}}">
+      <a href="{{ route('user.home', [$thread->lastReplyUser->username]) }}">
         {{{ $thread->lastReplyUser->username }}}
       </a>
      {{ trans('hifone.at') }} <abbr title="{{ $thread->updated_at }}" class="timeago">{{ $thread->updated_at }}</abbr>
