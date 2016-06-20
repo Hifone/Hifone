@@ -62,6 +62,19 @@ chmod -R 777 public/uploads
 
 Now go to http://your_site_domain/ and have fun!
 
+## Installing Hifone with Docker
+
+```shell
+$ git clone https://github.com/Hifone/Docker.git hifone-docker
+$ cd hifone-docker
+$ docker build -t hifone --rm .
+$ docker run -it --rm -p 0.0.0.0:8081:80 hifone
+$ /run.sh
+```
+Now go to http://127.0.0.1:8081 (linux) or http://192.168.99.100:8081 (mac) and have fun!
+
+You can find more information at [Install Hifone](https://github.com/Hifone/Docker/blob/master/README.md)
+
 
 ## Development
 
