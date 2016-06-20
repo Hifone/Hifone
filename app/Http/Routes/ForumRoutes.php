@@ -58,6 +58,10 @@ class ForumRoutes
                 'as'     => 'notification.index',
                 'uses'   => 'NotificationController@index',
             ]);
+            $router->post('/notification/clean', [
+                'as'    => 'notification.clean',
+                'uses'  => 'NotificationController@clean',
+            ]);
 
             $router->resource('node', 'NodeController');
             $router->resource('thread', 'ThreadController');
