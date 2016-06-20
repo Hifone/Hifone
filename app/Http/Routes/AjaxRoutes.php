@@ -55,21 +55,6 @@ class AjaxRoutes
             ]);
 
             $router->resource('like', 'LikeController');
-            //
-            $router->post('/thread/{thread}/like', [
-                'as'   => 'thread.like',
-                'uses' => 'ThreadController@like',
-            ]);
-
-            $router->post('/thread/{thread}/unlike', [
-                'as'   => 'thread.unlike',
-                'uses' => 'ThreadController@unlike',
-            ]);
-
-            $router->post('/reply/{reply}/like', [
-                'as'   => 'reply.like',
-                'uses' => 'ReplyController@like',
-            ]);
 
             $router->post('/thread/{thread}/append', [
                 'as'   => 'thread.append',

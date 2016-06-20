@@ -13,10 +13,8 @@ namespace Hifone\Http\Controllers;
 
 use AltThree\Validator\ValidationException;
 use Auth;
-use Hifone\Commands\Like\AddLikeCommand;
 use Hifone\Commands\Reply\AddReplyCommand;
 use Hifone\Commands\Reply\RemoveReplyCommand;
-use Hifone\Models\Like;
 use Hifone\Models\Reply;
 use Input;
 use Redirect;
@@ -46,13 +44,6 @@ class ReplyController extends Controller
 
         return Redirect::route('thread.show', [$reply->thread_id])
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
-    }
-
-    public function like(Reply $reply)
-    {
-        dispatch(new AddLikeCommand($reply));
-
-        return Redirect::route('thread.show', [$reply->thread_id, '#reply'.$reply->id]);
     }
 
     public function destroy(Reply $reply)

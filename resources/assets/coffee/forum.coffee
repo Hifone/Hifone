@@ -362,7 +362,7 @@ window.ForumView = Backbone.View.extend
       return
     return
 
-  likeable : (e) ->
+  likeable: (e) ->
     if !Hifone.isLogined()
       location.href = "/auth/login"
       return false
@@ -370,43 +370,23 @@ window.ForumView = Backbone.View.extend
     $target = $(e.currentTarget)
     likeable_type = $target.data("type")
     likeable_id = $target.data("id")
-    likes_count = parseInt($target.data("count"))
+    action = $target.data("action")
+    url = $target.data("url")
 
-    $el = $(".likeable[data-type='#{likeable_type}'][data-id='#{likeable_id}']")
-
-    if $el.data("state") != "active"
-      $.ajax
-        url : "/like"
-        type : "POST"
-        data :
+    $.ajax {
+        url: url
+        type: if action == 'like' then 'POST' else 'DELETE'
+        data:
           type : likeable_type
           id : likeable_id
-
-      likes_count += 1
-      $el.data('count', likes_count)
-      @likeableAsLiked($el)
-      $("i.fa", $el).attr("class","fa fa-heart")
-    else
-      $.ajax
-        url : "/like/#{likeable_id}"
-        type : "DELETE"
-        data :
-          type : likeable_type
-      if likes_count > 0
-        likes_count -= 1
-      $el.data("state","").data('count', likes_count).attr("title", "").removeClass("active")
-      if likes_count == 0
-        $('span', $el).text("")
-      else
-        $('span', $el).text("#{likes_count} 个赞")
-      $("i.fa", $el).attr("class","fa fa-heart-o")
-    false
-
-  likeableAsLiked : (el) ->
-    likes_count = el.data("count")
-    el.data("state","active").attr("title", "取消赞").addClass("active")
-    $('span',el).text("#{likes_count} 个赞")
-    $("i.fa",el).attr("class","fa fa-heart")
+        success: (result) ->
+          console.log(result.status)
+          $target.text if action == 'like' then '已赞' else '已踩'
+          return
+        error: (err) ->
+          console.log('error')
+          return
+    }, 'json'
 
   reLoadCaptchaImage: (e) ->
     btn = $(e.currentTarget)
