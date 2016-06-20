@@ -53,7 +53,7 @@ return [
         'noreply'        => 'No reply',
         'stick'          => 'Stick',
         'recommended'    => 'Recommended',
-        'last_reply_by'  => 'replied by',
+        'last_reply_by'  => 'by',
         'more'           => 'more',
         'noitem'         => 'There are no threads.',
         'is_excellent'   => 'The thread has been marked excellent！',
