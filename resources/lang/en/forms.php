@@ -22,6 +22,7 @@ return [
     'cancel'   => 'Cancel',
     'close'    => 'Close',
     'remove'   => 'Remove',
+    'clean'    => 'Clean',
     'preview'  => 'Preview',
     'login'    => 'Sign in',
     'logout'   => 'Sign out',

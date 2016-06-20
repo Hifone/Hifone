@@ -8,8 +8,11 @@
 
 <div class="panel panel-default">
 
-    <div class="panel-heading">
+    <div class="panel-heading clearfix">
       {!! trans('hifone.notifications.my') !!}
+      <span class="pull-right">
+          <a class="btn btn-sm btn-danger" rel="nofollow" data-method="post" data-url="/notification/clean">{{ trans('forms.clean') }}</a>
+      </span>
     </div>
 
     @if (count($notifications))
