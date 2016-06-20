@@ -70,13 +70,11 @@
     <div class="panel-heading">
       <h3 class="panel-title">{!! trans('hifone.links.links') !!}</h3>
     </div>
-    <div class="panel-body text-center" style="padding-top: 5px;">
+    <ul class="list-group">
       @foreach ($links as $link)
-          <a href="{!! $link->url !!}" target="_blank" rel="nofollow" title="{!! $link->title !!}">
-              <img src="{!! $link->cover !!}" style="width:150px; margin: 3px 0;">
-          </a>
+      <li class="list-group-item"><a href="{{ $link->url }}" rel="nofollow" title="{{ $link->title }}" target="_blank"><img src="{{ $link->cover }}" style="width:150px; margin:6px 0;"></a></li>
       @endforeach
-    </div>
+    </ul>
   </div>
 @endif
 @endif
