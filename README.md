@@ -62,6 +62,12 @@ chmod -R 777 public/uploads
 
 Now go to http://your_site_domain/ and have fun!
 
+## Upgradation
+
+```shell
+php artisan hifone:update
+```
+
 ## Installing Hifone with Docker
 
 ```shell
