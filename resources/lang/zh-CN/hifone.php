@@ -157,7 +157,7 @@ return [
 //积分
     'credits' => [
         'credits' => '积分',
-        'mine'    => '我积分',
+        'mine'    => '我的积分',
         'time'    => '日期',
         'type'    => '类型',
         'reward'  => '数额',
