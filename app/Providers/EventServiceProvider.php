@@ -101,6 +101,7 @@ class EventServiceProvider extends ServiceProvider
         'Hifone\Events\User\UserWasAddedEvent' => [
             'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
             'Hifone\Handlers\Events\Identity\ChangeUsernameHandler',
+            'Hifone\Handlers\Events\Credit\AddCreditHandler',
         ],
 
         'Hifone\Events\User\UserWasLoggedinEvent' => [

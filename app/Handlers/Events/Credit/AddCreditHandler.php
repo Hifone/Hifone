@@ -17,6 +17,7 @@ use Hifone\Events\Image\ImageWasUploadedEvent;
 use Hifone\Events\Reply\ReplyWasAddedEvent;
 use Hifone\Events\Reply\ReplyWasRemovedEvent;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
+use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Models\Credit;
 use Hifone\Models\CreditRule;
@@ -39,6 +40,9 @@ class AddCreditHandler
         } elseif ($event instanceof ImageWasUploadedEvent) {
             $action = 'photo_upload';
             $user = Auth::user();
+        } elseif ($event instanceof UserWasAddedEvent) {
+            $action = 'register';
+            $user = $event->user;
         } elseif ($event instanceof UserWasLoggedinEvent) {
             $action = 'login';
             $user = $event->user;
