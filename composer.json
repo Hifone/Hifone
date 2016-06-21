@@ -7,7 +7,7 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.2.38",
+        "laravel/framework": "5.2.39",
         "alt-three/validator": "^1.5",
         "arrilot/laravel-widgets": "^3.3",
         "backup-manager/laravel": "^1.1",
