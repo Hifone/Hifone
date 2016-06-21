@@ -23,7 +23,7 @@ class NodeController extends Controller
     {
         $sections = Section::orderBy('order')->get();
 
-        return View::make('nodes.index')
+        return $this->view('nodes.index')
             ->withSections($sections);
     }
 
@@ -31,7 +31,7 @@ class NodeController extends Controller
     {
         $threads = Thread::NodeThreads(Input::get('filter'), $node->id)->search(Input::query('q'))->paginate(Config::get('setting.per_page'));
 
-        return View::make('threads.index')
+        return $this->view('threads.index')
             ->withThreads($threads)
             ->withNode($node);
     }

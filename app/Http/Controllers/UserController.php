@@ -36,7 +36,7 @@ class UserController extends Controller
     {
         $users = User::recent()->take(48)->get();
 
-        return View::make('users.index')
+        return $this->view('users.index')
             ->withUsers($users);
     }
 
@@ -45,7 +45,7 @@ class UserController extends Controller
         $threads = Thread::whose($user->id)->recent()->limit(10)->get();
         $replies = Reply::whose($user->id)->recent()->limit(10)->get();
 
-        return View::make('users.show')
+        return $this->view('users.show')
             ->withUser($user)
             ->withThreads($threads)
             ->withReplies($replies);
@@ -62,7 +62,7 @@ class UserController extends Controller
         $providers = Provider::orderBy('created_at', 'desc')->get();
         $ids = $user->identities()->pluck('provider_id')->all();
 
-        return View::make('users.edit')
+        return $this->view('users.edit')
             ->withProviders($providers)
             ->withTab(Input::get('tab'))
             ->withBindOauthIds($ids)
@@ -101,7 +101,7 @@ class UserController extends Controller
     {
         $replies = Reply::whose($user->id)->recent()->paginate(15);
 
-        return View::make('users.replies')
+        return $this->view('users.replies')
             ->withUser($user)
             ->withReplies($replies);
     }
@@ -110,7 +110,7 @@ class UserController extends Controller
     {
         $threads = Thread::whose($user->id)->recent()->paginate(15);
 
-        return View::make('users.threads')
+        return $this->view('users.threads')
             ->withUser($user)
             ->withThreads($threads);
     }
@@ -119,7 +119,7 @@ class UserController extends Controller
     {
         $threads = $user->favoriteThreads()->paginate(15);
 
-        return View::make('users.favorites')
+        return $this->view('users.favorites')
             ->withUser($user)
             ->withThreads($threads);
     }
@@ -128,7 +128,7 @@ class UserController extends Controller
     {
         $credits = $user->credits()->paginate(15);
 
-        return View::make('users.credits')
+        return $this->view('users.credits')
             ->withUser($user)
             ->withCredits($credits);
     }
@@ -138,7 +138,7 @@ class UserController extends Controller
         $location = Location::where('name', $name)->firstOrFail();
         $users = $location->users()->paginate(15);
 
-        return View::make('users.city')
+        return $this->view('users.city')
             ->withLocation($location)
             ->withUsers($users);
     }

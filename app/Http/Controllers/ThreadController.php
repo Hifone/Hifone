@@ -91,7 +91,7 @@ class ThreadController extends Controller
         $nodeThreads = $thread->getSameNodeThreads();
         $thread->increment('view_count', 1);
 
-        return View::make('threads.show')
+        return $this->view('threads.show')
             ->withThread($thread)
             ->withReplies($replies)
             ->withNodeThreads($nodeThreads)
@@ -106,7 +106,7 @@ class ThreadController extends Controller
 
         $thread->body = $thread->body_original;
 
-        return View::make('threads.create_edit')
+        return $this->view('threads.create_edit')
             ->withThread($thread)
             ->withSections($sections)
             ->withNode($node);
