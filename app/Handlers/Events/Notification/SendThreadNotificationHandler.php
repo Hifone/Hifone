@@ -15,7 +15,7 @@ use Auth;
 use Hifone\Events\Thread\ThreadEventInterface;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Parsers\ParseAt;
+use Hifone\Services\Parsers\ParseAt;
 
 class SendThreadNotificationHandler extends AbstractNotificationHandler
 {

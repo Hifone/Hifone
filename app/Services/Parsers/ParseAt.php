@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Parsers;
+namespace Hifone\Services\Parsers;
 
 use Hifone\Models\User;
 use Html;

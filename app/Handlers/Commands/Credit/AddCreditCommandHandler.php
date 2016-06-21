@@ -13,7 +13,7 @@ namespace Hifone\Handlers\Commands\Credit;
 
 use Carbon\Carbon;
 use Hifone\Commands\Credit\AddCreditCommand;
-use Hifone\Dates\DateFactory;
+use Hifone\Services\Dates\DateFactory;
 use Hifone\Models\Credit;
 
 class AddCreditCommandHandler
@@ -21,14 +21,14 @@ class AddCreditCommandHandler
     /**
      * The date factory instance.
      *
-     * @var \Gitamin\Dates\DateFactory
+     * @var \Hifone\Services\Dates\DateFactory
      */
     protected $dates;
 
     /**
      * Create a new report issue command handler instance.
      *
-     * @param \Gitamin\Dates\DateFactory $dates
+     * @param \Hifone\Services\Dates\DateFactory $dates
      */
     public function __construct(DateFactory $dates)
     {
@@ -38,9 +38,9 @@ class AddCreditCommandHandler
     /**
      * Handle the report credit command.
      *
-     * @param \Gitamin\Commands\Credit\AddCreditCommand $command
+     * @param \Hifone\Commands\Credit\AddCreditCommand $command
      *
-     * @return \Gitamin\Models\Credit
+     * @return \Hifone\Models\Credit
      */
     public function handle(AddCreditCommand $command)
     {

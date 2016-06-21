@@ -13,7 +13,7 @@ namespace Hifone\Handlers\Commands\Favorite;
 
 use Auth;
 use Hifone\Commands\Favorite\AddFavoriteCommand;
-use Hifone\Dates\DateFactory;
+use Hifone\Services\Dates\DateFactory;
 use Hifone\Events\Favorite\FavoriteWasAddedEvent;
 use Hifone\Models\Favorite;
 
@@ -22,14 +22,14 @@ class AddFavoriteCommandHandler
     /**
      * The date factory instance.
      *
-     * @var \Gitamin\Dates\DateFactory
+     * @var \Hifone\Services\Dates\DateFactory
      */
     protected $dates;
 
     /**
      * Create a new report issue command handler instance.
      *
-     * @param \Gitamin\Dates\DateFactory $dates
+     * @param \Hifone\Services\Dates\DateFactory $dates
      */
     public function __construct(DateFactory $dates)
     {
@@ -39,9 +39,9 @@ class AddFavoriteCommandHandler
     /**
      * Handle the report avorite command.
      *
-     * @param \Gitamin\Commands\Thread\AddThreadCommand $command
+     * @param \Hifone\Commands\Thread\AddThreadCommand $command
      *
-     * @return \Gitamin\Models\Thread
+     * @return \Hifone\Models\Thread
      */
     public function handle(AddFavoriteCommand $command)
     {

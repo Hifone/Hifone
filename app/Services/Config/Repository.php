@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Config;
+namespace Hifone\Services\Config;
 
 use Hifone\Models\Setting;
 
