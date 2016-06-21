@@ -15,10 +15,12 @@ use Auth;
 use Hifone\Events\EventInterface;
 use Hifone\Events\Image\ImageWasUploadedEvent;
 use Hifone\Events\Reply\ReplyWasAddedEvent;
+use Hifone\Events\Reply\ReplyWasRemovedEvent;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Models\Credit;
 use Hifone\Models\CreditRule;
+use Hifone\Models\User;
 
 class AddCreditHandler
 {
@@ -27,18 +29,25 @@ class AddCreditHandler
         $action = '';
         if ($event instanceof ThreadWasAddedEvent) {
             $action = 'thread_new';
+            $user = $event->thread->user;
         } elseif ($event instanceof ReplyWasAddedEvent) {
             $action = 'reply_new';
+            $user = $event->reply->user;
+        } elseif ($event instanceof ReplyWasRemovedEvent) {
+            $action = 'reply_remove';
+            $user = $event->reply->user;
         } elseif ($event instanceof ImageWasUploadedEvent) {
             $action = 'photo_upload';
+            $user = Auth::user();
         } elseif ($event instanceof UserWasLoggedinEvent) {
             $action = 'login';
+            $user = $event->user;
         }
 
-        $this->record($action);
+        $this->record($action, $user);
     }
 
-    protected function record($action)
+    protected function record($action, $user)
     {
         if (!$action) {
             return;
@@ -46,12 +55,23 @@ class AddCreditHandler
 
         $credit_rule = CreditRule::where('slug', $action)->first();
 
-        if (!$credit_rule) {
+        if (!$credit_rule || !$this->checkFrequency($credit_rule, $user)) {
             return;
         }
 
+        $credit = Credit::create([
+            'user_id' => $user->id,
+            'rule_id' => $credit_rule->id,
+            'balance' => $user->score + $credit_rule->reward,
+        ]);
+
+        $user->update(['score' => $credit->balance]);
+    }
+
+    protected function checkFrequency(CreditRule $credit_rule, User $user)
+    {
         if (in_array($credit_rule->frequency, [CreditRule::DAILY, CreditRule::ONCE])) {
-            $count = Credit::where('user_id', Auth::user()->id)->where('rule_id', $credit_rule->id)->where(function ($query) use ($credit_rule) {
+            $count = Credit::where('user_id', $user->id)->where('rule_id', $credit_rule->id)->where(function ($query) use ($credit_rule) {
                 if ($credit_rule->frequency == CreditRule::DAILY) {
                     $frequency_tag = Credit::generateFrequencyTag();
 
@@ -59,16 +79,10 @@ class AddCreditHandler
                 }
             })->count();
             if ($count > 0) {
-                return;
+                return false;
             }
         }
 
-        $credit = Credit::create([
-            'user_id' => Auth::user()->id,
-            'rule_id' => $credit_rule->id,
-            'balance' => Auth::user()->score + $credit_rule->reward,
-        ]);
-
-        Auth::user()->update(['score' => $credit->balance]);
+        return true;
     }
 }

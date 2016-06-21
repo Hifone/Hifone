@@ -67,6 +67,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         'Hifone\Events\Reply\ReplyWasRemovedEvent' => [
             'Hifone\Handlers\Events\Reply\UpdateReplyThreadHandler',
+            'Hifone\Handlers\Events\Credit\AddCreditHandler',
         ],
 
         //
