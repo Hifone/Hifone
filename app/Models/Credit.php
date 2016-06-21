@@ -12,9 +12,11 @@
 namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Hifone\Presenters\CreditPresenter;
 use Illuminate\Database\Eloquent\Model;
+use McCool\LaravelAutoPresenter\HasPresenter;
 
-class Credit extends Model
+class Credit extends Model implements HasPresenter
 {
     use ValidatingTrait;
 
@@ -67,5 +69,15 @@ class Credit extends Model
     public static function generateFrequencyTag()
     {
         return date('Ymd');
+    }
+
+    /**
+     * Get the presenter class.
+     *
+     * @return string
+     */
+    public function getPresenterClass()
+    {
+        return CreditPresenter::class;
     }
 }

@@ -26,7 +26,7 @@
             <td>{{ $credit->id }}</td>
             <td class="timeago">{{ $credit->created_at }}</td>
              <td>{{ $credit->rule->name }}</td>
-            <td>{{ $credit->rule->reward }}</td>
+            <td>{!! $credit->reward_formatted !!}</td>
             <td>{{ $credit->balance }}</td>
           </tr>
           @endforeach
