@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Hifone\Services\Breadcrumb;
 
 class Breadcrumb implements \Countable
@@ -7,7 +16,7 @@ class Breadcrumb implements \Countable
     private $breadcrumbs = [];
 
     /**
-     * Count
+     * Count.
      *
      * @return int
      */
@@ -17,7 +26,7 @@ class Breadcrumb implements \Countable
     }
 
     /**
-     *  Push
+     *  Push.
      *
      * @param $name
      * @param null $url
@@ -34,7 +43,7 @@ class Breadcrumb implements \Countable
     }
 
     /**
-     * Render
+     * Render.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

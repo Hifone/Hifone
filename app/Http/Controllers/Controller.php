@@ -16,8 +16,8 @@ use Hifone\Services\Breadcrumb\Breadcrumb;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Support\Facades\View;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
 abstract class Controller extends BaseController
@@ -38,10 +38,11 @@ abstract class Controller extends BaseController
     }
 
     /**
-     * Renders view with breadcrumb
+     * Renders view with breadcrumb.
      *
      * @param string|null $view
-     * @param array $data
+     * @param array       $data
+     *
      * @return \Illuminate\View\View
      */
     protected function view($view = null, $data = [])
