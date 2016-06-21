@@ -13,8 +13,8 @@ namespace Hifone\Handlers\Commands\Identity;
 
 use Carbon\Carbon;
 use Hifone\Commands\Identity\AddIdentityCommand;
-use Hifone\Services\Dates\DateFactory;
 use Hifone\Models\Identity;
+use Hifone\Services\Dates\DateFactory;
 use Illuminate\Support\Facades\Session;
 
 class AddIdentityCommandHandler

@@ -14,9 +14,9 @@ namespace Hifone\Handlers\Commands\Reply;
 use Auth;
 use Carbon\Carbon;
 use Hifone\Commands\Reply\AddReplyCommand;
-use Hifone\Services\Dates\DateFactory;
 use Hifone\Events\Reply\ReplyWasAddedEvent;
 use Hifone\Models\Reply;
+use Hifone\Services\Dates\DateFactory;
 use Hifone\Services\Parsers\Markdown;
 use Hifone\Services\Parsers\ParseAt;
 

@@ -13,8 +13,8 @@ namespace Hifone\Handlers\Commands\Follow;
 
 use Auth;
 use Hifone\Commands\Follow\AddFollowCommand;
-use Hifone\Services\Dates\DateFactory;
 use Hifone\Events\Follow\FollowWasAddedEvent;
+use Hifone\Services\Dates\DateFactory;
 
 class AddFollowCommandHandler
 {

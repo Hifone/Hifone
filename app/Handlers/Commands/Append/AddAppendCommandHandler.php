@@ -13,9 +13,9 @@ namespace Hifone\Handlers\Commands\Append;
 
 use Carbon\Carbon;
 use Hifone\Commands\Append\AddAppendCommand;
-use Hifone\Services\Dates\DateFactory;
 use Hifone\Events\Append\AppendWasAddedEvent;
 use Hifone\Models\Append;
+use Hifone\Services\Dates\DateFactory;
 
 class AddAppendCommandHandler
 {

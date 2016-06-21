@@ -13,9 +13,9 @@ namespace Hifone\Handlers\Commands\Favorite;
 
 use Auth;
 use Hifone\Commands\Favorite\AddFavoriteCommand;
-use Hifone\Services\Dates\DateFactory;
 use Hifone\Events\Favorite\FavoriteWasAddedEvent;
 use Hifone\Models\Favorite;
+use Hifone\Services\Dates\DateFactory;
 
 class AddFavoriteCommandHandler
 {

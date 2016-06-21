@@ -13,9 +13,9 @@ namespace Hifone\Handlers\Commands\Like;
 
 use Auth;
 use Hifone\Commands\Like\AddLikeCommand;
-use Hifone\Services\Dates\DateFactory;
 use Hifone\Events\Like\LikeWasAddedEvent;
 use Hifone\Models\Like;
+use Hifone\Services\Dates\DateFactory;
 
 class AddLikeCommandHandler
 {

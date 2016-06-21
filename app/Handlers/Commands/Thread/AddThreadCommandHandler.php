@@ -14,9 +14,9 @@ namespace Hifone\Handlers\Commands\Thread;
 use Auth;
 use Carbon\Carbon;
 use Hifone\Commands\Thread\AddThreadCommand;
-use Hifone\Services\Dates\DateFactory;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Models\Thread;
+use Hifone\Services\Dates\DateFactory;
 use Hifone\Services\Parsers\Markdown;
 use Hifone\Services\Parsers\ParseAt;
 
