@@ -46,7 +46,7 @@ class EventServiceProvider extends ServiceProvider
         'Hifone\Events\Image\ImageWasUploadedEvent' => [
             'Hifone\Handlers\Events\Photo\AddPhotoRecordHandler',
             'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
-            'Hifone\Handlers\Events\User\UpdateScoreHandler',
+            'Hifone\Handlers\Events\Credit\AddCreditHandler',
         ],
 
         // 按赞
@@ -63,7 +63,7 @@ class EventServiceProvider extends ServiceProvider
         'Hifone\Events\Reply\ReplyWasAddedEvent' => [
             'Hifone\Handlers\Events\Notification\SendReplyNotificationHandler',
             'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
-            'Hifone\Handlers\Events\User\UpdateScoreHandler',
+            'Hifone\Handlers\Events\Credit\AddCreditHandler',
         ],
         'Hifone\Events\Reply\ReplyWasRemovedEvent' => [
             'Hifone\Handlers\Events\Reply\UpdateReplyThreadHandler',
@@ -73,7 +73,7 @@ class EventServiceProvider extends ServiceProvider
         'Hifone\Events\Thread\ThreadWasAddedEvent' => [
             'Hifone\Handlers\Events\Notification\SendThreadNotificationHandler',
             'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
-            'Hifone\Handlers\Events\User\UpdateScoreHandler',
+            'Hifone\Handlers\Events\Credit\AddCreditHandler',
         ],
 
         //

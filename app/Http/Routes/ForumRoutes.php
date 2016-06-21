@@ -63,6 +63,12 @@ class ForumRoutes
                 'uses'  => 'NotificationController@clean',
             ]);
 
+            //积分
+             $router->get('/credit', [
+                'as'     => 'credit.index',
+                'uses'   => 'CreditController@index',
+            ]);
+
             $router->resource('node', 'NodeController');
             $router->resource('thread', 'ThreadController');
             $router->resource('reply', 'ReplyController', ['only' => ['store']]);

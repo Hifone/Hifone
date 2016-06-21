@@ -20,7 +20,7 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-      @include('users.partials.infonav')
+          @include('users.partials.infonav')
         
             <div class="user-card">
                 <div class="header">
@@ -45,9 +45,9 @@
                 <div class="footer">
                 {{ $user->bio }}
                 </div>
-          </div>
-          </div>
-</div>
+        </div>
+    </div>
+  </div>
 </div>
 </div>
 @stop

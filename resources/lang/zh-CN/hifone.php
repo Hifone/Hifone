@@ -130,6 +130,7 @@ return [
         'website'                   => '网址',
         'profile'                   => '我的主页',
         'favorites'                 => '我的收藏',
+        'credits'                   => '我的积分',
 
     ],
 
@@ -151,6 +152,16 @@ return [
         'thread_move'           => '移动了你的主题',
         'comment_append'        => '留言的话题有新备注',
         'follow_append'         => '关注的话题有新备注',
+    ],
+
+//积分
+    'credits' => [
+        'credits' => '积分',
+        'mine'    => '我积分',
+        'time'    => '日期',
+        'type'    => '类型',
+        'reward'  => '数额',
+        'balance' => '余额',
     ],
 
 // 小贴士
