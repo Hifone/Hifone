@@ -102,6 +102,10 @@ class EventServiceProvider extends ServiceProvider
             'Hifone\Handlers\Events\Identity\ChangeUsernameHandler',
         ],
 
+        'Hifone\Events\User\UserWasLoggedinEvent' => [
+            'Hifone\Handlers\Events\Credit\AddCreditHandler',
+        ],
+
         'SocialiteProviders\Manager\SocialiteWasCalled' => [
             'SocialiteProviders\Qq\QqExtendSocialite@handle',
             'SocialiteProviders\Weibo\WeiboExtendSocialite@handle',

@@ -23,7 +23,7 @@ class Credit extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['user_id', 'rule_id', 'balance'];
+    protected $fillable = ['user_id', 'rule_id', 'balance', 'body', 'frequency_tag'];
 
     /**
      * The validation rules.
@@ -35,6 +35,20 @@ class Credit extends Model
         'rule_id'    => 'required|int',
     ];
 
+    /**
+     * Overrides the models boot method.
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($credit) {
+            if (!$credit->frequency_tag) {
+                $credit->frequency_tag = self::generateFrequencyTag();
+            }
+        });
+    }
+
     public function rule()
     {
         return $this->belongsTo(CreditRule::class, 'rule_id');
@@ -43,5 +57,15 @@ class Credit extends Model
     public function scopeRecent($query)
     {
         return $query->orderBy('created_at', 'desc');
+    }
+
+    /**
+     * Returns a frequency tag.
+     *
+     * @return string
+     */
+    public static function generateFrequencyTag()
+    {
+        return date('Ymd');
     }
 }
