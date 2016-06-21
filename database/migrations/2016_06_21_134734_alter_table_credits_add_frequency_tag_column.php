@@ -22,7 +22,7 @@ class AlterTableCreditsAddFrequencyTagColumn extends Migration
     public function up()
     {
         Schema::table('credits', function (Blueprint $table) {
-            $table->string('frequency_tag')->after('body');
+            $table->string('frequency_tag')->nullable()->after('body');
 
             $table->index('frequency_tag');
         });
