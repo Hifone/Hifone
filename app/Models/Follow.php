@@ -13,10 +13,11 @@ namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Illuminate\Database\Eloquent\Model;
+use Hifone\Models\Scopes\ForUser;
 
 class Follow extends Model
 {
-    use ValidatingTrait;
+    use ValidatingTrait, ForUser;
 
     /**
      * The fillable properties.
@@ -44,10 +45,5 @@ class Follow extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function scopeByWhom($query, $user_id)
-    {
-        return $query->where('user_id', '=', $user_id);
     }
 }

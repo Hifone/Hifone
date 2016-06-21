@@ -14,11 +14,12 @@ namespace Hifone\Models;
 use AltThree\Validator\ValidatingTrait;
 use Hifone\Presenters\ReplyPresenter;
 use Illuminate\Database\Eloquent\Model;
+use Hifone\Models\Scopes\ForUser;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Reply extends Model implements HasPresenter
 {
-    use ValidatingTrait;
+    use ValidatingTrait, ForUser;
 
     /**
      * The fillable properties.
@@ -60,7 +61,7 @@ class Reply extends Model implements HasPresenter
 
     public function scopeWhose($query, $user_id)
     {
-        return $query->where('user_id', '=', $user_id)->with('thread');
+        return $query->forUser($user_id)->with('thread');
     }
 
     public function scopeRecent($query)

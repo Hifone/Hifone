@@ -12,11 +12,12 @@
 namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Hifone\Models\Scopes\ForUser;
 use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    use ValidatingTrait;
+    use ValidatingTrait, ForUser;
 
     /**
      * Like.
@@ -54,11 +55,6 @@ class Like extends Model
     public function likeable()
     {
         return $this->morphTo();
-    }
-
-    public function scopeByWhom($query, $user_id)
-    {
-        return $query->where('user_id', '=', $user_id);
     }
 
     public function scopeWithUp($query)

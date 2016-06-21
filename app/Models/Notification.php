@@ -13,12 +13,13 @@ namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Hifone\Presenters\NotificationPresenter;
+use Hifone\Models\Scopes\ForUser;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Notification extends Model implements HasPresenter
 {
-    use ValidatingTrait;
+    use ValidatingTrait, ForUser;
 
     /**
      * The fillable properties.
@@ -61,7 +62,7 @@ class Notification extends Model implements HasPresenter
 
     public function scopeToWhom($query, $user_id)
     {
-        return $query->where('user_id', '=', $user_id);
+        return $query->forUser($user_id);
     }
 
     public function scopeWithType($query, $type)

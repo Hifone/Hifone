@@ -54,13 +54,13 @@ class AddLikeCommandHandler
 
     protected function likeAction($target)
     {
-        if ($target->likes()->ByWhom(Auth::id())->WithUp()->count()) {
+        if ($target->likes()->forUser(Auth::id())->WithUp()->count()) {
             // click twice for remove like
-            $target->likes()->ByWhom(Auth::id())->WithUp()->delete();
+            $target->likes()->forUser(Auth::id())->WithUp()->delete();
             $target->decrement('like_count', 1);
-        } elseif ($target->likes()->ByWhom(Auth::id())->WithDown()->count()) {
+        } elseif ($target->likes()->forUser(Auth::id())->WithDown()->count()) {
             // user already clicked unlike once
-            $target->likes()->ByWhom(Auth::id())->WithDown()->delete();
+            $target->likes()->forUser(Auth::id())->WithDown()->delete();
             $target->likes()->create(['user_id' => Auth::id(), 'rating' => Like::LIKE]);
             $target->increment('like_count', 2);
         } else {
@@ -74,13 +74,13 @@ class AddLikeCommandHandler
 
     protected function unlikeAction($target)
     {
-        if ($target->likes()->ByWhom(Auth::id())->WithDown()->count()) {
+        if ($target->likes()->forUser(Auth::id())->WithDown()->count()) {
             // click second time for remove unlike
-            $target->likes()->ByWhom(Auth::id())->WithDown()->delete();
+            $target->likes()->forUser(Auth::id())->WithDown()->delete();
             $target->increment('like_count', 1);
-        } elseif ($target->likes()->ByWhom(Auth::id())->WithUp()->count()) {
+        } elseif ($target->likes()->forUser(Auth::id())->WithUp()->count()) {
             // user already clicked like once
-            $target->likes()->ByWhom(Auth::id())->WithUp()->delete();
+            $target->likes()->forUser(Auth::id())->WithUp()->delete();
             $target->likes()->create(['user_id' => Auth::id(), 'rating' => Like::UNLIKE]);
             $target->decrement('like_count', 2);
         } else {

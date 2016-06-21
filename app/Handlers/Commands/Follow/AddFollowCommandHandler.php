@@ -49,8 +49,8 @@ class AddFollowCommandHandler
 
     protected function followAction($target)
     {
-        if ($target->follows()->ByWhom(Auth::id())->count()) {
-            $target->follows()->ByWhom(Auth::id())->delete();
+        if ($target->follows()->forUser(Auth::id())->count()) {
+            $target->follows()->forUser(Auth::id())->delete();
         } else {
             $target->follows()->create(['user_id' => Auth::id()]);
             event(new FollowWasAddedEvent($target));

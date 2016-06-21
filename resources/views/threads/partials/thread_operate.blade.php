@@ -17,7 +17,7 @@
 
   <div class="pull-right">
 
-    @if (Auth::user() && $thread->follows()->byWhom(Auth::user()->id)->count())
+    @if (Auth::user() && $thread->follows()->forUser(Auth::user()->id)->count())
       <a class="followable active" data-action="unfollow" data-id="{{ $thread->id }}" data-type="Thread" href="javascript:void(0);" data-url="{{ route('follow.createOrDelete', $thread->id) }}">
         <i class="fa fa-eye"></i> <span>{{ trans('hifone.follow') }}</span>
       </a>

@@ -12,11 +12,12 @@
 namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Hifone\Models\Scopes\ForUser;
 use Illuminate\Database\Eloquent\Model;
 
 class Favorite extends Model
 {
-    use ValidatingTrait;
+    use ValidatingTrait, ForUser;
 
     /**
      * The fillable properties.
@@ -37,7 +38,7 @@ class Favorite extends Model
 
     public static function isUserFavoritedThread(User $user, $thread_id)
     {
-        return self::where('user_id', $user->id)
+        return self::forUser($user->id)
                         ->where('thread_id', $thread_id)
                         ->first();
     }

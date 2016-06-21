@@ -15,13 +15,14 @@ use AltThree\Validator\ValidatingTrait;
 use Carbon\Carbon;
 use Config;
 use Hifone\Presenters\ThreadPresenter;
+use Hifone\Models\Scopes\ForUser;
 use Illuminate\Database\Eloquent\Model;
 use Input;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Thread extends Model implements HasPresenter
 {
-    use ValidatingTrait;
+    use ValidatingTrait, ForUser;
     // manually maintian
     public $timestamps = false;
 
@@ -160,7 +161,7 @@ class Thread extends Model implements HasPresenter
 
     public function scopeWhose($query, $user_id)
     {
-        return $query->where('user_id', '=', $user_id)->with('node');
+        return $query->forUser($user_id)->with('node');
     }
 
     public function scopeRecent($query)
