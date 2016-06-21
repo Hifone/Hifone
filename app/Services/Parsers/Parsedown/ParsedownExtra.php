@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Parsers\Parsedown;
+namespace Hifone\Services\Parsers\Parsedown;
 
 //
 //

@@ -21,7 +21,7 @@ class CreditController extends Controller
     {
         $credits = Auth::user()->credits()->recent()->paginate(Config::get('setting.per_page'));
 
-        return View::make('credits.index')
+        return $this->view('credits.index')
             ->withCredits($credits);
     }
 }

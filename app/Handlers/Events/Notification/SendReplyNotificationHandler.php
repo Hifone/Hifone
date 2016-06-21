@@ -16,7 +16,7 @@ use Hifone\Events\Reply\ReplyEventInterface;
 use Hifone\Models\Reply;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Parsers\ParseAt;
+use Hifone\Services\Parsers\ParseAt;
 
 class SendReplyNotificationHandler extends AbstractNotificationHandler
 {

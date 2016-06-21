@@ -14,18 +14,18 @@ namespace Hifone\Handlers\Commands\Thread;
 use Auth;
 use Carbon\Carbon;
 use Hifone\Commands\Thread\AddThreadCommand;
-use Hifone\Dates\DateFactory;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Models\Thread;
-use Hifone\Parsers\Markdown;
-use Hifone\Parsers\ParseAt;
+use Hifone\Services\Dates\DateFactory;
+use Hifone\Services\Parsers\Markdown;
+use Hifone\Services\Parsers\ParseAt;
 
 class AddThreadCommandHandler
 {
     /**
      * The date factory instance.
      *
-     * @var \Gitamin\Dates\DateFactory
+     * @var \Hifone\Services\Dates\DateFactory
      */
     protected $dates;
 
@@ -36,7 +36,7 @@ class AddThreadCommandHandler
     /**
      * Create a new report issue command handler instance.
      *
-     * @param \Gitamin\Dates\DateFactory $dates
+     * @param \Hifone\Services\Dates\DateFactory $dates
      */
     public function __construct(DateFactory $dates, Markdown $markdown, ParseAt $parseAt)
     {
@@ -48,9 +48,9 @@ class AddThreadCommandHandler
     /**
      * Handle the report thread command.
      *
-     * @param \Gitamin\Commands\Thread\AddThreadCommand $command
+     * @param \Hifone\Commands\Thread\AddThreadCommand $command
      *
-     * @return \Gitamin\Models\Thread
+     * @return \Hifone\Models\Thread
      */
     public function handle(AddThreadCommand $command)
     {

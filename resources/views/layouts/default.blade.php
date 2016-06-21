@@ -28,9 +28,8 @@
     <body class="forum" data-page="forum">
        @include('partials.nav')
 		<div id="main" class="main-container container">
-
 				@include('partials.errors')
-
+                {!! $breadcrumb or '' !!}
                 @include('partials.top')
 
 				@yield('content')

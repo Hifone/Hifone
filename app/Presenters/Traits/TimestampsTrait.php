@@ -11,7 +11,7 @@
 
 namespace Hifone\Presenters\Traits;
 
-use Hifone\Dates\DateFactory;
+use Hifone\Services\Dates\DateFactory;
 
 trait TimestampsTrait
 {

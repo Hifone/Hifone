@@ -17,7 +17,7 @@ use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
-use Hifone\Parsers\Markdown;
+use Hifone\Services\Parsers\Markdown;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;

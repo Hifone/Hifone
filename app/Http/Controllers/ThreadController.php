@@ -21,7 +21,7 @@ use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
-use Hifone\Parsers\Markdown;
+use Hifone\Services\Parsers\Markdown;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -31,6 +31,8 @@ class ThreadController extends Controller
 {
     public function __construct()
     {
+        parent::__construct();
+
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
@@ -38,7 +40,9 @@ class ThreadController extends Controller
     {
         $threads = Thread::filter(Input::query('filter'))->search(Input::query('q'))->paginate(Config::get('setting.per_page'));
 
-        return View::make('threads.index')
+        //$this->breadcrumb->push('Forum', route('thread.index'));
+
+        return $this->view('threads.index')
             ->withThreads($threads)
             ->withSections(Section::orderBy('order')->get());
     }
@@ -48,7 +52,9 @@ class ThreadController extends Controller
         $node = Node::find(Input::query('node_id'));
         $sections = Section::orderBy('order')->get();
 
-        return View::make('threads.create_edit')
+        $this->breadcrumb->push(trans('hifone.threads.add'), route('thread.create'));
+
+        return $this->view('threads.create_edit')
             ->withSections($sections)
             ->withNode($node);
     }
@@ -85,7 +91,7 @@ class ThreadController extends Controller
         $nodeThreads = $thread->getSameNodeThreads();
         $thread->increment('view_count', 1);
 
-        return View::make('threads.show')
+        return $this->view('threads.show')
             ->withThread($thread)
             ->withReplies($replies)
             ->withNodeThreads($nodeThreads)
@@ -100,7 +106,7 @@ class ThreadController extends Controller
 
         $thread->body = $thread->body_original;
 
-        return View::make('threads.create_edit')
+        return $this->view('threads.create_edit')
             ->withThread($thread)
             ->withSections($sections)
             ->withNode($node);

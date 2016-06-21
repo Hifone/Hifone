@@ -13,23 +13,23 @@ namespace Hifone\Handlers\Commands\Like;
 
 use Auth;
 use Hifone\Commands\Like\AddLikeCommand;
-use Hifone\Dates\DateFactory;
 use Hifone\Events\Like\LikeWasAddedEvent;
 use Hifone\Models\Like;
+use Hifone\Services\Dates\DateFactory;
 
 class AddLikeCommandHandler
 {
     /**
      * The date factory instance.
      *
-     * @var \Gitamin\Dates\DateFactory
+     * @var \Hifone\Services\Dates\DateFactory
      */
     protected $dates;
 
     /**
      * Create a new report issue command handler instance.
      *
-     * @param \Gitamin\Dates\DateFactory $dates
+     * @param \Hifone\Services\Dates\DateFactory $dates
      */
     public function __construct(DateFactory $dates)
     {
@@ -39,9 +39,9 @@ class AddLikeCommandHandler
     /**
      * Handle the report avorite command.
      *
-     * @param \Gitamin\Commands\Thread\AddThreadCommand $command
+     * @param \Hifone\Commands\Thread\AddThreadCommand $command
      *
-     * @return \Gitamin\Models\Thread
+     * @return \Hifone\Models\Thread
      */
     public function handle(AddLikeCommand $command)
     {

@@ -25,7 +25,7 @@ class NotificationController extends Controller
         Auth::user()->notification_count = 0;
         Auth::user()->save();
 
-        return View::make('notifications.index')
+        return $this->view('notifications.index')
             ->withNotifications($notifications);
     }
 

@@ -38,7 +38,7 @@ class HomeController extends Controller
     {
         $threads = Thread::filter('excellent')->with('user', 'node', 'lastReplyUser')->paginate(20);
 
-        return View::make('home.excellent')
+        return $this->view('home.excellent')
             ->withThreads($threads)
             ->withSections(Section::orderBy('order')->get());
     }

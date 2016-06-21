@@ -12,8 +12,8 @@
 namespace Hifone\Providers;
 
 use Exception;
-use Hifone\Config\Repository;
 use Hifone\Models\Setting as SettingModel;
+use Hifone\Services\Config\Repository;
 use Illuminate\Support\ServiceProvider;
 
 /**

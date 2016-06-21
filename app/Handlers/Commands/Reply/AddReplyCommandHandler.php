@@ -14,18 +14,18 @@ namespace Hifone\Handlers\Commands\Reply;
 use Auth;
 use Carbon\Carbon;
 use Hifone\Commands\Reply\AddReplyCommand;
-use Hifone\Dates\DateFactory;
 use Hifone\Events\Reply\ReplyWasAddedEvent;
 use Hifone\Models\Reply;
-use Hifone\Parsers\Markdown;
-use Hifone\Parsers\ParseAt;
+use Hifone\Services\Dates\DateFactory;
+use Hifone\Services\Parsers\Markdown;
+use Hifone\Services\Parsers\ParseAt;
 
 class AddReplyCommandHandler
 {
     /**
      * The date factory instance.
      *
-     * @var \Gitamin\Dates\DateFactory
+     * @var \Hifone\Services\Dates\DateFactory
      */
     protected $dates;
 
@@ -36,7 +36,7 @@ class AddReplyCommandHandler
     /**
      * Create a new report issue command handler instance.
      *
-     * @param \Gitamin\Dates\DateFactory $dates
+     * @param \Hifone\Services\Dates\DateFactory $dates
      */
     public function __construct(DateFactory $dates, Markdown $markdown, ParseAt $parseAt)
     {
@@ -48,9 +48,9 @@ class AddReplyCommandHandler
     /**
      * Handle the report thread command.
      *
-     * @param \Gitamin\Commands\Reply\AddReplyCommand $command
+     * @param \Hifone\Services\Commands\Reply\AddReplyCommand $command
      *
-     * @return \Gitamin\Models\Reply
+     * @return \Hifone\Models\Reply
      */
     public function handle(AddReplyCommand $command)
     {

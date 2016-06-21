@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Dates;
+namespace Hifone\Services\Dates;
 
 use Jenssegers\Date\Date;
 

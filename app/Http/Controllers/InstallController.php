@@ -107,7 +107,7 @@ class InstallController extends Controller
             }
         }
 
-        return View::make('install.index')
+        return $this->view('install.index')
             ->withCacheDrivers($this->cacheDrivers)
             ->withPageTitle(trans('install.title'))
             ->withEnvCheck($this->verify())

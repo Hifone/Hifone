@@ -15,7 +15,7 @@ use Hifone\Commands\Reply\RemoveReplyCommand;
 use Hifone\Commands\Reply\UpdateReplyCommand;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Reply;
-use Hifone\Parsers\Markdown;
+use Hifone\Services\Parsers\Markdown;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;

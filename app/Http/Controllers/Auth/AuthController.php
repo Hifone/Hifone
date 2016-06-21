@@ -59,7 +59,7 @@ class AuthController extends Controller
     {
         $providers = Provider::orderBy('created_at', 'desc')->get();
 
-        return View::make('auth.login')
+        return $this->view('auth.login')
             ->withCaptcha(route('captcha', ['random' => time()]))
             ->withConnectData(Session::get('connect_data'))
             ->withProviders($providers)
@@ -68,7 +68,7 @@ class AuthController extends Controller
 
     public function landing()
     {
-        return View::make('auth.landing')
+        return $this->view('auth.landing')
             ->withConnectData(Session::get('connect_data'))
             ->withPageTitle('');
     }
@@ -119,7 +119,7 @@ class AuthController extends Controller
     {
         $connect_data = Session::get('connect_data');
 
-        return View::make('auth.register')
+        return $this->view('auth.register')
             ->withCaptcha(route('captcha', ['random' => time()]))
             ->withConnectData($connect_data)
             ->withPageTitle(trans('dashboard.login.login'));

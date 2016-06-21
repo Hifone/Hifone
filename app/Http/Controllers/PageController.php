@@ -25,7 +25,7 @@ class PageController extends Controller
             throw new NotFoundHttpException();
         }
 
-        return View::make('pages.show')
+        return $this->view('pages.show')
             ->withPage($page);
     }
 }

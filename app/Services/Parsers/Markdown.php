@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Parsers;
+namespace Hifone\Services\Parsers;
 
-use Hifone\Parsers\Parsedown\Parsedown;
+use Hifone\Services\Parsers\Parsedown\Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
 use Purifier;
 

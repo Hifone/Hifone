@@ -12,8 +12,8 @@
 namespace Hifone\Providers;
 
 use Collective\Bus\Dispatcher;
-use Hifone\Dates\DateFactory;
 use Hifone\Pipes\UseDatabaseTransactions;
+use Hifone\Services\Dates\DateFactory;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
