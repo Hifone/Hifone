@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/travis/Hifone/Hifone/master.svg?style=flat-square)](https://travis-ci.org/Hifone/Hifone)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-![Screenshot](https://camo.githubusercontent.com/d0e2887410b6c68b84707412b9235950c58cefa1/687474703a2f2f363438322e636f6d2f6869666f6e65322e706e67)
+![Screenshot](http://hifone.com/images/screenshot.png)
 
 Hifone is a free, open-source, self-hosted forum software based on the Laravel PHP Framework.
 
@@ -55,11 +55,25 @@ php artisan hifone:install
 
 chmod -R 777 storage
 chmod -R 777 bootstrap/cache
+chmod -R 777 public/uploads
 ```
 
 ### Step 2: Browser
 
 Now go to http://your_site_domain/ and have fun!
+
+## Installing Hifone with Docker
+
+```shell
+$ git clone https://github.com/Hifone/Docker.git hifone-docker
+$ cd hifone-docker
+$ docker build -t hifone --rm .
+$ docker run -it --rm -p 0.0.0.0:8081:80 hifone
+$ /run.sh
+```
+Now go to http://127.0.0.1:8081 (linux) or http://192.168.99.100:8081 (mac) and have fun!
+
+You can find more information at [Install Hifone](https://github.com/Hifone/Docker/blob/master/README.md)
 
 
 ## Development

@@ -18,21 +18,21 @@
   <div class="pull-right">
 
     @if (Auth::user() && $thread->follows()->byWhom(Auth::user()->id)->count())
-      <a data-method="post" id="thread-follow-cancel-button" href="javascript:void(0);" data-url="{{ route('follow.createOrDelete', $thread->id) }}">
-        <i class="fa fa-eye" style="color:#ce8a81"></i> <span>{{ trans('forms.cancel') }}</span>
+      <a class="followable active" data-action="unfollow" data-id="{{ $thread->id }}" data-type="Thread" href="javascript:void(0);" data-url="{{ route('follow.createOrDelete', $thread->id) }}">
+        <i class="fa fa-eye"></i> <span>{{ trans('hifone.follow') }}</span>
       </a>
     @else
-      <a data-method="post" id="thread-follow-button" href="javascript:void(0);" data-url="{{ route('follow.createOrDelete', $thread->id) }}">
+      <a class="followable" data-action="follow" data-id="{{ $thread->id }}" data-type="Thread" href="javascript:void(0);" data-url="{{ route('follow.createOrDelete', $thread->id) }}">
         <i class="fa fa-eye"></i> <span>{{ trans('hifone.follow') }}</span>
       </a>
     @endif
 
     @if (Auth::user() && \Hifone\Models\Favorite::isUserFavoritedThread(Auth::user(), $thread->id))
-      <a data-method="post" id="thread-favorite-cancel-button" href="javascript:void(0);" data-url="{{ route('favorite.createOrDelete', $thread->id) }}">
-        <i class="fa fa-bookmark" style="color:#ce8a81"></i> <span>{{ trans('forms.cancel') }}</span>
+      <a class="favoriteable active" data-type="Thread" data-id="{{ $thread->id }}" href="javascript:void(0);" data-url="{{ route('favorite.createOrDelete', $thread->id) }}">
+        <i class="fa fa-bookmark"></i> <span>{{ trans('hifone.favorite') }}</span>
       </a>
     @else
-      <a data-method="post" id="thread-favorite-button" href="javascript:void(0);" data-url="{{ route('favorite.createOrDelete', $thread->id) }}">
+      <a class="favoriteable" data-type="Thread" data-id="{{ $thread->id }}" href="javascript:void(0);" data-url="{{ route('favorite.createOrDelete', $thread->id) }}">
         <i class="fa fa-bookmark"></i> <span>{{ trans('hifone.favorite') }}</span>
       </a>
     @endif

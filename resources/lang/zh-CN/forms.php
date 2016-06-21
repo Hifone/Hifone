@@ -22,6 +22,7 @@ return [
     'cancel'   => '取消',
     'close'    => '关闭',
     'remove'   => '删除',
+    'clean'    => '清空',
     'preview'  => '预览',
     'login'    => '登录',
     'logout'   => '退出',

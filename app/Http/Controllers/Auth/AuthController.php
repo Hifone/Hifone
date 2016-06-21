@@ -14,6 +14,7 @@ namespace Hifone\Http\Controllers\Auth;
 use AltThree\Validator\ValidationException;
 use Hifone\Commands\Identity\AddIdentityCommand;
 use Hifone\Events\User\UserWasAddedEvent;
+use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Hashing\PasswordHasher;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Identity;
@@ -102,6 +103,8 @@ class AuthController extends Controller
                 $connect_data = Session::get('connect_data');
                 dispatch(new AddIdentityCommand(Auth::user()->id, $connect_data));
             }
+
+            event(new UserWasLoggedinEvent(Auth::user()));
 
             return Redirect::intended('/')
                 ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.login.success')));

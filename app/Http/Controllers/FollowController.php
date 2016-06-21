@@ -15,7 +15,7 @@ use Auth;
 use Hifone\Commands\Follow\AddFollowCommand;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Redirect;
+use Illuminate\Support\Facades\Response;
 
 class FollowController extends Controller
 {
@@ -23,20 +23,17 @@ class FollowController extends Controller
     {
         dispatch(new AddFollowCommand($thread));
 
-        return Redirect::route('thread.show', $thread->id)
-            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
+        return Response::json(['status' => 1]);
     }
 
     public function createOrDeleteUser(User $user)
     {
         if ($user->id == Auth::user()->id) {
-            return Redirect::route('user.home', $user->username)
-            ->withErrors(sprintf('%s %s', trans('hifone.whoops'), trans('hifone.failure')));
+            return Response::json(['status' => -1]);
         }
 
         dispatch(new AddFollowCommand($user));
 
-        return Redirect::route('user.home', $user->username)
-            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
+        return Response::json(['status' => 1]);
     }
 }

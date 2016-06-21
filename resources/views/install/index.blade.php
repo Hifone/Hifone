@@ -39,7 +39,7 @@
                     <tr>
                         <th></th>
                         <th>Requirement</th>
-                        <th>is OK?</th>
+                        <th>Pass?</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -119,12 +119,6 @@
                         @if($errors->has('settings.site_locale'))
                         <span class="text-danger">{{ $errors->first('settings.site_locale') }}</span>
                         @endif
-                    </div>
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="settings[show_support]" value="1" checked>
-                            {{ trans("install.show_support") }}
-                        </label>
                     </div>
                     <hr>
                     <div class="form-group text-center">

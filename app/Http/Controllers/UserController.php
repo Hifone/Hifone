@@ -124,6 +124,15 @@ class UserController extends Controller
             ->withThreads($threads);
     }
 
+    public function credits(User $user)
+    {
+        $credits = $user->credits()->paginate(15);
+
+        return View::make('users.credits')
+            ->withUser($user)
+            ->withCredits($credits);
+    }
+
     public function city($name)
     {
         $location = Location::where('name', $name)->firstOrFail();

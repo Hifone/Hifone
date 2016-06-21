@@ -9,9 +9,9 @@
         </div>
         <div id="main-nav-menu">
           <ul class="nav navbar-nav">
-          <li {!! set_active('/') !!}><a href="{!! route('home') !!}"><i class="fa fa-list hidden-xs"></i> {!! trans('hifone.home') !!}</a></li>
+          <li {!! set_active('/') !!}><a href="{!! route('home') !!}"><i class="fa fa-home"></i> <span class="hidden-xs hidden-sm">{!! trans('hifone.home') !!}</span></a></li>
           <li {!! set_active('thread*',['hidden-sm hidden-xs']) !!}><a href="{!! route('thread.index') !!}"><i class="fa fa-comments-o"></i> {!! trans('hifone.threads.threads') !!}</a></li>
-          <li {!! set_active('excellent*') !!}><a href="{!! route('excellent') !!}"><i class="fa fa-diamond hidden-xs"></i> {!! trans('hifone.excellent') !!}</a></li>
+          <li {!! set_active('excellent*') !!}><a href="{!! route('excellent') !!}"><i class="fa fa-diamond"></i> <span class="hidden-xs hidden-sm">{!! trans('hifone.excellent') !!}</span></a></li>
           </ul>
         </div>
         @if(Auth::check())
@@ -26,6 +26,7 @@
             <li><div class='divider'></div></li>
                 <li><a href="{!! route('user.edit', Auth::user()->id) !!}">{{ trans('hifone.users.edit') }}</a></li>
                 <li><a href="{{ route('user.favorites',$current_user->id) }}">{{ trans('hifone.users.favorites') }}</a></li>
+                <li><a href="{{ route('credit.index')}}">{{ trans('hifone.users.credits') }}</a></li>
                 <li class='divider'></li>
                 <li><a href="{!! url('auth/logout') !!}" onclick=" return confirm('{!! trans('hifone.logout_confirm') !!}')"><i class="fa fa-sign-out"></i> {!! trans('hifone.logout') !!}
                     </a></li>
@@ -40,12 +41,13 @@
               <div class="form-group">
                 {!!Form::input('search','q',null,['placeholder'=>trans('hifone.search'),'class'=>'form-control'])!!}
               </div>
+              <i class="fa fa-search"></i>
             {!! Form::close() !!}
           </li>
           @if(Auth::check())
             @if($current_user->hasRole(['Founder','Admin']))
                  <li>
-                   <a href="{{ route('dashboard.index') }}" data-pjax="no" title="{{ trans('dashboard.dashboard') }}"><i class="fa fa-wrench hidden-xs"></i> {{ trans('dashboard.dashboard') }}</a>
+                   <a href="{{ route('dashboard.index') }}" data-pjax="no" title="{{ trans('dashboard.dashboard') }}"><i class="fa fa-wrench"></i> <span class="hidden-xs hidden-sm">{{ trans('dashboard.dashboard') }}</span></a>
                  </li>
             @endif
           <li {!! set_active('notification*', ['notification']) !!}>

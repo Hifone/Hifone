@@ -13,7 +13,7 @@ namespace Hifone\Http\Controllers;
 
 use Hifone\Commands\Favorite\AddFavoriteCommand;
 use Hifone\Models\Thread;
-use Redirect;
+use Illuminate\Support\Facades\Response;
 
 class FavoriteController extends Controller
 {
@@ -24,7 +24,6 @@ class FavoriteController extends Controller
         } catch (ValidationException $e) {
         }
 
-        return Redirect::route('thread.show', $thread->id)
-            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
+        return Response::json(['status' => 1]);
     }
 }

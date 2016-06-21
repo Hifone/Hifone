@@ -14,14 +14,12 @@
         <link rel="alternate" type="application/atom+xml" href="/feed" />
         <script src="{{ elixir('dist/js/all.js') }}"></script>
         <script>
-            Config = {
-                'cdnDomain': '{{ cdn() }}',
-                'user_id': {{ Auth::user() ? Auth::user()->id : 0 }},
-                'routes': {
-                    'notification_count' : '{{ route('notification.count') }}',
-                    'upload_image' : '{{ route('upload_image') }}'
-                },
-                'token': '{{ csrf_token() }}',
+            Hifone.Config = {
+                'current_user_id' : {{ Auth::user() ? Auth::user()->id : 'null' }},
+                'token' : '{{ csrf_token() }}',
+                'emoj_cdn' : '{{ cdn() }}',
+                'uploader_url' : '{{ route('upload_image') }}',
+                'notification_url' : '{{ route('notification.count') }}'
             };
         </script>
 

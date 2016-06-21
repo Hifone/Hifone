@@ -25,8 +25,8 @@
       <h1 class="panel-title thread-title">{{{ $thread->title }}}</h1>
 
       <div class="likes">
-            <li data-method="post" data-url="{{ route('thread.like', $thread->id) }}" title="{{ trans('hifone.like') }}" class="fa fa-chevron-up like" id="like"> {{ $thread->like_count }}</li>
-            <li data-method="post" data-url="{{ route('thread.unlike', $thread->id) }}" title="{{ trans('hifone.unlike') }}" class="fa fa-chevron-down like" id="unlike"></li>
+            <a href="javascript:void(0);" data-action="like" data-type="Thread" data-url="{{ route('like.store') }}" title="{{ trans('hifone.like') }}" class="fa fa-chevron-up likeable like" data-id="{{ $thread->id }}"> {{ $thread->like_count }}</a>
+            <a href="javascript:void(0);" data-action="unlike" data-type="Thread" data-url="{{ route('like.destroy', $thread->id) }}" title="{{ trans('hifone.unlike') }}" class="fa fa-chevron-down likeable like" data-id="{{ $thread->id }}"></a>
       </div>
 
       @include('threads.partials.meta')
@@ -89,7 +89,7 @@
         @include('threads.partials.editor_toolbar')
         <!-- end -->
         <div class="form-group">
-              {!! Form::textarea('reply[body]', null, ['class' => 'topic-editor form-control',
+              {!! Form::textarea('reply[body]', null, ['class' => 'post-editor form-control',
                                                 'rows' => 5,
                                                 'placeholder' => trans('hifone.markdown_support'),
                                                 'style' => "overflow:hidden",

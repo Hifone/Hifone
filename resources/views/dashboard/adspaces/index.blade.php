@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-xs-3 text-right">
                         <a href="/dashboard/adspace/{{ $adspace->id }}/edit" class="btn btn-default btn-sm">{{ trans('forms.edit') }}</a>
-                        <a href="/dashboard/adspace/{{ $adspace->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
+                        <a data-url="/dashboard/adspace/{{ $adspace->id }}/delete" class="btn btn-danger btn-sm confirm-action" data-method='delete'>{{ trans('forms.delete') }}</a>
                     </div>
                 </div>
                 @endforeach

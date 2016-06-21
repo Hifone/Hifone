@@ -65,7 +65,7 @@ body.forum {
   textarea.form-control{
     font-size: 13px;
   }
-  textarea.topic-editor{
+  textarea.post-editor{
     border-radius: 0px 3px 3px 3px;
     border-color: #337ab7;
   }
@@ -206,6 +206,14 @@ body.forum {
   a:hover {
     color: rgb(240, 148, 87);
   }
+
+  @media (min-width: 1026px) {
+    .hideable { display: none; }
+  }
+  &:hover {
+    .hideable { display: inline-block; }
+  }
+
 }
 
 .badge-reply-count {
@@ -290,6 +298,7 @@ embed {
     background-color: #f0f0f0;
     color: #999;
   }
+  .nav-pills > li>a:hover,
   .nav-pills > li.active > a:link,
   .nav-pills > li.active > a:visited,
   .nav-pills>li.active>a:hover { background-color: #337ab7; color: #FFF; }

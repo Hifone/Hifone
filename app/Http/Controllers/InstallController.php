@@ -228,20 +228,14 @@ class InstallController extends Controller
     protected function verify()
     {
         $verifiers = [
-            new PhpVersionVerifier(5, 4),
-            new PhpExtensionVerifier('mcrypt'),
-            new PhpExtensionVerifier('OpenSSL'),
-            new PhpExtensionVerifier('mbstring'),
-            new PhpExtensionVerifier('tokenizer'),
-            new PhpExtensionVerifier('json'),
-            new FileWritableVerifier(storage_path('')),
-            new FileWritableVerifier(storage_path('app')),
-            new FileWritableVerifier(storage_path('framework')),
-            new FileWritableVerifier(storage_path('framework/cache')),
-            new FileWritableVerifier(storage_path('framework/sessions')),
-            new FileWritableVerifier(storage_path('framework/views')),
-            new FileWritableVerifier(storage_path('logs')),
+            new PhpVersionVerifier(5, 6),
 
+            new PhpExtensionVerifier('mcrypt'),
+            new PhpExtensionVerifier('mbstring'),
+            new PhpExtensionVerifier('json'),
+
+            new FileWritableVerifier(base_path('bootstrap/cache')),
+            new FileWritableVerifier(storage_path('')),
             new FileWritableVerifier(public_path('uploads/avatar')),
             new FileWritableVerifier(public_path('uploads/images')),
        ];

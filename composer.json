@@ -23,11 +23,12 @@
         "mccool/laravel-auto-presenter": "^4.3",
         "mews/purifier": "^2.0",
         "roumen/feed": "^2.10",
-        "socialiteproviders/gitlab": "^2.0",
+        "socialiteproviders/gitlab": "2.0.0",
         "socialiteproviders/qq": "^2.0",
         "socialiteproviders/weibo": "^2.0",
         "socialiteproviders/weixin": "^2.1",
         "socialiteproviders/weixin-web": "^2.0",
+        "symfony/css-selector": "^3.0",
         "symfony/dom-crawler": "~3.0",
         "zizaco/entrust": "dev-laravel-5"
     },

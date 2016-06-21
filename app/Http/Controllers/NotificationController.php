@@ -14,6 +14,7 @@ namespace Hifone\Http\Controllers;
 use Auth;
 use Config;
 use Illuminate\Support\Facades\View;
+use Redirect;
 
 class NotificationController extends Controller
 {
@@ -31,5 +32,13 @@ class NotificationController extends Controller
     public function count()
     {
         return Auth::user()->notification_count;
+    }
+
+    public function clean()
+    {
+        Auth::user()->notifications()->delete();
+
+        return Redirect::route('notification.index')
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
     }
 }
