@@ -20,14 +20,15 @@ class CreditPresenter extends AbstractPresenter
     public function reward_formatted()
     {
         $prefix = '';
-        if($this->wrappedObject->rule->reward > 0) {
+        if ($this->wrappedObject->rule->reward > 0) {
             $prefix = '<strong class="text-success">+';
         } else {
             $prefix = '<strong class="text-danger">';
         }
 
-        return $prefix. number_format($this->wrappedObject->rule->reward, 1) . '</strong>'; 
+        return $prefix.number_format($this->wrappedObject->rule->reward, 1).'</strong>';
     }
+
     /**
      * Convert the presenter instance to an array.
      *
