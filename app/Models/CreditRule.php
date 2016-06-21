@@ -18,12 +18,18 @@ class CreditRule extends Model
 {
     use ValidatingTrait;
 
+    const NO_LIMIT = 0;
+
+    const DAILY = 1;
+
+    const ONCE = 2;
+
     /**
      * The fillable properties.
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'slug', 'reward'];
+    protected $fillable = ['name', 'slug', 'reward','frequency'];
 
     /**
      * The validation rules.
