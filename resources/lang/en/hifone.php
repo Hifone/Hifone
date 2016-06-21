@@ -130,6 +130,7 @@ return [
         'website'                   => 'Website',
         'profile'                   => 'Your Profile',
         'favorites'                 => 'Your Favorites',
+        'credits'                   => 'Your Credits',
 
     ],
 
@@ -151,6 +152,16 @@ return [
         'thread_move'           => 'moved your thread',
         'comment_append'        => 'added a new append',
         'follow_append'         => 'added a new append on thread',
+    ],
+
+//Credits
+    'credits' => [
+        'credits' => 'Credits',
+        'mine'    => 'My credits',
+        'time'    => 'Time',
+        'type'    => 'Type',
+        'reward'  => 'Reward',
+        'balance' => 'Balance',
     ],
 
 // 小贴士

@@ -26,6 +26,7 @@
             <li><div class='divider'></div></li>
                 <li><a href="{!! route('user.edit', Auth::user()->id) !!}">{{ trans('hifone.users.edit') }}</a></li>
                 <li><a href="{{ route('user.favorites',$current_user->id) }}">{{ trans('hifone.users.favorites') }}</a></li>
+                <li><a href="{{ route('credit.index')}}">{{ trans('hifone.users.credits') }}</a></li>
                 <li class='divider'></li>
                 <li><a href="{!! url('auth/logout') !!}" onclick=" return confirm('{!! trans('hifone.logout_confirm') !!}')"><i class="fa fa-sign-out"></i> {!! trans('hifone.logout') !!}
                     </a></li>

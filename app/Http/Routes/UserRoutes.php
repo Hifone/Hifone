@@ -43,6 +43,11 @@ class UserRoutes
                 'uses' => 'UserController@favorites',
             ]);
 
+            $router->get('/user/{user}/credits', [
+                'as'   => 'user.credits',
+                'uses' => 'UserController@credits',
+            ]);
+
             $router->get('/user/{user}/refresh_cache', [
                 'as'   => 'user.refresh_cache',
                 'uses' => 'UserController@refreshCache',
