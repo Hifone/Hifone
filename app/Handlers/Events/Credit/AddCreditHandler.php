@@ -23,6 +23,7 @@ class AddCreditHandler
 {
     public function handle(EventInterface $event)
     {
+        $action = '';
         if ($event instanceof ThreadWasAddedEvent) {
             $action = 'thread_new';
         } elseif ($event instanceof ReplyWasAddedEvent) {
@@ -31,7 +32,20 @@ class AddCreditHandler
             $action = 'photo_upload';
         }
 
+        $this->record($action);
+    }
+
+    protected function record($action)
+    {
+        if (!$action) {
+            return;
+        }
+
         $credit_rule = CreditRule::where('slug', $action)->first();
+
+        if (!$credit_rule) {
+            return;
+        }
 
         $credit = Credit::create([
             'user_id' => Auth::user()->id,
