@@ -29,7 +29,7 @@ class CreditRule extends Model
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'slug', 'reward','frequency'];
+    protected $fillable = ['name', 'slug', 'reward', 'frequency'];
 
     /**
      * The validation rules.

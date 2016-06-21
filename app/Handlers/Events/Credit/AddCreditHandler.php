@@ -19,7 +19,6 @@ use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Models\Credit;
 use Hifone\Models\CreditRule;
-use Log;
 
 class AddCreditHandler
 {
@@ -55,10 +54,13 @@ class AddCreditHandler
             $count = Credit::where('user_id', Auth::user()->id)->where('rule_id', $credit_rule->id)->where(function ($query) use ($credit_rule) {
                 if ($credit_rule->frequency == CreditRule::DAILY) {
                     $frequency_tag = Credit::generateFrequencyTag();
+
                     return $query->where('frequency_tag', $frequency_tag);
                 }
             })->count();
-            if($count > 0) return;
+            if ($count > 0) {
+                return;
+            }
         }
 
         $credit = Credit::create([

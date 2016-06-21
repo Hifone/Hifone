@@ -36,14 +36,14 @@ class Credit extends Model
     ];
 
     /**
-    * Overrides the models boot method.
-    */
+     * Overrides the models boot method.
+     */
     public static function boot()
     {
         parent::boot();
 
         self::creating(function ($credit) {
-            if(!$credit->frequency_tag) {
+            if (!$credit->frequency_tag) {
                 $credit->frequency_tag = self::generateFrequencyTag();
             }
         });
@@ -60,10 +60,10 @@ class Credit extends Model
     }
 
     /**
-    * Returns a frequency tag.
-    *
-    * @return string
-    */
+     * Returns a frequency tag.
+     *
+     * @return string
+     */
     public static function generateFrequencyTag()
     {
         return date('Ymd');
