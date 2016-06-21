@@ -12,8 +12,8 @@
 namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
-use Hifone\Presenters\NotificationPresenter;
 use Hifone\Models\Scopes\ForUser;
+use Hifone\Presenters\NotificationPresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 

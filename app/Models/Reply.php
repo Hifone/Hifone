@@ -12,9 +12,9 @@
 namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Hifone\Models\Scopes\ForUser;
 use Hifone\Presenters\ReplyPresenter;
 use Illuminate\Database\Eloquent\Model;
-use Hifone\Models\Scopes\ForUser;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Reply extends Model implements HasPresenter

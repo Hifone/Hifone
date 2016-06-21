@@ -12,8 +12,8 @@
 namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
-use Illuminate\Database\Eloquent\Model;
 use Hifone\Models\Scopes\ForUser;
+use Illuminate\Database\Eloquent\Model;
 
 class Follow extends Model
 {

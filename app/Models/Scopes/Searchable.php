@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 /**
  * This is the searchable trait.
  */
-trait SearchableTrait
+trait Searchable
 {
     /**
      * Adds a search scope.
