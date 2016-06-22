@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
+use Hifone\Services\Tag\AddTag;
 
 class ThreadController extends Controller
 {
@@ -86,6 +87,9 @@ class ThreadController extends Controller
     {
         $threadData = Input::get('thread');
         $node_id = isset($threadData['node_id']) ? $threadData['node_id'] : null;
+
+        $tags = array_pull($threadData, 'tags');
+
         try {
             $thread = dispatch(new AddThreadCommand(
                 $threadData['title'],
@@ -98,6 +102,10 @@ class ThreadController extends Controller
                 ->withInput(Input::all())
                 ->withErrors($e->getMessageBag());
         }
+
+        // The thread was added successfully, so now let's deal with the tags.
+        app(AddTag::class)->attach($thread, $tags);
+
 
         return Redirect::route('thread.show', [$thread->id])
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
@@ -144,6 +152,8 @@ class ThreadController extends Controller
 
         $this->needAuthorOrAdminPermission($thread->user_id);
 
+        $tags = array_pull($threadData, 'tags');
+
         $threadData['body_original'] = $threadData['body'];
         $threadData['body'] = (new Markdown())->convertMarkdownToHtml($threadData['body']);
         $threadData['excerpt'] = Thread::makeExcerpt($threadData['body']);
@@ -155,6 +165,9 @@ class ThreadController extends Controller
                 ->withInput(Input::all())
                 ->withErrors($e->getMessageBag());
         }
+
+        // The thread was added successfully, so now let's deal with the tags.
+        app(AddTag::class)->attach($thread, $tags);
 
         return Redirect::route('thread.show', $thread->id)
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));

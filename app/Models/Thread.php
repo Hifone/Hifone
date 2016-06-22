@@ -20,9 +20,12 @@ use Illuminate\Database\Eloquent\Model;
 use Input;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
-class Thread extends Model implements HasPresenter
+use Hifone\Models\Tag\TaggableInterface;
+use Hifone\Models\Traits\Taggable;
+
+class Thread extends Model implements HasPresenter, TaggableInterface
 {
-    use ValidatingTrait, ForUser;
+    use ValidatingTrait, Taggable, ForUser;
     // manually maintian
     public $timestamps = false;
 

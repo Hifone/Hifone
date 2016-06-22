@@ -100,6 +100,12 @@ return [
         'drag_drop' => '支持在编辑框拖拽、复制粘贴或<a class="btn-upload" href="javascript:void(0);">浏览本地文件</a>进行图片上传.',
     ],
 
+// Tags
+    'tags' => [
+        'tags' => '标签',
+        'tags_help' => '请用 , 分隔'
+    ],
+
 // 用户
     'users' => [
         'users'                     => '用户',

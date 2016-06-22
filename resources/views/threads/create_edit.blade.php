@@ -48,6 +48,10 @@
                                             'placeholder' => trans('hifone.markdown_support')]) !!}
         </div>
 
+        <div class="form-group">
+          {!! Form::text('thread[tags]', isset($thread) ? $thread->tagslist : null, ['class' => 'form-control', 'id' => 'thread_tag', 'placeholder' => trans('hifone.tags.tags_help')]) !!}
+        </div>
+
         <div class="form-group status-post-submit">
           {!! Form::submit(trans('forms.publish'), ['class' => 'btn btn-primary col-xs-2', 'id' => 'thread-create-submit']) !!}
           <div class="pull-right">
