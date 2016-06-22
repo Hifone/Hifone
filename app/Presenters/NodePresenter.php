@@ -21,6 +21,7 @@ class NodePresenter extends AbstractPresenter
     {
         return $this->wrappedObject->slug ? route('go', $this->wrappedObject->slug) : route('node.show', $this->wrappedObject->id);
     }
+
     /**
      * Convert the presenter instance to an array.
      *

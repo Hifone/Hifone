@@ -49,7 +49,7 @@ class ThreadController extends Controller
     {
         $this->breadcrumb->push([
                 $thread->node->name => $thread->node->url,
-                $thread->title => route('thread.show', $thread->id)
+                $thread->title      => route('thread.show', $thread->id),
         ]);
 
         $replies = $thread->replies()
