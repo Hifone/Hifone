@@ -89,6 +89,13 @@ class UserController extends Controller
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.users.add.success')));
     }
 
+    /**
+     * Shows the edit user view.
+     *
+     * @param \Hifone\Models\User $user
+     *
+     * @return \Illuminate\View\View
+     */
     public function edit(User $user)
     {
         $this->subMenu['users']['active'] = true;
@@ -99,6 +106,13 @@ class UserController extends Controller
             ->withSubMenu($this->subMenu);
     }
 
+    /**
+     * Edit an user.
+     *
+     * @param \Hifone\Models\User $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(User $user)
     {
         $userData = Input::get('user');

@@ -97,12 +97,13 @@ window.Hifone =
   initAjax: ->
     # Ajax Setup
     $.ajaxPrefilter (options, originalOptions, jqXHR) ->
-      token = undefined
+      token = null
       if !options.crossDomain
         token = $('meta[name="token"]').attr('content')
         if token
           jqXHR.setRequestHeader 'X-CSRF-Token', token
       jqXHR
+  
     $.ajaxSetup beforeSend: (xhr) ->
       xhr.setRequestHeader 'Accept', 'application/json'
       # xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');

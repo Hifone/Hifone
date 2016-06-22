@@ -48,6 +48,13 @@ class SectionController extends Controller
         ->withSections($sections);
     }
 
+    /**
+     * Shows a section in more detail.
+     *
+     * @param \Hifone\Models\Section $section
+     *
+     * @return \Illuminate\View\View
+     */
     public function show(Section $section)
     {
         $nodes = Node::where('section_id', $section->id)->orderBy('order')->get();
@@ -93,7 +100,7 @@ class SectionController extends Controller
     /**
      * Shows the edit section view.
      *
-     * @param int $id
+     * @param \Hifone\Models\Section $section
      *
      * @return \Illuminate\View\View
      */
@@ -105,9 +112,9 @@ class SectionController extends Controller
     }
 
     /**
-     * Edit an section.
+     * Edit a section.
      *
-     * @param int $id
+     * @param \Hifone\Models\Section $section
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -142,20 +149,5 @@ class SectionController extends Controller
 
         return Redirect::route('dashboard.section.index')
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.sections.delete.success')));
-    }
-
-    //Groups
-
-    /**
-     * Shows the section parents view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function parents()
-    {
-        return View::make('dashboard.sections.index')
-            ->withPageTitle(trans_choice('dashboard.sections.parents.parents', 2).' - '.trans('dashboard.dashboard'))
-            ->withNodes(Node::isParent()->orderBy('order')->get())
-            ->withCurrentMenu('parents');
     }
 }

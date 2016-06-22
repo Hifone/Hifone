@@ -91,7 +91,7 @@ class SettingsController extends Controller
     }
 
     /**
-     * Updates the status page settings.
+     * Updates the site settings.
      *
      * @return \Illuminate\View\View
      */

@@ -22,18 +22,14 @@
 
     <link rel="stylesheet" href="{{ elixir('dist/css/all.css') }}">
     @yield('css')
-
+    <script src="{{ elixir('dist/js/all.js') }}"></script>
     <script type="text/javascript">
-        var Global = {};
-        Global.locale = 'zh-CN';
-        var Config = {
-                'cdnDomain': '{{ cdn() }}',
-                'user_id': {{ Auth::user() ? Auth::user()->id : 0 }},
-                'routes': {
-                    'upload_image' : '{{ route('upload_image') }}'
-                },
-                'token': '{{ csrf_token() }}',
+        Hifone.Config = {
+            'current_user_id' : {{ Auth::user() ? Auth::user()->id : 'null' }},
+            'token' : '{{ csrf_token() }}',
+            'emoj_cdn' : '{{ cdn() }}',
+            'uploader_url' : '{{ route('upload_image') }}',
+            'notification_url' : '{{ route('notification.count') }}'
         };
     </script>
-    <script src="{{ elixir('dist/js/all.js') }}"></script>
 </head>

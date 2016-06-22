@@ -34,6 +34,11 @@ class AdspaceController extends Controller
         ]);
     }
 
+    /**
+     * Shows the adspaces view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $adspaces = Adspace::orderBy('created_at', 'desc')->paginate(10);
@@ -43,6 +48,11 @@ class AdspaceController extends Controller
         ->withAdspaces($adspaces);
     }
 
+    /**
+     * Shows the add adspace view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         $adblocks = Adblock::all();
@@ -52,6 +62,13 @@ class AdspaceController extends Controller
             ->withSubMenu('adspaces');
     }
 
+    /**
+     * Shows the edit adspace view.
+     *
+     * @param \Hifone\Models\Adspace $adspace
+     *
+     * @return \Illuminate\View\View
+     */
     public function edit(Adspace $adspace)
     {
         return View::make('dashboard.adspaces.create_edit')
@@ -60,6 +77,13 @@ class AdspaceController extends Controller
             ->withSubMenu('adspaces');
     }
 
+    /**
+     * Edit a adspace.
+     *
+     * @param \Hifone\Models\Adspace $adspace
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Adspace $adspace)
     {
         $adspaceData = Request::get('adspace');
@@ -77,6 +101,11 @@ class AdspaceController extends Controller
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.adspaces.edit.success')));
     }
 
+    /**
+     * Creates a new adspace.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         $adspaceData = Request::get('adspace');

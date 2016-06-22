@@ -33,6 +33,11 @@ class AdblockController extends Controller
         ]);
     }
 
+    /**
+     * Shows the adblocks view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $adblocks = Adblock::orderBy('created_at', 'desc')->paginate(10);
@@ -42,6 +47,13 @@ class AdblockController extends Controller
         ->withAdblocks($adblocks);
     }
 
+    /**
+     * Shows an adblock in more detail.
+     *
+     * @param \Hifone\Models\Adblock $adblock
+     *
+     * @return \Illuminate\View\View
+     */
     public function show(Adblock $adblock)
     {
         $adspaces = $adblock->adspaces()->orderBy('order')->paginate(10);
@@ -51,6 +63,11 @@ class AdblockController extends Controller
         ->withAdspaces($adspaces);
     }
 
+    /**
+     * Shows the add adblock view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         $adblocks = Adblock::all();
@@ -60,6 +77,13 @@ class AdblockController extends Controller
             ->withSubMenu('adblocks');
     }
 
+    /**
+     * Shows the edit adblock view.
+     *
+     * @param \Hifone\Models\Adblock $adblock
+     *
+     * @return \Illuminate\View\View
+     */
     public function edit(Adblock $adblock)
     {
         return View::make('dashboard.adblocks.create_edit')
@@ -68,6 +92,13 @@ class AdblockController extends Controller
             ->withSubMenu('adblocks');
     }
 
+    /**
+     * Edit a adblock.
+     *
+     * @param \Hifone\Models\Adblock $adblock
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Adblock $adblock)
     {
         $adblockData = Request::get('adblock');
@@ -85,6 +116,11 @@ class AdblockController extends Controller
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.adblocks.edit.success')));
     }
 
+    /**
+     * Creates a new adblock.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         $adblockData = Request::get('adblock');

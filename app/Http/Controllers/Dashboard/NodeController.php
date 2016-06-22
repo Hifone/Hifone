@@ -98,9 +98,9 @@ class NodeController extends Controller
     }
 
     /**
-     * Edit an node.
+     * Edit a node.
      *
-     * @param int $id
+     * @param \Hifone\Models\Node $node
      *
      * @return \Illuminate\Http\RedirectResponse
      */

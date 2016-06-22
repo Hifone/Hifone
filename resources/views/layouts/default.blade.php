@@ -13,7 +13,7 @@
         <link rel="shortcut icon" href="/images/favicon.png">
         <link rel="alternate" type="application/atom+xml" href="/feed" />
         <script src="{{ elixir('dist/js/all.js') }}"></script>
-        <script>
+        <script type="text/javascript">
             Hifone.Config = {
                 'current_user_id' : {{ Auth::user() ? Auth::user()->id : 'null' }},
                 'token' : '{{ csrf_token() }}',

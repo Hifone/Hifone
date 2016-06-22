@@ -35,6 +35,11 @@ class ReplyController extends Controller
         ]);
     }
 
+    /**
+     * Shows the replies view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $replies = Reply::orderBy('created_at', 'desc')->paginate(10);
