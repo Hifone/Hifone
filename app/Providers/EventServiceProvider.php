@@ -98,6 +98,11 @@ class EventServiceProvider extends ServiceProvider
             //
         ],
 
+        //
+        'Hifone\Events\Thread\ThreadWasViewedEvent' => [
+            'Hifone\Handlers\Events\Thread\UpdateThreadViewCountHandler',
+        ],
+
         'Hifone\Events\User\UserWasAddedEvent' => [
             'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
             'Hifone\Handlers\Events\Identity\ChangeUsernameHandler',

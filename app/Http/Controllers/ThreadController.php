@@ -17,6 +17,7 @@ use Hifone\Commands\Append\AddAppendCommand;
 use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Thread\UpdateThreadCommand;
+use Hifone\Events\Thread\ThreadWasViewedEvent;
 use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
@@ -59,7 +60,8 @@ class ThreadController extends Controller
 
         $node = $thread->node;
         $nodeThreads = $thread->getSameNodeThreads();
-        $thread->increment('view_count', 1);
+
+        event(new ThreadWasViewedEvent($thread));
 
         return $this->view('threads.show')
             ->withThread($thread)
