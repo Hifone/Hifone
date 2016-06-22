@@ -48,7 +48,7 @@ class AddPmCommandHandler
     {
         // Create the pm meta
         $meta = Meta::create([
-            'body' => $command->body
+            'body' => $command->body,
         ]);
 
         $data = [

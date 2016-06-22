@@ -28,8 +28,6 @@ use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
 
-use Hifone\Models\Pm;
-
 class ThreadController extends Controller
 {
     public function __construct()

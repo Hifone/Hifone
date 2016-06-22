@@ -29,7 +29,7 @@ final class AddPmCommand
     public $rules = [
         'user_id'   => 'required|int',
         'author_id' => 'required|int',
-        'body'    => 'required|string',
+        'body'      => 'required|string',
     ];
 
     /**

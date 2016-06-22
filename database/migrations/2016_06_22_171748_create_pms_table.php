@@ -1,7 +1,16 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreatePmsTable extends Migration
 {
@@ -12,7 +21,7 @@ class CreatePmsTable extends Migration
      */
     public function up()
     {
-         Schema::create('pms', function (Blueprint $table) {
+        Schema::create('pms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('root_id', 10);
             $table->integer('user_id');
