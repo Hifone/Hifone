@@ -1,0 +1,10 @@
+body.forum {
+    .breadcrumb {
+        border-radius: 3px;
+        background-color: #fff;
+
+        li a,
+        li a:focus,
+        li a:hover { color: #555; background: transparent; }
+    }
+}

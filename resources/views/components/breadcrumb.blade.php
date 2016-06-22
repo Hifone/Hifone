@@ -2,18 +2,17 @@
     <div class="col-xs-12">
         <ul class="breadcrumb">
             <li>
-                <a href="{{ route('home') }}">{{ $site_name }}</a>
+                <a href="{{ route('home') }}">{{ trans('hifone.home') }}</a>
             </li>
-
             @foreach($breadcrumbs as $index => $breadcrumb)
             <li>
+               @if($index == count($breadcrumbs) -1 )
+                <strong>{{ $breadcrumb['name'] }}</strong>
+                @else
                 <a href="{{ $breadcrumb['url'] }}">
-                   @if($index = count($breadcrumbs) -1 )
-                    <strong>1</strong>
-                    @else
                     <span>{{ $breadcrumb['name'] }}</span>
-                    @endif
                 </a>
+                @endif
             </li>
             @endforeach
         </ul>

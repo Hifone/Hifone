@@ -17,6 +17,11 @@ class NodePresenter extends AbstractPresenter
 {
     use TimestampsTrait;
 
+    public function url()
+    {
+        return $this->wrappedObject->slug ? route('go', $this->wrappedObject->slug) : route('node.show', $this->wrappedObject->id);
+    }
+
     /**
      * Convert the presenter instance to an array.
      *
