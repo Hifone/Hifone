@@ -12,7 +12,7 @@
 namespace Hifone\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
-use Hifone\Models\Adblock as AdblockModel;
+use Hifone\Models\Ad\Adblock as AdblockModel;
 use Widget;
 
 class Adblock extends AbstractWidget

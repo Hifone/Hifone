@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Models;
+namespace Hifone\Models\Ad;
 
 use AltThree\Validator\ValidatingTrait;
 use Illuminate\Database\Eloquent\Model;

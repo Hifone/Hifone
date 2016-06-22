@@ -12,6 +12,7 @@
 namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use Hifone\Models\Ad\Adspace;
 use Illuminate\Database\Eloquent\Model;
 
 class Advertisement extends Model

@@ -71,6 +71,7 @@ class ForumRoutes
 
             $router->resource('node', 'NodeController');
             $router->resource('thread', 'ThreadController');
+            $router->resource('pm', 'PmController');
             $router->resource('reply', 'ReplyController', ['only' => ['store']]);
         });
     }

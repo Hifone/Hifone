@@ -13,7 +13,7 @@ namespace Hifone\Http\Controllers\Dashboard;
 
 use AltThree\Validator\ValidationException;
 use Hifone\Http\Controllers\Controller;
-use Hifone\Models\Adblock;
+use Hifone\Models\Ad\Adblock;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
@@ -50,7 +50,7 @@ class AdblockController extends Controller
     /**
      * Shows an adblock in more detail.
      *
-     * @param \Hifone\Models\Adblock $adblock
+     * @param \Hifone\Models\\Ad\Adblock $adblock
      *
      * @return \Illuminate\View\View
      */
@@ -80,7 +80,7 @@ class AdblockController extends Controller
     /**
      * Shows the edit adblock view.
      *
-     * @param \Hifone\Models\Adblock $adblock
+     * @param \Hifone\Models\Ad\Adblock $adblock
      *
      * @return \Illuminate\View\View
      */
@@ -95,7 +95,7 @@ class AdblockController extends Controller
     /**
      * Edit a adblock.
      *
-     * @param \Hifone\Models\Adblock $adblock
+     * @param \Hifone\Models\Ad\Adblock $adblock
      *
      * @return \Illuminate\Http\RedirectResponse
      */

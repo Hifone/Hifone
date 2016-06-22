@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Models;
+namespace Hifone\Models\Credit;
 
 use AltThree\Validator\ValidatingTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class CreditRule extends Model
+class Rule extends Model
 {
     use ValidatingTrait;
 
@@ -23,6 +23,8 @@ class CreditRule extends Model
     const DAILY = 1;
 
     const ONCE = 2;
+
+    protected $table = 'credit_rules';
 
     /**
      * The fillable properties.

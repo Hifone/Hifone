@@ -26,6 +26,11 @@ class ReplyController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Creates a new node.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         $replyData = Input::get('reply');
