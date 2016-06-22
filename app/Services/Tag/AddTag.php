@@ -71,7 +71,7 @@ class AddTag
         $new_ids = [];
 
         foreach ($new_tags as $key => $tag) {
-            $new_ids[] = Tag::firstOrCreate(['name' => $tag]);
+            $new_ids[] = Tag::firstOrCreate(['name' => $tag])->id;
         }
 
         return $new_ids;
