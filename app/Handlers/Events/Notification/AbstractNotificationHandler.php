@@ -86,9 +86,9 @@ abstract class AbstractNotificationHandler
     protected function isNotified($from_user_id, $user_id, $thread_id, $type)
     {
         return Notification::fromwhom($from_user_id)
-                        ->toWhom($user_id)
+                        ->forUser($user_id)
                         ->atThread($thread_id)
-                        ->withType($type)->get()->count();
+                        ->ofType($type)->get()->count();
     }
 
     // in case of a user get a lot of the same notification

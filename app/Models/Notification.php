@@ -60,12 +60,7 @@ class Notification extends Model implements HasPresenter
         return $query->where('from_user_id', '=', $from_user_id);
     }
 
-    public function scopeToWhom($query, $user_id)
-    {
-        return $query->forUser($user_id);
-    }
-
-    public function scopeWithType($query, $type)
+    public function scopeOfType($query, $type)
     {
         return $query->where('type', '=', $type);
     }
