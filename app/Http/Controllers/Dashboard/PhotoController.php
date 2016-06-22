@@ -14,6 +14,8 @@ namespace Hifone\Http\Controllers\Dashboard;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Photo;
 use Illuminate\Support\Facades\View;
+use File;
+use Redirect;
 
 class PhotoController extends Controller
 {
@@ -30,6 +32,11 @@ class PhotoController extends Controller
         ]);
     }
 
+    /**
+     * Shows the photos view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $photos = Photo::orderBy('created_at', 'desc')->paginate(10);
@@ -39,8 +46,22 @@ class PhotoController extends Controller
             ->withPhotos($photos);
     }
 
+    /**
+     * Deletes a given photo.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
-        echo $id;
+        $photo = Photo::findOrFail($id);
+        $file_path = str_replace(upload_url(), public_path(), $photo->image);
+        
+        File::delete($file_path);
+        $photo->delete();
+
+        return Redirect::route('dashboard.photo.index')
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
     }
 }
