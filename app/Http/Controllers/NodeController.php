@@ -29,6 +29,7 @@ class NodeController extends Controller
 
     public function show(Node $node)
     {
+        $this->breadcrumb->push($node->name, $node->url);
         $threads = Thread::NodeThreads(Input::get('filter'), $node->id)->search(Input::query('q'))->paginate(Config::get('setting.per_page'));
 
         return $this->view('threads.index')

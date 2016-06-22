@@ -40,11 +40,32 @@ class ThreadController extends Controller
     {
         $threads = Thread::filter(Input::query('filter'))->search(Input::query('q'))->paginate(Config::get('setting.per_page'));
 
-        //$this->breadcrumb->push('Forum', route('thread.index'));
-
         return $this->view('threads.index')
             ->withThreads($threads)
             ->withSections(Section::orderBy('order')->get());
+    }
+
+    public function show(Thread $thread)
+    {
+        $this->breadcrumb->push([
+                $thread->node->name => $thread->node->url,
+                $thread->title => route('thread.show', $thread->id)
+        ]);
+
+        $replies = $thread->replies()
+                    ->orderBy('created_at', 'asc')
+                    ->with('user')
+                    ->paginate(Config::get('setting.per_page'));
+
+        $node = $thread->node;
+        $nodeThreads = $thread->getSameNodeThreads();
+        $thread->increment('view_count', 1);
+
+        return $this->view('threads.show')
+            ->withThread($thread)
+            ->withReplies($replies)
+            ->withNodeThreads($nodeThreads)
+            ->withNode($node);
     }
 
     public function create()
@@ -78,24 +99,6 @@ class ThreadController extends Controller
 
         return Redirect::route('thread.show', [$thread->id])
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
-    }
-
-    public function show(Thread $thread)
-    {
-        $replies = $thread->replies()
-                    ->orderBy('created_at', 'asc')
-                    ->with('user')
-                    ->paginate(Config::get('setting.per_page'));
-
-        $node = $thread->node;
-        $nodeThreads = $thread->getSameNodeThreads();
-        $thread->increment('view_count', 1);
-
-        return $this->view('threads.show')
-            ->withThread($thread)
-            ->withReplies($replies)
-            ->withNodeThreads($nodeThreads)
-            ->withNode($node);
     }
 
     public function edit(Thread $thread)
