@@ -11,10 +11,10 @@
 
 namespace Hifone\Http\Controllers\Dashboard;
 
+use File;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Photo;
 use Illuminate\Support\Facades\View;
-use File;
 use Redirect;
 
 class PhotoController extends Controller
@@ -57,7 +57,7 @@ class PhotoController extends Controller
     {
         $photo = Photo::findOrFail($id);
         $file_path = str_replace(upload_url(), public_path(), $photo->image);
-        
+
         File::delete($file_path);
         $photo->delete();
 

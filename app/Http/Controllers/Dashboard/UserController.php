@@ -113,7 +113,6 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-
     public function update(User $user)
     {
         $userData = Input::get('user');

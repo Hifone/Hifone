@@ -48,7 +48,7 @@ class SectionController extends Controller
         ->withSections($sections);
     }
 
-     /**
+    /**
      * Shows a section in more detail.
      *
      * @param \Hifone\Models\Section $section

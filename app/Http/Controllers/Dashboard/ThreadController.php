@@ -37,7 +37,7 @@ class ThreadController extends Controller
         ]);
     }
 
-     /**
+    /**
      * Shows the threads view.
      *
      * @return \Illuminate\View\View
@@ -96,7 +96,7 @@ class ThreadController extends Controller
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.threads.edit.success')));
     }
 
-     /**
+    /**
      * Pin a thread.
      *
      * @param \Hifone\Models\Thread $thread

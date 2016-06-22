@@ -81,7 +81,7 @@ class AdvertisementController extends Controller
             ->withAdspaces($adspaces);
     }
 
-     /**
+    /**
      * Edit an advertisement.
      *
      * @param \Hifone\Models\Advertisement $advertisement
