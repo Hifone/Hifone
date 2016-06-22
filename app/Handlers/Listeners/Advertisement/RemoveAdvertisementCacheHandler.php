@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Advertisement;
+namespace Hifone\Handlers\Listeners\Advertisement;
 
 use Cache;
 use Hifone\Events\EventInterface;

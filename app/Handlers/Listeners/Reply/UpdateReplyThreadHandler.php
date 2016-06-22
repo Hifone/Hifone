@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Reply;
+namespace Hifone\Handlers\Listeners\Reply;
 
 use Hifone\Events\EventInterface;
 

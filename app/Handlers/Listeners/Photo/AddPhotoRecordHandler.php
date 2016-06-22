@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Photo;
+namespace Hifone\Handlers\Listeners\Photo;
 
 use Auth;
 use Hifone\Events\EventInterface;

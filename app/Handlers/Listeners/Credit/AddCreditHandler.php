@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Credit;
+namespace Hifone\Handlers\Listeners\Credit;
 
 use Auth;
 use Hifone\Events\EventInterface;

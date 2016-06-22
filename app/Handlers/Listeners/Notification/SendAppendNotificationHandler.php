@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Notification;
+namespace Hifone\Handlers\Listeners\Notification;
 
 use Auth;
 use Hifome\Models\User;

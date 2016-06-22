@@ -24,73 +24,73 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         // Advertisement
         'Hifone\Events\Advertisement\AdvertisementWasUpdatedEvent' => [
-            'Hifone\Handlers\Events\Advertisement\RemoveAdvertisementCacheHandler',
+            'Hifone\Handlers\Listeners\Advertisement\RemoveAdvertisementCacheHandler',
         ],
          // Append
         'Hifone\Events\Append\AppendWasAddedEvent' => [
-            'Hifone\Handlers\Events\Notification\SendAppendNotificationHandler',
+            'Hifone\Handlers\Listeners\Notification\SendAppendNotificationHandler',
         ],
 
         // Favorite
         'Hifone\Events\Favorite\FavoriteWasAddedEvent' => [
-            'Hifone\Handlers\Events\Notification\SendSingleNotificationHandler',
+            'Hifone\Handlers\Listeners\Notification\SendSingleNotificationHandler',
         ],
 
          //
         'Hifone\Events\Follow\FollowWasAddedEvent' => [
-            'Hifone\Handlers\Events\Notification\SendSingleNotificationHandler',
+            'Hifone\Handlers\Listeners\Notification\SendSingleNotificationHandler',
         ],
 
         // Image
 
         'Hifone\Events\Image\ImageWasUploadedEvent' => [
-            'Hifone\Handlers\Events\Photo\AddPhotoRecordHandler',
-            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
-            'Hifone\Handlers\Events\Credit\AddCreditHandler',
+            'Hifone\Handlers\Listeners\Photo\AddPhotoRecordHandler',
+            'Hifone\Handlers\Listeners\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Listeners\Credit\AddCreditHandler',
         ],
 
         // 按赞
         'Hifone\Events\Like\LikeWasAddedEvent' => [
-            'Hifone\Handlers\Events\Notification\SendSingleNotificationHandler',
+            'Hifone\Handlers\Listeners\Notification\SendSingleNotificationHandler',
         ],
 
         // Links
         'Hifone\Events\Link\LinkWasUpdatedEvent' => [
-            'Hifone\Handlers\Events\Link\RemoveLinkCacheHandler',
+            'Hifone\Handlers\Listeners\Link\RemoveLinkCacheHandler',
         ],
 
         // 回帖
         'Hifone\Events\Reply\ReplyWasAddedEvent' => [
-            'Hifone\Handlers\Events\Notification\SendReplyNotificationHandler',
-            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
-            'Hifone\Handlers\Events\Credit\AddCreditHandler',
+            'Hifone\Handlers\Listeners\Notification\SendReplyNotificationHandler',
+            'Hifone\Handlers\Listeners\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Listeners\Credit\AddCreditHandler',
         ],
         'Hifone\Events\Reply\ReplyWasRemovedEvent' => [
-            'Hifone\Handlers\Events\Reply\UpdateReplyThreadHandler',
-            'Hifone\Handlers\Events\Credit\AddCreditHandler',
+            'Hifone\Handlers\Listeners\Reply\UpdateReplyThreadHandler',
+            'Hifone\Handlers\Listeners\Credit\AddCreditHandler',
         ],
 
         //
         'Hifone\Events\Thread\ThreadWasAddedEvent' => [
-            'Hifone\Handlers\Events\Notification\SendThreadNotificationHandler',
-            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
-            'Hifone\Handlers\Events\Credit\AddCreditHandler',
+            'Hifone\Handlers\Listeners\Notification\SendThreadNotificationHandler',
+            'Hifone\Handlers\Listeners\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Listeners\Credit\AddCreditHandler',
         ],
 
         //
         'Hifone\Events\Thread\ThreadWasMarkedExcellentEvent' => [
-            'Hifone\Handlers\Events\Notification\SendSingleNotificationHandler',
+            'Hifone\Handlers\Listeners\Notification\SendSingleNotificationHandler',
         ],
 
         //
         'Hifone\Events\Thread\ThreadWasMovedEvent' => [
-            'Hifone\Handlers\Events\Notification\SendSingleNotificationHandler',
-            'Hifone\Handlers\Events\Thread\UpdateThreadNodesHandler',
+            'Hifone\Handlers\Listeners\Notification\SendSingleNotificationHandler',
+            'Hifone\Handlers\Listeners\Thread\UpdateThreadNodesHandler',
         ],
 
         //
         'Hifone\Events\Thread\ThreadWasRemovedEvent' => [
-            'Hifone\Handlers\Events\Thread\CleanupThreadRepliesHandler',
+            'Hifone\Handlers\Listeners\Thread\CleanupThreadRepliesHandler',
         ],
 
         //
@@ -100,17 +100,17 @@ class EventServiceProvider extends ServiceProvider
 
         //
         'Hifone\Events\Thread\ThreadWasViewedEvent' => [
-            'Hifone\Handlers\Events\Thread\UpdateThreadViewCountHandler',
+            'Hifone\Handlers\Listeners\Thread\UpdateThreadViewCountHandler',
         ],
 
         'Hifone\Events\User\UserWasAddedEvent' => [
-            'Hifone\Handlers\Events\Stats\UpdateStatsHandler',
-            'Hifone\Handlers\Events\Identity\ChangeUsernameHandler',
-            'Hifone\Handlers\Events\Credit\AddCreditHandler',
+            'Hifone\Handlers\Listeners\Stats\UpdateStatsHandler',
+            'Hifone\Handlers\Listeners\Identity\ChangeUsernameHandler',
+            'Hifone\Handlers\Listeners\Credit\AddCreditHandler',
         ],
 
         'Hifone\Events\User\UserWasLoggedinEvent' => [
-            'Hifone\Handlers\Events\Credit\AddCreditHandler',
+            'Hifone\Handlers\Listeners\Credit\AddCreditHandler',
         ],
 
         'SocialiteProviders\Manager\SocialiteWasCalled' => [

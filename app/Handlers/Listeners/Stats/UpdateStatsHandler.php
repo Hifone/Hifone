@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Events\Stats;
+namespace Hifone\Handlers\Listeners\Stats;
 
 use Cache;
 use Hifone\Events\EventInterface;
