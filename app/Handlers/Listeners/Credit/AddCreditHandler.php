@@ -20,7 +20,7 @@ use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Models\Credit;
-use Hifone\Models\CreditRule;
+use Hifone\Models\Credit\Rule as CreditRule;
 use Hifone\Models\User;
 
 class AddCreditHandler

@@ -13,7 +13,7 @@ namespace Hifone\Http\Controllers\Dashboard;
 
 use Hifone\Events\Advertisement\AdvertisementWasUpdatedEvent;
 use Hifone\Http\Controllers\Controller;
-use Hifone\Models\Adspace;
+use Hifone\Models\Ad\Adspace;
 use Hifone\Models\Advertisement;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;

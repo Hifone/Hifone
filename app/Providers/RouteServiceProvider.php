@@ -50,7 +50,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->app->router->model('section', 'Hifone\Models\Section');
         $this->app->router->model('node', 'Hifone\Models\Node');
-        $this->app->router->model('adspace', 'Hifone\Models\Adspace');
+        $this->app->router->model('adspace', 'Hifone\Models\Ad\Adspace');
         $this->app->router->model('user', 'Hifone\Models\User');
         $this->app->router->model('thread', 'Hifone\Models\Thread');
         $this->app->router->model('reply', 'Hifone\Models\Reply');

@@ -12,7 +12,7 @@
 namespace Hifone\Http\Controllers\Dashboard;
 
 use Hifone\Http\Controllers\Controller;
-use Hifone\Models\Adspace;
+use Hifone\Models\Ad\Adspace;
 use Hifone\Models\Link;
 use Hifone\Models\Location;
 use Hifone\Models\Node;

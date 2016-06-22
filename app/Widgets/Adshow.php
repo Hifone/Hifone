@@ -13,7 +13,7 @@ namespace Hifone\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
 use Cache;
-use Hifone\Models\Adspace;
+use Hifone\Models\Ad\Adspace;
 use Illuminate\Support\Facades\View;
 use Request;
 use Route;
