@@ -100,6 +100,12 @@ return [
         'drag_drop' => 'Image files by dragging & dropping,<a class="btn-upload" href="javascript:void(0);">selecting them</a>, or pasting from the clipboard.',
     ],
 
+// Tags
+    'tags' => [
+        'tags'      => 'Tags',
+        'tags_help' => 'Comma separated',
+    ],
+
 // 用户
     'users' => [
         'users'                     => 'Users',

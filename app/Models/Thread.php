@@ -15,14 +15,16 @@ use AltThree\Validator\ValidatingTrait;
 use Carbon\Carbon;
 use Config;
 use Hifone\Models\Scopes\ForUser;
+use Hifone\Models\Tag\TaggableInterface;
+use Hifone\Models\Traits\Taggable;
 use Hifone\Presenters\ThreadPresenter;
 use Illuminate\Database\Eloquent\Model;
 use Input;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
-class Thread extends Model implements HasPresenter
+class Thread extends Model implements HasPresenter, TaggableInterface
 {
-    use ValidatingTrait, ForUser;
+    use ValidatingTrait, Taggable, ForUser;
     // manually maintian
     public $timestamps = false;
 

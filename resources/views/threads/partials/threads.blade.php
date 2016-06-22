@@ -28,6 +28,7 @@
             <a href="{{ route('thread.show', [$thread->id]) }}" title="{{{ $thread->title }}}">
                 {{{ $thread->title }}}
             </a>
+            
           </div>
          
           <div class="media-body meta">
@@ -37,18 +38,29 @@
                 </a>
                 <span> • </span>
             @endif
+
+            @if(!isset($node))
             <a href="{{ $thread->node->url }}" title="{{{ $thread->node->name }}}" {{ $thread->like_count == 0 || 'class="remove-padding-left"'}}>
                 {{{ $thread->node->name }}}
             </a>
+            <span> • </span>
+            @elseif($thread->tagsList)
+                <span class="tag-list hidden-xs">
+                @foreach($thread->tags as $tag)
+                <a href="/tag/{{ $tag->name }}"><span class="tag">{{ $tag->name }}</span></a>
+                @endforeach
+                </span>
+            @else
+                <!-- <span> • </span> -->
+            @endif
             @if ($thread->reply_count == 0)
-                <span> • </span>
                     <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">{{{ $thread->user->username }}}
                     </a>
                 <span> • </span>
                 <span class="timeago" data-toggle="tooltip" data-placement="top" title="{{ $thread->created_at }}">{{ $thread->created_at }}</span>
             @endif
             @if ($thread->reply_count > 0 && count($thread->lastReplyUser))
-                <span> • {{ trans('hifone.threads.last_reply_by') }}</span>
+                <span>{{ trans('hifone.threads.last_reply_by') }}</span>
                 <a href="{{ route('user.home', [$thread->lastReplyUser->username]) }}">
                   {{ $thread->lastReplyUser->username }}
                 </a>
