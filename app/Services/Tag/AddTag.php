@@ -1,20 +1,27 @@
 <?php
+
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 /**
  * Created by PhpStorm.
  * User: stuartmccord
  * Date: 10/01/2016
- * Time: 17:05
+ * Time: 17:05.
  */
-
 namespace Hifone\Services\Tag;
 
+use Hifone\Models\Tag;
 use Hifone\Models\Tag\TaggableInterface;
 
-use Hifone\Models\Tag;
-
-
 /**
- * Class AddTag
+ * Class AddTag.
  */
 class AddTag
 {
@@ -24,15 +31,16 @@ class AddTag
      */
     public function attach(TaggableInterface $taggable, $tags)
     {
-        if (empty($tags))
+        if (empty($tags)) {
             return;
-        if(!is_array($tags)) {
+        }
+        if (!is_array($tags)) {
             $tags = str_replace('，', ',', $tags);
             $tags = preg_split('/ ?, ?/', $tags);
         }
 
-        if(count($tags) > 3) {
-            $tags = array_slice($tags, 0 , 3);
+        if (count($tags) > 3) {
+            $tags = array_slice($tags, 0, 3);
         }
 
         $ids = $this->getTagIDs($tags);
@@ -55,6 +63,7 @@ class AddTag
 
     /**
      * @param $new_tags
+     *
      * @return array
      */
     protected function createNewTags($new_tags)
@@ -64,6 +73,7 @@ class AddTag
         foreach ($new_tags as $key => $tag) {
             $new_ids[] = Tag::firstOrCreate(['name' => $tag]);
         }
+
         return $new_ids;
     }
 }

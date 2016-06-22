@@ -102,8 +102,8 @@ return [
 
 // Tags
     'tags' => [
-        'tags' => 'Tags',
-        'tags_help' => 'Comma separated'
+        'tags'      => 'Tags',
+        'tags_help' => 'Comma separated',
     ],
 
 // 用户

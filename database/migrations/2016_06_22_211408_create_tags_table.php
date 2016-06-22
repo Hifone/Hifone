@@ -1,10 +1,19 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTagsTable extends Migration {
-
+class CreateTagsTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -14,10 +23,10 @@ class CreateTagsTable extends Migration {
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            
+
             $table->string('name')->unique();
             $table->string('slug')->index();
-            
+
             $table->timestamps();
         });
     }
@@ -31,5 +40,4 @@ class CreateTagsTable extends Migration {
     {
         Schema::drop('tags');
     }
-
 }
