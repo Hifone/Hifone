@@ -83,7 +83,7 @@ class LinkController extends Controller
     /**
      * Shows the edit link view.
      *
-     * @param int $id
+     * @param \Hifone\Models\Link $link
      *
      * @return \Illuminate\View\View
      */
@@ -97,7 +97,7 @@ class LinkController extends Controller
     /**
      * Edit an link.
      *
-     * @param int $id
+     * @param \Hifone\Models\Link $link
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -116,7 +116,7 @@ class LinkController extends Controller
     /**
      * Deletes a given link.
      *
-     * @param int $id
+     * @param \Hifone\Models\Link $link
      *
      * @return \Illuminate\Http\RedirectResponse
      */

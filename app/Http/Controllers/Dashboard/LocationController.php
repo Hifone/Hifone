@@ -94,7 +94,7 @@ class LocationController extends Controller
     }
 
     /**
-     * Edit an location.
+     * Edit a location.
      *
      * @param int $id
      *

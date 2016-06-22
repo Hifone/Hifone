@@ -37,6 +37,11 @@ class ThreadController extends Controller
         ]);
     }
 
+     /**
+     * Shows the threads view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $threads = Thread::orderBy('order', 'desc')->orderBy('created_at', 'desc')->paginate(10);
@@ -49,7 +54,7 @@ class ThreadController extends Controller
     /**
      * Shows the edit thread view.
      *
-     * @param int $id
+     * @param \Hifone\Models\Thread $thread
      *
      * @return \Illuminate\View\View
      */
@@ -65,9 +70,9 @@ class ThreadController extends Controller
     }
 
     /**
-     * Edit an thread.
+     * Edit a thread.
      *
-     * @param int $id
+     * @param \Hifone\Models\Thread $thread
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -91,6 +96,13 @@ class ThreadController extends Controller
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.threads.edit.success')));
     }
 
+     /**
+     * Pin a thread.
+     *
+     * @param \Hifone\Models\Thread $thread
+     *
+     * @return \Illuminate\View\View
+     */
     public function pin(Thread $thread)
     {
         ($thread->order > 0) ? $thread->decrement('order', 1) : $thread->increment('order', 1);
@@ -99,6 +111,13 @@ class ThreadController extends Controller
             ->withSuccess(trans('dashboard.threads.edit.success'));
     }
 
+    /**
+     * Deletes a given thread.
+     *
+     * @param \Hifone\Models\Thread $thread
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(Thread $thread)
     {
         dispatch(new RemoveThreadCommand($thread));

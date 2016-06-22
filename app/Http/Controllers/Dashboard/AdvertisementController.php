@@ -34,6 +34,11 @@ class AdvertisementController extends Controller
         ]);
     }
 
+    /**
+     * Shows the advertisements view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $advertisements = Advertisement::orderBy('created_at', 'desc')->paginate(10);
@@ -43,6 +48,11 @@ class AdvertisementController extends Controller
         ->withAdvertisements($advertisements);
     }
 
+    /**
+     * Shows the add advertisement view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         $adspaces = Adspace::orderBy('created_at', 'desc')->get();
@@ -54,6 +64,13 @@ class AdvertisementController extends Controller
             ->withAdspaces($adspaces);
     }
 
+    /**
+     * Shows the edit advertisement view.
+     *
+     * @param \Hifone\Models\Advertisement $advertisement
+     *
+     * @return \Illuminate\View\View
+     */
     public function edit(Advertisement $advertisement)
     {
         $adspaces = Adspace::orderBy('created_at', 'desc')->get();
@@ -64,6 +81,13 @@ class AdvertisementController extends Controller
             ->withAdspaces($adspaces);
     }
 
+     /**
+     * Edit an advertisement.
+     *
+     * @param \Hifone\Models\Advertisement $advertisement
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Advertisement $advertisement)
     {
         $advertisementData = Request::get('advertisement');
@@ -82,6 +106,11 @@ class AdvertisementController extends Controller
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.advertisements.edit.success')));
     }
 
+    /**
+     * Creates a new advertisement.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         $advertisementData = Request::get('advertisement');

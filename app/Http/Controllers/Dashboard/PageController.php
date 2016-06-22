@@ -33,6 +33,11 @@ class PageController extends Controller
         ]);
     }
 
+    /**
+     * Shows the pages view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $pages = Page::orderBy('created_at', 'desc')->paginate(10);
@@ -42,12 +47,22 @@ class PageController extends Controller
             ->withPages($pages);
     }
 
+    /**
+     * Shows the add page view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         return View::make('dashboard.pages.create_edit')
             ->withPageTitle(trans('dashboard.pages.add.title').' - '.trans('dashboard.dashboard'));
     }
 
+    /**
+     * Creates a new page.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         $pageData = Request::get('page');
@@ -81,6 +96,13 @@ class PageController extends Controller
             ->withPage($page);
     }
 
+    /**
+     * Edit a page.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update($id)
     {
         $page = Page::findOrFail($id);

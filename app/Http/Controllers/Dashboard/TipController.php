@@ -96,7 +96,7 @@ class TipController extends Controller
     /**
      * Edit an tip.
      *
-     * @param int $id
+     * @param \Hifone\Models\Tip $tip
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -113,7 +113,7 @@ class TipController extends Controller
     /**
      * Deletes a given tip.
      *
-     * @param int $id
+     * @param \Hifone\Models\Tip $tip
      *
      * @return \Illuminate\Http\RedirectResponse
      */
