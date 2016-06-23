@@ -53,7 +53,7 @@ return [
         'noreply'        => '等待回复',
         'stick'          => '置顶',
         'recommended'    => '推荐',
-        'last_reply_by'  => '最后回复来自',
+        'last_reply_by'  => '回复',
         'more'           => '更多',
         'noitem'         => '暂无话题',
         'is_excellent'   => '该帖已被设为优质帖子！',
