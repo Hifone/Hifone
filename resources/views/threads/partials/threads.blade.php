@@ -44,14 +44,15 @@
                 {{{ $thread->node->name }}}
             </a>
             <span> • </span>
-            @elseif($thread->tagsList)
-                <span class="tag-list hidden-xs">
+                <!-- <span> • </span> -->
+            @endif
+            @if($thread->tagsList)
+            <span class="tag-list hidden-xs">
                 @foreach($thread->tags as $tag)
                 <a href="/tag/{{ urlencode($tag->name) }}"><span class="tag">{{ $tag->name }}</span></a>
                 @endforeach
-                </span>
-            @else
-                <!-- <span> • </span> -->
+            </span>
+            <span> • </span>
             @endif
             @if ($thread->reply_count == 0)
                     <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">{{{ $thread->user->username }}}
