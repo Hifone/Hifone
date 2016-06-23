@@ -50,7 +50,7 @@ class AdblockController extends Controller
     /**
      * Shows an adblock in more detail.
      *
-     * @param \Hifone\Models\\Ad\Adblock $adblock
+     * @param \Hifone\Models\Ad\Adblock $adblock
      *
      * @return \Illuminate\View\View
      */
