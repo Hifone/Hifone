@@ -15,6 +15,7 @@ use AltThree\Validator\ValidatingTrait;
 use Carbon\Carbon;
 use Config;
 use Hifone\Models\Scopes\ForUser;
+use Hifone\Models\Scopes\Recent;
 use Hifone\Models\Traits\Taggable;
 use Hifone\Presenters\ThreadPresenter;
 use Hifone\Services\Tag\TaggableInterface;
@@ -24,7 +25,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Thread extends Model implements HasPresenter, TaggableInterface
 {
-    use ValidatingTrait, Taggable, ForUser;
+    use ValidatingTrait, Taggable, ForUser, Recent;
     // manually maintian
     public $timestamps = false;
 
@@ -159,11 +160,6 @@ class Thread extends Model implements HasPresenter, TaggableInterface
                         ->recent()
                         ->take($limit)
                         ->get();
-    }
-
-    public function scopeRecent($query)
-    {
-        return $query->orderBy('created_at', 'desc');
     }
 
     public function scopePinAndRecentReply($query)

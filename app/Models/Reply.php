@@ -13,13 +13,14 @@ namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Hifone\Models\Scopes\ForUser;
+use Hifone\Models\Scopes\Recent;
 use Hifone\Presenters\ReplyPresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Reply extends Model implements HasPresenter
 {
-    use ValidatingTrait, ForUser;
+    use ValidatingTrait, ForUser, Recent;
 
     /**
      * The fillable properties.
@@ -57,11 +58,6 @@ class Reply extends Model implements HasPresenter
     public function thread()
     {
         return $this->belongsTo(Thread::class);
-    }
-
-    public function scopeRecent($query)
-    {
-        return $query->orderBy('created_at', 'desc');
     }
 
     /**

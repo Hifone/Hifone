@@ -14,12 +14,13 @@ namespace Hifone\Models;
 use AltThree\Validator\ValidatingTrait;
 use Hifone\Models\Credit\Rule as CreditRule;
 use Hifone\Presenters\CreditPresenter;
+use Hifone\Models\Scopes\Recent;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Credit extends Model implements HasPresenter
 {
-    use ValidatingTrait;
+    use ValidatingTrait, Recent;
 
     /**
      * The fillable properties.
@@ -60,18 +61,6 @@ class Credit extends Model implements HasPresenter
     public function rule()
     {
         return $this->belongsTo(CreditRule::class, 'rule_id');
-    }
-
-    /**
-     * Scope recent credits.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeRecent($query)
-    {
-        return $query->orderBy('created_at', 'desc');
     }
 
     /**

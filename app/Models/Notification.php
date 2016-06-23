@@ -13,13 +13,14 @@ namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Hifone\Models\Scopes\ForUser;
+use Hifone\Models\Scopes\Recent;
 use Hifone\Presenters\NotificationPresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
 class Notification extends Model implements HasPresenter
 {
-    use ValidatingTrait, ForUser;
+    use ValidatingTrait, ForUser, Recent;
 
     /**
      * The fillable properties.
@@ -56,11 +57,6 @@ class Notification extends Model implements HasPresenter
     public function fromUser()
     {
         return $this->belongsTo(User::class, 'from_user_id');
-    }
-
-    public function scopeRecent($query)
-    {
-        return $query->orderBy('created_at', 'desc');
     }
 
     public function scopeFromWhom($query, $from_user_id)

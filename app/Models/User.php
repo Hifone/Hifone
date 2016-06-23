@@ -143,11 +143,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsTo(Location::class);
     }
 
-    public function scopeRecent($query)
-    {
-        return $query->orderBy('created_at', 'desc');
-    }
-
     public function scopeSearch($query, $search)
     {
         return  $query->where(function ($query) use ($search) {
