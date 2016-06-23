@@ -158,7 +158,7 @@ return [
         'commented_thread_new_append' => 'added a new append',
         'user_follow'                 => 'followed you',
         'reply_like'                  => 'liked your reply',
-        'reply_mention'               => 'mentioned you on:'
+        'reply_mention'               => 'mentioned you on:',
         'credit_register'             => 'added credits via register',
     ],
 

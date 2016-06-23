@@ -64,6 +64,10 @@ class Notifier
         foreach ($users as $follower) {
             $toUser = (!$follower instanceof User) ? $follower->user : $follower;
 
+            if ($fromUser->id  == $toUser->id) {
+                continue;
+            }
+
             $data[] = [
                 'from_user_id'  => $fromUser->id,
                 'user_id'       => $toUser->id,
