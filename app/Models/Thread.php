@@ -26,7 +26,8 @@ use McCool\LaravelAutoPresenter\HasPresenter;
 class Thread extends Model implements HasPresenter, TaggableInterface
 {
     use ValidatingTrait, Taggable, ForUser, Recent;
-    // manually maintian
+
+    // manually maintain
     public $timestamps = false;
 
     //use SoftDeletingTrait;
