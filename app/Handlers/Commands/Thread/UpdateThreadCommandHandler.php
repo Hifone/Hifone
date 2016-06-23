@@ -24,6 +24,10 @@ class UpdateThreadCommandHandler
         $thread = $command->thread;
         $original_node_id = $thread->node_id;
 
+        $command->updateData['body_original'] = $command->updateData['body'];
+        $command->updateData['excerpt'] = Thread::makeExcerpt($command->updateData['body']);
+        $command->updateData['body'] = app('parser.markdown')->convertMarkdownToHtml(app('parser.at')->parse($command->updateData['body']));
+
         $thread->update($this->filter($command->updateData));
 
         if (isset($command->updateData['is_excellent'])) {

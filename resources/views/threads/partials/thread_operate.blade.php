@@ -45,7 +45,7 @@
     @endif
 
     @if (Auth::user() && Auth::user()->can("manage_threads") )
-        <a data-method="post" id="thread-recomend-button" href="javascript:void(0);" data-url="{{ route('thread.recomend', [$thread->id]) }}" class="admin {!! $thread->is_excellent ? 'active' :'';!!}" title="{{ trans('hifone.threads.mark_excellent') }}">
+        <a data-method="post" id="thread-recommend-button" href="javascript:void(0);" data-url="{{ route('thread.recommend', [$thread->id]) }}" class="admin {!! $thread->is_excellent ? 'active' :'';!!}" title="{{ trans('hifone.threads.mark_excellent') }}">
         <i class="fa fa-trophy"></i>
         </a>
 
