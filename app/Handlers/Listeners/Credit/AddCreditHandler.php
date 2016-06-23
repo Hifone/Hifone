@@ -19,6 +19,7 @@ use Hifone\Events\Reply\ReplyWasRemovedEvent;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
+use Hifone\Events\Credit\CreditWasAddedEvent;
 use Hifone\Models\Credit;
 use Hifone\Models\Credit\Rule as CreditRule;
 use Hifone\Models\User;
@@ -48,10 +49,10 @@ class AddCreditHandler
             $user = $event->user;
         }
 
-        $this->record($action, $user);
+        $this->apply($event, $action, $user);
     }
 
-    protected function record($action, $user)
+    protected function apply($event, $action, $user)
     {
         if (!$action) {
             return;
@@ -70,6 +71,9 @@ class AddCreditHandler
         ]);
 
         $user->update(['score' => $credit->balance]);
+
+        // Trigger
+        event(new CreditWasAddedEvent($credit, $event));
     }
 
     protected function checkFrequency(CreditRule $credit_rule, User $user)

@@ -158,6 +158,7 @@ return [
         'thread_move'           => 'moved your thread',
         'comment_append'        => 'added a new append',
         'follow_append'         => 'added a new append on thread',
+        'credit_register'       => 'added credits via register',
     ],
 
 //Credits
