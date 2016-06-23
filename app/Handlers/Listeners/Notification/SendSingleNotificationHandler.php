@@ -43,10 +43,9 @@ class SendSingleNotificationHandler
         } elseif ($event instanceof ThreadWasMovedEvent) {
             $this->movedThread($event->target);
         } elseif ($event instanceof CreditWasAddedEvent) {
-
             if ($event->upstream_event instanceof UserWasAddedEvent) {
                 $this->notifyCredit('credit_register', $event->upstream_event->user, $event->credit);
-            } elseif($event->upstream_event instanceof UserWasLoggedinEvent) {
+            } elseif ($event->upstream_event instanceof UserWasLoggedinEvent) {
                 $this->notifyCredit('credit_login', $event->upstream_event->user, $event->credit);
             } else {
                 return;
