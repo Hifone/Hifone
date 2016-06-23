@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
+use Hifone\Models\Tag;
 
 class ThreadController extends Controller
 {

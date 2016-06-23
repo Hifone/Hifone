@@ -47,7 +47,7 @@
             @elseif($thread->tagsList)
                 <span class="tag-list hidden-xs">
                 @foreach($thread->tags as $tag)
-                <a href="/tag/{{ $tag->name }}"><span class="tag">{{ $tag->name }}</span></a>
+                <a href="/tag/{{ urlencode($tag->name) }}"><span class="tag">{{ $tag->name }}</span></a>
                 @endforeach
                 </span>
             @else

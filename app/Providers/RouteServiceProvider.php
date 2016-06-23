@@ -11,6 +11,15 @@
 
 namespace Hifone\Providers;
 
+use Hifone\Models\Tag;
+use Hifone\Models\Section;
+use Hifone\Models\Node;
+use Hifone\Models\Ad\Adspace;
+use Hifone\Models\User;
+use Hifone\Models\Thread;
+use Hifone\Models\Reply;
+use Hifone\Models\Tip;
+
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
@@ -48,13 +57,17 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function registerBindings()
     {
-        $this->app->router->model('section', 'Hifone\Models\Section');
-        $this->app->router->model('node', 'Hifone\Models\Node');
-        $this->app->router->model('adspace', 'Hifone\Models\Ad\Adspace');
-        $this->app->router->model('user', 'Hifone\Models\User');
-        $this->app->router->model('thread', 'Hifone\Models\Thread');
-        $this->app->router->model('reply', 'Hifone\Models\Reply');
-        $this->app->router->model('tip', 'Hifone\Models\Tip');
+        $this->app->router->model('section', Section::class);
+        $this->app->router->model('node', Node::class);
+        $this->app->router->model('adspace', Adspace::class);
+        $this->app->router->model('user', User::class);
+        $this->app->router->model('thread', Thread::class);
+        $this->app->router->model('reply', Reply::class);
+        $this->app->router->model('tip', Tip::class);
+
+        $this->app->router->model('tag', Tag::class, function ($value) {
+            return Tag::where('name', urldecode($value))->firstOrFail();
+        });
     }
 
     /**

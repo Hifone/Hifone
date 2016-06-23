@@ -16,6 +16,16 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     protected $fillable = [
-        'name',
+        'name','slug'
     ];
+
+    /**
+     * Tags can have many threads.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function threads()
+    {
+      return $this->morphedByMany(Thread::class, 'taggable');
+    }
 }

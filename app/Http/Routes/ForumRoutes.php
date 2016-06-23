@@ -73,6 +73,7 @@ class ForumRoutes
             $router->resource('thread', 'ThreadController');
             $router->resource('pm', 'PmController');
             $router->resource('reply', 'ReplyController', ['only' => ['store']]);
+            $router->resource('tag', 'TagController');
         });
     }
 }
