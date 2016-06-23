@@ -41,7 +41,7 @@ class SendReplyNotificationHandler
                     );
 
         // Notify followed users
-        
+
         app(Notifier::class)->batchNotify(
                     'follow',
                     $fromUser,
