@@ -25,7 +25,7 @@
 
         <div class="form-group">
             <select class="selectpicker form-control" name="thread[node_id]" >
-              <option value="" disabled {!! $node ?: 'selected'; !!}>{{ trans('hifone.threads.pick_node') }}</option>
+              <option value="" disabled {!! $node ? null : 'selected'; !!}>{{ trans('hifone.threads.pick_node') }}</option>
               @foreach ($sections as $section)
                 <optgroup label="{{{ $section->name }}}">
                   @if(isset($section->nodes))
@@ -49,7 +49,16 @@
         </div>
 
         <div class="form-group">
-          {!! Form::text('thread[tags]', isset($thread) ? $thread->tagslist : null, ['class' => 'form-control', 'id' => 'thread_tag', 'placeholder' => trans('hifone.tags.tags_help')]) !!}
+          <select class="form-control js-tag-tokenizer" multiple="multiple" name="thread[tags][]">
+            @if(isset($thread))
+            @foreach($thread->tags as $tag)
+            <option selected="selected">{{ $tag->name }}</option>
+            @endforeach
+            @endif
+          </select>
+          <small>
+            {{ trans('hifone.tags.tags_help') }}
+          </small>
         </div>
 
         <div class="form-group status-post-submit">

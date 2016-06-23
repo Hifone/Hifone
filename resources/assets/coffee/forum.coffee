@@ -78,6 +78,13 @@ window.ForumView = Backbone.View.extend
   initSelect2 : ->
     $('.selectpicker').select2
       theme: 'classic'
+
+    $('.js-tag-tokenizer').select2
+      tags: true
+      tokenSeparators: [
+        ','
+        ' '
+      ]
     return
 
 # Open External Links In New Window
