@@ -18,10 +18,10 @@ use Illuminate\Support\ServiceProvider;
 class ParserServiceProvider extends ServiceProvider
 {
     /**
-    * Indicats if loading of the provider is deferred.
-    *
-    * @var bool
-    */
+     * Indicats if loading of the provider is deferred.
+     *
+     * @var bool
+     */
     protected $defer = true;
 
     /**
@@ -35,32 +35,31 @@ class ParserServiceProvider extends ServiceProvider
     }
 
     /**
-    * Register the parser services.
-    *
-    * @return void
-    */
+     * Register the parser services.
+     *
+     * @return void
+     */
     public function register()
     {
-        $this->app->singleton('parser.markdown', function($app) {
+        $this->app->singleton('parser.markdown', function ($app) {
             return new Markdown();
         });
 
-        $this->app->singleton('parser.at', function($app) {
+        $this->app->singleton('parser.at', function ($app) {
             return new ParseAt();
         });
     }
 
     /**
-    * Get the services providerd by the provider.
-    *
-    * @return array
-    */
+     * Get the services providerd by the provider.
+     *
+     * @return array
+     */
     public function provides()
     {
         return [
             'parser.markdown',
-            'parser.at'
+            'parser.at',
         ];
     }
-
 }

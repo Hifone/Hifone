@@ -17,10 +17,10 @@ use Illuminate\Support\ServiceProvider;
 class TagServiceProvider extends ServiceProvider
 {
     /**
-    * Indicats if loading of the provider is deferred.
-    *
-    * @var bool
-    */
+     * Indicats if loading of the provider is deferred.
+     *
+     * @var bool
+     */
     protected $defer = true;
 
     /**
@@ -34,27 +34,26 @@ class TagServiceProvider extends ServiceProvider
     }
 
     /**
-    * Register the parser services.
-    *
-    * @return void
-    */
+     * Register the parser services.
+     *
+     * @return void
+     */
     public function register()
     {
-        $this->app->singleton('tag', function($app) {
+        $this->app->singleton('tag', function ($app) {
             return new AddTag();
         });
     }
 
     /**
-    * Get the services providerd by the provider.
-    *
-    * @return array
-    */
+     * Get the services providerd by the provider.
+     *
+     * @return array
+     */
     public function provides()
     {
         return [
-            'tag'
+            'tag',
         ];
     }
-
 }
