@@ -39,11 +39,11 @@
                             </a>
                              •
                             {!! $notification->labelUp !!}
-                            @if(!in_array($notification->type,['user_follow','credit_register', 'new_reply']))
+                            @if(!in_array($notification->type,['user_follow','credit_register', 'thread_new_reply','reply_mention']))
                             <a href="{!! route('thread.show', [$notification->thread->id]) !!}{!! !empty($notification->reply_id) ? '#reply' . $notification->reply_id : '' !!}" title="{!! $notification->thread->title !!}">
                                 {!! str_limit($notification->thread->title, '100') !!}
                             </a>
-                            @elseif($notification->type == 'new_reply')
+                            @elseif(in_array($notification->type, ['thread_new_reply','reply_mention']))
                             <a href="{!! route('thread.show', [$notification->reply->thread->id]) !!}{!! !empty($notification->reply->id) ? '#reply' . $notification->object_id : '' !!}" title="{!! $notification->reply->thread->title !!}">
                             {!! str_limit($notification->reply->thread->title, '100') !!}
                             </a>

@@ -45,7 +45,7 @@ class SendAppendNotificationHandler
         $users = $thread->replies()->with('user')->get()->lists('user');
         // Notify commented user
         app(Notifier::class)->batchNotify(
-                    'comment_append',
+                    'commented_thread_new_append',
                     $fromUser,
                     $users,
                     $thread->id,
@@ -53,7 +53,7 @@ class SendAppendNotificationHandler
 
         // Notify followed users
         app(Notifier::class)->batchNotify(
-                    'follow_append',
+                    'followed_thread_new_append',
                     $fromUser,
                     $thread->follows()->get(),
                     $thread->id,

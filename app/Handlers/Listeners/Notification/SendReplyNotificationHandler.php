@@ -16,7 +16,6 @@ use Hifone\Events\Reply\ReplyEventInterface;
 use Hifone\Models\Reply;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Services\Notifier\Notifier;
 
 class SendReplyNotificationHandler
 {
@@ -32,8 +31,8 @@ class SendReplyNotificationHandler
     {
         $thread = $reply->thread;
         // Notify the author
-        app(Notifier::class)->batchNotify(
-                    'new_reply',
+        app('notifier')->batchNotify(
+                    'thread_new_reply',
                     $fromUser,
                     [$thread->user],
                     $reply->id,
@@ -41,9 +40,8 @@ class SendReplyNotificationHandler
                     );
 
         // Notify followed users
-
-        app(Notifier::class)->batchNotify(
-                    'follow',
+        app('notifier')->batchNotify(
+                    'followed_thread_new_reply',
                     $fromUser,
                     $thread->follows()->get(),
                     $reply->thread->id,
@@ -54,8 +52,8 @@ class SendReplyNotificationHandler
         $parserAt->parse($reply->body_original);
 
         // Notify mentioned users
-        app(Notifier::class)->batchNotify(
-                    'at',
+        app('notifier')->batchNotify(
+                    'reply_mention',
                     $fromUser,
                     $parserAt->users,
                     $reply->id,

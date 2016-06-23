@@ -17,14 +17,14 @@ class NotificationPresenter extends AbstractPresenter
     {
         //return "test";
         switch ($this->wrappedObject->type) {
-            case 'new_reply':
-            $label = trans('hifone.notifications.new_reply');
+            case 'thread_new_reply':
+            $label = trans('hifone.notifications.thread_new_reply');
                 break;
-            case 'follow':
-                $label = trans('hifone.notifications.follow');
+            case 'followed_thread_new_reply':
+                $label = trans('hifone.notifications.followed_thread_new_reply');
                 break;
-            case 'at':
-                $label = trans('hifone.notifications.at');
+            case 'thread_mention':
+                $label = trans('hifone.notifications.thread_mention');
                 break;
             case 'thread_favorite':
                 $label = trans('hifone.notifications.thread_favorite');
@@ -38,23 +38,26 @@ class NotificationPresenter extends AbstractPresenter
             case 'reply_like':
                 $label = trans('hifone.notifications.reply_like');
                 break;
+            case 'reply_mention':
+                $label = trans('hifone.notifications.reply_mention');
+                break;
             case 'thread_mark_excellent':
                 $label = trans('hifone.notifications.thread_mark_excellent');
                 break;
             case 'thread_move':
                 $label = trans('hifone.notifications.thread_move');
                 break;
-            case 'comment_append':
-                $label = trans('hifone.notifications.comment_append');
+            case 'commented_thread_new_append':
+                $label = trans('hifone.notifications.commented_thread_new_append');
                 break;
-            case 'follow_append':
-                $label = trans('hifone.notifications.follow_append');
+            case 'followed_thread_new_append':
+                $label = trans('hifone.notifications.followed_thread_new_append');
                 break;
             case 'user_follow':
                  $label = trans('hifone.notifications.user_follow');
                 break;
-            case 'user_follow_thread':
-                $label = trans('hifone.notifications.user_follow_thread');
+            case 'followed_user_new_thread':
+                $label = trans('hifone.notifications.followed_user_new_thread');
                 break;
             case 'credit_register':
                 $label = trans('hifone.notifications.credit_register');

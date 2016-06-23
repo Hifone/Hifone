@@ -15,7 +15,6 @@ use Auth;
 use Hifone\Events\Thread\ThreadEventInterface;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Services\Notifier\Notifier;
 
 class SendThreadNotificationHandler
 {
@@ -35,8 +34,8 @@ class SendThreadNotificationHandler
     protected function newThreadNotify(User $fromUser, Thread $thread)
     {
         // Notify followed users
-        app(Notifier::class)->batchNotify(
-                    'user_follow_thread',
+        app('notifier')->batchNotify(
+                    'followed_user_new_thread',
                     $fromUser,
                     $fromUser->follows()->get(),
                     $thread->id,
@@ -45,8 +44,8 @@ class SendThreadNotificationHandler
         $parserAt = app('parser.at');
         $parserAt->parse($thread->body_original);
 
-        app(Notifier::class)->batchNotify(
-                    'at',
+        app('notifier')->batchNotify(
+                    'thread_mention',
                     $fromUser,
                     $parserAt->users,
                     $thread->id,

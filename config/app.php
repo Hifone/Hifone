@@ -178,6 +178,7 @@ return [
         Hifone\Providers\ConfigServiceProvider::class,
         Hifone\Providers\ConsoleServiceProvider::class,
         Hifone\Providers\EventServiceProvider::class,
+        Hifone\Providers\NotifierServiceProvider::class,
         Hifone\Providers\ParserServiceProvider::class,
         Hifone\Providers\RouteServiceProvider::class,
         Hifone\Providers\TagServiceProvider::class,

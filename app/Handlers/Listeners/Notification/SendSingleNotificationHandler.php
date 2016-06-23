@@ -22,7 +22,6 @@ use Hifone\Events\Thread\ThreadWasMovedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Services\Notifier\Notifier;
 
 class SendSingleNotificationHandler
 {
@@ -57,9 +56,9 @@ class SendSingleNotificationHandler
         $type = ($target instanceof Thread) ? 'thread_follow' : 'user_follow';
 
         if ($type == 'thread_follow') {
-            app(Notifier::class)->notify($type, Auth::user(), $target->user, $target);
+            app('notifier')->notify($type, Auth::user(), $target->user, $target);
         } else {
-            app(Notifier::class)->notify($type, Auth::user(), $target);
+            app('notifier')->notify($type, Auth::user(), $target);
         }
     }
 
@@ -67,29 +66,29 @@ class SendSingleNotificationHandler
     {
         $type = ($target instanceof Thread) ? 'thread_like' : 'reply_like';
         if ($type == 'reply_like') {
-            app(Notifier::class)->notify($type, Auth::user(), $target->user, $target->thread, $target);
+            app('notifier')->notify($type, Auth::user(), $target->user, $target->thread, $target);
         } else {
-            app(Notifier::class)->notify($type, Auth::user(), $target->user, $target);
+            app('notifier')->notify($type, Auth::user(), $target->user, $target);
         }
     }
 
     protected function favorite($target)
     {
-        app(Notifier::class)->notify('thread_favorite', Auth::user(), $target->user, $target);
+        app('notifier')->notify('thread_favorite', Auth::user(), $target->user, $target);
     }
 
     protected function markedExcellent($target)
     {
-        app(Notifier::class)->notify('thread_mark_excellent', Auth::user(), $target->user, $target);
+        app('notifier')->notify('thread_mark_excellent', Auth::user(), $target->user, $target);
     }
 
     protected function movedThread($target)
     {
-        app(Notifier::class)->notify('thread_move', Auth::user(), $target->user, $target);
+        app('notifier')->notify('thread_move', Auth::user(), $target->user, $target);
     }
 
     protected function register($user, $credit)
     {
-        app(Notifier::class)->notify('credit_register', $user, $user, $credit);
+        app('notifier')->notify('credit_register', $user, $user, $credit);
     }
 }
