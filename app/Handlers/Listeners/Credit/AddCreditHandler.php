@@ -12,6 +12,7 @@
 namespace Hifone\Handlers\Listeners\Credit;
 
 use Auth;
+use Hifone\Events\Credit\CreditWasAddedEvent;
 use Hifone\Events\EventInterface;
 use Hifone\Events\Image\ImageWasUploadedEvent;
 use Hifone\Events\Reply\ReplyWasAddedEvent;
@@ -19,7 +20,6 @@ use Hifone\Events\Reply\ReplyWasRemovedEvent;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
-use Hifone\Events\Credit\CreditWasAddedEvent;
 use Hifone\Models\Credit;
 use Hifone\Models\Credit\Rule as CreditRule;
 use Hifone\Models\User;

@@ -45,7 +45,7 @@ class Notification extends Model implements HasPresenter
         return $this->belongsTo(Thread::class, 'object_id');
     }
 
-     public function reply()
+    public function reply()
     {
         return $this->belongsTo(Reply::class, 'object_id');
     }

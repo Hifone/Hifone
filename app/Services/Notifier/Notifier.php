@@ -14,7 +14,6 @@ namespace Hifone\Services\Notifier;
 use Carbon\Carbon;
 use Hifone\Models\Notification;
 use Hifone\Models\Reply;
-use Hifone\Models\Thread;
 use Hifone\Models\User;
 
 class Notifier
@@ -49,11 +48,11 @@ class Notifier
     /**
      * Create a notification.
      *
-     * @param [type] $type     currently have 'at', 'new_reply', 'follow', 'append'
-     * @param User   $fromUser come from who
-     * @param array  $users    to who, array of users
-     * @param int   $object_id   cuurent context
-     * @param Reply  $reply    the content
+     * @param [type] $type      currently have 'at', 'new_reply', 'follow', 'append'
+     * @param User   $fromUser  come from who
+     * @param array  $users     to who, array of users
+     * @param int    $object_id cuurent context
+     * @param Reply  $reply     the content
      *
      * @return [type] none
      */

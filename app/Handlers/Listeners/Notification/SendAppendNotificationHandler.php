@@ -20,7 +20,6 @@ use Hifone\Services\Notifier\Notifier;
 
 class SendAppendNotificationHandler
 {
-
     /**
      * Handle the thread.
      */

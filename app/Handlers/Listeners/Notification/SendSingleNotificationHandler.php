@@ -12,18 +12,17 @@
 namespace Hifone\Handlers\Listeners\Notification;
 
 use Auth;
+use Hifone\Events\Credit\CreditWasAddedEvent;
 use Hifone\Events\EventInterface;
 use Hifone\Events\Favorite\FavoriteEventInterface;
 use Hifone\Events\Follow\FollowEventInterface;
 use Hifone\Events\Like\LikeEventInterface;
 use Hifone\Events\Thread\ThreadWasMarkedExcellentEvent;
 use Hifone\Events\Thread\ThreadWasMovedEvent;
-use Hifone\Events\Credit\CreditWasAddedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
 use Hifone\Services\Notifier\Notifier;
-use Log;
 
 class SendSingleNotificationHandler
 {
@@ -44,10 +43,11 @@ class SendSingleNotificationHandler
         } elseif ($event instanceof ThreadWasMovedEvent) {
             $this->movedThread($event->target);
         } elseif ($event instanceof CreditWasAddedEvent) {
-            \Log::info('CreditWasAdded: '. $event->credit->id);
+            \Log::info('CreditWasAdded: '.$event->credit->id);
             \Log::info(get_class($event->upstream_event));
-            if(! $event->upstream_event instanceof UserWasAddedEvent)
+            if (!$event->upstream_event instanceof UserWasAddedEvent) {
                 return;
+            }
             $this->register($event->upstream_event->user, $event->credit);
         }
     }
