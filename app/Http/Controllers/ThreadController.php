@@ -21,6 +21,7 @@ use Hifone\Events\Thread\ThreadWasViewedEvent;
 use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
+use Hifone\Models\Tag;
 use Hifone\Models\Thread;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;

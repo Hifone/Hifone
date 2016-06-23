@@ -16,7 +16,14 @@
   </div>
 
   <div class="pull-right">
-
+    @if($thread->tagsList)
+      <span class="tag-list hidden-xs">
+      Tags: 
+      @foreach($thread->tags as $tag)
+      <a href="/tag/{{ urlencode($tag->name) }}"><span class="tag">{{ $tag->name }}</span></a>
+      @endforeach
+      </span>
+    @endif
     @if (Auth::user() && $thread->follows()->forUser(Auth::user()->id)->count())
       <a class="followable active" data-action="unfollow" data-id="{{ $thread->id }}" data-type="Thread" href="javascript:void(0);" data-url="{{ route('follow.createOrDelete', $thread->id) }}">
         <i class="fa fa-eye"></i> <span>{{ trans('hifone.follow') }}</span>
