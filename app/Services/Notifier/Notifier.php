@@ -61,7 +61,9 @@ class Notifier
         $nowTimestamp = Carbon::now()->toDateTimeString();
         $data = [];
 
-        foreach ($users as $toUser) {
+        foreach ($users as $follower) {
+            $toUser = (!$follower instanceof User) ? $follower->user : $follower;
+
             $data[] = [
                 'from_user_id'  => $fromUser->id,
                 'user_id'       => $toUser->id,
@@ -92,12 +94,12 @@ class Notifier
     protected function removeDuplication($users)
     {
         $notYetNotifyUsers = [];
-        foreach ($users as $follow) {
-            $user = (!$follow instanceof User) ? $follow->user : $follow;
+        foreach ($users as $follower) {
+            $toUser = (!$follower instanceof User) ? $follower->user : $follower;
 
-            if (!in_array($user->id, $this->notifiedUsers)) {
-                $notYetNotifyUsers[] = $user;
-                $this->notifiedUsers[] = $user->id;
+            if (!in_array($toUser->id, $this->notifiedUsers)) {
+                $notYetNotifyUsers[] = $toUser;
+                $this->notifiedUsers[] = $toUser->id;
             }
         }
 

@@ -41,21 +41,23 @@ class SendReplyNotificationHandler
                     );
 
         // Notify followed users
+        
         app(Notifier::class)->batchNotify(
                     'follow',
                     $fromUser,
                     $thread->follows()->get(),
-                    $reply->id,
+                    $reply->thread->id,
                     $reply->body
                     );
 
-        app('parser.at')->parse($reply->body_original);
+        $parserAt = app('parser.at');
+        $parserAt->parse($reply->body_original);
 
         // Notify mentioned users
         app(Notifier::class)->batchNotify(
                     'at',
                     $fromUser,
-                    app('parser.at')->users,
+                    $parserAt->users,
                     $reply->id,
                     $reply->body
                     );

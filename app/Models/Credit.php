@@ -13,8 +13,8 @@ namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Hifone\Models\Credit\Rule as CreditRule;
-use Hifone\Presenters\CreditPresenter;
 use Hifone\Models\Scopes\Recent;
+use Hifone\Presenters\CreditPresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
 
