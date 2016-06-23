@@ -16,11 +16,10 @@ use Hifome\Models\User;
 use Hifone\Events\Append\AppendEventInterface;
 use Hifone\Models\Append;
 use Hifone\Models\Thread;
+use Hifone\Services\Notifier\Notifier;
 
-class SendAppendNotificationHandler extends AbstractNotificationHandler
+class SendAppendNotificationHandler
 {
-    public $notifiedUsers = [];
-
     /**
      * Handle the thread.
      */
@@ -45,21 +44,19 @@ class SendAppendNotificationHandler extends AbstractNotificationHandler
         $fromUser = Auth::user();
         $users = $thread->replies()->with('user')->get()->lists('user');
         // Notify commented user
-        $this->batchNotify(
+        app(Notifier::class)->batchNotify(
                     'comment_append',
                     $fromUser,
-                    $this->removeDuplication($users),
+                    $users,
                     $thread->id,
-                    0,
                     $append->content);
 
         // Notify followed users
-        $this->batchNotify(
+        app(Notifier::class)->batchNotify(
                     'follow_append',
                     $fromUser,
-                    $this->removeDuplication($thread->follows()->get()),
+                    $thread->follows()->get(),
                     $thread->id,
-                    0,
                     $append->content);
     }
 }

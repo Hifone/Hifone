@@ -31,6 +31,11 @@ class EventServiceProvider extends ServiceProvider
             'Hifone\Handlers\Listeners\Notification\SendAppendNotificationHandler',
         ],
 
+        // Credit
+        'Hifone\Events\Credit\CreditWasAddedEvent' => [
+            'Hifone\Handlers\Listeners\Notification\SendSingleNotificationHandler',
+        ],
+
         // Favorite
         'Hifone\Events\Favorite\FavoriteWasAddedEvent' => [
             'Hifone\Handlers\Listeners\Notification\SendSingleNotificationHandler',

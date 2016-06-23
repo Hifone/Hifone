@@ -9,23 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Handlers\Listeners\Notification;
+namespace Hifone\Services\Notifier;
 
 use Carbon\Carbon;
 use Hifone\Models\Notification;
 use Hifone\Models\Reply;
-use Hifone\Models\Thread;
 use Hifone\Models\User;
 
-abstract class AbstractNotificationHandler
+class Notifier
 {
     protected $notifiedUsers = [];
 
-    protected function notify($type, User $fromUser, User $toUser, Thread $thread = null, Reply $reply = null)
+    public function notify($type, User $fromUser, User $toUser, $object = null)
     {
-        $target_id = $thread ? $thread->id : 0;
+        $object_id = $object ? $object->id : 0;
 
-        if ($this->isNotified($fromUser->id, $toUser->id, $target_id, $type)) {
+        if ($this->isNotified($fromUser->id, $toUser->id, $object_id, $type)) {
             return;
         }
 
@@ -34,9 +33,8 @@ abstract class AbstractNotificationHandler
         $data = [
             'from_user_id'  => $fromUser->id,
             'user_id'       => $toUser->id,
-            'thread_id'     => $target_id,
-            'reply_id'      => $reply ? $reply->id : 0,
-            'body'          => $reply ? $reply->body : '',
+            'object_id'     => $object_id,
+            'body'          => isset($object) ? $object->body : '',
             'type'          => $type,
             'created_at'    => $nowTimestamp,
             'updated_at'    => $nowTimestamp,
@@ -50,15 +48,15 @@ abstract class AbstractNotificationHandler
     /**
      * Create a notification.
      *
-     * @param [type] $type     currently have 'at', 'new_reply', 'follow', 'append'
-     * @param User   $fromUser come from who
-     * @param array  $users    to who, array of users
-     * @param Thread $thread   cuurent context
-     * @param Reply  $reply    the content
+     * @param [type] $type      currently have 'at', 'new_reply', 'follow', 'append'
+     * @param User   $fromUser  come from who
+     * @param array  $users     to who, array of users
+     * @param int    $object_id cuurent context
+     * @param Reply  $reply     the content
      *
      * @return [type] none
      */
-    protected function batchNotify($type, User $fromUser, $users, $thread_id, $reply_id = 0, $content = null)
+    public function batchNotify($type, User $fromUser, $users, $object_id, $content = null)
     {
         $nowTimestamp = Carbon::now()->toDateTimeString();
         $data = [];
@@ -67,8 +65,7 @@ abstract class AbstractNotificationHandler
             $data[] = [
                 'from_user_id'  => $fromUser->id,
                 'user_id'       => $toUser->id,
-                'thread_id'     => $thread_id,
-                'reply_id'      => $reply_id,
+                'object_id'     => $object_id,
                 'body'          => $content,
                 'type'          => $type,
                 'created_at'    => $nowTimestamp,
@@ -83,11 +80,11 @@ abstract class AbstractNotificationHandler
         }
     }
 
-    protected function isNotified($from_user_id, $user_id, $thread_id, $type)
+    protected function isNotified($from_user_id, $user_id, $object_id, $type)
     {
-        return Notification::fromwhom($from_user_id)
+        return Notification::fromWhom($from_user_id)
                         ->forUser($user_id)
-                        ->atThread($thread_id)
+                        ->atThread($object_id)
                         ->ofType($type)->get()->count();
     }
 

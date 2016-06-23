@@ -15,17 +15,10 @@ use Auth;
 use Hifone\Events\Thread\ThreadEventInterface;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Services\Parsers\ParseAt;
+use Hifone\Services\Notifier\Notifier;
 
-class SendThreadNotificationHandler extends AbstractNotificationHandler
+class SendThreadNotificationHandler
 {
-    protected $parseAt;
-
-    public function __construct(ParseAt $parseAt)
-    {
-        $this->parseAt = $parseAt;
-    }
-
     /**
      * Handle the thread.
      */
@@ -42,22 +35,21 @@ class SendThreadNotificationHandler extends AbstractNotificationHandler
     protected function newThreadNotify(User $fromUser, Thread $thread)
     {
         // Notify followed users
-        $this->batchNotify(
+        app(Notifier::class)->batchNotify(
                     'user_follow_thread',
                     $fromUser,
-                    $this->removeDuplication($fromUser->follows()->get()),
+                    $fromUser->follows()->get(),
                     $thread->id,
-                    0,
                     $thread->body);
         // Notify mentioned users
-        $this->parseAt->parse($thread->body_original);
+        $parserAt = app('parser.at');
+        $parserAt->parse($thread->body_original);
 
-        $this->batchNotify(
+        app(Notifier::class)->batchNotify(
                     'at',
                     $fromUser,
-                    $this->removeDuplication($this->parseAt->users),
+                    $parserAt->users,
                     $thread->id,
-                    0,
                     $thread->body);
     }
 }

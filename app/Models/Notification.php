@@ -29,7 +29,7 @@ class Notification extends Model implements HasPresenter
     protected $fillable = [
             'from_user_id',
             'user_id',
-            'thread_id',
+            'object_id',
             'reply_id',
             'body',
             'type',
@@ -42,7 +42,17 @@ class Notification extends Model implements HasPresenter
 
     public function thread()
     {
-        return $this->belongsTo(Thread::class, 'thread_id');
+        return $this->belongsTo(Thread::class, 'object_id');
+    }
+
+    public function reply()
+    {
+        return $this->belongsTo(Reply::class, 'object_id');
+    }
+
+    public function credit()
+    {
+        return $this->belongsTo(Credit::class, 'object_id');
     }
 
     public function fromUser()
@@ -65,9 +75,10 @@ class Notification extends Model implements HasPresenter
         return $query->where('type', '=', $type);
     }
 
-    public function scopeAtThread($query, $thread_id)
+    public function scopeAtThread($query, $object_id)
     {
-        return $query->where('type', '<>', 'user_follow')->where('thread_id', $thread_id);
+        return $query->where('object_id', $object_id);
+        //return $query->whereNotIn('type', ['user_follow','credit_register'])->where('object_id', $object_id);
     }
 
     /**

@@ -16,17 +16,10 @@ use Hifone\Events\Reply\ReplyEventInterface;
 use Hifone\Models\Reply;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
-use Hifone\Services\Parsers\ParseAt;
+use Hifone\Services\Notifier\Notifier;
 
-class SendReplyNotificationHandler extends AbstractNotificationHandler
+class SendReplyNotificationHandler
 {
-    protected $parseAt;
-
-    public function __construct(ParseAt $parseAt)
-    {
-        $this->parseAt = $parseAt;
-    }
-
     /**
      * Handle the thread.
      */
@@ -39,32 +32,30 @@ class SendReplyNotificationHandler extends AbstractNotificationHandler
     {
         $thread = $reply->thread;
         // Notify the author
-        $this->batchNotify(
+        app(Notifier::class)->batchNotify(
                     'new_reply',
                     $fromUser,
-                    $this->removeDuplication([$thread->user]),
-                    $thread->id,
+                    [$thread->user],
                     $reply->id,
                     $reply->body
                     );
 
         // Notify followed users
-        $this->batchNotify(
+        app(Notifier::class)->batchNotify(
                     'follow',
                     $fromUser,
-                    $this->removeDuplication($thread->follows()->get()),
-                    $thread->id,
+                    $thread->follows()->get(),
                     $reply->id,
                     $reply->body
                     );
 
-        $this->parseAt->parse($reply->body_original);
+        app('parser.at')->parse($reply->body_original);
+
         // Notify mentioned users
-        $this->batchNotify(
+        app(Notifier::class)->batchNotify(
                     'at',
                     $fromUser,
-                    $this->removeDuplication($this->parseAt->users),
-                    $thread->id,
+                    app('parser.at')->users,
                     $reply->id,
                     $reply->body
                     );

@@ -54,7 +54,10 @@ class NotificationPresenter extends AbstractPresenter
                  $label = trans('hifone.notifications.user_follow');
                 break;
             case 'user_follow_thread':
-                 $label = trans('hifone.notifications.user_follow_thread');
+                $label = trans('hifone.notifications.user_follow_thread');
+                break;
+            case 'credit_register':
+                $label = trans('hifone.notifications.credit_register');
                 break;
             default:
                 $label = 'unknow';
