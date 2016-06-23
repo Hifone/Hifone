@@ -57,7 +57,7 @@
                     <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">{{{ $thread->user->username }}}
                     </a>
                 <span> • </span>
-                <span class="timeago" data-toggle="tooltip" data-placement="top" title="{{ $thread->created_at }}">{{ $thread->created_at }}</span>
+                <span class="timeago {{ $thread->highlight }}" data-toggle="tooltip" data-placement="top" title="{{ $thread->created_at }}">{{ $thread->created_at }}</span>
             @endif
             @if ($thread->reply_count > 0 && count($thread->lastReplyUser))
                 <span>{{ trans('hifone.threads.last_reply_by') }}</span>
@@ -65,7 +65,7 @@
                   {{ $thread->lastReplyUser->username }}
                 </a>
                 <span> • </span>
-                <span class="timeago" data-toggle="tooltip" data-placement="top" title="{{ $thread->updated_at }}">{{ $thread->updated_at }}</span>
+                <span class="timeago {{ $thread->highlight }}" data-toggle="tooltip" data-placement="top" title="{{ $thread->updated_at }}">{{ $thread->updated_at }}</span>
             @endif
           </div>
 

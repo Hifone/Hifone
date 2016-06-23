@@ -13,6 +13,8 @@ namespace Hifone\Presenters;
 
 use Hifone\Presenters\Traits\TimestampsTrait;
 use McCool\LaravelAutoPresenter\Facades\AutoPresenter;
+use Carbon\Carbon;
+use Hifone\Services\Dates\DateFactory;
 
 class ThreadPresenter extends AbstractPresenter
 {
@@ -37,6 +39,16 @@ class ThreadPresenter extends AbstractPresenter
         }
 
         return '';
+    }
+
+    /**
+    * Highlight for threads of today
+    *
+    * @return string|null
+    */
+    public function highlight()
+    {
+        return (Carbon::now()->format('Ymd') == app(DateFactory::class)->make($this->wrappedObject->updated_at)->format('Ymd')) ? 'text-danger' : null;
     }
 
     /**
