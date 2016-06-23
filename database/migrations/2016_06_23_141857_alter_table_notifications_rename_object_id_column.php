@@ -33,6 +33,8 @@ class AlterTableNotificationsRenameObjectIdColumn extends Migration
      */
     public function down()
     {
-        $table->renameColumn('object_id', 'thread_id');
+        Schema::table('notifications', function (Blueprint $table) {
+            $table->renameColumn('object_id', 'thread_id');
+        });
     }
 }
