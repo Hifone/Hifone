@@ -11,15 +11,14 @@
 
 namespace Hifone\Providers;
 
-use Hifone\Models\Tag;
-use Hifone\Models\Section;
-use Hifone\Models\Node;
 use Hifone\Models\Ad\Adspace;
-use Hifone\Models\User;
-use Hifone\Models\Thread;
+use Hifone\Models\Node;
 use Hifone\Models\Reply;
+use Hifone\Models\Section;
+use Hifone\Models\Tag;
+use Hifone\Models\Thread;
 use Hifone\Models\Tip;
-
+use Hifone\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 

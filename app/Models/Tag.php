@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     protected $fillable = [
-        'name','slug'
+        'name', 'slug',
     ];
 
     /**
@@ -26,6 +26,6 @@ class Tag extends Model
      */
     public function threads()
     {
-      return $this->morphedByMany(Thread::class, 'taggable');
+        return $this->morphedByMany(Thread::class, 'taggable');
     }
 }
