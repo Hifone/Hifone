@@ -160,6 +160,7 @@ return [
         'reply_like'                  => 'liked your reply',
         'reply_mention'               => 'mentioned you on:',
         'credit_register'             => 'added credits via register',
+        'credit_login'                => 'added credits via daily login',
     ],
 
 //Credits

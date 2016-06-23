@@ -39,7 +39,7 @@
                             </a>
                              •
                             {!! $notification->labelUp !!}
-                            @if(!in_array($notification->type,['user_follow','credit_register', 'thread_new_reply','reply_mention']))
+                            @if(!in_array($notification->type,['user_follow','credit_register','credit_login', 'thread_new_reply','reply_mention']))
                             <a href="{!! route('thread.show', [$notification->thread->id]) !!}{!! !empty($notification->reply_id) ? '#reply' . $notification->reply_id : '' !!}" title="{!! $notification->thread->title !!}">
                                 {!! str_limit($notification->thread->title, '100') !!}
                             </a>
@@ -53,7 +53,7 @@
                             </span>
                           </div>
                           <div class="media-body markdown-reply content-body">
-                            @if($notification->type == 'credit_register')
+                            @if(in_array($notification->type, ['credit_register', 'credit_login']))
                             {{ trans('hifone.credits.credits') }}: {{ $notification->credit->rule->reward }}
                             @endif
                             {!! $notification->body !!}

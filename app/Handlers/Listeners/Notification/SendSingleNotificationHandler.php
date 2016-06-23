@@ -20,6 +20,7 @@ use Hifone\Events\Like\LikeEventInterface;
 use Hifone\Events\Thread\ThreadWasMarkedExcellentEvent;
 use Hifone\Events\Thread\ThreadWasMovedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
+use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
 
@@ -42,12 +43,14 @@ class SendSingleNotificationHandler
         } elseif ($event instanceof ThreadWasMovedEvent) {
             $this->movedThread($event->target);
         } elseif ($event instanceof CreditWasAddedEvent) {
-            \Log::info('CreditWasAdded: '.$event->credit->id);
-            \Log::info(get_class($event->upstream_event));
-            if (!$event->upstream_event instanceof UserWasAddedEvent) {
+
+            if ($event->upstream_event instanceof UserWasAddedEvent) {
+                $this->notifyCredit('credit_register', $event->upstream_event->user, $event->credit);
+            } elseif($event->upstream_event instanceof UserWasLoggedinEvent) {
+                $this->notifyCredit('credit_login', $event->upstream_event->user, $event->credit);
+            } else {
                 return;
             }
-            $this->register($event->upstream_event->user, $event->credit);
         }
     }
 
@@ -87,8 +90,8 @@ class SendSingleNotificationHandler
         app('notifier')->notify('thread_move', Auth::user(), $target->user, $target);
     }
 
-    protected function register($user, $credit)
+    protected function notifyCredit($action, $user, $credit)
     {
-        app('notifier')->notify('credit_register', $user, $user, $credit);
+        app('notifier')->notify($action, $user, $user, $credit);
     }
 }

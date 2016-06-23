@@ -160,6 +160,7 @@ return [
         'reply_like'                  => '赞了你的回复',
         'reply_mention'               => '在回复中提及你:',
         'credit_register'             => '注册获得积分',
+        'credit_login'                => '每日登录获得积分',
     ],
 
 //积分
