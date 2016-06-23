@@ -56,7 +56,11 @@ class Adspace extends Model
         return $this->belongsTo(Adblock::class);
     }
 
-    //
+    /**
+     * Get the advertisements relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function advertisements()
     {
         return $this->hasMany(Advertisement::class);

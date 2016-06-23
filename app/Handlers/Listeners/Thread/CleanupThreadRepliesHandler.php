@@ -26,7 +26,8 @@ class CleanupThreadRepliesHandler
             $reply->delete();
         }
 
-        $notification = Notification::atThread($thread->id);
+        $notification = Notification::forObject($thread->id);
+
         // Cleanup the notifications;
         $notification->delete();
     }

@@ -52,16 +52,33 @@ class Like extends Model
         'rating'         => 'required|int',
     ];
 
+    /**
+     * Get all of the owning likeable models.
+     */
     public function likeable()
     {
         return $this->morphTo();
     }
 
+    /**
+     * Scope likes.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeWithUp($query)
     {
         return $query->where('rating', self::LIKE);
     }
 
+    /**
+     * Scope unlikes.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeWithDown($query)
     {
         return $query->where('rating', self::UNLIKE);

@@ -40,6 +40,11 @@ class Section extends Model
         'order'     => 'int',
     ];
 
+    /**
+     * Sections can have many nodes.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function nodes()
     {
         return $this->hasMany(Node::class)->orderBy('order');

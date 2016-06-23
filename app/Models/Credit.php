@@ -52,11 +52,23 @@ class Credit extends Model implements HasPresenter
         });
     }
 
+    /**
+     * A credit belongs to a credit rule.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function rule()
     {
         return $this->belongsTo(CreditRule::class, 'rule_id');
     }
 
+    /**
+     * Scope recent credits.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeRecent($query)
     {
         return $query->orderBy('created_at', 'desc');

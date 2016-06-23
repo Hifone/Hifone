@@ -38,7 +38,11 @@ class Adblock extends Model
         'slug'      => 'required|string',
     ];
 
-    //
+    /**
+     * Get the adspaces relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function adspaces()
     {
         return $this->hasMany(Adspace::class)->orderBy('order');

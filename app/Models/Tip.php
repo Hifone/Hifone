@@ -36,6 +36,11 @@ class Tip extends Model implements HasPresenter
         'status' => 'int',
     ];
 
+    /**
+     * Get the presenter class.
+     *
+     * @return string
+     */
     public function getPresenterClass()
     {
         return TipPresenter::class;

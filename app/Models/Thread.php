@@ -161,11 +161,6 @@ class Thread extends Model implements HasPresenter, TaggableInterface
                         ->get();
     }
 
-    public function scopeWhose($query, $user_id)
-    {
-        return $query->forUser($user_id)->with('node');
-    }
-
     public function scopeRecent($query)
     {
         return $query->orderBy('created_at', 'desc');

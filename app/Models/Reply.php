@@ -59,11 +59,6 @@ class Reply extends Model implements HasPresenter
         return $this->belongsTo(Thread::class);
     }
 
-    public function scopeWhose($query, $user_id)
-    {
-        return $query->forUser($user_id)->with('thread');
-    }
-
     public function scopeRecent($query)
     {
         return $query->orderBy('created_at', 'desc');

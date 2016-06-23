@@ -24,6 +24,11 @@ class Rule extends Model
 
     const ONCE = 2;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'credit_rules';
 
     /**

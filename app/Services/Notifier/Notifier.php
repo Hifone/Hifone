@@ -84,7 +84,7 @@ class Notifier
     {
         return Notification::fromWhom($from_user_id)
                         ->forUser($user_id)
-                        ->atThread($object_id)
+                        ->forObject($object_id)
                         ->ofType($type)->get()->count();
     }
 

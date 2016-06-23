@@ -40,6 +40,11 @@ class Location extends Model
         'order'  => 'int',
     ];
 
+    /**
+     * A location has many users.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function users()
     {
         return $this->hasMany(User::class);

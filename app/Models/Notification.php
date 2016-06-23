@@ -26,15 +26,13 @@ class Notification extends Model implements HasPresenter
      *
      * @var string[]
      */
-    protected $fillable = [
-            'from_user_id',
-            'user_id',
-            'object_id',
-            'reply_id',
-            'body',
-            'type',
-            ];
+    protected $fillable = ['from_user_id', 'user_id', 'object_id', 'reply_id', 'body', 'type'];
 
+    /**
+     * Notications can belong to a user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -72,13 +70,12 @@ class Notification extends Model implements HasPresenter
 
     public function scopeOfType($query, $type)
     {
-        return $query->where('type', '=', $type);
+        return $query->where('type', $type);
     }
 
-    public function scopeAtThread($query, $object_id)
+    public function scopeForObject($query, $object_id)
     {
         return $query->where('object_id', $object_id);
-        //return $query->whereNotIn('type', ['user_follow','credit_register'])->where('object_id', $object_id);
     }
 
     /**

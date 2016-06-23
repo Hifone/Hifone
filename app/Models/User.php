@@ -88,21 +88,41 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany(Thread::class, 'favorites')->withTimestamps();
     }
 
+    /**
+     * Users can have many threads.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function threads()
     {
         return $this->hasMany(Thread::class);
     }
 
+    /**
+     * Users can have many replies.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function replies()
     {
         return $this->hasMany(Reply::class);
     }
 
+    /**
+     * Users can have many credits.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function credits()
     {
         return $this->hasMany(Credit::class);
     }
 
+    /**
+     * Users can have many notifications.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function notifications()
     {
         return $this->hasMany(Notification::class);

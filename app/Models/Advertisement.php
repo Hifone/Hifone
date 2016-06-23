@@ -41,7 +41,11 @@ class Advertisement extends Model
         'body'       => 'required|string',
     ];
 
-    //
+    /**
+     * An advertisement belongs to an adspace.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function adspace()
     {
         return $this->belongsTo(Adspace::class);

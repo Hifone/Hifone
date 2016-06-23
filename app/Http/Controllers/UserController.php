@@ -42,8 +42,8 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        $threads = Thread::whose($user->id)->recent()->limit(10)->get();
-        $replies = Reply::whose($user->id)->recent()->limit(10)->get();
+        $threads = Thread::forUser($user->id)->recent()->limit(10)->get();
+        $replies = Reply::forUser($user->id)->recent()->limit(10)->get();
 
         return $this->view('users.show')
             ->withUser($user)
@@ -99,7 +99,7 @@ class UserController extends Controller
 
     public function replies(User $user)
     {
-        $replies = Reply::whose($user->id)->recent()->paginate(15);
+        $replies = Reply::forUser($user->id)->recent()->paginate(15);
 
         return $this->view('users.replies')
             ->withUser($user)
@@ -108,7 +108,7 @@ class UserController extends Controller
 
     public function threads(User $user)
     {
-        $threads = Thread::whose($user->id)->recent()->paginate(15);
+        $threads = Thread::forUser($user->id)->recent()->paginate(15);
 
         return $this->view('users.threads')
             ->withUser($user)
