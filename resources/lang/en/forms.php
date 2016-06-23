@@ -27,4 +27,6 @@ return [
     'login'    => 'Sign in',
     'logout'   => 'Sign out',
     'register' => 'Sign up',
+    'enabled'  => 'Enabled',
+    'disabled' => 'Disabled',
 ];

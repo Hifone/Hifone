@@ -53,7 +53,7 @@ class Adshow extends AbstractWidget
     private function getAdvertisements($adspace)
     {
         return Cache::remember(self::CACHE_KEY.$adspace->id, self::CACHE_MINUTES, function () use ($adspace) {
-            return $adspace->advertisements()->get();
+            return $adspace->advertisements()->enabled()->get();
         });
     }
 }

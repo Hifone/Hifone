@@ -127,4 +127,19 @@ class AdvertisementController extends Controller
         return Redirect::route('dashboard.advertisement.index')
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('dashboard.advertisements.edit.success')));
     }
+
+    /**
+     * Destroy an advertisement.
+     *
+     * @param \Hifone\Models\Advertisement $advertisement
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Advertisement $advertisement)
+    {
+        $advertisement->delete();
+
+        return Redirect::route('dashboard.advertisement.index')
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
+    }
 }

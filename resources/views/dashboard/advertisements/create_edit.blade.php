@@ -44,7 +44,13 @@
                                     'id' => 'advertisement-body',
                                     'placeholder' => '']) !!}
                 </div>
-                    
+                <div class="checkbox">
+                            <label>
+                                <input type="hidden" value="0" name="advertisement[enabled]">
+                                <input type="checkbox" value="1" name="advertisement[enabled]" {{ isset($advertisement) && $advertisement->enabled ? "checked" : null }}>
+                                {{ trans('forms.enabled') }}
+                            </label>
+                        </div>
                 </fieldset>
 
                 <div class="row">

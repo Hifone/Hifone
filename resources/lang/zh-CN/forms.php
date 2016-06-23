@@ -27,4 +27,6 @@ return [
     'login'    => '登录',
     'logout'   => '退出',
     'register' => '注册',
+    'enabled'  => '激活',
+    'disabled' => '禁用',
 ];
