@@ -176,9 +176,11 @@ return [
         Hifone\Providers\AuthServiceProvider::class,
         Hifone\Providers\ComposerServiceProvider::class,
         Hifone\Providers\ConfigServiceProvider::class,
-        Hifone\Providers\EventServiceProvider::class,
-        Hifone\Providers\RouteServiceProvider::class,
         Hifone\Providers\ConsoleServiceProvider::class,
+        Hifone\Providers\EventServiceProvider::class,
+        Hifone\Providers\ParserServiceProvider::class,
+        Hifone\Providers\RouteServiceProvider::class,
+        Hifone\Providers\TagServiceProvider::class,
     ],
 
     /*

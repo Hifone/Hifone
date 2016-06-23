@@ -17,7 +17,6 @@ use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
-use Hifone\Services\Parsers\Markdown;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
@@ -81,7 +80,7 @@ class ThreadController extends Controller
         $threadData = Input::get('thread');
 
         $threadData['body_original'] = $threadData['body'];
-        $threadData['body'] = (new Markdown())->convertMarkdownToHtml($threadData['body']);
+        $threadData['body'] = app('parser.markdown')->convertMarkdownToHtml($threadData['body']);
         $threadData['excerpt'] = Thread::makeExcerpt($threadData['body']);
 
         try {

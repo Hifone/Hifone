@@ -103,7 +103,7 @@ return [
 // Tags
     'tags' => [
         'tags'      => '标签',
-        'tags_help' => '请用 , 分隔',
+        'tags_help' => '请填写标签，多个标签之间用 , 分隔',
     ],
 
 // 用户

@@ -22,8 +22,6 @@ use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
-use Hifone\Services\Parsers\Markdown;
-use Hifone\Services\Tag\AddTag;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -104,7 +102,7 @@ class ThreadController extends Controller
         }
 
         // The thread was added successfully, so now let's deal with the tags.
-        app(AddTag::class)->attach($thread, $tags);
+        app('tag')->attach($thread, $tags);
 
 
         return Redirect::route('thread.show', [$thread->id])
@@ -129,7 +127,7 @@ class ThreadController extends Controller
     {
         $this->needAuthorOrAdminPermission($thread->user_id);
 
-        $content = (new Markdown())->convertMarkdownToHtml(Input::get('content'));
+        $content = app('parser.markdown')->convertMarkdownToHtml(Input::get('content'));
 
         try {
             $append = dispatch(new AddAppendCommand(
@@ -155,7 +153,7 @@ class ThreadController extends Controller
         $tags = array_pull($threadData, 'tags');
 
         $threadData['body_original'] = $threadData['body'];
-        $threadData['body'] = (new Markdown())->convertMarkdownToHtml($threadData['body']);
+        $threadData['body'] = app('parser.markdown')->convertMarkdownToHtml($threadData['body']);
         $threadData['excerpt'] = Thread::makeExcerpt($threadData['body']);
 
         try {
@@ -167,7 +165,7 @@ class ThreadController extends Controller
         }
 
         // The thread was added successfully, so now let's deal with the tags.
-        app(AddTag::class)->attach($thread, $tags);
+        app('tag')->attach($thread, $tags);
 
         return Redirect::route('thread.show', $thread->id)
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
