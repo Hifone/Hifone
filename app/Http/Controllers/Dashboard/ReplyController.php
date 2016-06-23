@@ -15,7 +15,6 @@ use Hifone\Commands\Reply\RemoveReplyCommand;
 use Hifone\Commands\Reply\UpdateReplyCommand;
 use Hifone\Http\Controllers\Controller;
 use Hifone\Models\Reply;
-use Hifone\Services\Parsers\Markdown;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
@@ -75,7 +74,7 @@ class ReplyController extends Controller
         $replyData = Input::get('reply');
 
         $replyData['body_original'] = $replyData['body'];
-        $replyData['body'] = (new Markdown())->convertMarkdownToHtml($replyData['body']);
+        $replyData['body'] = app('parser.markdown')->convertMarkdownToHtml($replyData['body']);
 
         try {
             $reply = dispatch(new UpdateReplyCommand($reply, $replyData));

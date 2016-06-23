@@ -17,8 +17,6 @@ use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Models\Thread;
 use Hifone\Services\Dates\DateFactory;
-use Hifone\Services\Parsers\Markdown;
-use Hifone\Services\Parsers\ParseAt;
 
 class AddThreadCommandHandler
 {
@@ -29,20 +27,14 @@ class AddThreadCommandHandler
      */
     protected $dates;
 
-    protected $markdown;
-
-    protected $parseAt;
-
     /**
      * Create a new report issue command handler instance.
      *
      * @param \Hifone\Services\Dates\DateFactory $dates
      */
-    public function __construct(DateFactory $dates, Markdown $markdown, ParseAt $parseAt)
+    public function __construct(DateFactory $dates)
     {
         $this->dates = $dates;
-        $this->markdown = $markdown;
-        $this->parseAt = $parseAt;
     }
 
     /**
@@ -59,7 +51,7 @@ class AddThreadCommandHandler
             'title'         => $command->title,
             'excerpt'       => Thread::makeExcerpt($command->body),
             'node_id'       => $command->node_id,
-            'body'          => $this->markdown->convertMarkdownToHtml($this->parseAt->parse($command->body)),
+            'body'          => app('parser.markdown')->convertMarkdownToHtml(app('parser.at')->parse($command->body)),
             'body_original' => $command->body,
             'created_at'    => Carbon::now()->toDateTimeString(),
             'updated_at'    => Carbon::now()->toDateTimeString(),

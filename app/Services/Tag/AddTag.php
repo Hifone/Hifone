@@ -9,25 +9,17 @@
  * file that was distributed with this source code.
  */
 
-/**
- * Created by PhpStorm.
- * User: stuartmccord
- * Date: 10/01/2016
- * Time: 17:05.
- */
 namespace Hifone\Services\Tag;
 
 use Hifone\Models\Tag;
-use Hifone\Models\Tag\TaggableInterface;
 
-/**
- * Class AddTag.
- */
 class AddTag
 {
     /**
-     * @param TaggableInterface $taggable
+     * @param \Hifone\Models\Tag\TaggableInterface $taggable
      * @param $tags
+     *
+     * @return void
      */
     public function attach(TaggableInterface $taggable, $tags)
     {

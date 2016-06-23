@@ -15,7 +15,7 @@
  * Date: 10/01/2016
  * Time: 18:56.
  */
-namespace Hifone\Models\Tag;
+namespace Hifone\Services\Tag;
 
 interface TaggableInterface
 {

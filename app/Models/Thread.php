@@ -15,7 +15,7 @@ use AltThree\Validator\ValidatingTrait;
 use Carbon\Carbon;
 use Config;
 use Hifone\Models\Scopes\ForUser;
-use Hifone\Models\Tag\TaggableInterface;
+use Hifone\Services\Tag\TaggableInterface;
 use Hifone\Models\Traits\Taggable;
 use Hifone\Presenters\ThreadPresenter;
 use Illuminate\Database\Eloquent\Model;
