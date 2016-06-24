@@ -14,11 +14,15 @@ This package is currently in (very-)alpha stage, so all of the following feature
 
 * Fast and simple
 * Beautiful and responsive
-* Roles & Permissions
-* Markdown & Emoj
+* Register & Login via OAuth
 * Image upload
 * Avatars
+* Credits
+* Roles & Permissions
 * Notifications
+* Markdown & Emoj
+* Tags
+* Advertisements
 * RSS Feeds
 * Localization: language files, time zone and UTF-8 support
 
@@ -62,12 +66,6 @@ chmod -R 777 public/uploads
 
 Now go to http://your_site_domain/ and have fun!
 
-## Upgradation
-
-```shell
-php artisan hifone:update
-```
-
 ## Installing Hifone with Docker
 
 ```shell
@@ -81,6 +79,11 @@ Now go to http://127.0.0.1:8081 (linux) or http://192.168.99.100:8081 (mac) and 
 
 You can find more information at [Install Hifone](https://github.com/Hifone/Docker/blob/master/README.md)
 
+## Upgrading
+
+```shell
+php artisan hifone:update
+```
 
 ## Development
 
