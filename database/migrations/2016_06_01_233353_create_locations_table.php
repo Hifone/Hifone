@@ -29,6 +29,7 @@ class CreateLocationsTable extends Migration
             $table->timestamps();
 
             $table->index('name');
+            $table->index('order');
         });
     }
 

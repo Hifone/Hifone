@@ -23,18 +23,18 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('from_user_id');
+            $table->integer('author_id');
             $table->integer('user_id');
-            $table->integer('thread_id');
-            $table->integer('reply_id')->nullable();
-            $table->text('body')->nullable();
+            $table->integer('object_id');
+            $table->string('object_type');
             $table->string('type');
+            $table->text('body')->nullable();
             $table->timestamps();
 
-            $table->index('from_user_id');
+            $table->index('author_id');
             $table->index('user_id');
-            $table->index('thread_id');
-            $table->index('reply_id');
+            $table->index('object_id');
+            $table->index('object_type');
             $table->index('type');
         });
     }

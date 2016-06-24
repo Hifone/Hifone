@@ -31,7 +31,7 @@ class Notifier
         $data = [
             'author_id'     => $author->id,
             'user_id'       => $toUser->id,
-            'body'          => isset($object) ? $object->body : '',
+            'body'          => isset($object) && isset($object->body) ? $object->body : '',
             'type'          => $type,
             'created_at'    => $nowTimestamp,
             'updated_at'    => $nowTimestamp,
@@ -39,7 +39,7 @@ class Notifier
 
         $toUser->increment('notification_count', 1);
 
-        $object->notifications()->insert([$data]);
+        $object->notifications()->create($data);
     }
 
     /**
