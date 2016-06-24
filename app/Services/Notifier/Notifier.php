@@ -31,7 +31,7 @@ class Notifier
         $nowTimestamp = Carbon::now()->toDateTimeString();
 
         $data = [
-            'author_id'  => $author->id,
+            'author_id'     => $author->id,
             'user_id'       => $toUser->id,
             'object_id'     => $object_id,
             'body'          => isset($object) ? $object->body : '',
@@ -49,7 +49,7 @@ class Notifier
      * Create a notification.
      *
      * @param [type] $type      currently have 'at', 'new_reply', 'follow', 'append'
-     * @param User   $author  come from who
+     * @param User   $author    come from who
      * @param array  $users     to who, array of users
      * @param int    $object_id cuurent context
      * @param Reply  $reply     the content
@@ -69,7 +69,7 @@ class Notifier
             }
 
             $data[] = [
-                'author_id'  => $author->id,
+                'author_id'     => $author->id,
                 'user_id'       => $toUser->id,
                 'object_id'     => $object_id,
                 'body'          => $content,
