@@ -72,6 +72,11 @@ class Thread extends Model implements HasPresenter, TaggableInterface
         return $this->morphMany(Follow::class, 'followable');
     }
 
+    public function notifications()
+    {
+        return $this->morphMany(Notification::class, 'object');
+    }
+
     public function favoritedBy()
     {
         return $this->belongsToMany(User::class, 'favorites');

@@ -63,6 +63,11 @@ class Credit extends Model implements HasPresenter
         return $this->belongsTo(CreditRule::class, 'rule_id');
     }
 
+    public function notifications()
+    {
+        return $this->morphMany(Notification::class, 'object');
+    }
+
     /**
      * Returns a frequency tag.
      *
