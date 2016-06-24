@@ -55,22 +55,6 @@ class Notification extends Model implements HasPresenter
         return $this->belongsTo(User::class);
     }
 
-/*
-    public function thread()
-    {
-        return $this->belongsTo(Thread::class, 'object_id');
-    }
-
-    public function reply()
-    {
-        return $this->belongsTo(Reply::class, 'object_id');
-    }
-
-    public function credit()
-    {
-        return $this->belongsTo(Credit::class, 'object_id');
-    }
-*/
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
@@ -84,11 +68,6 @@ class Notification extends Model implements HasPresenter
     public function scopeOfType($query, $type)
     {
         return $query->where('type', $type);
-    }
-
-    public function scopeForObject($query, $object_id)
-    {
-        return $query->where('object_id', $object_id);
     }
 
     /**
