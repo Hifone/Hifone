@@ -9,9 +9,21 @@
 <div class="panel panel-default">
 
     <div class="panel-heading">
-      {!! trans('hifone.credits.mine') !!}
+      {{ trans('hifone.credits.mine') }}
     </div>
     <div class="panel-body">
+      <div class="media">
+      <div class="media-heading">
+        当前余额: 
+       <span class="coin_list" data-toggle="tooltip", data-placement="bottom" title="{{ $current_user->score }}">
+      @foreach($current_user->coins as $coin => $value)
+        @if($value)
+          <img src="/images/{{ $coin }}.png"> {{ $value }} 
+        @endif
+      @endforeach
+        </span>
+        </div>
+      </div>
       <table class="table table-bordered table-striped">
         <tbody>
           <tr>

@@ -51,8 +51,8 @@
                 @foreach($thread->tags as $tag)
                 <a href="/tag/{{ urlencode($tag->name) }}"><span class="tag">{{ $tag->name }}</span></a>
                 @endforeach
-            </span>
             <span> • </span>
+            </span>
             @endif
             @if ($thread->reply_count == 0)
                     <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">{{{ $thread->user->username }}}
