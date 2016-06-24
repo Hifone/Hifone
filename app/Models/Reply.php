@@ -50,6 +50,11 @@ class Reply extends Model implements HasPresenter
         return $this->morphMany(Like::class, 'likeable');
     }
 
+    public function notifications()
+    {
+        return $this->morphMany(Notification::class, 'object');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
