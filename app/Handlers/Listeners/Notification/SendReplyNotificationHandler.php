@@ -35,7 +35,7 @@ class SendReplyNotificationHandler
                     'thread_new_reply',
                     $author,
                     [$thread->user],
-                    $reply->id,
+                    $reply,
                     $reply->body
                     );
 
@@ -44,7 +44,7 @@ class SendReplyNotificationHandler
                     'followed_thread_new_reply',
                     $author,
                     $thread->follows()->get(),
-                    $reply->thread->id,
+                    $reply->thread,
                     $reply->body
                     );
 
@@ -56,7 +56,7 @@ class SendReplyNotificationHandler
                     'reply_mention',
                     $author,
                     $parserAt->users,
-                    $reply->id,
+                    $reply,
                     $reply->body
                     );
     }

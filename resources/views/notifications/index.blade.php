@@ -40,12 +40,12 @@
                              •
                             {!! $notification->labelUp !!}
                             @if(!in_array($notification->type,['user_follow','credit_register','credit_login', 'thread_new_reply','reply_mention']))
-                            <a href="{!! route('thread.show', [$notification->thread->id]) !!}{!! !empty($notification->reply_id) ? '#reply' . $notification->reply_id : '' !!}" title="{!! $notification->thread->title !!}">
-                                {!! str_limit($notification->thread->title, '100') !!}
+                            <a href="{!! route('thread.show', [$notification->object->id]) !!}{!! !empty($notification->reply_id) ? '#reply' . $notification->reply_id : '' !!}" title="{!! $notification->object->title !!}">
+                                {!! str_limit($notification->object->title, '100') !!}
                             </a>
                             @elseif(in_array($notification->type, ['thread_new_reply','reply_mention']))
-                            <a href="{!! route('thread.show', [$notification->reply->thread->id]) !!}{!! !empty($notification->reply->id) ? '#reply' . $notification->object_id : '' !!}" title="{!! $notification->reply->thread->title !!}">
-                            {!! str_limit($notification->reply->thread->title, '100') !!}
+                            <a href="{!! route('thread.show', [$notification->object->thread->id]) !!}{!! !empty($notification->object->id) ? '#reply' . $notification->object_id : '' !!}" title="{!! $notification->object->thread->title !!}">
+                            {!! str_limit($notification->object->thread->title, '100') !!}
                             </a>
                             @endif
                             <span class="meta">
@@ -54,7 +54,7 @@
                           </div>
                           <div class="media-body markdown-reply content-body">
                             @if(in_array($notification->type, ['credit_register', 'credit_login']))
-                            {{ trans('hifone.credits.credits') }}: {{ $notification->credit->rule->reward }}
+                            {{ trans('hifone.credits.credits') }}: {{ $notification->object->rule->reward }}
                             @endif
                             {!! $notification->body !!}
                           </div>

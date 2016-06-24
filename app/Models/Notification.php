@@ -27,8 +27,23 @@ class Notification extends Model implements HasPresenter
      *
      * @var string[]
      */
-    protected $fillable = ['author_id', 'user_id', 'object_id', 'type', 'body'];
+    protected $fillable = ['author_id', 'user_id', 'object_id', 'object_type', 'type', 'body'];
 
+    /**
+     * The validation rules.
+     *
+     * @var string[]
+     */
+    public $rules = [
+        'author_id' => 'required|int',
+        'user_id'   => 'required|int',
+        'object_id' => 'required|int',
+    ];
+
+    public function object()
+    {
+        return $this->morphTo();
+    }
     /**
      * Notications can belong to a user.
      *
@@ -38,7 +53,7 @@ class Notification extends Model implements HasPresenter
     {
         return $this->belongsTo(User::class);
     }
-
+/*
     public function thread()
     {
         return $this->belongsTo(Thread::class, 'object_id');
@@ -53,7 +68,7 @@ class Notification extends Model implements HasPresenter
     {
         return $this->belongsTo(Credit::class, 'object_id');
     }
-
+*/
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
