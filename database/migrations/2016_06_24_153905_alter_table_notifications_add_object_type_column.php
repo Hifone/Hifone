@@ -23,7 +23,7 @@ class AlterTableNotificationsAddObjectTypeColumn extends Migration
     {
         Schema::table('notifications', function (Blueprint $table) {
             $table->string('object_type')->nullable()->after('user_id');
-            $table->integer('object_id')->after('user_id');
+            $table->renameColumn('thread_id', 'object_id');
         });
     }
 
@@ -35,8 +35,8 @@ class AlterTableNotificationsAddObjectTypeColumn extends Migration
     public function down()
     {
         Schema::table('notifications', function (Blueprint $table) {
-            $table->dropColumn('object_id');
             $table->dropColumn('object_type');
+            $table->renameColumn('object_id', 'thread_id');
         });
     }
 }
