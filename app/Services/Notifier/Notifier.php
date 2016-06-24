@@ -15,7 +15,6 @@ use Carbon\Carbon;
 use Hifone\Models\Notification;
 use Hifone\Models\Reply;
 use Hifone\Models\User;
-use Log;
 
 class Notifier
 {
@@ -46,11 +45,11 @@ class Notifier
     /**
      * Create a notification.
      *
-     * @param [type] $type      currently have 'at', 'new_reply', 'follow', 'append'
-     * @param User   $author    come from who
-     * @param array  $users     to who, array of users
-     * @param Mix    $object    cuurent context
-     * @param Reply  $reply     the content
+     * @param [type] $type   currently have 'at', 'new_reply', 'follow', 'append'
+     * @param User   $author come from who
+     * @param array  $users  to who, array of users
+     * @param Mix    $object cuurent context
+     * @param Reply  $reply  the content
      *
      * @return [type] none
      */
@@ -81,7 +80,6 @@ class Notifier
 
             $toUser->increment('notification_count', 1);
         }
-
     }
 
     protected function isNotified($author_id, $user_id, $object, $type)

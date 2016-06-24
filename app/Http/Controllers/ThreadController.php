@@ -23,7 +23,6 @@ use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Tag;
 use Hifone\Models\Thread;
-use Hifone\Models\Reply;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;

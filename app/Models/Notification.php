@@ -44,6 +44,7 @@ class Notification extends Model implements HasPresenter
     {
         return $this->morphTo();
     }
+
     /**
      * Notications can belong to a user.
      *
@@ -53,6 +54,7 @@ class Notification extends Model implements HasPresenter
     {
         return $this->belongsTo(User::class);
     }
+
 /*
     public function thread()
     {
