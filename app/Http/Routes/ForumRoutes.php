@@ -55,21 +55,21 @@ class ForumRoutes
 
              //通知中心
             $router->get('/notification', [
-                'as'     => 'notification.index',
+                'as'         => 'notification.index',
                 'middleware' => 'auth',
-                'uses'   => 'NotificationController@index',
+                'uses'       => 'NotificationController@index',
             ]);
             $router->post('/notification/clean', [
-                'as'    => 'notification.clean',
+                'as'         => 'notification.clean',
                 'middleware' => 'auth',
-                'uses'  => 'NotificationController@clean',
+                'uses'       => 'NotificationController@clean',
             ]);
 
             //积分
              $router->get('/credit', [
-                'as'     => 'credit.index',
+                'as'         => 'credit.index',
                 'middleware' => 'auth',
-                'uses'   => 'CreditController@index',
+                'uses'       => 'CreditController@index',
             ]);
 
             $router->resource('node', 'NodeController');
