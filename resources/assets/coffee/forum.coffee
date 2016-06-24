@@ -254,6 +254,8 @@ window.ForumView = Backbone.View.extend
         $('#preview-box').html content
         emojify.run document.getElementById('preview-box')
         return
+    else
+      $('#preview-box').text 'Content is empty.'
     return
 
   hookPreview: (switcher, textarea) ->
