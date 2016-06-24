@@ -20,18 +20,18 @@ class Notifier
 {
     protected $notifiedUsers = [];
 
-    public function notify($type, User $fromUser, User $toUser, $object = null)
+    public function notify($type, User $author, User $toUser, $object = null)
     {
         $object_id = $object ? $object->id : 0;
 
-        if ($this->isNotified($fromUser->id, $toUser->id, $object_id, $type)) {
+        if ($this->isNotified($author->id, $toUser->id, $object_id, $type)) {
             return;
         }
 
         $nowTimestamp = Carbon::now()->toDateTimeString();
 
         $data = [
-            'from_user_id'  => $fromUser->id,
+            'author_id'  => $author->id,
             'user_id'       => $toUser->id,
             'object_id'     => $object_id,
             'body'          => isset($object) ? $object->body : '',
@@ -49,14 +49,14 @@ class Notifier
      * Create a notification.
      *
      * @param [type] $type      currently have 'at', 'new_reply', 'follow', 'append'
-     * @param User   $fromUser  come from who
+     * @param User   $author  come from who
      * @param array  $users     to who, array of users
      * @param int    $object_id cuurent context
      * @param Reply  $reply     the content
      *
      * @return [type] none
      */
-    public function batchNotify($type, User $fromUser, $users, $object_id, $content = null)
+    public function batchNotify($type, User $author, $users, $object_id, $content = null)
     {
         $nowTimestamp = Carbon::now()->toDateTimeString();
         $data = [];
@@ -64,12 +64,12 @@ class Notifier
         foreach ($users as $follower) {
             $toUser = (!$follower instanceof User) ? $follower->user : $follower;
 
-            if ($fromUser->id  == $toUser->id) {
+            if ($author->id  == $toUser->id) {
                 continue;
             }
 
             $data[] = [
-                'from_user_id'  => $fromUser->id,
+                'author_id'  => $author->id,
                 'user_id'       => $toUser->id,
                 'object_id'     => $object_id,
                 'body'          => $content,
@@ -86,9 +86,9 @@ class Notifier
         }
     }
 
-    protected function isNotified($from_user_id, $user_id, $object_id, $type)
+    protected function isNotified($author_id, $user_id, $object_id, $type)
     {
-        return Notification::fromWhom($from_user_id)
+        return Notification::forAuthor($author_id)
                         ->forUser($user_id)
                         ->forObject($object_id)
                         ->ofType($type)->get()->count();

@@ -26,7 +26,7 @@
                     @if (count($notification->user))
                         <div class="avatar pull-left">
                             <a href="{!! route('user.show', [$notification->from_user_id]) !!}">
-                                <img class="media-object img-thumbnail avatar" alt="{!! $notification->fromUser->username !!}" src="{!! $notification->fromUser->avatar_small !!}"  style="width:38px;height:38px;"/>
+                                <img class="media-object img-thumbnail avatar" alt="{!! $notification->author->username !!}" src="{!! $notification->author->avatar_small !!}"  style="width:38px;height:38px;"/>
                             </a>
                         </div>
 
@@ -35,7 +35,7 @@
                           <div class="media-heading">
 
                             <a href="{!! route('user.show', [$notification->from_user_id]) !!}">
-                                {!! $notification->fromUser->username !!}
+                                {!! $notification->author->username !!}
                             </a>
                              •
                             {!! $notification->labelUp !!}
