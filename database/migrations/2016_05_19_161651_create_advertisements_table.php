@@ -25,6 +25,7 @@ class CreateAdvertisementsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('adspace_id');
+            $table->boolean('enabled')->default(true);
             $table->text('body');
             $table->timestamps();
 

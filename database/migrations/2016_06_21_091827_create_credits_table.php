@@ -26,10 +26,13 @@ class CreateCreditsTable extends Migration
             $table->integer('user_id');
             $table->integer('rule_id');
             $table->integer('balance');
+            $table->string('frequency_tag')->nullable();
             $table->text('body')->nullable();
             $table->timestamps();
 
             $table->index('user_id');
+            $table->index('rule_id');
+            $table->index('frequency_tag');
         });
     }
 
