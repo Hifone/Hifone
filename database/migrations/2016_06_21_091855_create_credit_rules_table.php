@@ -25,6 +25,7 @@ class CreateCreditRulesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->nullable();
+            $table->integer('frequency')->unsigned()->default(0);
             $table->integer('reward')->default(0);
             $table->timestamps();
 
