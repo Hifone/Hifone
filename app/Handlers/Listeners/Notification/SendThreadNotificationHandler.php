@@ -31,13 +31,13 @@ class SendThreadNotificationHandler
         $this->newThreadNotify(Auth::user(), $thread);
     }
 
-    protected function newThreadNotify(User $fromUser, Thread $thread)
+    protected function newThreadNotify(User $author, Thread $thread)
     {
         // Notify followed users
         app('notifier')->batchNotify(
                     'followed_user_new_thread',
-                    $fromUser,
-                    $fromUser->follows()->get(),
+                    $author,
+                    $author->follows()->get(),
                     $thread->id,
                     $thread->body);
         // Notify mentioned users
@@ -46,7 +46,7 @@ class SendThreadNotificationHandler
 
         app('notifier')->batchNotify(
                     'thread_mention',
-                    $fromUser,
+                    $author,
                     $parserAt->users,
                     $thread->id,
                     $thread->body);

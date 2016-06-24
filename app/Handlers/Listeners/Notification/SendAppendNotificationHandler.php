@@ -41,12 +41,12 @@ class SendAppendNotificationHandler
     private function newAppendNotify(Append $append)
     {
         $thread = Thread::findOrFail($append->thread_id);
-        $fromUser = Auth::user();
+        $author = Auth::user();
         $users = $thread->replies()->with('user')->get()->lists('user');
         // Notify commented user
         app(Notifier::class)->batchNotify(
                     'commented_thread_new_append',
-                    $fromUser,
+                    $author,
                     $users,
                     $thread->id,
                     $append->content);
@@ -54,7 +54,7 @@ class SendAppendNotificationHandler
         // Notify followed users
         app(Notifier::class)->batchNotify(
                     'followed_thread_new_append',
-                    $fromUser,
+                    $author,
                     $thread->follows()->get(),
                     $thread->id,
                     $append->content);

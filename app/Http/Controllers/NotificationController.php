@@ -20,7 +20,7 @@ class NotificationController extends Controller
 {
     public function index()
     {
-        $notifications = Auth::user()->notifications()->recent()->with('fromUser')->paginate(Config::get('setting.per_page'));
+        $notifications = Auth::user()->notifications()->recent()->with('author')->paginate(Config::get('setting.per_page'));
 
         Auth::user()->notification_count = 0;
         Auth::user()->save();

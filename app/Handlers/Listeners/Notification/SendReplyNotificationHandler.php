@@ -27,13 +27,13 @@ class SendReplyNotificationHandler
         $this->newReplyNotify(Auth::user(), $event->reply);
     }
 
-    protected function newReplyNotify(User $fromUser, Reply $reply)
+    protected function newReplyNotify(User $author, Reply $reply)
     {
         $thread = $reply->thread;
         // Notify the author
         app('notifier')->batchNotify(
                     'thread_new_reply',
-                    $fromUser,
+                    $author,
                     [$thread->user],
                     $reply->id,
                     $reply->body
@@ -42,7 +42,7 @@ class SendReplyNotificationHandler
         // Notify followed users
         app('notifier')->batchNotify(
                     'followed_thread_new_reply',
-                    $fromUser,
+                    $author,
                     $thread->follows()->get(),
                     $reply->thread->id,
                     $reply->body
@@ -54,7 +54,7 @@ class SendReplyNotificationHandler
         // Notify mentioned users
         app('notifier')->batchNotify(
                     'reply_mention',
-                    $fromUser,
+                    $author,
                     $parserAt->users,
                     $reply->id,
                     $reply->body
