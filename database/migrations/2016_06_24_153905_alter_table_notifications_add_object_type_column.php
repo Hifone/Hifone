@@ -22,7 +22,9 @@ class AlterTableNotificationsAddObjectTypeColumn extends Migration
     public function up()
     {
         Schema::table('notifications', function (Blueprint $table) {
-            $table->string('object_type')->after('object_id');
+            $table->string('object_type')->after('user_id');
+            $table->integer('object_id')->after('user_id');
+
         });
     }
 
@@ -34,6 +36,7 @@ class AlterTableNotificationsAddObjectTypeColumn extends Migration
     public function down()
     {
         Schema::table('notifications', function (Blueprint $table) {
+            $table->dropColumn('object_id');
             $table->dropColumn('object_type');
         });
     }
