@@ -24,7 +24,6 @@ class AlterTableNotificationsAddObjectTypeColumn extends Migration
         Schema::table('notifications', function (Blueprint $table) {
             $table->string('object_type')->after('user_id');
             $table->integer('object_id')->after('user_id');
-
         });
     }
 
