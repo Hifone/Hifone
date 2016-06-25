@@ -22,6 +22,7 @@ use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
+use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -29,15 +30,18 @@ use Redirect;
 
 class ThreadController extends Controller
 {
+    protected $thread;
+
     /**
      * Creates a new thread controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ThreadRepositoryInterface $thread)
     {
         parent::__construct();
 
+        $this->thread = $thread;
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
