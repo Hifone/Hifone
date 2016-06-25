@@ -10,7 +10,7 @@
  */
 
 namespace Hifone\Repositories\Contracts;
-use Hifone\Models\Credit;
+
 use Hifone\Models\Credit\Rule as CreditRule;
 use Hifone\Models\User;
 

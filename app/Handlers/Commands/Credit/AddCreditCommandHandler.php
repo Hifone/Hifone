@@ -14,10 +14,9 @@ namespace Hifone\Handlers\Commands\Credit;
 use Carbon\Carbon;
 use Hifone\Commands\Credit\AddCreditCommand;
 use Hifone\Models\Credit;
-use Hifone\Models\Credit\Rule as CreditRule;
-use Hifone\Services\Dates\DateFactory;
-use Hifone\Repositories\Contracts\CreditRepositoryInterface;
 use Hifone\Repositories\Contracts\Credit\RuleRepositoryInterface;
+use Hifone\Repositories\Contracts\CreditRepositoryInterface;
+use Hifone\Services\Dates\DateFactory;
 
 class AddCreditCommandHandler
 {
@@ -41,6 +40,7 @@ class AddCreditCommandHandler
      * @var \Hifone\Repositories\Contracts\Credit\RuleRepositoryInterface
      */
     protected $credit_rule;
+
     /**
      * Create a new report issue command handler instance.
      *

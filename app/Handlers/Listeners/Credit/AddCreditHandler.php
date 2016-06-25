@@ -12,6 +12,7 @@
 namespace Hifone\Handlers\Listeners\Credit;
 
 use Auth;
+use Hifone\Commands\Credit\AddCreditCommand;
 use Hifone\Events\Credit\CreditWasAddedEvent;
 use Hifone\Events\EventInterface;
 use Hifone\Events\Image\ImageWasUploadedEvent;
@@ -20,7 +21,6 @@ use Hifone\Events\Reply\ReplyWasRemovedEvent;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
-use Hifone\Commands\Credit\AddCreditCommand;
 
 class AddCreditHandler
 {
@@ -52,11 +52,15 @@ class AddCreditHandler
 
     protected function apply($event, $action, $user)
     {
-        if (!$action) return;
+        if (!$action) {
+            return;
+        }
 
         $credit = dispatch(new AddCreditCommand($action, $user));
 
-        if(!$credit) return;
+        if (!$credit) {
+            return;
+        }
 
         // event trigger
         event(new CreditWasAddedEvent($credit, $event));

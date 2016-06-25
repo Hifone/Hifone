@@ -11,11 +11,10 @@
 
 namespace Hifone\Repositories\Eloquent;
 
-use Hifone\Repositories\Contracts\Credit\RuleRepositoryInterface;
-use Hifone\Repositories\Contracts\CreditRepositoryInterface;
 use Hifone\Models\Credit;
 use Hifone\Models\Credit\Rule as CreditRule;
 use Hifone\Models\User;
+use Hifone\Repositories\Contracts\CreditRepositoryInterface;
 
 class CreditRepository extends Repository implements CreditRepositoryInterface
 {
