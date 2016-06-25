@@ -9,13 +9,7 @@
  * file that was distributed with this source code.
  */
 
-/**
- * Created by PhpStorm.
- * User: stuartmccord
- * Date: 10/01/2016
- * Time: 18:56.
- */
-namespace Hifone\Services\Tag;
+namespace Hifone\Repositories\Contracts;
 
 interface TaggableInterface
 {
