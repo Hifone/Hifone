@@ -17,11 +17,11 @@ final class UpdateThreadCommand
 {
     public $thread;
 
-    public $updateData;
+    public $data;
 
-    public function __construct(Thread $thread, $updateData)
+    public function __construct(Thread $thread, $data)
     {
         $this->thread = $thread;
-        $this->updateData = $updateData;
+        $this->data = $data;
     }
 }

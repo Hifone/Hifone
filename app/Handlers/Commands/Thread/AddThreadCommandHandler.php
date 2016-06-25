@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Models\Thread;
+use Hifone\Repositories\Contracts\TagRepositoryInterface;
 use Hifone\Services\Dates\DateFactory;
 
 class AddThreadCommandHandler
@@ -28,13 +29,21 @@ class AddThreadCommandHandler
     protected $dates;
 
     /**
+     * The tag instance.
+     *
+     * @var \Hifone\Repositories\Contracts\TagRepositoryInterface
+     */
+    protected $tag;
+
+    /**
      * Create a new report issue command handler instance.
      *
      * @param \Hifone\Services\Dates\DateFactory $dates
      */
-    public function __construct(DateFactory $dates)
+    public function __construct(DateFactory $dates, TagRepositoryInterface $tag)
     {
         $this->dates = $dates;
+        $this->tag = $tag;
     }
 
     /**
@@ -65,6 +74,9 @@ class AddThreadCommandHandler
         }
 
         Auth::user()->increment('thread_count', 1);
+
+        // The thread was added successfully, so now let's deal with the tags.
+        $this->tag->attach($thread, $command->tags);
 
         event(new ThreadWasAddedEvent($thread));
 
