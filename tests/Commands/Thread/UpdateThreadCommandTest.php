@@ -13,20 +13,19 @@ namespace Hifone\Test\Commands\Thread;
 
 use Hifone\Commands\Thread\UpdateThreadCommand;
 use Hifone\Handlers\Commands\Thread\UpdateThreadCommandHandler;
-use Hifone\Test\Commands\AbstractCommandTestCase;
 use Hifone\Models\Thread;
+use Hifone\Test\Commands\AbstractCommandTestCase;
 
 /**
  * This is the update thread command test class.
  */
 class UpdateThreadCommandTest extends AbstractCommandTestCase
 {
-
     protected function getObjectAndParams()
     {
         $params = [
             'thread'  => new Thread(),
-            'data' => [
+            'data'    => [
                 'title'   => 'Test',
                 'body'    => 'Foo bar baz',
                 'tags'    => 'hello,world',

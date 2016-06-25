@@ -27,7 +27,7 @@ class AddThreadCommandTest extends AbstractCommandTestCase
             'body'    => 'Issue body',
             'user_id' => 1,
             'node_id' => 1,
-            'tags' => 'tag1,tag2'
+            'tags'    => 'tag1,tag2',
         ];
         $object = new AddThreadCommand(
             $params['title'],
