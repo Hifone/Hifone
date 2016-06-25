@@ -58,7 +58,8 @@ class UpdateThreadCommandHandler
         $thread->update($this->filter($command->data));
 
         // The thread was added successfully, so now let's deal with the tags.
-        $this->tag->attach($thread, $command->data['tags']);
+        $tags = isset($command->data['tags']) ? $command->data['tags'] : [];
+        $this->tag->attach($thread, $tags);
 
         if (isset($command->data['is_excellent'])) {
             event(new ThreadWasMarkedExcellentEvent($thread));

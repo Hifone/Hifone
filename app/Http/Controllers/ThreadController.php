@@ -112,6 +112,7 @@ class ThreadController extends Controller
     {
         $threadData = Input::get('thread');
         $node_id = isset($threadData['node_id']) ? $threadData['node_id'] : null;
+        $tags = isset($threadData['tags']) ? $threadData['tags'] : '';
 
         try {
             $thread = dispatch(new AddThreadCommand(
@@ -119,7 +120,7 @@ class ThreadController extends Controller
                 $threadData['body'],
                 Auth::user()->id,
                 $node_id,
-                $threadData['tags']
+                $tags
             ));
         } catch (ValidationException $e) {
             return Redirect::route('thread.create')
