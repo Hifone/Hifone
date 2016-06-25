@@ -22,6 +22,10 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     private $eloquent = [
         'Tag',
+        'Credit',
+        'Credit' => [
+            'Rule',
+        ],
     ];
 
     /**
