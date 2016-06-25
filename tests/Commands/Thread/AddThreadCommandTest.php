@@ -16,7 +16,7 @@ use Hifone\Handlers\Commands\Thread\AddThreadCommandHandler;
 use Hifone\Test\Commands\AbstractCommandTestCase;
 
 /**
- * This is the add comment command test class.
+ * This is the add thread command test class.
  */
 class AddThreadCommandTest extends AbstractCommandTestCase
 {
@@ -27,12 +27,14 @@ class AddThreadCommandTest extends AbstractCommandTestCase
             'body'    => 'Issue body',
             'user_id' => 1,
             'node_id' => 1,
+            'tags'    => 'tag1,tag2',
         ];
         $object = new AddThreadCommand(
             $params['title'],
             $params['body'],
             $params['user_id'],
-            $params['node_id']
+            $params['node_id'],
+            $params['tags']
         );
 
         return compact('params', 'object');
