@@ -29,7 +29,6 @@ use Redirect;
 
 class ThreadController extends Controller
 {
-
     /**
      * Creates a new thread controller instance.
      *
