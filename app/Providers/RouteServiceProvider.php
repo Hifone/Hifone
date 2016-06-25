@@ -21,6 +21,14 @@ use Hifone\Models\Tip;
 use Hifone\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
+use Hifone\Repositories\Contracts\TagRepositoryInterface;
+use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
+use Hifone\Repositories\Contracts\ReplyRepositoryInterface;
+use Hifone\Repositories\Contracts\TipRepositoryInterface;
+use Hifone\Repositories\Contracts\NodeRepositoryInterface;
+use Hifone\Repositories\Contracts\UserRepositoryInterface;
+use Hifone\Repositories\Contracts\AdspaceRepositoryInterface;
+use Hifone\Repositories\Contracts\SectionRepositoryInterface;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -56,16 +64,17 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function registerBindings()
     {
-        $this->app->router->model('section', Section::class);
-        $this->app->router->model('node', Node::class);
-        $this->app->router->model('adspace', Adspace::class);
-        $this->app->router->model('user', User::class);
-        $this->app->router->model('thread', Thread::class);
-        $this->app->router->model('reply', Reply::class);
-        $this->app->router->model('tip', Tip::class);
+        $this->app->router->model('section', SectionRepositoryInterface::class);
+        $this->app->router->model('adspace', AdspaceRepositoryInterface::class);
+        $this->app->router->model('user', UserRepositoryInterface::class);
+    
+        $this->app->router->model('node', NodeRepositoryInterface::class);
+        $this->app->router->model('tip', TipRepositoryInterface::class);
+        $this->app->router->model('thread', ThreadRepositoryInterface::class);
+        $this->app->router->model('reply', ReplyRepositoryInterface::class);
 
-        $this->app->router->model('tag', Tag::class, function ($value) {
-            return Tag::where('name', urldecode($value))->firstOrFail();
+        $this->app->router->bind('tag', function($name) {
+            return $this->app->make(TagRepositoryInterface::class, [$this->app])->where('name', urldecode($name))->firstOrFail();
         });
     }
 

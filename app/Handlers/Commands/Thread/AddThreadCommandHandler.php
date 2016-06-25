@@ -17,6 +17,7 @@ use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Models\Thread;
 use Hifone\Repositories\Contracts\TagRepositoryInterface;
+use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
 use Hifone\Services\Dates\DateFactory;
 
 class AddThreadCommandHandler
@@ -27,6 +28,13 @@ class AddThreadCommandHandler
      * @var \Hifone\Services\Dates\DateFactory
      */
     protected $dates;
+
+    /**
+     * The thread instance.
+     *
+     * @var \Hifone\Repositories\Contracts\ThreadRepositoryInterface
+     */
+    protected $thread;
 
     /**
      * The tag instance.
@@ -40,9 +48,10 @@ class AddThreadCommandHandler
      *
      * @param \Hifone\Services\Dates\DateFactory $dates
      */
-    public function __construct(DateFactory $dates, TagRepositoryInterface $tag)
+    public function __construct(DateFactory $dates, ThreadRepositoryInterface $thread, TagRepositoryInterface $tag)
     {
         $this->dates = $dates;
+        $this->thread = $thread;
         $this->tag = $tag;
     }
 
@@ -66,7 +75,7 @@ class AddThreadCommandHandler
             'updated_at'    => Carbon::now()->toDateTimeString(),
         ];
         // Create the thread
-        $thread = Thread::create($data);
+        $thread = $this->thread->create($data);
 
         // Update the node.
         if ($thread->node) {
