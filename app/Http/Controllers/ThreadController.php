@@ -22,15 +22,16 @@ use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
+use Hifone\Repositories\Contracts\TagRepositoryInterface as Tag;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
-use Hifone\Repositories\Contracts\TagRepositoryInterface as Tag;
 
 class ThreadController extends Controller
 {
     protected $tag;
+
     /**
      * Creates a new thread controller instance.
      *

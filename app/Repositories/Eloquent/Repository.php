@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Hifone\Repositories\Eloquent;
 
 use Hifone\Repositories\Contracts\CriteriaInterface;
 use Hifone\Repositories\Contracts\RepositoryInterface;
 use Hifone\Repositories\Criteria\Criteria;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Container\Container as App;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Expression;
 
 abstract class Repository implements RepositoryInterface, CriteriaInterface
@@ -33,6 +42,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
 
     /**
      * @param App $app
+     *
      * @throws \Exception
      */
     public function __construct(App $app)
@@ -45,10 +55,11 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     abstract protected function model();
 
     /**
-     * Creates instance of model
+     * Creates instance of model.
+     *
+     * @throws \Exception
      *
      * @return Model
-     * @throws \Exception
      */
     public function makeModel()
     {
@@ -70,16 +81,19 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
             $this->criteria = [];
             $this->makeModel();
         }
+
         return $this;
     }
 
     /**
      * @param bool $flag
+     *
      * @return $this
      */
     public function skipCriteria($flag = true)
     {
         $this->skipCriteria = $flag;
+
         return $this;
     }
 
@@ -97,26 +111,31 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     public function resetScope()
     {
         $this->skipCriteria(false);
+
         return $this;
     }
 
     /**
      * @param Criteria $criteria
+     *
      * @return $this
      */
     public function getByCriteria(Criteria $criteria)
     {
         $this->model = $criteria->apply($this->model, $this);
+
         return $this;
     }
 
     /**
      * @param Criteria $criteria
+     *
      * @return $this
      */
     public function pushCriteria(Criteria $criteria)
     {
         $this->criteria[] = $criteria;
+
         return $this;
     }
 
@@ -134,11 +153,13 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
                 $this->model = $criteria->apply($this->model, $this);
             }
         }
+
         return $this;
     }
 
     /**
      * @param array $data
+     *
      * @return mixed
      */
     public function create(array $data)
@@ -148,17 +169,20 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
 
     /**
      * @param array $columns
+     *
      * @return mixed
      */
     public function all($columns = ['*'])
     {
         $this->applyCriteria();
+
         return $this->model->get($columns);
     }
 
     /**
-     * @param  string $value
-     * @param  string $key
+     * @param string $value
+     * @param string $key
+     *
      * @return array
      */
     public function lists($value, $key = null)
@@ -169,6 +193,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
         if (is_array($lists)) {
             return $lists;
         }
+
         return $lists->all();
     }
 
@@ -176,6 +201,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
      * @param array $data
      * @param $id
      * @param string $attribute
+     *
      * @return mixed
      */
     public function update(array $data, $id, $attribute = 'id')
@@ -185,6 +211,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function delete($id)
@@ -195,28 +222,33 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     /**
      * @param $id
      * @param array $columns
+     *
      * @return mixed
      */
     public function find($id, $columns = ['*'])
     {
         $this->applyCriteria();
+
         return $this->model->find($id, $columns);
     }
 
     /**
      * @param $id
      * @param array $columns
+     *
      * @return mixed
      */
     public function findOrFail($id, $columns = ['*'])
     {
         $this->applyCriteria();
+
         return $this->model->findOrFail($id, $columns);
     }
 
     /**
      * @param $id
      * @param array $columns
+     *
      * @return mixed
      */
     public function findOrNew($id, $columns = ['*'])
@@ -228,11 +260,13 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
      * @param $attribute
      * @param $value
      * @param array $columns
+     *
      * @return mixed
      */
     public function findBy($attribute, $value, $columns = ['*'])
     {
         $this->applyCriteria();
+
         return $this->model->where($attribute, '=', $value)->first($columns);
     }
 
@@ -240,11 +274,13 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
      * @param $attribute
      * @param $value
      * @param array $columns
+     *
      * @return mixed
      */
     public function findAllBy($attribute, $value, $columns = ['*'])
     {
         $this->applyCriteria();
+
         return $this->model->where($attribute, '=', $value)->get($columns);
     }
 
@@ -269,6 +305,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     /**
      * @param $method
      * @param $args
+     *
      * @return mixed
      */
     public function __call($method, $args)
@@ -279,7 +316,8 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     /**
      * Get a new raw query expression.
      *
-     * @param  mixed  $value
+     * @param mixed $value
+     *
      * @return \Illuminate\Database\Query\Expression
      */
     public function raw($value)

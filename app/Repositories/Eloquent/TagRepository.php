@@ -1,9 +1,18 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Hifone\Repositories\Eloquent;
 
-use Hifone\Repositories\Contracts\TagRepositoryInterface;
 use Hifone\Repositories\Contracts\TaggableInterface;
+use Hifone\Repositories\Contracts\TagRepositoryInterface;
 
 class TagRepository extends Repository implements TagRepositoryInterface
 {
@@ -54,9 +63,10 @@ class TagRepository extends Repository implements TagRepositoryInterface
     }
 
     /**
-     * Insert tags and return theirs ids
+     * Insert tags and return theirs ids.
      *
      * @param array $tags
+     *
      * @return array Ids of tags
      */
     public function multiInsert(array $tags)

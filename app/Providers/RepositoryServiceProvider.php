@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Hifone\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -7,7 +16,7 @@ use Illuminate\Support\ServiceProvider;
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
-     * Repositories to bind
+     * Repositories to bind.
      *
      * @var array
      */
@@ -42,7 +51,7 @@ class RepositoryServiceProvider extends ServiceProvider
     private function bind($folder, $repositories)
     {
         if ($folder) {
-            $folder = '\\' . $folder;
+            $folder = '\\'.$folder;
         }
 
         foreach ($repositories as $key => $name) {
