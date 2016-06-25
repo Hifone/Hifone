@@ -184,9 +184,11 @@ class InstallController extends Controller
             // Create Roles
             $founder = new Role();
             $founder->name = 'Founder';
+            $founder->display_name = trans('install.role_founder');
             $founder->save();
             $admin = new Role();
             $admin->name = 'Admin';
+            $admin->display_name = trans('install.role_admin');
             $admin->save();
 
             $userDetails['salt'] = str_random(16);
