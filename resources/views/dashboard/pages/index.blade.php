@@ -23,7 +23,7 @@
                     <div class="col-xs-9">
                         <i class="{{ $page->icon }}"></i> {{ $page->id }}. <a href="{{ route('page',['slug' => $page->slug]) }}" target="_blank">{{ $page->title }}</a>
                         @if($page->body)
-                        <p><small>{{ Str::words($page->body, 5) }}</small></p>
+                        <p><small>{{ Str::words(strip_tags($page->body), 5) }}</small></p>
                         @endif
                     </div>
                     <div class="col-xs-3 text-right">
