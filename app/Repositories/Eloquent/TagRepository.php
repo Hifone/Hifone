@@ -33,6 +33,8 @@ class TagRepository extends Repository implements TagRepositoryInterface
     public function attach(TaggableInterface $taggable, $tags)
     {
         if (empty($tags)) {
+            $taggable->tags()->sync([]);
+
             return;
         }
         if (!is_array($tags)) {
