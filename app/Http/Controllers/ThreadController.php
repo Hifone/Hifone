@@ -22,7 +22,6 @@ use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
-use Hifone\Repositories\Contracts\TagRepositoryInterface as Tag;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -30,18 +29,15 @@ use Redirect;
 
 class ThreadController extends Controller
 {
-    protected $tag;
-
     /**
      * Creates a new thread controller instance.
      *
      * @return void
      */
-    public function __construct(Tag $tag)
+    public function __construct()
     {
         parent::__construct();
 
-        $this->tag = $tag;
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
@@ -117,23 +113,19 @@ class ThreadController extends Controller
         $threadData = Input::get('thread');
         $node_id = isset($threadData['node_id']) ? $threadData['node_id'] : null;
 
-        $tags = array_pull($threadData, 'tags');
-
         try {
             $thread = dispatch(new AddThreadCommand(
                 $threadData['title'],
                 $threadData['body'],
                 Auth::user()->id,
-                $node_id
+                $node_id,
+                $threadData['tags']
             ));
         } catch (ValidationException $e) {
             return Redirect::route('thread.create')
                 ->withInput(Input::all())
                 ->withErrors($e->getMessageBag());
         }
-
-        // The thread was added successfully, so now let's deal with the tags.
-        $this->tag->attach($thread, $tags);
 
 
         return Redirect::route('thread.show', [$thread->id])
@@ -200,8 +192,6 @@ class ThreadController extends Controller
 
         $this->needAuthorOrAdminPermission($thread->user_id);
 
-        $tags = array_pull($threadData, 'tags');
-
         try {
             $thread = dispatch(new UpdateThreadCommand($thread, $threadData));
         } catch (ValidationException $e) {
@@ -209,9 +199,6 @@ class ThreadController extends Controller
                 ->withInput(Input::all())
                 ->withErrors($e->getMessageBag());
         }
-
-        // The thread was added successfully, so now let's deal with the tags.
-        $this->tag->attach($thread, $tags);
 
         return Redirect::route('thread.show', $thread->id)
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));

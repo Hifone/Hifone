@@ -16,25 +16,55 @@ use Hifone\Events\Thread\ThreadWasMarkedExcellentEvent;
 use Hifone\Events\Thread\ThreadWasMovedEvent;
 use Hifone\Models\Node;
 use Hifone\Models\Thread;
+use Hifone\Repositories\Contracts\TagRepositoryInterface;
+use Hifone\Services\Dates\DateFactory;
 
 class UpdateThreadCommandHandler
 {
+    /**
+     * The date factory instance.
+     *
+     * @var \Hifone\Services\Dates\DateFactory
+     */
+    protected $dates;
+
+    /**
+     * The tag instance.
+     *
+     * @var \Hifone\Repositories\Contracts\TagRepositoryInterface
+     */
+    protected $tag;
+
+    /**
+     * Create a new report issue command handler instance.
+     *
+     * @param \Hifone\Services\Dates\DateFactory $dates
+     */
+    public function __construct(DateFactory $dates, TagRepositoryInterface $tag)
+    {
+        $this->dates = $dates;
+        $this->tag = $tag;
+    }
+
     public function handle(UpdateThreadCommand $command)
     {
         $thread = $command->thread;
         $original_node_id = $thread->node_id;
 
-        $command->updateData['body_original'] = $command->updateData['body'];
-        $command->updateData['excerpt'] = Thread::makeExcerpt($command->updateData['body']);
-        $command->updateData['body'] = app('parser.markdown')->convertMarkdownToHtml(app('parser.at')->parse($command->updateData['body']));
+        $command->data['body_original'] = $command->data['body'];
+        $command->data['excerpt'] = Thread::makeExcerpt($command->data['body']);
+        $command->data['body'] = app('parser.markdown')->convertMarkdownToHtml(app('parser.at')->parse($command->data['body']));
 
-        $thread->update($this->filter($command->updateData));
+        $thread->update($this->filter($command->data));
 
-        if (isset($command->updateData['is_excellent'])) {
+        // The thread was added successfully, so now let's deal with the tags.
+        $this->tag->attach($thread, $command->data['tags']);
+
+        if (isset($command->data['is_excellent'])) {
             event(new ThreadWasMarkedExcellentEvent($thread));
         }
 
-        if ($original_node_id != $command->updateData['node_id']) {
+        if ($original_node_id != $command->data['node_id']) {
             $originalNode = Node::findOrFail($original_node_id);
             event(new ThreadWasMovedEvent($command->thread, $originalNode));
         }
