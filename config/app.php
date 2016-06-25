@@ -180,8 +180,8 @@ return [
         Hifone\Providers\EventServiceProvider::class,
         Hifone\Providers\NotifierServiceProvider::class,
         Hifone\Providers\ParserServiceProvider::class,
+        Hifone\Providers\RepositoryServiceProvider::class,
         Hifone\Providers\RouteServiceProvider::class,
-        Hifone\Providers\TagServiceProvider::class,
     ],
 
     /*

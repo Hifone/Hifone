@@ -9,12 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Services\Tag;
+namespace Hifone\Repositories\Eloquent;
 
-use Hifone\Models\Tag;
+use Hifone\Repositories\Contracts\TaggableInterface;
+use Hifone\Repositories\Contracts\TagRepositoryInterface;
 
-class AddTag
+class TagRepository extends Repository implements TagRepositoryInterface
 {
+    /**
+     * @return \Hifone\Models\Tag
+     */
+    public function model()
+    {
+        return 'Hifone\Models\Tag';
+    }
+
     /**
      * @param \Hifone\Models\Tag\TaggableInterface $taggable
      * @param $tags
@@ -43,29 +52,32 @@ class AddTag
     /**
      * @param $tags
      */
-    protected function getTagIDs($tags)
+    public function getTagIDs($tags)
     {
-        $existing_tags = Tag::whereIn('name', $tags)->get();
+        $existing_tags = $this->model->whereIn('name', $tags)->get();
 
         $new_tags = array_diff($tags, $existing_tags->lists('name')->all());
-        $new_ids = $this->createNewTags($new_tags);
+        $new_ids = $this->multiInsert($new_tags);
 
         return array_merge($existing_tags->lists('id')->all(), $new_ids);
     }
 
     /**
-     * @param $new_tags
+     * Insert tags and return theirs ids.
      *
-     * @return array
+     * @param array $tags
+     *
+     * @return array Ids of tags
      */
-    protected function createNewTags($new_tags)
+    public function multiInsert(array $tags)
     {
-        $new_ids = [];
+        $tagsId = [];
 
-        foreach ($new_tags as $key => $tag) {
-            $new_ids[] = Tag::firstOrCreate(['name' => $tag])->id;
+        foreach ($tags as $name) {
+            $tag = $this->model->firstOrCreate(['name' => $name]);
+            $tagsId[] = $tag->id;
         }
 
-        return $new_ids;
+        return $tagsId;
     }
 }

@@ -9,15 +9,11 @@
  * file that was distributed with this source code.
  */
 
-/**
- * Created by PhpStorm.
- * User: stuartmccord
- * Date: 10/01/2016
- * Time: 18:56.
- */
-namespace Hifone\Services\Tag;
+namespace Hifone\Repositories\Criteria;
 
-interface TaggableInterface
+use Hifone\Repositories\Contracts\RepositoryInterface as Repository;
+
+abstract class Criteria
 {
-    public function tags();
+    abstract public function apply($model, Repository $repository);
 }

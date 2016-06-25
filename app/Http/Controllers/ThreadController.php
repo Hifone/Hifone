@@ -21,8 +21,8 @@ use Hifone\Events\Thread\ThreadWasViewedEvent;
 use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
-use Hifone\Models\Tag;
 use Hifone\Models\Thread;
+use Hifone\Repositories\Contracts\TagRepositoryInterface as Tag;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -30,15 +30,18 @@ use Redirect;
 
 class ThreadController extends Controller
 {
+    protected $tag;
+
     /**
      * Creates a new thread controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Tag $tag)
     {
         parent::__construct();
 
+        $this->tag = $tag;
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
@@ -130,7 +133,7 @@ class ThreadController extends Controller
         }
 
         // The thread was added successfully, so now let's deal with the tags.
-        app('tag')->attach($thread, $tags);
+        $this->tag->attach($thread, $tags);
 
 
         return Redirect::route('thread.show', [$thread->id])
@@ -208,7 +211,7 @@ class ThreadController extends Controller
         }
 
         // The thread was added successfully, so now let's deal with the tags.
-        app('tag')->attach($thread, $tags);
+        $this->tag->attach($thread, $tags);
 
         return Redirect::route('thread.show', $thread->id)
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
