@@ -20,9 +20,7 @@ use Hifone\Events\Reply\ReplyWasRemovedEvent;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Events\User\UserWasAddedEvent;
 use Hifone\Events\User\UserWasLoggedinEvent;
-use Hifone\Models\Credit;
-use Hifone\Models\Credit\Rule as CreditRule;
-use Hifone\Models\User;
+use Hifone\Commands\Credit\AddCreditCommand;
 
 class AddCreditHandler
 {
@@ -54,43 +52,13 @@ class AddCreditHandler
 
     protected function apply($event, $action, $user)
     {
-        if (!$action) {
-            return;
-        }
+        if (!$action) return;
 
-        $credit_rule = CreditRule::where('slug', $action)->first();
+        $credit = dispatch(new AddCreditCommand($action, $user));
 
-        if (!$credit_rule || !$this->checkFrequency($credit_rule, $user)) {
-            return;
-        }
+        if(!$credit) return;
 
-        $credit = Credit::create([
-            'user_id' => $user->id,
-            'rule_id' => $credit_rule->id,
-            'balance' => $user->score + $credit_rule->reward,
-        ]);
-
-        $user->update(['score' => $credit->balance]);
-
-        // Trigger
+        // event trigger
         event(new CreditWasAddedEvent($credit, $event));
-    }
-
-    protected function checkFrequency(CreditRule $credit_rule, User $user)
-    {
-        if (in_array($credit_rule->frequency, [CreditRule::DAILY, CreditRule::ONCE])) {
-            $count = Credit::where('user_id', $user->id)->where('rule_id', $credit_rule->id)->where(function ($query) use ($credit_rule) {
-                if ($credit_rule->frequency == CreditRule::DAILY) {
-                    $frequency_tag = Credit::generateFrequencyTag();
-
-                    return $query->where('frequency_tag', $frequency_tag);
-                }
-            })->count();
-            if ($count > 0) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }

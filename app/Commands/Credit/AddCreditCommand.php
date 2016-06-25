@@ -13,11 +13,10 @@ namespace Hifone\Commands\Credit;
 
 final class AddCreditCommand
 {
-    public $user_id;
+    public $action;
 
-    public $rule_id;
+    public $user;
 
-    public $balance;
 
     /**
      * The validation rules.
@@ -25,9 +24,7 @@ final class AddCreditCommand
      * @var string[]
      */
     public $rules = [
-        'user_id'   => 'int',
-        'rule_id'   => 'int',
-        'balance'   => 'int',
+        //
     ];
 
     /**
@@ -35,10 +32,9 @@ final class AddCreditCommand
      *
      * @param string $body
      */
-    public function __construct($user_id, $rule_id, $balance)
+    public function __construct($action, $user)
     {
-        $this->user_id = $user_id;
-        $this->rule_id = $rule_id;
-        $this->balance = $balance;
+        $this->action = $action;
+        $this->user = $user;
     }
 }
