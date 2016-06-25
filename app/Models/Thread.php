@@ -18,7 +18,7 @@ use Hifone\Models\Scopes\ForUser;
 use Hifone\Models\Scopes\Recent;
 use Hifone\Models\Traits\Taggable;
 use Hifone\Presenters\ThreadPresenter;
-use Hifone\Services\Tag\TaggableInterface;
+use Hifone\Repositories\Contracts\TaggableInterface;
 use Illuminate\Database\Eloquent\Model;
 use Input;
 use McCool\LaravelAutoPresenter\HasPresenter;
