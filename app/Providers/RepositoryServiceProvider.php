@@ -21,7 +21,6 @@ class RepositoryServiceProvider extends ServiceProvider
      * @var array
      */
     private $eloquent = [
-<<<<<<< HEAD
         'Section',
         'Node',
         'Thread',
@@ -29,9 +28,6 @@ class RepositoryServiceProvider extends ServiceProvider
         'Tag',
         'User',
         'Adspace',
-=======
-        'Tag',
->>>>>>> 1.0
         'Credit',
         'Credit' => [
             'Rule',
