@@ -2,7 +2,9 @@ body.forum {
 
 .side-bar {
   padding-right: 0px;
-
+  @media screen and (max-width: 768px) {
+    padding-left: 0;
+  }
   ul.list {
     a, a:focus, a:hover {
       color: #737373;
