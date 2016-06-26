@@ -135,10 +135,12 @@ class SeedCommand extends Command
         // Create Roles
         $founder = new Role();
         $founder->name = 'Founder';
+        $founder->display_name = 'Founder';
         $founder->save();
 
         $admin = new Role();
         $admin->name = 'Admin';
+        $admin->display_name = 'Admin';
         $admin->save();
 
         // Create User
