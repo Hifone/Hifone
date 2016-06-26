@@ -34,4 +34,7 @@ return [
     'enable_google2fa' => 'Enable Google Two Factor Authentication',
     'cache_driver'     => 'Cache Driver',
     'session_driver'   => 'Session Driver',
+
+    'role_admin'       => 'Administrator',
+    'role_founder'     => 'Founder',
 ];

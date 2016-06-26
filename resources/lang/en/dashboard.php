@@ -58,29 +58,29 @@ return [
     ],
 
     'sections' => [
-        'sections'     => '分类',
-        'name'         => '名称',
-        'order'        => '排序',
+        'sections'     => 'Sections',
+        'name'         => 'Name',
+        'order'        => 'Order',
         'add'          => [
-            'title'   => '添加分类',
-            'message' => '暂无分类',
-            'success' => '分类添加成功。',
-            'failure' => '分类添加失败！',
+            'title'   => 'New Section',
+            'message' => 'No section',
+            'success' => 'Section is created successfully.',
+            'failure' => 'Section creation failed.',
         ],
         'edit' => [
-            'title'   => '编辑分类',
-            'success' => '分类信息更新成功。',
-            'failure' => '分类更新失败！',
+            'title'   => 'Edit Section',
+            'success' => 'Section Information is successfully updated.',
+            'failure' => 'Section update failure.',
         ],
     ],
     'nodes' => [
-        'nodes'        => '节点管理',
-        'name'         => '名称',
-        'parent'       => '所属节点',
-        'root'         => '根节点',
-        'status_name'  => '状态',
-        'description'  => '描述',
-        'icon'         => '节点图标',
+        'nodes'        => 'Nodes',
+        'name'         => 'Name',
+        'parent'       => 'Parent Node',
+        'root'         => 'Root Node',
+        'status_name'  => 'Status',
+        'description'  => 'Description',
+        'icon'         => 'Node Icon',
         'slug'         => 'Slug',
         'slug_help'    => '快捷路径',
         'add'          => [
@@ -89,15 +89,15 @@ return [
             'failure' => '节点添加失败！',
         ],
         'edit' => [
-            'title'   => '编辑节点',
-            'success' => '节点信息更新成功。',
-            'failure' => '节点更新失败！',
+            'title'   => 'Edit Node',
+            'success' => 'Node information is updated.',
+            'failure' => 'Node update failure.',
         ],
 
         'status'       => [
-            0 => '正常',
-            1 => '隐藏',
-            2 => '会员可见',
+            0 => 'Normal',
+            1 => 'Hidden',
+            2 => 'Only visible by members',
         ],
         // Node parents
         'parents' => [
