@@ -35,6 +35,6 @@ return [
     'cache_driver'     => 'Cache Driver',
     'session_driver'   => 'Session Driver',
 
-    'role_admin'  => 'Administrator',
-    'role_founder'  => 'Founder',
+    'role_admin'       => 'Administrator',
+    'role_founder'     => 'Founder',
 ];
