@@ -13,22 +13,23 @@ namespace Hifone\Presenters;
 
 class NotificationPresenter extends AbstractPresenter
 {
-	public function template()
-	{
-		if(!isset($this->wrappedObject->object)) {
-			return 'unknown';
-		}
+    public function template()
+    {
+        if (!isset($this->wrappedObject->object)) {
+            return 'unknown';
+        }
 
-		if($this->wrappedObject->object instanceof \Hifone\Models\Thread) {
-			return 'thread';
-		} else if($this->wrappedObject->object instanceof \Hifone\Models\Reply) {
-			return 'reply';
-		} else if($this->wrappedObject->object instanceof \Hifone\Models\Credit) {
-			return 'credit';
-		} else {
-			return 'common';
-		}
-	}
+        if ($this->wrappedObject->object instanceof \Hifone\Models\Thread) {
+            return 'thread';
+        } elseif ($this->wrappedObject->object instanceof \Hifone\Models\Reply) {
+            return 'reply';
+        } elseif ($this->wrappedObject->object instanceof \Hifone\Models\Credit) {
+            return 'credit';
+        } else {
+            return 'common';
+        }
+    }
+
     public function labelUp()
     {
         switch ($this->wrappedObject->type) {
