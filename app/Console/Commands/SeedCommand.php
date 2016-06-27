@@ -106,6 +106,7 @@ class SeedCommand extends Command
      */
     protected function seedSettings()
     {
+
         $defaultSettings = [
             [
                 'name'  => 'site_name',
@@ -128,7 +129,7 @@ class SeedCommand extends Command
             ], [
                 'name'  => 'site_captcha_login_disabled',
                 'value' => '0',
-            ]
+            ],
         ];
         Setting::truncate();
         foreach ($defaultSettings as $setting) {
