@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="panel panel-default">
+<div class="notifications panel">
 
     <div class="panel-heading clearfix">
       {!! trans('hifone.notifications.my') !!}
@@ -19,14 +19,18 @@
 	<div class="panel-body remove-padding-horizontal notification-index">
 
 		<ul class="list-group row">
-			@foreach ($notifications as $notification)
-				@include('notifications.partials.' . $notification->template)
+			@foreach ($notifications as $day => $item)
+				<div class="notification-group">
+				<div class="group-title"><i class="fa fa-clock-o"></i> {{ $day }}</div>
+				@foreach($item as $notification)
+					@include('notifications.partials.'.$notification->template)
+				@endforeach
+				</div>
 			@endforeach
 		</ul>
 	</div>
 	<div class="panel-footer text-right remove-padding-horizontal pager-footer">
 		<!-- Pager -->
-		{!! $notifications->render() !!}
 	</div>
     @else
 	<div class="panel-body">
