@@ -46,4 +46,9 @@ return [
         'client_secret' => env('GITLAB_SECRET'),
         'redirect'      => env('GITLAB_REDIRECT_URI'),
     ],
+    'google' => [
+        'client_id'     => env('GOOGLE_KEY'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT_URI'),  
+    ],
 ];

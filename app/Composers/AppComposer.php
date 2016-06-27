@@ -32,5 +32,7 @@ class AppComposer
         $view->withSiteLogo(Config::get('setting.site_logo'));
         $view->withSiteTitle(Config::get('setting.site_name').' | Hifone');
         $view->withSiteLocale(Config::get('setting.site_locale'));
+        $view->withSiteCaptchaRegDisabled(Config::get('setting.site_captcha_reg_disabled'));
+        $view->withSiteCaptchaLoginDisabled(Config::get('setting.site_captcha_login_disabled'));
     }
 }

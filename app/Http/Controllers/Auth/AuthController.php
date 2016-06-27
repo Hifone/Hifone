@@ -23,6 +23,7 @@ use Hifone\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -83,7 +84,7 @@ class AuthController extends Controller
         $loginData = Input::only(['login', 'password', 'verifycode']);
 
         $verifycode = array_pull($loginData, 'verifycode');
-        if ($verifycode != Session::get('phrase')) {
+        if ($verifycode != Session::get('phrase') && Config::get('setting.site_captcha_login_disabled')) {
             // instructions if user phrase is good
             return Redirect::to('auth/login')
             ->withInput(Input::except('password'))
@@ -142,7 +143,7 @@ class AuthController extends Controller
         } else {
             $registerData = Input::only(['username', 'email', 'password', 'password_confirmation', 'verifycode']);
 
-            if ($registerData['verifycode'] != Session::get('phrase')) {
+            if ($registerData['verifycode'] != Session::get('phrase') && Config::get('setting.site_captcha_reg_disabled')) {
                 return Redirect::to('auth/register')
                     ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
                     ->withInput(Input::all())

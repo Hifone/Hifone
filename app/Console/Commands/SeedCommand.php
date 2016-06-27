@@ -122,7 +122,13 @@ class SeedCommand extends Command
             ], [
                 'name'  => 'site_about',
                 'value' => 'This is the demo instance of [Hifone](https://hifone.com?ref=demo). The open source forum software.',
-            ],
+            ], [
+                'name'  => 'site_captcha_reg_disabled',
+                'value' => '1',
+            ], [
+                'name'  => 'site_captcha_login_disabled',
+                'value' => '1',
+            ]
         ];
         Setting::truncate();
         foreach ($defaultSettings as $setting) {
