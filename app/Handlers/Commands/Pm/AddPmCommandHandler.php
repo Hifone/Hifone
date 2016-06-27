@@ -11,11 +11,10 @@
 
 namespace Hifone\Handlers\Commands\Pm;
 
-use Carbon\Carbon;
 use Hifone\Commands\Pm\AddPmCommand;
 use Hifone\Events\Pm\PmWasAddedEvent;
 use Hifone\Models\Pm;
-use Hifone\Models\Pm\Meta;
+use Hifone\Repositories\Contracts\PmRepositoryInterface;
 use Hifone\Services\Dates\DateFactory;
 
 class AddPmCommandHandler
@@ -27,14 +26,17 @@ class AddPmCommandHandler
      */
     protected $dates;
 
+    protected $pm;
+
     /**
-     * Create a new report issue command handler instance.
+     * Create a new report pm command handler instance.
      *
      * @param \Hifone\Services\Dates\DateFactory $dates
      */
-    public function __construct(DateFactory $dates)
+    public function __construct(DateFactory $dates, PmRepositoryInterface $pm)
     {
         $this->dates = $dates;
+        $this->pm = $pm;
     }
 
     /**
@@ -46,19 +48,11 @@ class AddPmCommandHandler
      */
     public function handle(AddPmCommand $command)
     {
-        // Create the pm meta
-        $meta = Meta::create([
-            'body' => $command->body,
-        ]);
+        if ($command->user_id === $command->author_id) {
+            throw new \Exception('Recipient ID and sender ID have the same value.');
+        }
 
-        $data = [
-            'user_id'           => $command->user_id,
-            'author_id'         => $command->author_id,
-            'meta_id'           => $meta->id,
-            'created_at'        => Carbon::now()->toDateTimeString(),
-        ];
-        // Create the pm
-        $pm = Pm::create($data);
+        $pm = $this->pm->submit($command->user_id, $command->author_id, $command->body);
 
         event(new PmWasAddedEvent($pm));
 

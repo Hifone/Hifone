@@ -162,8 +162,12 @@ return [
         'credit_register'             => 'added credits via register',
         'credit_login'                => 'added credits via daily login',
     ],
-
-//Credits
+// Pms
+    'pms'   => [
+        'pms'       => 'Pm',
+        'recipient' => 'Recipient',
+    ],
+// Credits
     'credits' => [
         'credits' => 'Credits',
         'mine'    => 'My credits',

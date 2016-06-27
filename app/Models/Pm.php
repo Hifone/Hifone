@@ -20,12 +20,38 @@ class Pm extends Model
     use ForUser;
 
     const INBOX = 1;
+
     const OUTBOX = 2;
 
     protected $fillable = ['root_id', 'user_id', 'author_id', 'meta_id', 'folder'];
 
+    /**
+     * A Pm belongs to a meta.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function meta()
     {
         return $this->belongsTo(Meta::class);
+    }
+
+    /**
+     * A Pm belongs to a meta.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * A Pm belongs to a author.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
     }
 }
