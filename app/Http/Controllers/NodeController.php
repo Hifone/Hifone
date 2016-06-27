@@ -13,13 +13,12 @@ namespace Hifone\Http\Controllers;
 
 use Hifone\Models\Node;
 use Hifone\Models\Thread;
+use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
+use Hifone\Repositories\Criteria\Thread\BelongsToNode;
+use Hifone\Repositories\Criteria\Thread\Search;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
-use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
-use Hifone\Repositories\Criteria\Thread\Filter;
-use Hifone\Repositories\Criteria\Thread\Search;
-use Hifone\Repositories\Criteria\Thread\BelongsToNode;
 
 class NodeController extends Controller
 {

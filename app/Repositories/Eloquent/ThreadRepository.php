@@ -25,8 +25,8 @@ class ThreadRepository extends Repository implements ThreadRepositoryInterface
 
     public function getList($limit = 10)
     {
-    	$this->applyCriteria();
+        $this->applyCriteria();
 
-    	return $this->model->with('user', 'node', 'lastReplyUser')->paginate($limit);
+        return $this->model->with('user', 'node', 'lastReplyUser')->paginate($limit);
     }
 }

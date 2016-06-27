@@ -11,7 +11,6 @@
 
 namespace Hifone\Http\Controllers;
 
-use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
 use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
@@ -28,6 +27,7 @@ class HomeController extends Controller
     {
         $this->thread = $thread;
     }
+
     /**
      * Home page.
      */
