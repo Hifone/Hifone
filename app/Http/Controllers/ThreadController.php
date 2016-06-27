@@ -83,7 +83,7 @@ class ThreadController extends Controller
         ]);
 
         $replies = $thread->replies()
-                    ->recent()
+                    ->orderBy('id', 'asc')
                     ->paginate(Config::get('setting.per_page'));
 
         $this->thread->pushCriteria(new BelongsToNode($thread->node_id));
