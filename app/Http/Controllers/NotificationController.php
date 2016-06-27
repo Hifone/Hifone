@@ -21,12 +21,7 @@ class NotificationController extends Controller
 {
     public function index()
     {
-<<<<<<< HEAD
-
         $notifications =  Auth::user()->notifications()->orderBy('created_at', 'desc')->paginate(20)->groupBy(function (Notification $incident) {
-=======
-        $notifications = Notification::orderBy('created_at', 'desc')->paginate(20)->groupBy(function (Notification $incident) {
->>>>>>> e5af1370545c2b7fa9b4af671e668fb0c25a51e5
             return app(DateFactory::class)->make($incident->created_at)->toDateString();
         });
 
