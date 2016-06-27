@@ -1,28 +1,23 @@
-<li class="list-group-item media" style="margin-top: 0px;">
-	<div class="avatar pull-left">
-		<a href="{{ route('user.home', [$notification->author->username]) }}">
-			<img class="media-object img-thumbnail avatar" alt="{{ $notification->author->username }}" src="{{ $notification->author->avatar_small }}"  style="width:38px;height:38px;"/>
-		</a>
-	</div>
+<div id="notification-{{ $notification->id }}" data-id="{{ $notification->id }}" class="media notification notification-topic_reply">
+  <div class="media-left">
+    <a title="{{ $notification->author->username }}" class="user-avatar" href="{{ route('user.home', [$notification->author->username]) }}"><img src="{{ $notification->author->avatar_small }}" alt="{{ $notification->author->id }}"></a>
+  </div>
+  <div class="media-body">
+    
+  <div class="media-heading">
+    <a href="{{ route('user.home', [$notification->author->username]) }}">
+      {{ $notification->author->username }}
+    </a>
+     •
+    {{ $notification->labelUp }}
+  </div>
+    <div class="media-content summary markdown">
+      {{ trans('hifone.credits.credits') }}: {{ $notification->object->rule->reward }}
+    {!! $notification->body !!}
+    </div>
 
-	<div class="infos">
-
-	  <div class="media-heading">
-
-		<a href="{{ route('user.home', [$notification->author->username]) }}">
-			{{ $notification->author->username }}
-		</a>
-		 •
-		{{ $notification->labelUp }}
-		
-		<span class="meta">
-			 • {{ trans('hifone.at') }} • <span class="timeago">{{ $notification->created_at }}</span>
-		</span>
-	  </div>
-	  <div class="media-body markdown-reply content-body">
-		{{ trans('hifone.credits.credits') }}: {{ $notification->object->rule->reward }}
-		{!! $notification->body !!}
-	  </div>
-
-	</div>
-</li>
+  </div>
+  <div class="media-right">
+    <span class="timeago">{{ $notification->created_at }}</span>
+  </div>
+</div>
