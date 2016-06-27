@@ -18,7 +18,7 @@ use Hifone\Models\Scopes\ForUser;
 use Hifone\Models\Scopes\Recent;
 use Hifone\Models\Traits\Taggable;
 use Hifone\Presenters\ThreadPresenter;
-use Hifone\Repositories\Contracts\TaggableInterface;
+use Hifone\Services\Tag\TaggableInterface;
 use Illuminate\Database\Eloquent\Model;
 use Input;
 use McCool\LaravelAutoPresenter\HasPresenter;
@@ -112,6 +112,7 @@ class Thread extends Model implements HasPresenter, TaggableInterface
         $lastReply = $this->replies()->recent()->first();
 
         $this->last_reply_user_id = $lastReply ? $lastReply->user_id : 0;
+        $this->updated_at = $lastReply->created_at;
         $this->save();
     }
 

@@ -14,8 +14,6 @@ namespace Hifone\Http\Controllers;
 use Auth;
 use Hifone\Commands\Pm\AddPmCommand;
 use Hifone\Models\Pm;
-use Hifone\Repositories\Contracts\PmRepositoryInterface;
-use Hifone\Repositories\Contracts\UserRepositoryInterface;
 use Hifone\Repositories\Criteria\OnlyMine;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -23,18 +21,13 @@ use Redirect;
 
 class PmController extends Controller
 {
-    protected $user;
-    protected $pm;
-
     /**
      * Creates a new pm controller instance.
      *
      * @return void
      */
-    public function __construct(UserRepositoryInterface $user, PmRepositoryInterface $pm)
+    public function __construct()
     {
-        $this->user = $user;
-        $this->pm = $pm;
         $this->middleware('auth');
     }
 
@@ -47,7 +40,7 @@ class PmController extends Controller
     {
         $method = Input::get('tab') == 'inbox' ? 'inbox' : 'outbox';
 
-        $pms = $this->pm->$method(Auth::user()->id);
+        $pms = $this->$method(Auth::user()->id);
 
         return $this->view('pms.index')
             ->withPms($pms);
@@ -108,5 +101,15 @@ class PmController extends Controller
 
         return Redirect::route('pm.index')
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
+    }
+
+    protected function inbox($userId)
+    {
+        return Pm::forUser($userId)->orderBy('created_at', 'desc')->paginate(10);
+    }
+
+    protected function outbox($userId)
+    {
+        return Pm::where('author_id', $userId)->orderBy('created_at', 'desc')->paginate(10);
     }
 }

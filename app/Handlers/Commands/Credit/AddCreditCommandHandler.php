@@ -14,8 +14,7 @@ namespace Hifone\Handlers\Commands\Credit;
 use Carbon\Carbon;
 use Hifone\Commands\Credit\AddCreditCommand;
 use Hifone\Models\Credit;
-use Hifone\Repositories\Contracts\Credit\RuleRepositoryInterface;
-use Hifone\Repositories\Contracts\CreditRepositoryInterface;
+use Hifone\Models\Credit\Rule as CreditRule;
 use Hifone\Services\Dates\DateFactory;
 
 class AddCreditCommandHandler
@@ -28,29 +27,13 @@ class AddCreditCommandHandler
     protected $dates;
 
     /**
-     * The credit instance.
-     *
-     * @var \Hifone\Repositories\Contracts\CreditRepositoryInterface
-     */
-    protected $credit;
-
-    /**
-     * The credit rule instance.
-     *
-     * @var \Hifone\Repositories\Contracts\Credit\RuleRepositoryInterface
-     */
-    protected $credit_rule;
-
-    /**
      * Create a new report issue command handler instance.
      *
      * @param \Hifone\Services\Dates\DateFactory $dates
      */
-    public function __construct(DateFactory $dates, RuleRepositoryInterface $credit_rule, CreditRepositoryInterface $credit)
+    public function __construct(DateFactory $dates)
     {
         $this->dates = $dates;
-        $this->credit_rule = $credit_rule;
-        $this->credit = $credit;
     }
 
     /**
@@ -62,9 +45,9 @@ class AddCreditCommandHandler
      */
     public function handle(AddCreditCommand $command)
     {
-        $credit_rule = $this->credit_rule->whereSlug($command->action)->first();
+        $credit_rule = CreditRule::whereSlug($command->action)->first();
 
-        if (!$credit_rule || !$this->credit->checkFrequency($credit_rule, $command->user)) {
+        if (!$credit_rule || !$this->checkFrequency($credit_rule, $command->user)) {
             return;
         }
 
@@ -76,10 +59,27 @@ class AddCreditCommandHandler
         ];
 
         // Create the credit
-        $credit = $this->credit->create($data);
+        $credit = Credit::create($data);
 
         $command->user->update(['score' => $credit->balance]);
 
         return $credit;
+    }
+
+    protected function checkFrequency(CreditRule $credit_rule, \Hifone\Models\User $user)
+    {
+        if (!in_array($credit_rule->frequency, [CreditRule::DAILY, CreditRule::ONCE])) {
+            return true;
+        }
+
+        $count = Credit::where('user_id', $user->id)->where('rule_id', $credit_rule->id)->where(function ($query) use ($credit_rule) {
+            if ($credit_rule->frequency == CreditRule::DAILY) {
+                $frequency_tag = Credit::generateFrequencyTag();
+
+                return $query->where('frequency_tag', $frequency_tag);
+            }
+        })->count();
+
+        return !$count;
     }
 }
