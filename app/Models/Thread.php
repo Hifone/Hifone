@@ -18,7 +18,7 @@ use Hifone\Models\Scopes\ForUser;
 use Hifone\Models\Scopes\Recent;
 use Hifone\Models\Traits\Taggable;
 use Hifone\Presenters\ThreadPresenter;
-use Hifone\Repositories\Contracts\TaggableInterface;
+use Hifone\Services\Tag\TaggableInterface;
 use Illuminate\Database\Eloquent\Model;
 use Input;
 use McCool\LaravelAutoPresenter\HasPresenter;
@@ -112,38 +112,8 @@ class Thread extends Model implements HasPresenter, TaggableInterface
         $lastReply = $this->replies()->recent()->first();
 
         $this->last_reply_user_id = $lastReply ? $lastReply->user_id : 0;
+        $this->updated_at = $lastReply->created_at;
         $this->save();
-    }
-
-    public function scopeNodeThreads($query, $filter, $node_id)
-    {
-        return $this->filter($filter == 'default' ? 'node' : $filter)
-                    ->where('node_id', '=', $node_id)
-                    ->with('user', 'node', 'lastReplyUser');
-    }
-
-    public function scopeFilter($query, $filter)
-    {
-        switch ($filter) {
-            case 'noreply':
-                return $this->orderBy('reply_count', 'asc')->recent();
-                break;
-            case 'like':
-                return $this->orderBy('like_count', 'desc')->recent();
-                break;
-            case 'excellent':
-                return $this->excellent()->recent();
-                break;
-            case 'recent':
-                return $this->recent();
-                break;
-            case 'node':
-                return $this->recentReply();
-                break;
-            default:
-                return $this->pinAndRecentReply();
-                break;
-        }
     }
 
     public function scopeSearch($query, $search)

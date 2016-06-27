@@ -16,8 +16,8 @@ use Hifone\Events\Thread\ThreadWasMarkedExcellentEvent;
 use Hifone\Events\Thread\ThreadWasMovedEvent;
 use Hifone\Models\Node;
 use Hifone\Models\Thread;
-use Hifone\Repositories\Contracts\TagRepositoryInterface;
 use Hifone\Services\Dates\DateFactory;
+use Hifone\Services\Tag\AddTag;
 
 class UpdateThreadCommandHandler
 {
@@ -29,21 +29,13 @@ class UpdateThreadCommandHandler
     protected $dates;
 
     /**
-     * The tag instance.
-     *
-     * @var \Hifone\Repositories\Contracts\TagRepositoryInterface
-     */
-    protected $tag;
-
-    /**
      * Create a new report issue command handler instance.
      *
      * @param \Hifone\Services\Dates\DateFactory $dates
      */
-    public function __construct(DateFactory $dates, TagRepositoryInterface $tag)
+    public function __construct(DateFactory $dates)
     {
         $this->dates = $dates;
-        $this->tag = $tag;
     }
 
     public function handle(UpdateThreadCommand $command)
@@ -59,7 +51,7 @@ class UpdateThreadCommandHandler
 
         // The thread was added successfully, so now let's deal with the tags.
         $tags = isset($command->data['tags']) ? $command->data['tags'] : [];
-        $this->tag->attach($thread, $tags);
+        app(AddTag::class)->attach($thread, $tags);
 
         if (isset($command->data['is_excellent'])) {
             event(new ThreadWasMarkedExcellentEvent($thread));

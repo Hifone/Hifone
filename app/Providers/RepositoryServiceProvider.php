@@ -21,17 +21,8 @@ class RepositoryServiceProvider extends ServiceProvider
      * @var array
      */
     private $eloquent = [
-        'Section',
-        'Node',
         'Thread',
-        'Reply',
         'Tag',
-        'User',
-        'Adspace',
-        'Credit',
-        'Credit' => [
-            'Rule',
-        ],
     ];
 
     /**

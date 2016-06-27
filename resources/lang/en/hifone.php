@@ -50,7 +50,7 @@ return [
         'recent'         => 'Recent',
         'excellent'      => 'Excellent',
         'like'           => 'Popular',
-        'noreply'        => 'No reply',
+        'unanswered'     => 'Unanswered',
         'stick'          => 'Stick',
         'recommended'    => 'Recommended',
         'last_reply_by'  => 'by',
@@ -162,8 +162,12 @@ return [
         'credit_register'             => 'added credits via register',
         'credit_login'                => 'added credits via daily login',
     ],
-
-//Credits
+// Pms
+    'pms'   => [
+        'pms'       => 'Pm',
+        'recipient' => 'Recipient',
+    ],
+// Credits
     'credits' => [
         'credits' => 'Credits',
         'mine'    => 'My credits',

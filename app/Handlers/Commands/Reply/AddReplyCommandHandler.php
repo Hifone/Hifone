@@ -11,7 +11,6 @@
 
 namespace Hifone\Handlers\Commands\Reply;
 
-use Auth;
 use Carbon\Carbon;
 use Hifone\Commands\Reply\AddReplyCommand;
 use Hifone\Events\Reply\ReplyWasAddedEvent;
@@ -65,7 +64,7 @@ class AddReplyCommandHandler
             $reply->thread->save();
         }
 
-        Auth::user()->increment('reply_count', 1);
+        $reply->user->increment('reply_count', 1);
 
         event(new ReplyWasAddedEvent($reply));
 

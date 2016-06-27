@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Repositories\Contracts;
+namespace Hifone\Services\Tag;
 
-interface NodeRepositoryInterface extends RepositoryInterface
+interface TaggableInterface
 {
-    //
+    public function tags();
 }

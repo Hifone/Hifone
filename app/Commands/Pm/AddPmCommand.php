@@ -13,8 +13,6 @@ namespace Hifone\Commands\Pm;
 
 final class AddPmCommand
 {
-    public $title;
-
     public $body;
 
     public $user_id;

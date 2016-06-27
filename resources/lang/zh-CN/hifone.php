@@ -50,7 +50,7 @@ return [
         'recent'         => '最新话题',
         'excellent'      => '优质帖子',
         'like'           => '最多按赞',
-        'noreply'        => '等待回复',
+        'unanswered'     => '等待回复',
         'stick'          => '置顶',
         'recommended'    => '推荐',
         'last_reply_by'  => '回复',
@@ -155,12 +155,18 @@ return [
         'followed_thread_new_reply'   => '回复了你关注的主题:',
         'followed_thread_new_append'  => '关注的话题有新备注',
         'followed_user_new_thread'    => '发表了新话题',
-        'commented_thread_new_append' => '留言的话题有新备注',
+        'commented_thread_new_append' => '评论过的话题有新备注',
         'user_follow'                 => '关注了你',
         'reply_like'                  => '赞了你的回复',
         'reply_mention'               => '在回复中提及你:',
         'credit_register'             => '注册获得积分',
         'credit_login'                => '每日登录获得积分',
+    ],
+
+//Pm
+    'pms'   => [
+        'pms'       => '站内短信',
+        'recipient' => '收件人',
     ],
 
 //积分

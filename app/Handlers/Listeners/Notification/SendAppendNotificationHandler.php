@@ -48,7 +48,7 @@ class SendAppendNotificationHandler
                     'commented_thread_new_append',
                     $author,
                     $users,
-                    $thread->id,
+                    $thread,
                     $append->content);
 
         // Notify followed users
@@ -56,7 +56,7 @@ class SendAppendNotificationHandler
                     'followed_thread_new_append',
                     $author,
                     $thread->follows()->get(),
-                    $thread->id,
+                    $thread,
                     $append->content);
     }
 }

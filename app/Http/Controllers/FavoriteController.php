@@ -22,6 +22,7 @@ class FavoriteController extends Controller
         try {
             dispatch(new AddFavoriteCommand($thread));
         } catch (ValidationException $e) {
+            //
         }
 
         return Response::json(['status' => 1]);

@@ -18,11 +18,13 @@ use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Thread\UpdateThreadCommand;
 use Hifone\Events\Thread\ThreadWasViewedEvent;
-use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
 use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
+use Hifone\Repositories\Criteria\Thread\BelongsToNode;
+use Hifone\Repositories\Criteria\Thread\Filter;
+use Hifone\Repositories\Criteria\Thread\Search;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -30,6 +32,9 @@ use Redirect;
 
 class ThreadController extends Controller
 {
+    /**
+     * Thread Repository.
+     */
     protected $thread;
 
     /**
@@ -41,8 +46,9 @@ class ThreadController extends Controller
     {
         parent::__construct();
 
-        $this->thread = $thread;
         $this->middleware('auth', ['except' => ['index', 'show']]);
+
+        $this->thread = $thread;
     }
 
     /**
@@ -52,7 +58,10 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $threads = Thread::filter(Input::query('filter'))->search(Input::query('q'))->paginate(Config::get('setting.per_page'));
+        $this->thread->pushCriteria(new Filter(Input::query('filter')));
+        $this->thread->pushCriteria(new Search(Input::query('q')));
+
+        $threads = $this->thread->getList(Config::get('setting.per_page'));
 
         return $this->view('threads.index')
             ->withThreads($threads)
@@ -70,16 +79,15 @@ class ThreadController extends Controller
     {
         $this->breadcrumb->push([
                 $thread->node->name => $thread->node->url,
-                $thread->title      => route('thread.show', $thread->id),
+                $thread->title      => $thread->url,
         ]);
 
         $replies = $thread->replies()
-                    ->orderBy('created_at', 'asc')
-                    ->with('user')
+                    ->orderBy('id', 'asc')
                     ->paginate(Config::get('setting.per_page'));
 
-        $node = $thread->node;
-        $nodeThreads = $thread->getSameNodeThreads();
+        $this->thread->pushCriteria(new BelongsToNode($thread->node_id));
+        $nodeThreads = $this->thread->getList(8);
 
         event(new ThreadWasViewedEvent($thread));
 
@@ -87,7 +95,7 @@ class ThreadController extends Controller
             ->withThread($thread)
             ->withReplies($replies)
             ->withNodeThreads($nodeThreads)
-            ->withNode($node);
+            ->withNode($thread->node);
     }
 
     /**
@@ -148,14 +156,13 @@ class ThreadController extends Controller
     {
         $this->needAuthorOrAdminPermission($thread->user_id);
         $sections = Section::orderBy('order')->get();
-        $node = $thread->node;
 
         $thread->body = $thread->body_original;
 
         return $this->view('threads.create_edit')
             ->withThread($thread)
             ->withSections($sections)
-            ->withNode($node);
+            ->withNode($thread->node);
     }
 
     /**
@@ -167,7 +174,7 @@ class ThreadController extends Controller
     {
         $this->needAuthorOrAdminPermission($thread->user_id);
 
-        $content = app('parser.markdown')->convertMarkdownToHtml(Input::get('content'));
+        $content = Input::get('content') ?: '';
 
         try {
             $append = dispatch(new AddAppendCommand(

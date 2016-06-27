@@ -9,21 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Hifone\Repositories\Eloquent;
+namespace Hifone\Services\Tag;
 
-use Hifone\Repositories\Contracts\TaggableInterface;
-use Hifone\Repositories\Contracts\TagRepositoryInterface;
+use Hifone\Models\Tag;
 
-class TagRepository extends Repository implements TagRepositoryInterface
+class Addtag
 {
-    /**
-     * @return \Hifone\Models\Tag
-     */
-    public function model()
-    {
-        return 'Hifone\Models\Tag';
-    }
-
     /**
      * @param \Hifone\Models\Tag\TaggableInterface $taggable
      * @param $tags
@@ -56,7 +47,7 @@ class TagRepository extends Repository implements TagRepositoryInterface
      */
     public function getTagIDs($tags)
     {
-        $existing_tags = $this->model->whereIn('name', $tags)->get();
+        $existing_tags = Tag::whereIn('name', $tags)->get();
 
         $new_tags = array_diff($tags, $existing_tags->lists('name')->all());
         $new_ids = $this->multiInsert($new_tags);
@@ -76,7 +67,7 @@ class TagRepository extends Repository implements TagRepositoryInterface
         $tagsId = [];
 
         foreach ($tags as $name) {
-            $tag = $this->model->firstOrCreate(['name' => $name]);
+            $tag = Tag::firstOrCreate(['name' => $name]);
             $tagsId[] = $tag->id;
         }
 
