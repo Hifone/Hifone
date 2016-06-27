@@ -13,5 +13,5 @@ namespace Hifone\Repositories\Contracts;
 
 interface ThreadRepositoryInterface extends RepositoryInterface
 {
-    //
+    public function getList($limit);
 }

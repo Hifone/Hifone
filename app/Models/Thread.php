@@ -115,37 +115,6 @@ class Thread extends Model implements HasPresenter, TaggableInterface
         $this->save();
     }
 
-    public function scopeNodeThreads($query, $filter, $node_id)
-    {
-        return $this->filter($filter == 'default' ? 'node' : $filter)
-                    ->where('node_id', '=', $node_id)
-                    ->with('user', 'node', 'lastReplyUser');
-    }
-
-    public function scopeFilter($query, $filter)
-    {
-        switch ($filter) {
-            case 'noreply':
-                return $this->orderBy('reply_count', 'asc')->recent();
-                break;
-            case 'like':
-                return $this->orderBy('like_count', 'desc')->recent();
-                break;
-            case 'excellent':
-                return $this->excellent()->recent();
-                break;
-            case 'recent':
-                return $this->recent();
-                break;
-            case 'node':
-                return $this->recentReply();
-                break;
-            default:
-                return $this->pinAndRecentReply();
-                break;
-        }
-    }
-
     public function scopeSearch($query, $search)
     {
         if (!$search) {

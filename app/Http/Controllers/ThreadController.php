@@ -23,6 +23,9 @@ use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
 use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
+use Hifone\Repositories\Criteria\Thread\Filter;
+use Hifone\Repositories\Criteria\Thread\Search;
+use Hifone\Repositories\Criteria\Thread\BelongsToNode;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -52,7 +55,10 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $threads = Thread::filter(Input::query('filter'))->search(Input::query('q'))->paginate(Config::get('setting.per_page'));
+        $this->thread->pushCriteria(new Filter(Input::query('filter')));
+        $this->thread->pushCriteria(new Search(Input::query('q')));
+
+        $threads = $this->thread->getList(Config::get('setting.per_page'));
 
         return $this->view('threads.index')
             ->withThreads($threads)
@@ -79,7 +85,8 @@ class ThreadController extends Controller
                     ->paginate(Config::get('setting.per_page'));
 
         $node = $thread->node;
-        $nodeThreads = $thread->getSameNodeThreads();
+        $this->thread->pushCriteria(new BelongsToNode($node->id));
+        $nodeThreads = $this->thread->getList(8);
 
         event(new ThreadWasViewedEvent($thread));
 

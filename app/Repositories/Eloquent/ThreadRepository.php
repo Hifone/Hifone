@@ -22,4 +22,11 @@ class ThreadRepository extends Repository implements ThreadRepositoryInterface
     {
         return 'Hifone\Models\Thread';
     }
+
+    public function getList($limit = 10)
+    {
+    	$this->applyCriteria();
+
+    	return $this->model->with('user', 'node', 'lastReplyUser')->paginate($limit);
+    }
 }
