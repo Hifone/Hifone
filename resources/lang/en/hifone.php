@@ -164,7 +164,7 @@ return [
     ],
 // Pms
     'pms'   => [
-        'pms'   => 'Pm',
+        'pms'       => 'Pm',
         'recipient' => 'Recipient',
     ],
 // Credits

@@ -27,7 +27,7 @@ class RepositoryServiceProvider extends ServiceProvider
         'Reply',
         'Tag',
         'User',
-		'Pm',
+        'Pm',
         'Adspace',
         'Credit',
         'Credit' => [

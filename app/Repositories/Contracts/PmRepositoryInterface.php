@@ -13,7 +13,9 @@ namespace Hifone\Repositories\Contracts;
 
 interface PmRepositoryInterface extends RepositoryInterface
 {
-	public function inbox($userId);
-	public function outbox($userId);
+    public function inbox($userId);
+
+    public function outbox($userId);
+
     public function submit($userId, $authorId, $body, $rootId);
 }
