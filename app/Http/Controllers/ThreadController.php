@@ -33,8 +33,8 @@ use Redirect;
 class ThreadController extends Controller
 {
     /**
-    * Thread Repository.
-    */
+     * Thread Repository.
+     */
     protected $thread;
 
     /**
