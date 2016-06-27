@@ -18,7 +18,6 @@ use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Commands\Thread\RemoveThreadCommand;
 use Hifone\Commands\Thread\UpdateThreadCommand;
 use Hifone\Events\Thread\ThreadWasViewedEvent;
-use Hifone\Models\Append;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
@@ -33,6 +32,9 @@ use Redirect;
 
 class ThreadController extends Controller
 {
+    /**
+    * Thread Repository.
+    */
     protected $thread;
 
     /**
@@ -44,8 +46,9 @@ class ThreadController extends Controller
     {
         parent::__construct();
 
-        $this->thread = $thread;
         $this->middleware('auth', ['except' => ['index', 'show']]);
+
+        $this->thread = $thread;
     }
 
     /**
@@ -76,16 +79,14 @@ class ThreadController extends Controller
     {
         $this->breadcrumb->push([
                 $thread->node->name => $thread->node->url,
-                $thread->title      => route('thread.show', $thread->id),
+                $thread->title      => $thread->url,
         ]);
 
         $replies = $thread->replies()
-                    ->orderBy('created_at', 'asc')
-                    ->with('user')
+                    ->recent()
                     ->paginate(Config::get('setting.per_page'));
 
-        $node = $thread->node;
-        $this->thread->pushCriteria(new BelongsToNode($node->id));
+        $this->thread->pushCriteria(new BelongsToNode($thread->node_id));
         $nodeThreads = $this->thread->getList(8);
 
         event(new ThreadWasViewedEvent($thread));
@@ -94,7 +95,7 @@ class ThreadController extends Controller
             ->withThread($thread)
             ->withReplies($replies)
             ->withNodeThreads($nodeThreads)
-            ->withNode($node);
+            ->withNode($thread->node);
     }
 
     /**
@@ -155,14 +156,13 @@ class ThreadController extends Controller
     {
         $this->needAuthorOrAdminPermission($thread->user_id);
         $sections = Section::orderBy('order')->get();
-        $node = $thread->node;
 
         $thread->body = $thread->body_original;
 
         return $this->view('threads.create_edit')
             ->withThread($thread)
             ->withSections($sections)
-            ->withNode($node);
+            ->withNode($thread->node);
     }
 
     /**

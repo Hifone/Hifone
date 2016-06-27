@@ -29,8 +29,8 @@ class Filter extends Criteria
     public function apply($model, Repository $repository)
     {
         switch ($this->filter) {
-            case 'noreply':
-                return $model->orderBy('reply_count', 'asc')->recent();
+            case 'unanswered':
+                return $model->where('reply_count', 0)->recent();
                 break;
             case 'like':
                 return $model->orderBy('like_count', 'desc')->recent();

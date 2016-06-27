@@ -50,7 +50,7 @@ return [
         'recent'         => 'Recent',
         'excellent'      => 'Excellent',
         'like'           => 'Popular',
-        'noreply'        => 'No reply',
+        'unanswered'     => 'Unanswered',
         'stick'          => 'Stick',
         'recommended'    => 'Recommended',
         'last_reply_by'  => 'by',
