@@ -12,17 +12,15 @@
 namespace Hifone\Http\Controllers;
 
 use Auth;
-use Config;
-use Illuminate\Support\Facades\View;
-use Redirect;
 use Hifone\Models\Notification;
 use Hifone\Services\Dates\DateFactory;
+use Illuminate\Support\Facades\View;
+use Redirect;
 
 class NotificationController extends Controller
 {
     public function index()
     {
-
         $notifications = Notification::orderBy('created_at', 'desc')->paginate(20)->groupBy(function (Notification $incident) {
             return app(DateFactory::class)->make($incident->created_at)->toDateString();
         });
