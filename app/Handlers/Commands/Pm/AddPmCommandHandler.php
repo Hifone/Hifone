@@ -14,7 +14,6 @@ namespace Hifone\Handlers\Commands\Pm;
 use Hifone\Commands\Pm\AddPmCommand;
 use Hifone\Events\Pm\PmWasAddedEvent;
 use Hifone\Models\Pm;
-use Hifone\Repositories\Contracts\PmRepositoryInterface;
 use Hifone\Services\Dates\DateFactory;
 
 class AddPmCommandHandler

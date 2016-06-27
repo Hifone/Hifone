@@ -15,7 +15,6 @@ use Carbon\Carbon;
 use Hifone\Commands\Credit\AddCreditCommand;
 use Hifone\Models\Credit;
 use Hifone\Models\Credit\Rule as CreditRule;
-use Hifone\Repositories\Contracts\CreditRepositoryInterface;
 use Hifone\Services\Dates\DateFactory;
 
 class AddCreditCommandHandler
@@ -66,7 +65,6 @@ class AddCreditCommandHandler
 
         return $credit;
     }
-
 
     protected function checkFrequency(CreditRule $credit_rule, \Hifone\Models\User $user)
     {

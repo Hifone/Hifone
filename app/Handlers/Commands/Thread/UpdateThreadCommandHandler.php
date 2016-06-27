@@ -16,8 +16,8 @@ use Hifone\Events\Thread\ThreadWasMarkedExcellentEvent;
 use Hifone\Events\Thread\ThreadWasMovedEvent;
 use Hifone\Models\Node;
 use Hifone\Models\Thread;
-use Hifone\Services\Tag\AddTag;
 use Hifone\Services\Dates\DateFactory;
+use Hifone\Services\Tag\AddTag;
 
 class UpdateThreadCommandHandler
 {

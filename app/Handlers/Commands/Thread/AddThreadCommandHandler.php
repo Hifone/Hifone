@@ -16,8 +16,8 @@ use Carbon\Carbon;
 use Hifone\Commands\Thread\AddThreadCommand;
 use Hifone\Events\Thread\ThreadWasAddedEvent;
 use Hifone\Models\Thread;
-use Hifone\Services\Tag\AddTag;
 use Hifone\Services\Dates\DateFactory;
+use Hifone\Services\Tag\AddTag;
 
 class AddThreadCommandHandler
 {
