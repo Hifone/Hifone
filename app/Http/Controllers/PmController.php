@@ -16,6 +16,7 @@ use Hifone\Commands\Pm\AddPmCommand;
 use Hifone\Models\Pm;
 use Hifone\Repositories\Contracts\PmRepositoryInterface;
 use Hifone\Repositories\Contracts\UserRepositoryInterface;
+use Hifone\Repositories\Criteria\OnlyMine;
 use Illuminate\Support\Facades\View;
 use Input;
 use Redirect;
@@ -54,8 +55,10 @@ class PmController extends Controller
 
     public function show($id)
     {
-        // permission check needed.
-        $pm = $this->pm->find($id);
+
+        $this->pm->pushCriteria(new OnlyMine(Auth::user()->id));
+
+        $pm = $this->pm->findOrFail($id);
 
         return $this->view('pms.show')
             ->withPm($pm);
