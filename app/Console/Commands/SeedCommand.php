@@ -124,10 +124,10 @@ class SeedCommand extends Command
                 'value' => 'This is the demo instance of [Hifone](https://hifone.com?ref=demo). The open source forum software.',
             ], [
                 'name'  => 'site_captcha_reg_disabled',
-                'value' => '1',
+                'value' => '0',
             ], [
                 'name'  => 'site_captcha_login_disabled',
-                'value' => '1',
+                'value' => '0',
             ]
         ];
         Setting::truncate();
