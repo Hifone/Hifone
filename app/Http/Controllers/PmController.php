@@ -55,7 +55,6 @@ class PmController extends Controller
 
     public function show($id)
     {
-
         $this->pm->pushCriteria(new OnlyMine(Auth::user()->id));
 
         $pm = $this->pm->findOrFail($id);
