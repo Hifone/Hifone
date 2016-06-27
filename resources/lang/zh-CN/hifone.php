@@ -50,7 +50,7 @@ return [
         'recent'         => '最新话题',
         'excellent'      => '优质帖子',
         'like'           => '最多按赞',
-        'noreply'        => '等待回复',
+        'unanswered'     => '等待回复',
         'stick'          => '置顶',
         'recommended'    => '推荐',
         'last_reply_by'  => '回复',
