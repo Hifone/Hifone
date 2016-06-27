@@ -11,15 +11,23 @@
 
 namespace Hifone\Http\Controllers;
 
-use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
+use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
+use Hifone\Repositories\Criteria\Thread\Filter;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
+    protected $thread;
+
+    public function __construct(ThreadRepositoryInterface $thread)
+    {
+        $this->thread = $thread;
+    }
+
     /**
      * Home page.
      */
@@ -36,7 +44,9 @@ class HomeController extends Controller
      */
     public function excellent()
     {
-        $threads = Thread::filter('excellent')->with('user', 'node', 'lastReplyUser')->paginate(20);
+        $this->thread->pushCriteria(new Filter('excellent'));
+
+        $threads = $this->thread->getList(10);
 
         return $this->view('home.excellent')
             ->withThreads($threads)
