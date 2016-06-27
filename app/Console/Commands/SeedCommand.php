@@ -106,7 +106,6 @@ class SeedCommand extends Command
      */
     protected function seedSettings()
     {
-
         $defaultSettings = [
             [
                 'name'  => 'site_name',
