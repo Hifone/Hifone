@@ -163,6 +163,12 @@ return [
         'credit_login'                => '每日登录获得积分',
     ],
 
+//Pm
+    'pms'   => [
+        'pms' => '站内短信',
+        'recipient' => '收件人',
+    ],
+
 //积分
     'credits' => [
         'credits' => '积分',
