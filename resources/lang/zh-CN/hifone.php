@@ -155,7 +155,7 @@ return [
         'followed_thread_new_reply'   => '回复了你关注的主题:',
         'followed_thread_new_append'  => '关注的话题有新备注',
         'followed_user_new_thread'    => '发表了新话题',
-        'commented_thread_new_append' => '留言的话题有新备注',
+        'commented_thread_new_append' => '评论过的话题有新备注',
         'user_follow'                 => '关注了你',
         'reply_like'                  => '赞了你的回复',
         'reply_mention'               => '在回复中提及你:',

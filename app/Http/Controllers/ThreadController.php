@@ -167,7 +167,7 @@ class ThreadController extends Controller
     {
         $this->needAuthorOrAdminPermission($thread->user_id);
 
-        $content = app('parser.markdown')->convertMarkdownToHtml(Input::get('content'));
+        $content = Input::get('content') ?: '';
 
         try {
             $append = dispatch(new AddAppendCommand(

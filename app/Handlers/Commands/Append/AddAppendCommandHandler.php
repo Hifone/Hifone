@@ -47,9 +47,10 @@ class AddAppendCommandHandler
     {
         $data = [
             'thread_id'         => $command->thread_id,
-            'content'           => $command->content,
+            'content'           => app('parser.markdown')->convertMarkdownToHtml($command->content),
             'created_at'        => Carbon::now()->toDateTimeString(),
         ];
+
         // Create the append
         $append = Append::create($data);
 
