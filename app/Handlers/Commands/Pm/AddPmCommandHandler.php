@@ -26,17 +26,14 @@ class AddPmCommandHandler
      */
     protected $dates;
 
-    protected $pm;
-
     /**
      * Create a new report pm command handler instance.
      *
      * @param \Hifone\Services\Dates\DateFactory $dates
      */
-    public function __construct(DateFactory $dates, PmRepositoryInterface $pm)
+    public function __construct(DateFactory $dates)
     {
         $this->dates = $dates;
-        $this->pm = $pm;
     }
 
     /**
@@ -52,7 +49,22 @@ class AddPmCommandHandler
             throw new \Exception('Recipient ID and sender ID have the same value.');
         }
 
-        $pm = $this->pm->submit($command->user_id, $command->author_id, $command->body);
+        $rootId = $rootId ?: dechex(mt_rand(0, 0x7fffffff));
+
+        // Create the pm meta
+        $meta = Meta::create([
+            'body' => $command->body,
+        ]);
+
+        $data = [
+            'root_id'            => $rootId,
+            'meta_id'            => $meta->id,
+            'created_at'         => Carbon::now()->toDateTimeString(),
+        ];
+
+        // we need to create two records. one for recipient and one for message author.
+        Pm::create($data + ['user_id' => $command->user_id, 'author_id' => $command->author_id, 'folder' => Pm::INBOX]);
+        $pm = Pm::create($data + ['user_id' => $command->author_id, 'author_id' => $command->user_id, 'folder' => Pm::OUTBOX]);
 
         event(new PmWasAddedEvent($pm));
 

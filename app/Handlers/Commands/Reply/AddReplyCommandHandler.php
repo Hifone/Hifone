@@ -65,7 +65,7 @@ class AddReplyCommandHandler
             $reply->thread->save();
         }
 
-        Auth::user()->increment('reply_count', 1);
+        $reply->user->increment('reply_count', 1);
 
         event(new ReplyWasAddedEvent($reply));
 
