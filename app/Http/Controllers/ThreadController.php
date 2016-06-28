@@ -79,8 +79,9 @@ class ThreadController extends Controller
                     ->orderBy('id', 'asc')
                     ->paginate(Config::get('setting.per_page'));
 
-        $this->thread->pushCriteria(new BelongsToNode($thread->node_id));
-        $nodeThreads = $this->thread->getList(8);
+        $repository = app('repository');
+        $repository->pushCriteria(new BelongsToNode($thread->node_id));
+        $nodeThreads = $repository->model(Thread::class)->getThreadList(8);
 
         event(new ThreadWasViewedEvent($thread));
 
