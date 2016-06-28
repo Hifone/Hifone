@@ -249,7 +249,7 @@ return [
             'site_cdn'                     => 'CDN Address',
             'site_about'                   => 'About Us',
             'captcha_login_disabled'       => 'Disable Captcha for Login',
-            'captcha_reg_disabled'         => 'Disable Captcha for Registration',
+            'captcha_register_disabled'    => 'Disable Captcha for Registration',
             'logo'                         => 'Logo设置',
             'logo_help'                    => '推荐使用90*40大小的logo.',
         ],

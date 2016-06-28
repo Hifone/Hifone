@@ -42,9 +42,9 @@
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="hidden" value="0" name="captcha_reg_disabled">
-                                    <input type="checkbox" value="1" name="captcha_reg_disabled" {{ $captcha_reg_disabled ? "checked" : null }}>
-                                    {{ trans('dashboard.settings.general.captcha_reg_disabled') }}
+                                    <input type="hidden" value="0" name="captcha_register_disabled">
+                                    <input type="checkbox" value="1" name="captcha_register_disabled" {{ $captcha_register_disabled ? "checked" : null }}>
+                                    {{ trans('dashboard.settings.general.captcha_register_disabled') }}
                                 </label>
                             </div>
                             <div class="checkbox">

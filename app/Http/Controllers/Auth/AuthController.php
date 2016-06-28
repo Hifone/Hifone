@@ -122,7 +122,7 @@ class AuthController extends Controller
         $connect_data = Session::get('connect_data');
 
         return $this->view('auth.register')
-            ->withCaptchaRegDisabled(Config::get('setting.captcha_reg_disabled'))
+            ->withCaptchaRegisterDisabled(Config::get('setting.captcha_register_disabled'))
             ->withCaptcha(route('captcha', ['random' => time()]))
             ->withConnectData($connect_data)
             ->withPageTitle(trans('dashboard.login.login'));
@@ -146,7 +146,7 @@ class AuthController extends Controller
             $registerData = Input::only(['username', 'email', 'password', 'password_confirmation', 'verifycode']);
 
             $verifycode = array_pull($registerData, 'verifycode');
-            if (!Config::get('setting.captcha_reg_disabled') && $verifycode != Session::get('phrase')) {
+            if (!Config::get('setting.captcha_register_disabled') && $verifycode != Session::get('phrase')) {
                 return Redirect::to('auth/register')
                     ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
                     ->withInput(Input::all())
