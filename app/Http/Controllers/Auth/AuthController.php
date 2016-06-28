@@ -82,7 +82,7 @@ class AuthController extends Controller
     public function postLogin()
     {
         $loginData = Input::only(['login', 'password', 'verifycode']);
-        if(!Config::get('setting.site_captcha_login_disabled')){
+        if (!Config::get('setting.site_captcha_login_disabled')) {
             $verifycode = array_pull($loginData, 'verifycode');
             if ($verifycode != Session::get('phrase')) {
                 // instructions if user phrase is good
