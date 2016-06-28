@@ -10,7 +10,7 @@
 		{!! str_limit($notification->object->thread->title, '100') !!}
 	</a>
   </div>
-    <div class="media-content summary markdown">
+    <div class="media-content summary markdown-reply">
       {!! $notification->body !!}
     </div>
 
