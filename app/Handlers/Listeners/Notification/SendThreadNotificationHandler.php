@@ -38,7 +38,7 @@ class SendThreadNotificationHandler
                     'followed_user_new_thread',
                     $author,
                     $author->follows()->get(),
-                    $thread->id,
+                    $thread,
                     $thread->body);
         // Notify mentioned users
         $parserAt = app('parser.at');
@@ -48,7 +48,7 @@ class SendThreadNotificationHandler
                     'thread_mention',
                     $author,
                     $parserAt->users,
-                    $thread->id,
+                    $thread,
                     $thread->body);
     }
 }
