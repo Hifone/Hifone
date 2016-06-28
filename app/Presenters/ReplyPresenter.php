@@ -28,6 +28,11 @@ class ReplyPresenter extends AbstractPresenter
         return AutoPresenter::decorate($this->wrappedObject->user)->url;
     }
 
+    public function highlight()
+    {
+        return $this->wrappedObject->like_count > 0 ? 'highlight' : null;
+    }
+
     /**
      * Convert the presenter instance to an array.
      *
