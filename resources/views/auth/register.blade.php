@@ -26,7 +26,9 @@
 						<div class="form-group">
 							<input type="password" class="form-control" name="password_confirmation" placeholder="{{ trans('hifone.users.password_confirmation') }}">
 						</div>
+						@if(!$site_captcha_reg_disabled)
 						@include('partials.captcha')
+						@endif
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">
 								{{ trans('forms.register') }}

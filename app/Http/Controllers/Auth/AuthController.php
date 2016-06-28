@@ -23,6 +23,7 @@ use Hifone\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -81,16 +82,16 @@ class AuthController extends Controller
     public function postLogin()
     {
         $loginData = Input::only(['login', 'password', 'verifycode']);
-
-        $verifycode = array_pull($loginData, 'verifycode');
-        if ($verifycode != Session::get('phrase')) {
-            // instructions if user phrase is good
-            return Redirect::to('auth/login')
-            ->withInput(Input::except('password'))
-            ->withError(trans('hifone.captcha.failure'));
+        if (!Config::get('setting.site_captcha_login_disabled')) {
+            $verifycode = array_pull($loginData, 'verifycode');
+            if ($verifycode != Session::get('phrase')) {
+                // instructions if user phrase is good
+                return Redirect::to('auth/login')
+                ->withInput(Input::except('password'))
+                ->withError(trans('hifone.captcha.failure'));
+            }
         }
-
-         // Login with username or email.
+        // Login with username or email.
         $loginKey = Str::contains($loginData['login'], '@') ? 'email' : 'username';
         $loginData[$loginKey] = array_pull($loginData, 'login');
         // Validate login credentials.
@@ -142,7 +143,7 @@ class AuthController extends Controller
         } else {
             $registerData = Input::only(['username', 'email', 'password', 'password_confirmation', 'verifycode']);
 
-            if ($registerData['verifycode'] != Session::get('phrase')) {
+            if ($registerData['verifycode'] != Session::get('phrase') && Config::get('setting.site_captcha_reg_disabled')) {
                 return Redirect::to('auth/register')
                     ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
                     ->withInput(Input::all())
