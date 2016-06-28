@@ -43,7 +43,7 @@ class UpdateThreadCommandHandler
         $thread = $command->thread;
         $original_node_id = $thread->node_id;
 
-        if(isset($command->data['body']) && $command->data['body']) {
+        if (isset($command->data['body']) && $command->data['body']) {
             $command->data['body_original'] = $command->data['body'];
             $command->data['excerpt'] = Thread::makeExcerpt($command->data['body']);
             $command->data['body'] = app('parser.markdown')->convertMarkdownToHtml(app('parser.at')->parse($command->data['body']));
