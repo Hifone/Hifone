@@ -11,9 +11,10 @@
 
 namespace Hifone\Composers\Dashboard;
 
+use Config;
 use Illuminate\Contracts\View\View;
 
-class SettingMenuComposer
+class SettingComposer
 {
     /**
      * Bind data to the view.
@@ -71,5 +72,8 @@ class SettingMenuComposer
 
         $view->withSubMenu($subMenu);
         $view->withSubTitle(trans('dashboard.settings.settings'));
+
+        $view->withCaptchaRegisterDisabled(Config::get('setting.captcha_register_disabled'));
+        $view->withCaptchaLoginDisabled(Config::get('setting.captcha_login_disabled'));
     }
 }

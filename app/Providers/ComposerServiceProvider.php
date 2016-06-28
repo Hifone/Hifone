@@ -16,7 +16,7 @@ use Hifone\Composers\CurrentUserComposer;
 use Hifone\Composers\Dashboard\AdvertisementMenuComposer;
 use Hifone\Composers\Dashboard\ContentMenuComposer;
 use Hifone\Composers\Dashboard\NodeMenuComposer;
-use Hifone\Composers\Dashboard\SettingMenuComposer;
+use Hifone\Composers\Dashboard\SettingComposer;
 use Hifone\Composers\Dashboard\UserMenuComposer;
 use Hifone\Composers\LocaleComposer;
 use Hifone\Composers\SidebarComposer;
@@ -63,7 +63,7 @@ class ComposerServiceProvider extends ServiceProvider
             'dashboard.tips.*',
             'dashboard.links.*',
             'dashboard.locations.*',
-            'dashboard.settings.*', ], SettingMenuComposer::class);
+            'dashboard.settings.*', ], SettingComposer::class);
     }
 
     /**
