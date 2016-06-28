@@ -46,7 +46,7 @@ class NotifierServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services providerd by the provider.
+     * Get the services provided by the provider.
      *
      * @return array
      */

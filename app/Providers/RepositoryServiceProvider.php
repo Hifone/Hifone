@@ -24,7 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider
     protected $defer = true;
 
     /**
-     * Boot the parser provider.
+     * Boot the repository provider.
      *
      * @return void
      */
@@ -34,7 +34,7 @@ class RepositoryServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the parser services.
+     * Register the repository services.
      *
      * @return void
      */
@@ -46,7 +46,7 @@ class RepositoryServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services providerd by the provider.
+     * Get the services provided by the provider.
      *
      * @return array
      */
