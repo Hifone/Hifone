@@ -244,6 +244,7 @@ class AuthController extends Controller
 
             if (!Auth::check()) {
                 Auth::login($user, true);
+                event(new UserWasLoggedinEvent($user));
             }
 
             return Redirect::to('/')
