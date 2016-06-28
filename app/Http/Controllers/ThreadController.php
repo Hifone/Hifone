@@ -21,7 +21,6 @@ use Hifone\Events\Thread\ThreadWasViewedEvent;
 use Hifone\Models\Node;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
-use Hifone\Repositories\Contracts\ThreadRepositoryInterface;
 use Hifone\Repositories\Criteria\Thread\BelongsToNode;
 use Hifone\Repositories\Criteria\Thread\Filter;
 use Hifone\Repositories\Criteria\Thread\Search;
@@ -33,22 +32,15 @@ use Redirect;
 class ThreadController extends Controller
 {
     /**
-     * Thread Repository.
-     */
-    protected $thread;
-
-    /**
      * Creates a new thread controller instance.
      *
      * @return void
      */
-    public function __construct(ThreadRepositoryInterface $thread)
+    public function __construct()
     {
         parent::__construct();
 
         $this->middleware('auth', ['except' => ['index', 'show']]);
-
-        $this->thread = $thread;
     }
 
     /**
@@ -58,10 +50,11 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $this->thread->pushCriteria(new Filter(Input::query('filter')));
-        $this->thread->pushCriteria(new Search(Input::query('q')));
+        $repository = app('repository');
+        $repository->pushCriteria(new Filter(Input::query('filter')));
+        $repository->pushCriteria(new Search(Input::query('q')));
 
-        $threads = $this->thread->getList(Config::get('setting.per_page'));
+        $threads = $repository->model(Thread::class)->getThreadList(Config::get('setting.per_page'));
 
         return $this->view('threads.index')
             ->withThreads($threads)
@@ -86,8 +79,9 @@ class ThreadController extends Controller
                     ->orderBy('id', 'asc')
                     ->paginate(Config::get('setting.per_page'));
 
-        $this->thread->pushCriteria(new BelongsToNode($thread->node_id));
-        $nodeThreads = $this->thread->getList(8);
+        $repository = app('repository');
+        $repository->pushCriteria(new BelongsToNode($thread->node_id));
+        $nodeThreads = $repository->model(Thread::class)->getThreadList(8);
 
         event(new ThreadWasViewedEvent($thread));
 
