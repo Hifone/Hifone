@@ -82,16 +82,16 @@ class AuthController extends Controller
     public function postLogin()
     {
         $loginData = Input::only(['login', 'password', 'verifycode']);
-
-        $verifycode = array_pull($loginData, 'verifycode');
-        if ($verifycode != Session::get('phrase') && Config::get('setting.site_captcha_login_disabled')) {
-            // instructions if user phrase is good
-            return Redirect::to('auth/login')
-            ->withInput(Input::except('password'))
-            ->withError(trans('hifone.captcha.failure'));
+        if(!Config::get('setting.site_captcha_login_disabled')){
+            $verifycode = array_pull($loginData, 'verifycode');
+            if ($verifycode != Session::get('phrase')) {
+                // instructions if user phrase is good
+                return Redirect::to('auth/login')
+                ->withInput(Input::except('password'))
+                ->withError(trans('hifone.captcha.failure'));
+            }
         }
-
-         // Login with username or email.
+        // Login with username or email.
         $loginKey = Str::contains($loginData['login'], '@') ? 'email' : 'username';
         $loginData[$loginKey] = array_pull($loginData, 'login');
         // Validate login credentials.
