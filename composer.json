@@ -15,7 +15,6 @@
         "graham-campbell/exceptions": "^5.1",
         "gregwar/captcha": "~1.1",
         "guzzlehttp/guzzle": "~6.0",
-	"hifone/github": "2.0.0",
         "intervention/image": "^2.3",
         "jenssegers/date": "^3.2",
         "laravelcollective/bus": "~5.2",
