@@ -11,8 +11,8 @@
 
 namespace Hifone\Composers\Dashboard;
 
-use Illuminate\Contracts\View\View;
 use Config;
+use Illuminate\Contracts\View\View;
 
 class SettingMenuComposer
 {
