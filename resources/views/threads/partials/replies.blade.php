@@ -27,7 +27,7 @@
             @if (Auth::user() && (Auth::user()->can("manage_threads") || Auth::user()->id == $reply->user_id) )
             <a class="fa fa-trash-o" id="reply-delete-{!! $reply->id !!}" data-method="delete"  href="javascript:void(0);" data-url="{!! route('reply.destroy', [$reply->id]) !!}" title="{!! trans('forms.delete') !!}"></a>
           @endif
-            <a class="fa fa-reply btn-reply2reply" data-username="{{ $reply->user->username }}" href="#" title="回复 {!! $reply->user->username !!}"></a>
+            <a class="fa fa-reply btn-reply2reply" data-floor={{ $index + 1 }} data-username="{{ $reply->user->username }}" href="#" title="回复 {!! $reply->user->username !!}"></a>
           </span>
           <a class="likeable fa fa-thumbs-o-up" data-action="like" data-url="{{ route('like.store') }}" data-type="Reply" data-id="{{ $reply->id }}" data-count="{!! $reply->like_count ?: 0 !!}" href="javascript:void(0);" title="{!! trans('hifone.like') !!}"> {!! $reply->like_count ?: '' !!}
           </a>

@@ -43,9 +43,11 @@ class UpdateThreadCommandHandler
         $thread = $command->thread;
         $original_node_id = $thread->node_id;
 
-        $command->data['body_original'] = $command->data['body'];
-        $command->data['excerpt'] = Thread::makeExcerpt($command->data['body']);
-        $command->data['body'] = app('parser.markdown')->convertMarkdownToHtml(app('parser.at')->parse($command->data['body']));
+        if(isset($command->data['body']) && $command->data['body']) {
+            $command->data['body_original'] = $command->data['body'];
+            $command->data['excerpt'] = Thread::makeExcerpt($command->data['body']);
+            $command->data['body'] = app('parser.markdown')->convertMarkdownToHtml(app('parser.at')->parse($command->data['body']));
+        }
 
         $thread->update($this->filter($command->data));
 
@@ -57,7 +59,7 @@ class UpdateThreadCommandHandler
             event(new ThreadWasMarkedExcellentEvent($thread));
         }
 
-        if ($original_node_id != $command->data['node_id']) {
+        if (isset($command->data['node_id']) && $original_node_id != $command->data['node_id']) {
             $originalNode = Node::findOrFail($original_node_id);
             event(new ThreadWasMovedEvent($command->thread, $originalNode));
         }
