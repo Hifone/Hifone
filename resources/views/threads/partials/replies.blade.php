@@ -1,12 +1,6 @@
 <ul class="list-group row">
   @foreach ($replies as $index => $reply)
-   <li class="list-group-item media"
-           @if($reply->like_count >= 1)
-                style="margin-top: 0px; background-color: #fffce9"
-           @else
-                style="margin-top: 0px;"
-           @endif
-           >
+   <li class="list-group-item media {{ $reply->highlight }}" id="reply{{$reply->id}}">
     <div class="avatar pull-left">
       <a href="{!! route('user.show', [$reply->user_id]) !!}">
         <img class="media-object img-thumbnail avatar" alt="{!! $reply->user->username !!}" src="{!! $reply->user->avatar_small !!}"  style="width:48px;height:48px;"/>
