@@ -11,32 +11,31 @@
 
 namespace Hifone\Services\Repository;
 
-use Illuminate\Container\Container as App;
-use Hifone\Models\Thread;
-use Illuminate\Database\Eloquent\Model;
 use Hifone\Repositories\Eloquent\Repository as BaseRepository;
-
+use Illuminate\Container\Container as App;
+use Illuminate\Database\Eloquent\Model;
 
 class Repository extends BaseRepository
 {
-	protected $modelName;
+    protected $modelName;
 
-	public function __construct(App $app)
+    public function __construct(App $app)
     {
-    	 $this->app = $app;
+        $this->app = $app;
     }
-   
+
     public function model($modelName = null)
     {
-    	$this->modelName = $modelName;
-    	$this->resetScope();
+        $this->modelName = $modelName;
+        $this->resetScope();
         $this->makeModel();
-    	return $this;
+
+        return $this;
     }
 
     public function makeModel()
     {
-    	 $model = $this->app->make($this->modelName);
+        $model = $this->app->make($this->modelName);
         if (!$model instanceof Model) {
             throw new \Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
         }
