@@ -14,6 +14,7 @@ namespace Hifone\Http\Controllers;
 use Auth;
 use Hifone\Commands\Pm\AddPmCommand;
 use Hifone\Models\Pm;
+use Hifone\Models\User;
 use Hifone\Repositories\Criteria\OnlyMine;
 use Illuminate\Support\Facades\View;
 use Input;
@@ -48,9 +49,9 @@ class PmController extends Controller
 
     public function show($id)
     {
-        $this->pm->pushCriteria(new OnlyMine(Auth::user()->id));
-
-        $pm = $this->pm->findOrFail($id);
+        $repository = app('repository');
+        $repository->pushCriteria(new OnlyMine(Auth::user()->id));
+        $pm = $repository->model(Pm::class)->findOrFail($id);
 
         return $this->view('pms.show')
             ->withPm($pm);
@@ -63,7 +64,8 @@ class PmController extends Controller
      */
     public function create()
     {
-        $recipient = Input::has('user_id') ? $this->user->findBy('id', Input::get('user_id')) : $this->user->findBy('username', Input::get('username'));
+        $repository = app('repository');
+        $recipient = Input::has('user_id') ? $repository->model(User::class)->findBy('id', Input::get('user_id')) : $repository->model(User::class)->findBy('username', Input::get('username'));
 
 
         return $this->view('pms.create_edit')
@@ -79,7 +81,8 @@ class PmController extends Controller
     {
         $pmData = Input::get('pm');
 
-        $recipient = $this->user->findBy('username', array_pull($pmData, 'username'));
+        $repository = app('repository');
+        $recipient = $repository->model(User::class)->findBy('username', array_pull($pmData, 'username'));
 
         if (!$recipient) {
             return Redirect::route('pm.create')
