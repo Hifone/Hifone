@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
         'auth.basic'    => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.api'      => \Hifone\Http\Middleware\ApiAuthentication::class,
         'guest'         => \Hifone\Http\Middleware\RedirectIfAuthenticated::class,
+        'localize'      => \Hifone\Http\Middleware\Localize::class,
         'ready'         => \Hifone\Http\Middleware\ReadyForUse::class,
         'not_installed' => \Hifone\Http\Middleware\RedirectIfInstallCompleted::class,
         'role'          => \Zizaco\Entrust\Middleware\EntrustRole::class,
