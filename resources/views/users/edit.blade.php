@@ -95,6 +95,15 @@
                                               'rows' => 3,
                                               'placeholder' => trans('hifone.users.bio')]) !!}
           </div>
+          <div class="form-group">
+              <label>{{ trans('hifone.users.locale') }}</label>
+              <select name="locale" class="form-control" required>
+                  <option value="">Select Language</option>
+                  @foreach($langs as $key => $lang)
+                      <option value="{{ $key }}" @if($user->locale == $key || $site_locale === $key) selected @endif>{{ $lang }}</option>
+                  @endforeach
+              </select>
+          </div>
           <div class="form-group status-post-submit">
             {!! Form::submit(trans('forms.update'), ['class' => 'btn btn-primary', 'id' => 'user-edit-submit']) !!}
           </div>

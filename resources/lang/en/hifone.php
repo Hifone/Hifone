@@ -139,6 +139,7 @@ return [
         'profile'                   => 'Your Profile',
         'favorites'                 => 'Your Favorites',
         'credits'                   => 'Your Credits',
+        'locale'                    => 'Language',
 
     ],
 

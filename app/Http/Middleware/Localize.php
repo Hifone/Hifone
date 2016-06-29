@@ -11,6 +11,7 @@
 
 namespace Hifone\Http\Middleware;
 
+use Auth;
 use Closure;
 use Illuminate\Config\Repository;
 use Illuminate\Http\Request;
@@ -55,15 +56,19 @@ class Localize
      */
     public function handle(Request $request, Closure $next)
     {
-        $supportedLanguages = $request->getLanguages();
-        $userLanguage = $this->config->get('app.locale');
+        $userLanguage = Auth::check() && Auth::user()->locale ? Auth::user()->locale : null;
 
-        foreach ($supportedLanguages as $language) {
-            $language = str_replace('_', '-', $language);
+        if (!$userLanguage) {
+            $supportedLanguages = $request->getLanguages();
+            $userLanguage = $this->config->get('app.locale');
 
-            if (isset($this->langs[$language])) {
-                $userLanguage = $language;
-                break;
+            foreach ($supportedLanguages as $language) {
+                $language = str_replace('_', '-', $language);
+
+                if (isset($this->langs[$language])) {
+                    $userLanguage = $language;
+                    break;
+                }
             }
         }
 

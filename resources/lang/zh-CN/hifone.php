@@ -139,6 +139,7 @@ return [
         'profile'                   => '我的主页',
         'favorites'                 => '我的收藏',
         'credits'                   => '我的积分',
+        'locale'                    => '系统语言',
 
     ],
 
