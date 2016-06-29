@@ -40,12 +40,23 @@ class AddTag
         $ids = $this->getTagIDs($tags);
 
         $taggable->tags()->sync($ids);
+
+        $this->updatecount($ids);
+    }
+
+    protected function updateCount($ids)
+    {
+        Tag::whereIn('id', $ids)->get()->map(function ($tag) {
+            $count = $tag->threads()->count();
+            var_dump($count);
+            $tag->update(['count' => $count]);
+        });
     }
 
     /**
      * @param $tags
      */
-    public function getTagIDs($tags)
+    protected function getTagIDs($tags)
     {
         $existing_tags = Tag::whereIn('name', $tags)->get();
 
@@ -62,7 +73,7 @@ class AddTag
      *
      * @return array Ids of tags
      */
-    public function multiInsert(array $tags)
+    protected function multiInsert(array $tags)
     {
         $tagsId = [];
 

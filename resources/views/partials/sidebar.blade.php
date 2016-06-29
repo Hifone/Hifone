@@ -65,6 +65,16 @@
       </table>
     </div>
 </div>
+<div class="panel panel-default corner-radius">
+    <div class="panel-heading">
+      <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+    @foreach($top_tags as $index => $tag)
+    <a href="/tag/{{ urlencode($tag->name) }}">{{ $tag->name }}</a>({{ $tag->count }}) 
+    @endforeach
+    </div>
+</div>
 @if (isset($links) && count($links))
   <div class="panel panel-default corner-radius">
     <div class="panel-heading">
