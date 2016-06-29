@@ -27,7 +27,7 @@ elixir(function (mix) {
         .scripts([
             'vendor/bower_components/jquery/dist/jquery.js',
             'vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-            'vendor/bower_components/underscore/underscore-min.js',
+            'vendor/bower_components/underscore/underscore.js',
             'vendor/bower_components/backbone/backbone-min.js',
             'vendor/bower_components/sweetalert/dist/sweetalert.min.js',
             'vendor/bower_components/moment/min/moment-with-locales.js',
