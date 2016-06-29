@@ -14,6 +14,7 @@ namespace Hifone\Http\Controllers;
 use Hifone\Models\Node;
 use Hifone\Models\Thread;
 use Hifone\Repositories\Criteria\Thread\BelongsToNode;
+use Hifone\Repositories\Criteria\Thread\Filter;
 use Hifone\Repositories\Criteria\Thread\Search;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
@@ -36,6 +37,7 @@ class NodeController extends Controller
         $repository = app('repository');
         $repository->pushCriteria(new Search(Input::query('q')));
         $repository->pushCriteria(new BelongsToNode($node->id));
+        $repository->pushCriteria(new Filter('node'));
 
         $threads = $repository->model(Thread::class)->getThreadList(Config::get('setting.per_page'));
 
