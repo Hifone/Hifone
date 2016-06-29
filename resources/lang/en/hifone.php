@@ -203,7 +203,7 @@ return [
         'failure' => 'Incorrect captcha',
     ],
 
-// 登录
+// Login
     'login' => [
         'login'                => 'Sign in',
         'username'             => 'Username',
@@ -212,7 +212,8 @@ return [
         'auth_prompt'          => 'Sign in please.',
         'remember'             => 'Remember me',
         'invalid'              => 'Incorrect username or password.',
-        'success'              => 'Sign in successfully!',
+        'success'              => 'Signed in successfully.',
+        'success_oauth'        => 'Signed in with :provider successfully.',
         'tips'                 => '',
     ],
 ];

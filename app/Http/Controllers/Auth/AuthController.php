@@ -252,7 +252,7 @@ class AuthController extends Controller
             }
 
             return Redirect::to('/')
-            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.login.success')));
+            ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.login.success_oauth', ['provider' => $provider->name])));
         }
     }
 

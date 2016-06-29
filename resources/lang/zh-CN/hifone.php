@@ -215,6 +215,7 @@ return [
         'remember'             => '记住',
         'invalid'              => '用户名或密码有误',
         'success'              => '成功登录!',
+        'success_oauth'        => '使用 :provider 账号成功登录.',
         'tips'                 => '',
     ],
 ];
