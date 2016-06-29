@@ -57,8 +57,8 @@ class Localize
     public function handle(Request $request, Closure $next)
     {
         $userLanguage = Auth::check() && Auth::user()->locale ? Auth::user()->locale : null;
-        
-        if(!$userLanguage) {
+
+        if (!$userLanguage) {
             $supportedLanguages = $request->getLanguages();
             $userLanguage = $this->config->get('app.locale');
 
