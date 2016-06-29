@@ -52,6 +52,7 @@ window.Hifone =
     notification_url: ''
     uploader_url: ''
     asset_url : ''
+    twemoji_url: 'https://twemoji.maxcdn.com/'
     root_url : ''
 
   locale: 'zh-CN'

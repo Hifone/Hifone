@@ -8,6 +8,7 @@ window.ForumView = Backbone.View.extend
     "click a.followable": "followable"
     "click a.favoriteable": "favoriteable"
     "click a.captcha-image-box": "reLoadCaptchaImage"
+    "click .pickup-emoji": "pickupEmoji"
     "click a.btn-reply2reply": "reply2reply"
 
   initialize: (opts) ->
@@ -465,3 +466,9 @@ window.ForumView = Backbone.View.extend
     currentSrc = img.attr('src')
     img.attr('src', currentSrc.split('?')[0] + '?' + (new Date()).getTime())
     return false
+
+  pickupEmoji: () ->
+    if !window._emojiModal
+      window._emojiModal = new EmojiModalView()
+    window._emojiModal.show()
+    false
