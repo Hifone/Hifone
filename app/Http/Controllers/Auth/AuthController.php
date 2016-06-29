@@ -231,7 +231,7 @@ class AuthController extends Controller
             try {
                 $extern_user = \Socialite::with($slug)->user();
             } catch (InvalidStateException $e) {
-                return Redirect::to('/auth/landing')
+                return Redirect::to('/auth/login')
                     ->withErrors(['授权失效']);
             }
 
