@@ -100,7 +100,7 @@
               <select name="locale" class="form-control" required>
                   <option value="">Select Language</option>
                   @foreach($langs as $key => $lang)
-                      <option value="{{ $key }}" @if($user->locale == $key || $site_locale === $key) selected @endif>{{ $lang }}</option>
+                      <option value="{{ $key }}" {{ $user->locale == $key ? "selected" : null }}>{{ $lang }}</option>
                   @endforeach
               </select>
           </div>
