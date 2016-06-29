@@ -103,6 +103,8 @@ return [
 // Tags
     'tags' => [
         'tags'      => 'Tags',
+        'name'      => 'Tag name',
+        'hot'       => 'Hot tags',
         'tags_help' => 'Comma separated',
     ],
 

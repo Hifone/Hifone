@@ -28,7 +28,7 @@
           </div>
           @elseif (isset($tag))
           <div class="node-info">
-          <strong>Tag: {{ $tag->name }}</strong>
+          {{ trans('hifone.tags.name') }}: <strong>{{ $tag->name }}</strong>
           <span class="total">, 共有 {{ $tag->threads->count() }} 个讨论主题</span>
           </div>
           @else

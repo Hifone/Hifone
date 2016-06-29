@@ -67,7 +67,7 @@
 </div>
 <div class="panel panel-default corner-radius">
     <div class="panel-heading">
-      <h3 class="panel-title">热门标签</h3>
+      <h3 class="panel-title">{{ trans('hifone.tags.hot') }}</h3>
     </div>
     <div class="panel-body">
     @foreach($top_tags as $index => $tag)
