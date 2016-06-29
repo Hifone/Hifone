@@ -19,7 +19,6 @@ use Hifone\Models\Thread;
 use Hifone\Models\Tip;
 use Hifone\Models\User;
 use Illuminate\Contracts\View\View;
-use Hifone\Services\tag\AddTag;
 
 class SidebarComposer
 {
@@ -43,7 +42,7 @@ class SidebarComposer
 
     protected function getTopUsers()
     {
-       return Cache::remember('topusers', self::CACHE_MINUTES, function () {
+        return Cache::remember('topusers', self::CACHE_MINUTES, function () {
             return User::orderBy('score', 'desc')->take(5)->get();
         });
     }
@@ -79,7 +78,7 @@ class SidebarComposer
     protected function getTopTags()
     {
         return Cache::remember('tags', self::CACHE_MINUTES, function () {
-            return Tag::orderBy('count','desc')->take(10)->get();
+            return Tag::orderBy('count', 'desc')->take(10)->get();
         });
     }
 }

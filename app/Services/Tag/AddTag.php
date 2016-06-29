@@ -46,7 +46,7 @@ class AddTag
 
     protected function updateCount($ids)
     {
-        Tag::whereIn('id', $ids)->get()->map(function($tag){
+        Tag::whereIn('id', $ids)->get()->map(function ($tag) {
             $count = $tag->threads()->count();
             var_dump($count);
             $tag->update(['count' => $count]);
