@@ -27,7 +27,7 @@ class ForumRoutes
      */
     public function map(Registrar $router)
     {
-        $router->group(['middleware' => ['web', 'ready']], function (Registrar $router) {
+        $router->group(['middleware' => ['web', 'ready', 'localize']], function (Registrar $router) {
             $router->get('/', [
                 'as'   => 'home',
                 'uses' => 'HomeController@index',
