@@ -27,7 +27,7 @@ class AuthRoutes
      */
     public function map(Registrar $router)
     {
-        $router->group(['as' => 'auth.', 'middleware' => ['web', 'ready'], 'prefix' => 'auth', 'namespace' => 'Auth'], function (Registrar $router) {
+        $router->group(['as' => 'auth.', 'middleware' => ['web', 'ready', 'localize'], 'prefix' => 'auth', 'namespace' => 'Auth'], function (Registrar $router) {
             $router->get('login', [
                 'middleware' => 'guest',
                 'as'         => 'login',

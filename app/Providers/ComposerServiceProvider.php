@@ -41,6 +41,7 @@ class ComposerServiceProvider extends ServiceProvider
 
         $factory->composer([
             'install.*',
+            'users.edit',
             'dashboard.settings.*', ], LocaleComposer::class);
 
         // 广告

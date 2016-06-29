@@ -27,7 +27,7 @@ class UserRoutes
      */
     public function map(Registrar $router)
     {
-        $router->group(['middleware' => ['web', 'ready']], function (Registrar $router) {
+        $router->group(['middleware' => ['web', 'ready', 'localize']], function (Registrar $router) {
             $router->get('/user/{user}/replies', [
                 'as'   => 'user.replies',
                 'uses' => 'UserController@replies',
