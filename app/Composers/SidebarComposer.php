@@ -14,10 +14,12 @@ namespace Hifone\Composers;
 use Cache;
 use Hifone\Models\Link;
 use Hifone\Models\Reply;
+use Hifone\Models\Tag;
 use Hifone\Models\Thread;
 use Hifone\Models\Tip;
 use Hifone\Models\User;
 use Illuminate\Contracts\View\View;
+use Hifone\Services\tag\AddTag;
 
 class SidebarComposer
 {
@@ -36,15 +38,14 @@ class SidebarComposer
         $view->withStats($this->getStats());
         $view->withTip($this->getRandTip());
         $view->withLinks($this->getLinks());
+        $view->withTopTags($this->getTopTags());
     }
 
     protected function getTopUsers()
     {
-        $users = Cache::remember('topusers', self::CACHE_MINUTES, function () {
+       return Cache::remember('topusers', self::CACHE_MINUTES, function () {
             return User::orderBy('score', 'desc')->take(5)->get();
         });
-
-        return $users;
     }
 
     protected function getStats()
@@ -70,10 +71,15 @@ class SidebarComposer
 
     protected function getLinks()
     {
-        $links = Cache::remember('links', self::CACHE_MINUTES, function () {
+        return Cache::remember('links', self::CACHE_MINUTES, function () {
             return Link::orderBy('order', 'asc')->get();
         });
+    }
 
-        return $links;
+    protected function getTopTags()
+    {
+        return Cache::remember('tags', self::CACHE_MINUTES, function () {
+            return Tag::orderBy('count','desc')->take(10)->get();
+        });
     }
 }
