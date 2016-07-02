@@ -17,7 +17,7 @@
     <div class="infos panel-heading">
 
       <div class="pull-right avatar">
-        <a href="{{ route('user.show', $thread->user->id) }}">
+        <a href="{{ route('user.home', $thread->user->username) }}">
           <img src="{{ $thread->user->avatar }}" class="media-object img-thumbnail avatar-64" />
         </a>
       </div>
