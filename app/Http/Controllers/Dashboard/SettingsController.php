@@ -79,6 +79,18 @@ class SettingsController extends Controller
     }
 
     /**
+     * Shows the settings customization view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showStylesheetView()
+    {
+        return View::make('dashboard.settings.stylesheet')
+            ->withPageTitle(trans('dashboard.settings.stylesheet.stylesheet').' - '.trans('dashboard.dashboard'))
+            ->withCurrentMenu('stylesheet');
+    }
+
+    /**
      * Shows the settings system view.
      *
      * @return \Illuminate\View\View

@@ -38,6 +38,12 @@ class SettingComposer
                 'icon'   => 'fa fa-language',
                 'active' => false,
             ],
+            'stylesheet' => [
+                'title'  => trans('dashboard.settings.stylesheet.stylesheet'),
+                'url'    => route('dashboard.settings.stylesheet'),
+                'icon'   => 'fa fa-language',
+                'active' => false,
+            ],
             'tips' => [
                 'title'  => trans('dashboard.tips.tips'),
                 'url'    => route('dashboard.tip.index'),

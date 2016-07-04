@@ -23,7 +23,11 @@
             };
         </script>
 
-        @yield('styles')
+        @if($stylesheet)
+		<style type="text/css">
+		{!! $stylesheet !!}
+		</style>
+		@endif
     </head>
     <body class="forum" data-page="forum">
        @include('partials.nav')

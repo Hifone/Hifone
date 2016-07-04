@@ -47,6 +47,10 @@ class DashboardRoutes
                     'as'   => 'customization',
                     'uses' => 'SettingsController@showCustomizationView',
                 ]);
+                $router->get('stylesheet', [
+                    'as'   => 'stylesheet',
+                    'uses' => 'SettingsController@showStylesheetView',
+                ]);
                 $router->get('aboutus', [
                     'as'   => 'aboutus',
                     'uses' => 'SettingsController@showAboutusView',
