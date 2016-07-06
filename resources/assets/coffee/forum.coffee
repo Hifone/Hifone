@@ -33,8 +33,6 @@ window.ForumView = Backbone.View.extend
     self.initHighLight()
     self.initTimeAgo()
 
-    self.initNotificationsCount()
-
     self.initSelect2()
     self.initInlineAttach()
     self.initEditorUploader()
@@ -56,21 +54,9 @@ window.ForumView = Backbone.View.extend
         console.log('in pjax')
         return
       $(document).on 'pjax:complete', ->
-        original_title = document.title
         NProgress.done()
-        self.resetTitle(0)
         return
       return
-
-  resetTitle :(nCount) ->
-    console.log('_resetTitle ' + nCount)
-    if nCount > 0
-        $('.notification-count').html '<i class="fa fa-bell"></i> ' + nCount
-        $('.notification-count').hasClass('new') or $('.notification-count').addClass('new')
-    else
-        $('.notification-count').html '<i class="fa fa-bell"></i>'
-        $('.notification-count').removeClass 'new'
-    return
 
   initScrollToTop : ->
     $.scrollUp.init()
@@ -163,15 +149,6 @@ window.ForumView = Backbone.View.extend
       if moment(time_str, 'YYYY-MM-DD HH:mm:ss', true).isValid()
         $(this).text moment(time_str).fromNow()
       return
-    return
-
-  initNotificationsCount: ->
-    self = this
-    if Hifone.Config.current_user_id > 0
-      $.get Hifone.Config.notification_url, (data) ->
-        nCount = parseInt(data)
-        self.resetTitle(nCount)
-        return
     return
 
   initEditorUploader: ->
