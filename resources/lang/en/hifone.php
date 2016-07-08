@@ -146,7 +146,7 @@ return [
 // 通知
     'notifications' => [
         'my'                          => 'My notifications',
-        'deleted'                     => 'The item has beeen deleted.',
+        'deleted'                     => 'The item has been moved or deleted.',
         'noitem'                      => 'There are no notifications!',
         'thread_new_reply'            => 'commented on thread:',
         'thread_mention'              => 'mentioned you on:',
