@@ -4,7 +4,7 @@ var elixir = require('laravel-elixir'),
     coffee = require('gulp-coffee');
 
 gulp.task('coffee', function() {
-  gulp.src('./resouces/assets/coffee/**/*.coffee')
+  gulp.src('./resources/assets/coffee/**/*.coffee')
     .pipe(gulp.dest('./public/dist/coffee/'))
     .pipe(coffee({bare: true}).on('error', gutil.log));
 });
