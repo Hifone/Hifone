@@ -16,9 +16,15 @@ return [
         'title'     => 'Übersicht',
         'systemstate' => [
             'title' => 'Systemstatus',
+            'statistics' => 'Statistiken',
+            'modules' => 'Module',
+            'system' => 'System',
         ],
         'messages'  => [
             'title' => 'Nachrichten',
+            'newest_threads' => 'Aktuelle Threads',
+            'newest_replies' => 'Neueste Antworten',
+            'newest_users' => 'Neueste Benutzer',
         ],
     ],
 
