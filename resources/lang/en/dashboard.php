@@ -12,8 +12,22 @@
 return [
 
     'dashboard' => 'Dashboard',
-    'overview'  => 'Overview',
-
+    'overview'  => [
+        'title'     => 'Overview',
+        'systemstate' => [
+            'title' => 'Systemstate',
+            'statistics' => 'Statistics',
+            'modules' => 'Modules',
+            'system' => 'System',
+        ],
+        'messages'  => [
+            'title' => 'Messages',
+            'newest_threads' => 'Newest Threads',
+            'newest_replies' => 'Newest Replies',
+            'newest_users' => 'Newest Users',
+        ],
+    ],
+    
     'attentions' => [
         'attentions' => 'Attentions',
         'add'        => '添加公告',

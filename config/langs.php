@@ -13,6 +13,7 @@ return [
 
     // Enabled langs
     'en'    => 'English',
+    'de'    => 'Deutsch',
     'zh-CN' => '简体中文',
     'zh-TW' => '繁體中文',
 

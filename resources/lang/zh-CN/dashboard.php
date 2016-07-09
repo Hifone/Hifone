@@ -12,8 +12,22 @@
 return [
 
     'dashboard' => '控制台',
-    'overview'  => '概况',
-
+    'overview'  => [
+        'title'     => 'Overview',
+        'systemstate' => [
+            'title' => '系统状态',
+            'statistics' => '统计',
+            'modules' => '组件',
+            'system' => '系统',
+        ],
+        'messages'  => [
+            'title' => '最新动态',
+            'newest_threads' => '最新话题',
+            'newest_replies' => '最新回帖',
+            'newest_users' => '新进用户',
+        ],
+    ],
+    
     'attentions' => [
         'attentions' => 'Attentions',
         'add'        => '添加公告',
