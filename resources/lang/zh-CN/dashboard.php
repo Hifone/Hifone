@@ -12,8 +12,16 @@
 return [
 
     'dashboard' => '控制台',
-    'overview'  => '概况',
-
+    'overview'  => [
+        'title'     => 'Overview',
+        'systemstate' => [
+            'title' => 'Systemstate',
+        ],
+        'messages'  => [
+            'title' => 'Messages',
+        ],
+    ],
+    
     'attentions' => [
         'attentions' => 'Attentions',
         'add'        => '添加公告',

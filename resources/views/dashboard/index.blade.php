@@ -7,7 +7,7 @@
             <i class="fa fa-navicon"></i>
           </div>
           <span class="uppercase">
-              <i class="fa fa-dashboard"></i> {{ trans('dashboard.overview') }}
+              <i class="fa fa-dashboard"></i> {{ trans('dashboard.overview.title') }}
           </span>
           <div class="clearfix"></div>
   </div>
@@ -18,7 +18,7 @@
   </div>
   <div class="row">
     <div class="panel panel-default">
-        <div class="panel-heading">系统状态</div>
+        <div class="panel-heading">{{ trans('dashboard.overview.systemstate.title') }} </div>
         <div class="panel-body">
            <div class="col-sm-4">
               <h4>统计</h4>
@@ -51,7 +51,7 @@
   </div>
   <div class="row">
     <div class="panel panel-default">
-      <div class="panel-heading">最新动态</div>
+      <div class="panel-heading">{{ trans('dashboard.overview.messages.title') }}</div>
       <div class="panel-body">
         <div class="col-sm-4">
         <h4>最新话题</h4>

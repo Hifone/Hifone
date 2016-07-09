@@ -12,8 +12,16 @@
 return [
 
     'dashboard' => 'Dashboard',
-    'overview'  => 'Overview',
-
+    'overview'  => [
+        'title'     => 'Overview',
+        'systemstate' => [
+            'title' => 'Systemstate',
+        ],
+        'messages'  => [
+            'title' => 'Messages',
+        ],
+    ],
+    
     'attentions' => [
         'attentions' => 'Attentions',
         'add'        => '添加公告',

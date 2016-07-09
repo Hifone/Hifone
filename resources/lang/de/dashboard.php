@@ -12,7 +12,15 @@
 return [
 
     'dashboard' => 'Dashboard',
-    'overview'  => 'Übersicht',
+    'overview'  => [
+        'title'     => 'Übersicht',
+        'systemstate' => [
+            'title' => 'Systemstatus',
+        ],
+        'messages'  => [
+            'title' => 'Nachrichten',
+        ],
+    ],
 
     'attentions' => [
         'attentions' => 'Attentions',

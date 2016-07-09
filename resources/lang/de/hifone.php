@@ -19,7 +19,7 @@ return [
     'logout_confirm'   => 'Sicher, das du dich abmelden willst?',
     'signup'           => 'Registrierung',
     'noitem'           => 'Keine Daten vorhanden',
-    'markdown_support' => 'Bitte nutzt MARKDOWN für die Inhalte',
+    'markdown_support' => 'Bitte nutze MARKDOWN für den Textaufbau',
     'at'               => 'auf',
     'view_count'       => 'Views',
     'follow'           => 'Folgen',
@@ -31,7 +31,7 @@ return [
     'whoops'           => 'Ohoh... ',
     'success'          => 'Der Vorgang war erfolgreich!',
     'failure'          => 'Der Vorgang ist fehlgeschlagen!',
-    'powered_by'       => 'Copyright &copy; 2016 <a href="http://v2.broxxer.de">broxxer.de</a> ',
+    'powered_by'       => 'Copyright &copy; 2015-2016 <a href="http://hifone.com">Hifone</a> ',
     'feed'             => 'Feed',
 // 节点
     'nodes'            => [
