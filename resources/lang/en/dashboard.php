@@ -13,21 +13,21 @@ return [
 
     'dashboard' => 'Dashboard',
     'overview'  => [
-        'title'     => 'Overview',
+        'title'       => 'Overview',
         'systemstate' => [
-            'title' => 'Systemstate',
+            'title'      => 'Systemstate',
             'statistics' => 'Statistics',
-            'modules' => 'Modules',
-            'system' => 'System',
+            'modules'    => 'Modules',
+            'system'     => 'System',
         ],
         'messages'  => [
-            'title' => 'Messages',
+            'title'          => 'Messages',
             'newest_threads' => 'Newest Threads',
             'newest_replies' => 'Newest Replies',
-            'newest_users' => 'Newest Users',
+            'newest_users'   => 'Newest Users',
         ],
     ],
-    
+
     'attentions' => [
         'attentions' => 'Attentions',
         'add'        => '添加公告',

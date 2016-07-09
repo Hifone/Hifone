@@ -13,18 +13,18 @@ return [
 
     'dashboard' => 'Dashboard',
     'overview'  => [
-        'title'     => 'Übersicht',
+        'title'       => 'Übersicht',
         'systemstate' => [
-            'title' => 'Systemstatus',
+            'title'      => 'Systemstatus',
             'statistics' => 'Statistiken',
-            'modules' => 'Module',
-            'system' => 'System',
+            'modules'    => 'Module',
+            'system'     => 'System',
         ],
         'messages'  => [
-            'title' => 'Nachrichten',
+            'title'          => 'Nachrichten',
             'newest_threads' => 'Aktuelle Threads',
             'newest_replies' => 'Neueste Antworten',
-            'newest_users' => 'Neueste Benutzer',
+            'newest_users'   => 'Neueste Benutzer',
         ],
     ],
 
@@ -283,7 +283,7 @@ return [
             'aboutus'    => 'Über uns',
             'version'    => 'Software',
             'php'        => 'PHP',
-			'webserver'  => 'Webserver',
+            'webserver'  => 'Webserver',
             'db'         => 'Datenbank',
             'cache'      => 'Cache',
             'session'    => 'Session',
