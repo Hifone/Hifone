@@ -20,7 +20,7 @@ return [
     'signup'           => 'Registrierung',
     'noitem'           => 'Keine Daten vorhanden',
     'markdown_support' => 'Bitte nutze MARKDOWN für den Textaufbau',
-    'at'               => 'auf',
+    'at'               => 'am',
     'view_count'       => 'Views',
     'follow'           => 'Folgen',
     'favorite'         => 'Favorit',
@@ -89,6 +89,8 @@ return [
             'cg2_title' => 'Freundlichkeit und Unterstützung',
             'cg2_desc' => 'Sei immer freundlich und versuche den anderen in der Commity mit Rat und Tat zur Seite zu stehen.',
         ],
+        'insert_code' => 'Code einfügen',
+        'upload_image' => 'Bild hochladen',
     ],
 
 // 备注

@@ -89,6 +89,8 @@ return [
             'cg2_title' => '友好互助',
             'cg2_desc' => '保持对陌生人的友善。用知识去帮助别人。',
         ],
+        'insert_code' => '插入代码',
+        'upload_image' => '上传图片',
     ],
 
 // 备注

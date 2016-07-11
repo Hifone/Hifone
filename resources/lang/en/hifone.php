@@ -89,6 +89,8 @@ return [
             'cg2_title' => 'Friendship and Mutual Assistance',
             'cg2_desc' => 'Be friendly and help others.',
         ],
+        'insert_code' => 'Insert code',
+        'upload_image' => 'Upload image',
     ],
 
 // 备注
