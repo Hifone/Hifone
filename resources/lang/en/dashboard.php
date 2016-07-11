@@ -250,6 +250,7 @@ return [
             'site_cdn'                     => 'CDN Address',
             'site_about'                   => 'About Us',
             'new_thread_dropdowns'         => 'New thread dropdowns',
+            'footer_html'                  => 'Footer(Support HTML)',
             'captcha_login_disabled'       => 'Disable Captcha for Login',
             'captcha_register_disabled'    => 'Disable Captcha for Registration',
             'logo'                         => 'Logo',

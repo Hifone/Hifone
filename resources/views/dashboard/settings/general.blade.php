@@ -46,6 +46,12 @@
                                     <textarea name="new_thread_dropdowns" class="form-control autosize" rows="4">{!! $new_thread_dropdowns !!}</textarea>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>{{ trans('dashboard.settings.general.footer_html') }}</label>
+                                <div class='markdown-control'>
+                                    <textarea name="footer_html" class="form-control autosize" rows="4">{!! $footer_html !!}</textarea>
+                                </div>
+                            </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="hidden" value="0" name="captcha_register_disabled">
