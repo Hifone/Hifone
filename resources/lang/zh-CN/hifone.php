@@ -33,6 +33,8 @@ return [
     'failure'          => '操作失败!',
     'powered_by'       => 'Copyright &copy; 2015-2016 <a href="http://hifone.com">Hifone</a> ',
     'feed'             => 'Feed',
+    'registered_users' => '已注册用户请',
+    'ranking'          => '积分榜',
 // 节点
     'nodes'            => [
         'all'               => '节点导航',
@@ -241,5 +243,12 @@ return [
         'success'              => '成功登录!',
         'success_oauth'        => '使用 :provider 账号成功登录.',
         'tips'                 => '',
+    ],
+
+    // Footer
+    'footer' => [
+        'about' => '关于我们',
+        'contact' => '联系我们',
+        'faq' => '常见问题解答',
     ],
 ];

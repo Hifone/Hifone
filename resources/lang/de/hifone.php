@@ -33,6 +33,8 @@ return [
     'failure'          => 'Der Vorgang ist fehlgeschlagen!',
     'powered_by'       => 'Copyright &copy; 2015-2016 <a href="http://hifone.com">Hifone</a> ',
     'feed'             => 'Feed',
+    'registered_users' => 'Schon registriert?',
+    'ranking'          => 'Platzierung',
 // 节点
     'nodes'            => [
         'all'               => 'Forennavigation',
@@ -241,5 +243,12 @@ return [
         'success'              => 'Anmeldung erfolgreich!',
         'success_oauth'        => 'Du hast dich mit :provider angemeldet.',
         'tips'                 => '',
+    ],
+
+    // Footer
+    'footer' => [
+        'about' => 'Über',
+        'contact' => 'Kontakt',
+        'faq' => 'FAQ',
     ],
 ];
