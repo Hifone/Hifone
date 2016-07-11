@@ -28,11 +28,6 @@ return [
         ],
     ],
 
-    'attentions' => [
-        'attentions' => 'Attentions',
-        'add'        => 'Attention hinzufügen',
-    ],
-
     'content' => [
         'content'       => 'Inhalt',
         'thread_title'  => 'Thread Titel',
@@ -121,25 +116,6 @@ return [
             0 => 'Normal',
             1 => 'Versteckt',
             2 => 'Nur für Mitglieder sichtbar',
-        ],
-        // Node parents
-        'parents' => [
-            'parents'        => 'Forum|Platte??',
-            'no_nodes'       => 'Es sind keine Foren vorhanden',
-            'add'            => [
-                'title'   => 'Eltern-Forum erstellen',
-                'success' => 'Forum Gruppe hinzugefügt.',
-                'failure' => 'Es konnte keine Forengruppe erstellt werden.',
-            ],
-            'edit' => [
-                'title'   => 'Elter-Forum bearbeiten',
-                'success' => 'Forum Gruppe wurde bearbeitet.',
-                'failure' => 'Die Foren-Gruppe konnte nicht bearbeitet werden.',
-            ],
-            'delete' => [
-                'success' => 'Elter-Forum löschen',
-                'failure' => 'Die Forengruppe konnte nicht gelöscht werden.',
-            ],
         ],
     ],
 

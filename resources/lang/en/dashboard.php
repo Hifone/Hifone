@@ -28,11 +28,6 @@ return [
         ],
     ],
 
-    'attentions' => [
-        'attentions' => 'Attentions',
-        'add'        => '添加公告',
-    ],
-
     'content' => [
         'content'       => 'Content',
         'thread_title'  => 'Thread Title',
@@ -50,32 +45,32 @@ return [
         'title'   => 'Title',
         'body'    => 'Content',
         'add'     => [
-            'title'   => '添加页面',
-            'success' => '页面添加成功.',
+            'title'   => 'New Page',
+            'success' => 'Page is created successfully.',
         ],
         'edit'     => [
-            'title'   => '编辑页面',
-            'success' => '页面更新成功.',
+            'title'   => 'Edit Page',
+            'success' => 'Page is successfully updated.',
         ],
     ],
     'photos' => [
-        'photos' => '图片',
+        'photos' => 'Photo',
     ],
     'threads'  => [
-        'threads' => '话题',
+        'threads' => 'Threads',
         'add'     => [
-            'title'   => '添加话题',
-            'success' => '话题添加成功.',
+            'title'   => 'New Thread',
+            'success' => 'Thread is created successfully.',
         ],
         'edit' => [
-            'title'   => '编辑话题',
-            'success' => '话题更新成功.',
+            'title'   => 'Edit Thread',
+            'success' => 'Thread Information is successfully updated.',
         ],
     ],
     'replies' => [
-        'replies' => '回帖',
+        'replies' => 'Replies',
         'edit'    => [
-            'title' => '编辑回贴',
+            'title' => 'Edit Reply',
         ],
     ],
 
@@ -104,12 +99,12 @@ return [
         'description'     => 'Description',
         'icon'            => 'Node Icon',
         'slug'            => 'Slug',
-        'slug_help'       => '快捷路径',
+        'slug_help'       => 'Slug Help',
         'select_category' => 'Select Category',
         'add'             => [
-            'title'   => '添加节点',
-            'success' => '节点添加成功。',
-            'failure' => '节点添加失败！',
+            'title'   => 'New Node',
+            'success' => 'Node is created successfully.',
+            'failure' => 'Node creation failed',
         ],
         'edit' => [
             'title'   => 'Edit Node',
@@ -121,25 +116,6 @@ return [
             0 => 'Normal',
             1 => 'Hidden',
             2 => 'Only visible by members',
-        ],
-        // Node parents
-        'parents' => [
-            'parents'        => '版块|板块',
-            'no_nodes'       => '没有版块，马上添加一个吧',
-            'add'            => [
-                'title'   => '添加版块',
-                'success' => 'Node group added.',
-                'failure' => 'Something went wrong with the node group, please try again.',
-            ],
-            'edit' => [
-                'title'   => '编辑版块',
-                'success' => 'Node group updated.',
-                'failure' => 'Something went wrong with the node group, please try again.',
-            ],
-            'delete' => [
-                'success' => '版块已删除。',
-                'failure' => 'The node group could not be deleted, please try again.',
-            ],
         ],
     ],
 
@@ -263,7 +239,7 @@ return [
 
     // Settings
     'settings' => [
-        'settings'    => '系统设置',
+        'settings'    => 'Setting',
         'general'     => [
             'general'                      => '网站设置',
             'images-only'                  => 'Only images may be uploaded.',

@@ -13,7 +13,7 @@ return [
 
     'dashboard' => '控制台',
     'overview'  => [
-        'title'       => 'Overview',
+        'title'       => '概况',
         'systemstate' => [
             'title'      => '系统状态',
             'statistics' => '统计',
@@ -28,13 +28,8 @@ return [
         ],
     ],
 
-    'attentions' => [
-        'attentions' => 'Attentions',
-        'add'        => '添加公告',
-    ],
-
     'content' => [
-        'content'       => 'Content',
+        'content'       => '内容',
         'thread_title'  => '标题',
         'node'          => '节点',
         'created_by'    => '发帖人',
@@ -95,7 +90,7 @@ return [
         ],
     ],
     'nodes' => [
-        'nodes'           => '节点管理',
+        'nodes'           => '节点',
         'name'            => '名称',
         'parent'          => '所属节点',
         'root'            => '根节点',
@@ -120,25 +115,6 @@ return [
             0 => '正常',
             1 => '隐藏',
             2 => '会员可见',
-        ],
-        // Node parents
-        'parents' => [
-            'parents'        => '版块|板块',
-            'no_nodes'       => '没有版块，马上添加一个吧',
-            'add'            => [
-                'title'   => '添加版块',
-                'success' => 'Node group added.',
-                'failure' => 'Something went wrong with the node group, please try again.',
-            ],
-            'edit' => [
-                'title'   => '编辑版块',
-                'success' => 'Node group updated.',
-                'failure' => 'Something went wrong with the node group, please try again.',
-            ],
-            'delete' => [
-                'success' => '版块已删除。',
-                'failure' => 'The node group could not be deleted, please try again.',
-            ],
         ],
     ],
 
@@ -169,7 +145,7 @@ return [
     ],
 
     'advertisements' => [
-        'advertisements' => '广告管理',
+        'advertisements' => '广告',
         'name'           => '广告名称',
         'body'           => '广告内容',
         'add'            => [
@@ -219,7 +195,7 @@ return [
     ],
 
     'users' => [
-        'users'       => '用户管理',
+        'users'       => '用户',
         'user'        => ':email, 注册于 :date',
         'username'    => '用户名',
         'email'       => '邮箱地址',
@@ -262,7 +238,7 @@ return [
 
     // Settings
     'settings' => [
-        'settings'    => '系统设置',
+        'settings'    => '设置',
         'general'     => [
             'general'                       => '网站设置',
             'images-only'                   => 'Only images may be uploaded.',
