@@ -224,6 +224,8 @@ return [
         'email'       => '邮箱地址',
         'password'    => '密码',
         'description' => '用户列表',
+        'search'      => '搜索',
+        'roles'       => '所属角色',
         'add'         => [
             'title'   => '注册用户',
             'success' => '用户注册成功.',

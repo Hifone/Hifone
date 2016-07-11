@@ -19,9 +19,9 @@
                 <div class="toolbar">
                   <form class="form-inline">
                     <div class="form-group">
-                      <input type="text" name="q" class="form-control" value="" placeholder="用户名">
+                      <input type="text" name="q" class="form-control" value="" placeholder="{{ trans('dashboard.users.username') }}">
                     </div>
-                    <button class="btn btn-default">搜索</button>
+                    <button class="btn btn-default">{{ trans('dashboard.users.search') }}</button>
                   </form>
                 </div>
 
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-xs-2">
                            <select class="form-control small change-role" name="only-role">
-                            <option value="all">所属角色</option>
+                            <option value="all">{{ trans('dashboard.users.roles') }}</option>
                             @foreach ($roles as $role)
                                 <option value="{{$role->name}}" {{ $user->hasRole($role->name) ? 'selected' : null }}>{{$role->display_name}}</option>
                             @endforeach

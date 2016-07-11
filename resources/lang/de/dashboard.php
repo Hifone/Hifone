@@ -225,6 +225,8 @@ return [
         'email'       => 'E-Mail',
         'password'    => 'Passwort',
         'description' => 'Beschreibung',
+        'search'      => 'Suche',
+        'roles'       => 'Rollen',
         'add'         => [
             'title'   => 'Benutzer hinzufügen',
             'success' => 'Der Benutzer wurde erstellt.',
