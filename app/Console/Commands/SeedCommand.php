@@ -106,7 +106,7 @@ class SeedCommand extends Command
      */
     protected function seedSettings()
     {
-        $footerHtml =  = <<<'FOOTER'
+        $footerHtml = <<<'FOOTER'
 <div class="copyright">
     <blockquote class="pull-left">
         <p>小而美的手机极客社区</p>
