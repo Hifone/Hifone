@@ -33,7 +33,7 @@
   </dd>
   @endif
   <dt>
-    <label>注册:</label>
+    <label>{{ trans('hifone.users.register_date') }}</label>
   </dt>
   <dd><span>{!! $user->created_at !!}</span></dd>
   @if ($user->signature)

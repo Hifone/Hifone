@@ -35,7 +35,7 @@ return [
     'feed'             => 'Feed',
     'registered_users' => 'Schon registriert?',
     'ranking'          => 'Platzierung',
-
+    'member'           => 'Mitglied',
 // Nodes
     'nodes'            => [
         'all'               => 'Forennavigation',
@@ -166,7 +166,17 @@ return [
         'favorites'                 => 'Favoriten',
         'credits'                   => 'Credits',
         'locale'                    => 'Sprache',
-
+        'edit_profile'              => 'Profil bearbeiten',
+        'edit_avatar'               => 'Avatar bearbeiten',
+        'upload_avatar'             => 'Neuen Avatar hochladen',
+        'upload_avatar_help'        => 'Avatar nur als JPG oder PNG hochladen. Maximale Dateigröße: 2Mb',
+        'password_settings'         => 'Passwort Einstellungen',
+        'password_current'          => 'Aktuelles Passwort angeben',
+        'password_new'              => 'Gib das neue Passwort ein',
+        'password_new_confirmation' => 'Gib das neue Passwort erneut ein',
+        'password_update'           => 'Passwort ändern',
+        'select_language'           => 'Sprache auswählen',
+        'register_date'             => 'Reg.-Datum:',
     ],
 
 // Notifications
@@ -244,6 +254,8 @@ return [
         'success'              => 'Anmeldung erfolgreich!',
         'success_oauth'        => 'Du hast dich mit :provider angemeldet.',
         'tips'                 => '',
+        'account_available'    => 'Wenn du schon einen Account registriert hast, oder dich mit Google Auth anmelden willst klicke <a href="/auth/login">Login</a>.',
+        'login_with_oauth'     => 'Anmelden mit alternativ Anbieter',
     ],
 
     // Footer

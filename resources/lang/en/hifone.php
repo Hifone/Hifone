@@ -35,7 +35,7 @@ return [
     'feed'             => 'Feed',
     'registered_users' => 'For registered Users:',
     'ranking'          => 'Ranking',
-
+    'member'           => 'Member',
 // Nodes
     'nodes'            => [
         'all'               => 'Nodes',
@@ -166,7 +166,17 @@ return [
         'favorites'                 => 'Your Favorites',
         'credits'                   => 'Your Credits',
         'locale'                    => 'Language',
-
+        'edit_profile'              => 'Edit Profile',
+        'edit_avatar'               => 'Edit Avatar',
+        'upload_avatar'             => 'Upload new Avatar',
+        'upload_avatar_help'        => 'Allowed Avatar file formats: .png & .jpg. Uploaded Filesize max. 2M',
+        'password_settings'         => 'Password settings',
+        'password_current'          => 'Current password',
+        'password_new'              => 'Enter a new password',
+        'password_new_confirmation' => 'Confirm the new password',
+        'password_update'           => 'Update password',
+        'select_language'           => 'Select language',
+        'register_date'             => 'Reg.-date:',
     ],
 
 // Notifications
@@ -244,6 +254,8 @@ return [
         'success'              => 'Signed in successfully.',
         'success_oauth'        => 'Signed in with :provider successfully.',
         'tips'                 => '',
+        'account_available'    => 'If you have a account or do you want do login with Goolge Auth, klick <a href="/auth/login">Login</a>.',
+        'login_with_oauth'     => 'Login with other platform',
     ],
 
     // Footer
