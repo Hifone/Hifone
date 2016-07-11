@@ -57,6 +57,7 @@ return [
         'more'           => 'more',
         'noitem'         => 'There are no threads.',
         'is_excellent'   => 'The thread has been marked excellent！',
+        'login_needed'   => 'For Commenting you need to <a class="btn btn-success" href="/auth/login">Login</a>. If you dont have a Account you need to <a class="btn btn-primary" href="/auth/register">Register</a>.',
 
         // Share
         'share2weibo'    => 'Share to weibo',

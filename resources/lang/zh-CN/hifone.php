@@ -57,6 +57,7 @@ return [
         'more'           => '更多',
         'noitem'         => '暂无话题',
         'is_excellent'   => '该帖已被设为优质帖子！',
+        'login_needed'   => '需要 <a class="btn btn-success" href="/auth/login">登录</a> 后方可回复, 如果你还没有账号请点击这里 <a class="btn btn-primary" href="/auth/register">注册</a>。',
 
         // Share
         'share2weibo'    => '分享到微博',
