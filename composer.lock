@@ -1277,16 +1277,16 @@
         },
         {
             "name": "hifone/stringblade",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Hifone/StringBlade.git",
-                "reference": "d9824960090186443d6bcba61ad1a853c59ea9f5"
+                "reference": "c10ef1b9c516d9e898251ae2ef7d0a72a22a10a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hifone/StringBlade/zipball/d9824960090186443d6bcba61ad1a853c59ea9f5",
-                "reference": "d9824960090186443d6bcba61ad1a853c59ea9f5",
+                "url": "https://api.github.com/repos/Hifone/StringBlade/zipball/c10ef1b9c516d9e898251ae2ef7d0a72a22a10a6",
+                "reference": "c10ef1b9c516d9e898251ae2ef7d0a72a22a10a6",
                 "shasum": ""
             },
             "require": {
@@ -1308,7 +1308,7 @@
                 "laravel",
                 "string"
             ],
-            "time": "2016-07-11 16:17:19"
+            "time": "2016-07-11 16:41:19"
         },
         {
             "name": "intervention/image",
