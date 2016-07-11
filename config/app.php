@@ -172,7 +172,7 @@ return [
         /*
          * Application Service Providers...
          */
-        Hifone\Services\StringBlade\StringBladeCompilerServiceProvider::class,
+        Hifone\StringBlade\StringBladeCompilerServiceProvider::class,
         Hifone\Providers\AppServiceProvider::class,
         Hifone\Providers\AuthServiceProvider::class,
         Hifone\Providers\ComposerServiceProvider::class,
@@ -239,7 +239,7 @@ return [
         'Purifier'     => Mews\Purifier\Facades\Purifier::class,
         'Widget'       => Arrilot\Widgets\Facade::class,
         'AsyncWidget'  => Arrilot\Widgets\AsyncFacade::class,
-        'StringBlade'  => Hifone\Services\StringBlade\Facades\StringBlade::class,
+        'StringBlade'  => Hifone\StringBlade\Facades\StringBlade::class,
     ],
 
 ];
