@@ -43,7 +43,7 @@ return [
         'actions'       => 'Aktionen',
         'reply'         => 'Antwort',
     ],
-    
+
     'pages' => [
         'pages'   => 'Seiten',
         'slug'    => 'Slug',
@@ -96,17 +96,17 @@ return [
         ],
     ],
     'nodes' => [
-        'nodes'        => 'Forum',
-        'name'         => 'Name',
-        'parent'       => 'Eltern-Forum',
-        'root'         => 'root??',
-        'status_name'  => 'Zustand',
-        'description'  => 'Beschreibung',
-        'icon'         => 'Icon',
-        'slug'         => 'Slug',
-        'slug_help'    => 'Schnellpfad',
+        'nodes'           => 'Forum',
+        'name'            => 'Name',
+        'parent'          => 'Eltern-Forum',
+        'root'            => 'root??',
+        'status_name'     => 'Zustand',
+        'description'     => 'Beschreibung',
+        'icon'            => 'Icon',
+        'slug'            => 'Slug',
+        'slug_help'       => 'Schnellpfad',
         'select_category' => 'Bitte Kategorie auswählen',
-        'add'          => [
+        'add'             => [
             'title'   => 'Forum hinzufügen',
             'success' => 'Das Forum wurde erfolgreich angelegt',
             'failure' => 'Das Forum konnte nicht erstellt werden.',

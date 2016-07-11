@@ -43,7 +43,7 @@ return [
         'actions'       => 'Actions',
         'reply'         => 'Reply',
     ],
-    
+
     'pages' => [
         'pages'   => 'Page',
         'slug'    => 'Slug',
@@ -96,17 +96,17 @@ return [
         ],
     ],
     'nodes' => [
-        'nodes'        => 'Nodes',
-        'name'         => 'Name',
-        'parent'       => 'Parent Node',
-        'root'         => 'Root Node',
-        'status_name'  => 'Status',
-        'description'  => 'Description',
-        'icon'         => 'Node Icon',
-        'slug'         => 'Slug',
-        'slug_help'    => '快捷路径',
+        'nodes'           => 'Nodes',
+        'name'            => 'Name',
+        'parent'          => 'Parent Node',
+        'root'            => 'Root Node',
+        'status_name'     => 'Status',
+        'description'     => 'Description',
+        'icon'            => 'Node Icon',
+        'slug'            => 'Slug',
+        'slug_help'       => '快捷路径',
         'select_category' => 'Select Category',
-        'add'          => [
+        'add'             => [
             'title'   => '添加节点',
             'success' => '节点添加成功。',
             'failure' => '节点添加失败！',
