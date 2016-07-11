@@ -252,6 +252,8 @@ return [
         'success'              => 'Signed in successfully.',
         'success_oauth'        => 'Signed in with :provider successfully.',
         'tips'                 => '',
+        'account_available'    => 'If you have a account or do you want do login with Goolge Auth, klick <a href="/auth/login">Login</a>.',
+        'login_with_oauth'     => 'Login with other platform',
     ],
 
     // Footer

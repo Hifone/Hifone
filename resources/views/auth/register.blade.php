@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default">
-				<div class="panel-heading">注册</div>
+				<div class="panel-heading">{{ trans('hifone.signup') }}</div>
 				<div class="panel-body">
 					@if($connect_data)
 					<div class="alert alert-info">
@@ -38,7 +38,7 @@
 					</form>
 				</div>
 				<div class="panel-footer">
-					已注册或使用社交账号登录，请点击 <a href="/auth/login">这里</a> 进行登录。
+					{!! trans('hifone.login.account_available') !!}
 				</div>
 			</div>
 		</div>

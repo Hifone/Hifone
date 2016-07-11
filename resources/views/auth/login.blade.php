@@ -45,7 +45,7 @@
 		</div>
 		<div class="col-md-3">
 			<div class="panel panel-default">
-				<div class="panel-heading">用其他平台的帐号登录</div>
+				<div class="panel-heading">{{ trans('hifone.login.login_with_oauth') }}</div>
 				<ul class="list-group">
 					<li class="list-group-item">
 						@foreach($providers as $provider)

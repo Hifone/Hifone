@@ -254,6 +254,8 @@ return [
         'success'              => 'Anmeldung erfolgreich!',
         'success_oauth'        => 'Du hast dich mit :provider angemeldet.',
         'tips'                 => '',
+        'account_available'    => 'Wenn du schon einen Account registriert hast, oder dich mit Google Auth anmelden willst klicke <a href="/auth/login">Login</a>.',
+        'login_with_oauth'     => 'Anmelden mit alternativ Anbieter',
     ],
 
     // Footer

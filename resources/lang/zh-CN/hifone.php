@@ -254,6 +254,8 @@ return [
         'success'              => '成功登录!',
         'success_oauth'        => '使用 :provider 账号成功登录.',
         'tips'                 => '',
+        'account_available'    => '已注册或使用社交账号登录，请点击 <a href="/auth/login">这里</a> 进行登录。',
+        'login_with_oauth'     => '用其他平台的帐号登录',
     ],
 
     // Footer
