@@ -1,4 +1,14 @@
-<?php 
+<?php
+
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Hifone\Services\StringBlade;
 
 use Illuminate\Support\ServiceProvider;
@@ -6,7 +16,6 @@ use Illuminate\View\Engines\CompilerEngine;
 
 class StringBladeCompilerServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -21,10 +30,10 @@ class StringBladeCompilerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $config_path = __DIR__ . '/../../../config/stringblade.php';
+        $config_path = __DIR__.'/../../../config/stringblade.php';
         $this->publishes([$config_path => config_path('stringblade.php')], 'config');
 
-        $views_path = __DIR__ . '/../../../config';
+        $views_path = __DIR__.'/../../../config';
         $this->publishes([$views_path => storage_path('app/stringblade')]);
     }
 
@@ -35,7 +44,7 @@ class StringBladeCompilerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $config_path = __DIR__ . '/../../../config/stringblade.php';
+        $config_path = __DIR__.'/../../../config/stringblade.php';
         $this->mergeConfigFrom($config_path, 'stringblade');
 
         $this->app['stringblade'] = $this->app->share(function ($app) {
@@ -60,6 +69,6 @@ class StringBladeCompilerServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 }

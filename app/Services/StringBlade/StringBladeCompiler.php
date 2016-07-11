@@ -1,4 +1,14 @@
-<?php 
+<?php
+
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Hifone\Services\StringBlade;
 
 use Illuminate\View\Compilers\BladeCompiler;
@@ -6,7 +16,6 @@ use Illuminate\View\Compilers\CompilerInterface;
 
 class StringBladeCompiler extends BladeCompiler implements CompilerInterface
 {
-
     /** @var \Illuminate\Config\Repository */
     protected $config;
 
@@ -27,7 +36,8 @@ class StringBladeCompiler extends BladeCompiler implements CompilerInterface
     /**
      * Compile the view at the given path.
      *
-     * @param  string  $path
+     * @param string $path
+     *
      * @return void
      */
     public function compile($path)
@@ -42,7 +52,8 @@ class StringBladeCompiler extends BladeCompiler implements CompilerInterface
     /**
      * Get the path to the compiled version of a view.
      *
-     * @param  string  $path
+     * @param string $path
+     *
      * @return string
      */
     public function getCompiledPath($path)
@@ -54,18 +65,19 @@ class StringBladeCompiler extends BladeCompiler implements CompilerInterface
          *
          * e.g db_table_name_id_4
          */
-        return $this->cachePath . '/' . md5($path);
+        return $this->cachePath.'/'.md5($path);
     }
 
     /**
      * Determine if the view at the given path is expired.
      *
-     * @param  string  $path
+     * @param string $path
+     *
      * @return bool
      */
     public function isExpired($path)
     {
-        if (!$this->config->get('stringblade.cache') OR !$this->config->get('stringblade.cache_time') OR !is_int($this->config->get('stringblade.cache_time'))) {
+        if (!$this->config->get('stringblade.cache') or !$this->config->get('stringblade.cache_time') or !is_int($this->config->get('stringblade.cache_time'))) {
             return true;
         }
         $compiled = $this->getCompiledPath($path);

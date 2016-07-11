@@ -1,15 +1,24 @@
-<?php 
+<?php
+
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Hifone\Services\StringBlade;
 
-use View;
-use Closure;
 use ArrayAccess;
+use Closure;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
+use View;
 
 class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderable
 {
-
     /** @var \Illuminate\Config\Repository */
     protected $config;
 
@@ -21,18 +30,20 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     public function setEngine($compiler)
     {
         $this->engine = $compiler;
+
         return $this;
     }
 
     /**
      * Get a evaluated view contents for the given view.
      *
-     * @param  string  $view
-     * @param  array   $data
-     * @param  array   $mergeData
+     * @param string $view
+     * @param array  $data
+     * @param array  $mergeData
+     *
      * @return \Illuminate\View\View
      */
-    public function make($view, $data = array(), $mergeData = array())
+    public function make($view, $data = [], $mergeData = [])
     {
         $this->path = $view;
         $this->data = array_merge($mergeData, $this->parseData($data));
@@ -43,7 +54,8 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     /**
      * Get the string contents of the view.
      *
-     * @param  \Closure  $callback
+     * @param \Closure $callback
+     *
      * @return string
      */
     public function render(Closure $callback = null)
@@ -85,7 +97,8 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     /**
      * Parse the given data into a raw array.
      *
-     * @param  mixed  $data
+     * @param mixed $data
+     *
      * @return array
      */
     protected function parseData($data)
@@ -114,12 +127,13 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     /**
      * Add a view instance to the view data.
      *
-     * @param  string  $key
-     * @param  string  $view
-     * @param  array   $data
+     * @param string $key
+     * @param string $view
+     * @param array  $data
+     *
      * @return \Illuminate\View\View
      */
-    public function nest($key, $view, array $data = array())
+    public function nest($key, $view, array $data = [])
     {
         return $this->with($key, View::make($view, $data));
     }
@@ -127,7 +141,8 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     /**
      * Determine if a piece of data is bound.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return bool
      */
     public function offsetExists($key)
@@ -138,7 +153,8 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     /**
      * Get a piece of bound data to the view.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return mixed
      */
     public function offsetGet($key)
@@ -149,8 +165,9 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     /**
      * Set a piece of data on the view.
      *
-     * @param  string  $key
-     * @param  mixed   $value
+     * @param string $key
+     * @param mixed  $value
+     *
      * @return void
      */
     public function offsetSet($key, $value)
@@ -161,7 +178,8 @@ class StringBlade extends \Illuminate\View\View implements ArrayAccess, Renderab
     /**
      * Unset a piece of data from the view.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return void
      */
     public function offsetUnset($key)
