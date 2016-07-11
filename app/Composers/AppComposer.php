@@ -11,6 +11,7 @@
 
 namespace Hifone\Composers;
 
+use Hifone\Services\StringBlade\Facades\StringBlade;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Config;
 
@@ -33,6 +34,7 @@ class AppComposer
         $view->withSiteTitle(Config::get('setting.site_name').' | Hifone');
         $view->withSiteLocale(Config::get('setting.site_locale'));
         $view->withStylesheet(Config::get('setting.stylesheet'));
-        $view->withFooterHtml(Config::get('setting.footer_html'));
+
+        $view->withFooterHtml(StringBlade::make(Config::get('setting.footer_html'))->render());
     }
 }
