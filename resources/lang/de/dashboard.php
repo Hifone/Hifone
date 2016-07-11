@@ -41,6 +41,7 @@ return [
         'reply_count'   => 'Antworten',
         'created_at'    => 'Erstellt am',
         'actions'       => 'Aktionen',
+        'reply'         => 'Antwort',
     ],
     
     'pages' => [
