@@ -8,11 +8,11 @@
         </div>
         <div class="pull-right hidden-sm hidden-xs">
             <p>
-                <a href="/about">关于我们</a>
+                <a href="/about">{{ trans('hifone.footer.about') }}</a>
                 <span class="pipe">|</span>
-                <a href="/contact">联系我们</a>
+                <a href="/contact">{{ trans('hifone.footer.contact') }}</a>
                 <span class="pipe">|</span>
-                <a href="/faq">常见问题解答</a>
+                <a href="/faq">{{ trans('hifone.footer.faq') }}</a>
             </p>
             <p>
                 <a href="http://hifone.com/" target="_blank"><img src="/images/hifone-logo.png" border="0" height="40" data-toggle="tooltip" data-placement="top" title="Powered by Hifone" /></a>

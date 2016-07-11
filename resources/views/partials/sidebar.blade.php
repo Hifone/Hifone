@@ -27,11 +27,11 @@
     </div>
     <div class="panel-body text-center">
         <a href="/auth/register" class="btn btn-primary">
-          <i class="fa fa-user"> </i> 现在{!! trans('hifone.signup') !!}
+          <i class="fa fa-user"> </i> {!! trans('hifone.signup') !!}
         </a>
     </div>
     <div class="panel-footer text-center">
-      已注册用户请 <a href="/auth/login">{{ trans('hifone.login.login') }}</a>
+      {{ trans('hifone.registered_users') }} <a href="/auth/login">{{ trans('hifone.login.login') }}</a>
     </div>
   </div>
   @endif
@@ -41,7 +41,7 @@
 @if(Request::is('/'))
 <div class="panel panel-default corner-radius">
     <div class="panel-heading">
-      <h3 class="panel-title">积分榜</h3>
+      <h3 class="panel-title">{{ trans('hifone.ranking') }}</h3>
     </div>
     <div class="panel-body">
       <table class="table table-bordered table-striped">
