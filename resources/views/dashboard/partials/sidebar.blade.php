@@ -14,7 +14,7 @@
             <li {!! set_active('dashboard') !!}>
                 <a href="{{ route('dashboard.index') }}">
                     <i class="fa fa-dashboard"></i>
-                    <span>{{ trans('dashboard.overview') }}</span>
+                    <span>{{ trans('dashboard.overview.title') }}</span>
                 </a>
             </li>
             <li {!! set_active('dashboard/thread*') !!} {!! set_active('dashboard/reply*') !!} {!! set_active('dashboard/page*') !!} {!! set_active('dashboard/photo*') !!}>
