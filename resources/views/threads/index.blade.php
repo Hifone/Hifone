@@ -23,13 +23,13 @@
           @elseif (isset($node))
           <div class="node-info">
             <strong>{{ $node->name }}</strong>
-            <span class="total">共有 {{ $node->thread_count }} 个讨论主题</span>
+            <span class="total">{{ trans('hifone.threads.thread_count', ['threads' => $node->thread_count ]) }}</span>
             @if($node->description)<div class="summary">{{ $node->description }}</div>@endif
           </div>
           @elseif (isset($tag))
           <div class="node-info">
           {{ trans('hifone.tags.name') }}: <strong>{{ $tag->name }}</strong>
-          <span class="total">, 共有 {{ $tag->threads->count() }} 个讨论主题</span>
+          <span class="total">, {{ trans('hifone.threads.thread_count', ['threads' => $tag->threads->count() ]) }}</span>
           </div>
           @else
           <i class="fa fa-comments-o"></i> {{ trans('hifone.threads.threads') }}

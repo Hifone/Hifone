@@ -106,7 +106,7 @@
     {!! Form::close() !!}
     @else
     <div style="padding:20px;">
-    需要 <a class="btn btn-success" href="/auth/login">登录</a> 后方可回复, 如果你还没有账号请点击这里 <a class="btn btn-primary" href="/auth/register">注册</a>。
+    {{ trans('hifone.threads.login_needed') }}
   </div>
     @endif
     </div>
