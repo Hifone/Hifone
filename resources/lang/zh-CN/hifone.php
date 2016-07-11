@@ -244,11 +244,4 @@ return [
         'success_oauth'        => '使用 :provider 账号成功登录.',
         'tips'                 => '',
     ],
-
-    // Footer
-    'footer' => [
-        'about'   => '关于我们',
-        'contact' => '联系我们',
-        'faq'     => '常见问题解答',
-    ],
 ];

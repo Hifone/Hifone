@@ -78,8 +78,9 @@ class SettingComposer
 
         $view->withSubMenu($subMenu);
         $view->withSubTitle(trans('dashboard.settings.settings'));
-        $view->withNewThreadDropdowns(Config::get('setting.new_thread_dropdowns'));
 
+        $view->withNewThreadDropdowns(Config::get('setting.new_thread_dropdowns'));
+        $view->withFooterHtml(Config::get('setting.footer_html'));
         $view->withCaptchaRegisterDisabled(Config::get('setting.captcha_register_disabled'));
         $view->withCaptchaLoginDisabled(Config::get('setting.captcha_login_disabled'));
     }

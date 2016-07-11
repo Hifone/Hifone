@@ -249,6 +249,7 @@ return [
             'site_cdn'                      => 'CDN地址',
             'site_about'                    => '关于我们',
             'new_thread_dropdowns'          => '新建话题快捷选项',
+            'footer_html'                   => '页脚(支持HTML)',
             'captcha_login_disabled'        => '登录时无需验证码',
             'captcha_register_disabled'     => '注册时无需验证码',
             'logo'                          => 'Logo设置',
