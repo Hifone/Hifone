@@ -71,6 +71,24 @@ return [
         'mark_excellent' => '设为推荐主题',
         'mark_stick'     => '置顶此主题',
         'mark_sink'      => '下沉此主题',
+        // Posting Tips
+        'posting_tips'   => [
+            'title' => '发帖提示',
+            'pt1_title' => '主题标题',
+            'pt1_desc' => '请在标题中描述内容要点。',
+            'pt2_title' => '选择节点',
+            'pt2_desc' => '请为你的主题选择一个节点。恰当的归类会让你发布的信息更有用。',
+            'pt3_title' => '正文',
+            'pt3_desc' => 'Hifone 支持 <span style="font-family: Consolas, \'Panic Sans\', mono"><a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">GitHub Flavored Markdown</a></span> 文本标记语法。你可以在页面下方实时预览正文的实际渲染效果。',
+        ],
+        //Community Guidlines
+        'community_guidelines' => [
+            'title' => '社区指导原则',
+            'cg1_title' => '尊重原创',
+            'cg1_desc' => '请不要在 Hifone 发布任何盗版链接，包括软件、音乐、电影等。',
+            'cg2_title' => '友好互助',
+            'cg2_desc' => '保持对陌生人的友善。用知识去帮助别人。',
+        ],
     ],
 
 // 备注
@@ -100,6 +118,7 @@ return [
 // 图片
     'photos' => [
         'drag_drop' => '支持在编辑框拖拽、复制粘贴或<a class="btn-upload" href="javascript:void(0);">浏览本地文件</a>进行图片上传.',
+        'markdown_desc' => '排版说明',
     ],
 
 // Tags

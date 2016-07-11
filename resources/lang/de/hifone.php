@@ -71,6 +71,24 @@ return [
         'mark_excellent' => 'Setze Ausgezeichnet',
         'mark_stick'     => 'Setze Sticky',
         'mark_sink'      => 'Setze Sink??',
+        // Posting Tips
+        'posting_tips'   => [
+            'title' => 'Tipps für Threaderstellung',
+            'pt1_title' => 'Thread Titel',
+            'pt1_desc' => 'Bitte Beschreibe die wichtigsten Punkte deines Threads im Titel',
+            'pt2_title' => 'Wähle ein Forum',
+            'pt2_desc' => 'Bitte wähle das richtige Forum für deinen Thread. Je genauer der Thread in das Forum passt, desto nützlicher werden die Antworten.',
+            'pt3_title' => 'Text',
+            'pt3_desc' => 'Hifone unterstützt die <span style="font-family: Consolas, \'Panic Sans\', mono"><a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">GitHub Flavored Markdown</a></span> Text Markup-Syntax. Für eine Echtzeit-Vorschau, klicke auf die Vorschau schaltfläche über deinen Text.',
+        ],
+        //Community Guidelines
+        'community_guidelines' => [
+            'title' => 'Community-Richtlinien',
+            'cg1_title' => 'Respektiere die Urheberrechte',
+            'cg1_desc' => 'Bitte postet keine Links zu illegalen Inhalten. Dies beinhaltet Software, Musik, Filme, usw.',
+            'cg2_title' => 'Freundlichkeit und Unterstützung',
+            'cg2_desc' => 'Sei immer freundlich und versuche den anderen in der Commity mit Rat und Tat zur Seite zu stehen.',
+        ],
     ],
 
 // 备注
@@ -100,6 +118,7 @@ return [
 // 图片
     'photos' => [
         'drag_drop' => 'Um Bilddateien hinzuzufügen nutze Drag & Drop, <a class="btn-upload" href="javascript:void(0);">öffne die Datei</a> oder kopiere es aus der Zwischenablage.',
+        'markdown_desc' => 'Markown Hilfe',
     ],
 
 // Tags

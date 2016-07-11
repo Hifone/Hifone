@@ -71,6 +71,24 @@ return [
         'mark_excellent' => 'Mark excelent',
         'mark_stick'     => 'Mark stick',
         'mark_sink'      => 'Mark sink',
+        // Posting Tips
+        'posting_tips'   => [
+            'title' => 'Posting Tips',
+            'pt1_title' => 'Thread Title',
+            'pt1_desc' => 'Please describe the contents of the main points in the title',
+            'pt2_title' => 'Select the Node',
+            'pt2_desc' => 'Please select the right Node for your Thread. The right choice makes the Thread more useful.',
+            'pt3_title' => 'Text',
+            'pt3_desc' => 'Hifone supports the <span style="font-family: Consolas, \'Panic Sans\', mono"><a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">GitHub Flavored Markdown</a></span> Text markup syntax. You can preview the text of the actual real-time rendering in the bottom of the page.',
+        ],
+        //Community Guidelines
+        'community_guidelines' => [
+            'title' => 'Community Guidelines',
+            'cg1_title' => 'Respect the origin',
+            'cg1_desc' => 'Please do not post links to pirated stuff on Hifone. including software, music, movies and so on.',
+            'cg2_title' => 'Friendship and Mutual Assistance',
+            'cg2_desc' => 'Be friendly and help others.',
+        ],
     ],
 
 // 备注
@@ -100,6 +118,7 @@ return [
 // 图片
     'photos' => [
         'drag_drop' => 'Image files by dragging & dropping,<a class="btn-upload" href="javascript:void(0);">selecting them</a>, or pasting from the clipboard.',
+        'markdown_desc' => 'Markdown Description',
     ],
 
 // Tags
