@@ -11,7 +11,7 @@
 
 return [
 
-// 全局
+// Global
     'home'             => 'Home',
     'excellent'        => 'Ausgezeichnet',
     'search'           => 'Suche',
@@ -35,14 +35,15 @@ return [
     'feed'             => 'Feed',
     'registered_users' => 'Schon registriert?',
     'ranking'          => 'Platzierung',
-// 节点
+
+// Nodes
     'nodes'            => [
         'all'               => 'Forennavigation',
         'current'           => 'Aktuelles Forum',
         'same_node_threads' => 'Vergleichbare Threads',
     ],
 
-// 话题
+// Threads
     'threads' => [
         'threads'        => 'Threads',
         'title'          => 'Titel',
@@ -95,20 +96,20 @@ return [
         'upload_image' => 'Bild hochladen',
     ],
 
-// 备注
+// Appends
     'appends' => [
         'appends' => 'Bemerkung',
         'content' => 'Bemerkung Inhalt',
         'notice'  => 'Hinweis, diese Funktion wird es erlauben allen, die an dieser Diskussion teilgenommen haben benachrichtigungen zu senden.',
     ],
 
-// 收藏
+// Favorites
     'favorites' => [
         'favorites' => 'Favoriten',
         'noitem'    => 'Es sind noch keine Favoriten vorhanden.',
     ],
 
-// 回复
+// Replies
     'replies' => [
         'replies'        => 'Antworten',
         'add'            => 'Antwort verfassen',
@@ -119,7 +120,7 @@ return [
         'login_required' => 'Um zu Antworten musst du dich anmelden.',
     ],
 
-// 图片
+// Photos
     'photos' => [
         'drag_drop'     => 'Um Bilddateien hinzuzufügen nutze Drag & Drop, <a class="btn-upload" href="javascript:void(0);">öffne die Datei</a> oder kopiere es aus der Zwischenablage.',
         'markdown_desc' => 'Markown Hilfe',
@@ -133,7 +134,7 @@ return [
         'tags_help' => 'Mehrere Tags werden mit Komma (,) getrennt.',
     ],
 
-// 用户
+// Users
     'users' => [
         'users'                     => 'Benutzer',
         'id'                        => 'ID',
@@ -168,7 +169,7 @@ return [
 
     ],
 
-// 通知
+// Notifications
     'notifications' => [
         'my'                          => 'Benachrichtigungen',
         'deleted'                     => 'Die Benachrichtigung wurde gelöscht.',
@@ -191,13 +192,13 @@ return [
         'credit_login'                => 'hat Credits für den täglichen login erhalten',
     ],
 
-//Pm
+// Pm
     'pms'   => [
         'pms'       => 'PN',
         'recipient' => 'Empfänger',
     ],
 
-//积分
+// Credits
     'credits' => [
         'credits' => 'Credits',
         'mine'    => 'Meine Punkte',
@@ -207,17 +208,17 @@ return [
         'balance' => 'Kontostand',
     ],
 
-// 小贴士
+// Tips
     'tips' => [
         'tips' => 'Zufälliger Tipp',
     ],
 
-// 友情链接
+// Links
     'links' => [
         'links' => 'Links',
     ],
 
-// 统计
+// Stats
     'stats' => [
         'title'   => 'Statistiken',
         'users'   => 'Benutzer',
@@ -231,7 +232,7 @@ return [
         'failure' => 'Captcha wurde falsch eingegeben',
     ],
 
-// 登录
+// Login
     'login' => [
         'login'                => 'Anmelden',
         'username'             => 'Benutzername',
@@ -243,12 +244,5 @@ return [
         'success'              => 'Anmeldung erfolgreich!',
         'success_oauth'        => 'Du hast dich mit :provider angemeldet.',
         'tips'                 => '',
-    ],
-
-    // Footer
-    'footer' => [
-        'about'   => 'Über',
-        'contact' => 'Kontakt',
-        'faq'     => 'FAQ',
     ],
 ];
