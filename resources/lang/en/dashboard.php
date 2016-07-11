@@ -249,6 +249,7 @@ return [
             'site_logo'                    => 'Site logo',
             'site_cdn'                     => 'CDN Address',
             'site_about'                   => 'About Us',
+            'new_thread_dropdowns'         => 'New thread dropdowns',
             'captcha_login_disabled'       => 'Disable Captcha for Login',
             'captcha_register_disabled'    => 'Disable Captcha for Registration',
             'logo'                         => 'Logo',

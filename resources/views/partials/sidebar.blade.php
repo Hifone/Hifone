@@ -12,14 +12,11 @@
         <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="caret"></span>
         </button>
+        @if($new_thread_dropdowns)
         <ul class="dropdown-menu">
-          <li>
-            <a href="/thread/create?node_id=9">Discovery</a>
-          </li>
-          <li>
-            <a href="/thread/create?node_id=4">Geek Talks</a>
-          </li>
+          {!! $new_thread_dropdowns !!}
         </ul>
+        @endif
       </div>
     </div>
   </div>
