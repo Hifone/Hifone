@@ -18,10 +18,10 @@
         <tbody>
           <tr class="head">
             <td class="first">#</td>
-            <td style="width:60%">标题</td>
-            <td>发帖人</td>
-            <td>时间</td>
-            <td style="width:10%">操作</td>
+            <td style="width:60%">{{ trans('dashboard.content.reply') }}</td>
+            <td>{{ trans('dashboard.content.created_by') }}</td>
+            <td>{{ trans('dashboard.content.created_at') }}</td>
+            <td style="width:10%">{{ trans('dashboard.content.actions') }}</td>
           </tr>
             @foreach($replies as $reply)
             <tr>

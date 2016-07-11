@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label>{{ trans('dashboard.sections.sections') }}</label>
                     <select name="node[section_id]" class="form-control">
-                        <option value="0">请选择分类</option>
+                        <option value="0">{{ trans('dashboard.nodes.select_category') }}</option>
                         @foreach($sections as $section)
                         <option value="{{ $section->id }}" {{ option_is_selected([$section, 'section_id', isset($node) ? $node : null]) }}>{{ $section->name }}</option>
                         @endforeach

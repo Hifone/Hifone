@@ -34,8 +34,16 @@ return [
     ],
 
     'content' => [
-        'content' => 'Content',
+        'content'       => 'Content',
+        'thread_title'  => 'Thread Title',
+        'node'          => 'Node',
+        'created_by'    => 'Created by',
+        'reply_count'   => 'Reply Count',
+        'created_at'    => 'Created at',
+        'actions'       => 'Actions',
+        'reply'         => 'Reply',
     ],
+    
     'pages' => [
         'pages'   => 'Page',
         'slug'    => 'Slug',
@@ -97,6 +105,7 @@ return [
         'icon'         => 'Node Icon',
         'slug'         => 'Slug',
         'slug_help'    => '快捷路径',
+        'select_category' => 'Select Category',
         'add'          => [
             'title'   => '添加节点',
             'success' => '节点添加成功。',
@@ -217,6 +226,8 @@ return [
         'email'       => '邮箱地址',
         'password'    => '密码',
         'description' => '用户列表',
+        'search'      => 'Search',
+        'roles'       => 'Roles',
         'add'         => [
             'title'   => '注册用户',
             'success' => '用户注册成功.',

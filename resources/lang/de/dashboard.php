@@ -34,8 +34,16 @@ return [
     ],
 
     'content' => [
-        'content' => 'Inhalt',
+        'content'       => 'Inhalt',
+        'thread_title'  => 'Thread Titel',
+        'node'          => 'Forum',
+        'created_by'    => 'Erstellt von',
+        'reply_count'   => 'Antworten',
+        'created_at'    => 'Erstellt am',
+        'actions'       => 'Aktionen',
+        'reply'         => 'Antwort',
     ],
+    
     'pages' => [
         'pages'   => 'Seiten',
         'slug'    => 'Slug',
@@ -97,6 +105,7 @@ return [
         'icon'         => 'Icon',
         'slug'         => 'Slug',
         'slug_help'    => 'Schnellpfad',
+        'select_category' => 'Bitte Kategorie auswählen',
         'add'          => [
             'title'   => 'Forum hinzufügen',
             'success' => 'Das Forum wurde erfolgreich angelegt',
@@ -217,6 +226,8 @@ return [
         'email'       => 'E-Mail',
         'password'    => 'Passwort',
         'description' => 'Beschreibung',
+        'search'      => 'Suche',
+        'roles'       => 'Rollen',
         'add'         => [
             'title'   => 'Benutzer hinzufügen',
             'success' => 'Der Benutzer wurde erstellt.',

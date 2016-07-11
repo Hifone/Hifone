@@ -34,7 +34,14 @@ return [
     ],
 
     'content' => [
-        'content' => '内容管理',
+        'content'       => 'Content',
+        'thread_title'  => '标题',
+        'node'          => '节点',
+        'created_by'    => '发帖人',
+        'reply_count'   => '回帖',
+        'created_at'    => '时间',
+        'actions'       => '操作',
+        'reply'         => '标题',
     ],
     'pages' => [
         'pages'   => '页面',
@@ -97,6 +104,7 @@ return [
         'icon'         => '节点图标',
         'slug'         => 'Slug',
         'slug_help'    => '快捷路径',
+        'select_category' => '请选择分类',
         'add'          => [
             'title'   => '添加节点',
             'success' => '节点添加成功。',
@@ -217,6 +225,8 @@ return [
         'email'       => '邮箱地址',
         'password'    => '密码',
         'description' => '用户列表',
+        'search'      => '搜索',
+        'roles'       => '所属角色',
         'add'         => [
             'title'   => '注册用户',
             'success' => '用户注册成功.',
