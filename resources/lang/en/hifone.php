@@ -100,7 +100,7 @@ return [
     'appends' => [
         'appends' => 'Append',
         'content' => 'Content',
-        'notice'  => '附加备注, 使用此功能的话, 会给所有参加过讨论的人发送通知.',
+        'notice'  => 'By default, notifications are sent to the followers, if an appendant was added successfully.',
     ],
 
 // Favorites
