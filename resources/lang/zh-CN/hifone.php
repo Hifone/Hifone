@@ -35,6 +35,7 @@ return [
     'feed'             => 'Feed',
     'registered_users' => '已注册用户请',
     'ranking'          => '积分榜',
+    'member'           => '的会员',
 // 节点
     'nodes'            => [
         'all'               => '节点导航',
@@ -165,7 +166,17 @@ return [
         'favorites'                 => '我的收藏',
         'credits'                   => '我的积分',
         'locale'                    => '系统语言',
-
+        'edit_profile'              => '编辑个人资料',
+        'edit_avatar'               => '头像设置',
+        'upload_avatar'             => '上传新头像',
+        'upload_avatar_help'        => '头像支持jpg和png格式，上传的文件大小不超过 2M',
+        'password_settings'         => '密码设置',
+        'password_current'          => '请输入您当前的密码',
+        'password_new'              => '请输入新密码',
+        'password_new_confirmation' => '请再次输入新密码',
+        'password_update'           => 'Update password',
+        'select_language'           => 'Select Language',
+        'register_date'             => '注册:',
     ],
 
 // 通知
