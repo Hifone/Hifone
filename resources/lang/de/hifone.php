@@ -260,8 +260,8 @@ return [
 
     // Footer
     'footer' => [
-        'about' => 'Über',
+        'about'   => 'Über',
         'contact' => 'Kontakt',
-        'faq' => 'FAQ',
+        'faq'     => 'FAQ',
     ],
 ];
