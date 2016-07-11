@@ -172,7 +172,7 @@ return [
         ],
         'delete' => [
             'success' => '小贴士已删除。',
-            'failure' => 'The tip could not be deleted, please try again.',
+            'failure' => '小贴士删除失败，请重试。',
         ],
     ],
 
@@ -190,7 +190,7 @@ return [
         ],
         'delete' => [
             'success' => '热门城市已删除。',
-            'failure' => 'The location could not be deleted, please try again.',
+            'failure' => '热门城市删除失败，请重试。',
         ],
     ],
 
@@ -232,7 +232,7 @@ return [
         ],
         'delete' => [
             'success' => '友情链接已删除。',
-            'failure' => 'The link could not be deleted, please try again.',
+            'failure' => '友情链接删除失败，请重试。',
         ],
     ],
 
@@ -241,7 +241,7 @@ return [
         'settings'    => '设置',
         'general'     => [
             'general'                       => '网站设置',
-            'images-only'                   => 'Only images may be uploaded.',
+            'images-only'                   => '请上传图片类型的附件。',
             'too-big'                       => '您上传的文件太大了。上传的图像大小应小于:size',
             'site_name'                     => '网站名称',
             'site_domain'                   => '网址',
@@ -268,7 +268,7 @@ return [
         'aboutus' => [
             'aboutus'    => '关于我们',
             'version'    => 'Hifone版本',
-            'php'        => '服务器系统及 PHP',
+            'php'        => 'PHP版本',
             'webserver'  => 'Web服务器',
             'db'         => '数据库',
             'cache'      => '缓存驱动',
@@ -277,7 +277,7 @@ return [
         ],
         'edit' => [
             'success' => '设置已更新.',
-            'failure' => 'Settings could not be saved.',
+            'failure' => '设置更新失败，请重试。',
         ],
     ],
 
