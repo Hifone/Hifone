@@ -105,6 +105,7 @@ return [
         'icon'         => 'Icon',
         'slug'         => 'Slug',
         'slug_help'    => 'Schnellpfad',
+        'select_category' => 'Bitte Kategorie auswählen',
         'add'          => [
             'title'   => 'Forum hinzufügen',
             'success' => 'Das Forum wurde erfolgreich angelegt',

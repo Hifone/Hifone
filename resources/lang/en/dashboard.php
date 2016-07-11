@@ -105,6 +105,7 @@ return [
         'icon'         => 'Node Icon',
         'slug'         => 'Slug',
         'slug_help'    => '快捷路径',
+        'select_category' => 'Select Category',
         'add'          => [
             'title'   => '添加节点',
             'success' => '节点添加成功。',

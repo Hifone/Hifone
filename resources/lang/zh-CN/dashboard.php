@@ -104,6 +104,7 @@ return [
         'icon'         => '节点图标',
         'slug'         => 'Slug',
         'slug_help'    => '快捷路径',
+        'select_category' => '请选择分类',
         'add'          => [
             'title'   => '添加节点',
             'success' => '节点添加成功。',
