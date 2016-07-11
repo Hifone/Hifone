@@ -13,7 +13,7 @@ return [
 
     'dashboard' => '控制台',
     'overview'  => [
-        'title'       => 'Overview',
+        'title'       => '概况',
         'systemstate' => [
             'title'      => '系统状态',
             'statistics' => '统计',
@@ -28,13 +28,8 @@ return [
         ],
     ],
 
-    'attentions' => [
-        'attentions' => 'Attentions',
-        'add'        => '添加公告',
-    ],
-
     'content' => [
-        'content'       => 'Content',
+        'content'       => '内容',
         'thread_title'  => '标题',
         'node'          => '节点',
         'created_by'    => '发帖人',
@@ -95,17 +90,17 @@ return [
         ],
     ],
     'nodes' => [
-        'nodes'        => '节点管理',
-        'name'         => '名称',
-        'parent'       => '所属节点',
-        'root'         => '根节点',
-        'status_name'  => '状态',
-        'description'  => '描述',
-        'icon'         => '节点图标',
-        'slug'         => 'Slug',
-        'slug_help'    => '快捷路径',
+        'nodes'           => '节点',
+        'name'            => '名称',
+        'parent'          => '所属节点',
+        'root'            => '根节点',
+        'status_name'     => '状态',
+        'description'     => '描述',
+        'icon'            => '节点图标',
+        'slug'            => 'Slug',
+        'slug_help'       => '快捷路径',
         'select_category' => '请选择分类',
-        'add'          => [
+        'add'             => [
             'title'   => '添加节点',
             'success' => '节点添加成功。',
             'failure' => '节点添加失败！',
@@ -120,25 +115,6 @@ return [
             0 => '正常',
             1 => '隐藏',
             2 => '会员可见',
-        ],
-        // Node parents
-        'parents' => [
-            'parents'        => '版块|板块',
-            'no_nodes'       => '没有版块，马上添加一个吧',
-            'add'            => [
-                'title'   => '添加版块',
-                'success' => 'Node group added.',
-                'failure' => 'Something went wrong with the node group, please try again.',
-            ],
-            'edit' => [
-                'title'   => '编辑版块',
-                'success' => 'Node group updated.',
-                'failure' => 'Something went wrong with the node group, please try again.',
-            ],
-            'delete' => [
-                'success' => '版块已删除。',
-                'failure' => 'The node group could not be deleted, please try again.',
-            ],
         ],
     ],
 
@@ -169,7 +145,7 @@ return [
     ],
 
     'advertisements' => [
-        'advertisements' => '广告管理',
+        'advertisements' => '广告',
         'name'           => '广告名称',
         'body'           => '广告内容',
         'add'            => [
@@ -196,7 +172,7 @@ return [
         ],
         'delete' => [
             'success' => '小贴士已删除。',
-            'failure' => 'The tip could not be deleted, please try again.',
+            'failure' => '小贴士删除失败，请重试。',
         ],
     ],
 
@@ -214,12 +190,12 @@ return [
         ],
         'delete' => [
             'success' => '热门城市已删除。',
-            'failure' => 'The location could not be deleted, please try again.',
+            'failure' => '热门城市删除失败，请重试。',
         ],
     ],
 
     'users' => [
-        'users'       => '用户管理',
+        'users'       => '用户',
         'user'        => ':email, 注册于 :date',
         'username'    => '用户名',
         'email'       => '邮箱地址',
@@ -256,22 +232,23 @@ return [
         ],
         'delete' => [
             'success' => '友情链接已删除。',
-            'failure' => 'The link could not be deleted, please try again.',
+            'failure' => '友情链接删除失败，请重试。',
         ],
     ],
 
     // Settings
     'settings' => [
-        'settings'    => '系统设置',
+        'settings'    => '设置',
         'general'     => [
             'general'                       => '网站设置',
-            'images-only'                   => 'Only images may be uploaded.',
+            'images-only'                   => '请上传图片类型的附件。',
             'too-big'                       => '您上传的文件太大了。上传的图像大小应小于:size',
             'site_name'                     => '网站名称',
             'site_domain'                   => '网址',
             'site_logo'                     => '网站logo',
             'site_cdn'                      => 'CDN地址',
             'site_about'                    => '关于我们',
+            'new_thread_dropdowns'          => '新建话题快捷选项',
             'captcha_login_disabled'        => '登录时无需验证码',
             'captcha_register_disabled'     => '注册时无需验证码',
             'logo'                          => 'Logo设置',
@@ -292,7 +269,7 @@ return [
         'aboutus' => [
             'aboutus'    => '关于我们',
             'version'    => 'Hifone版本',
-            'php'        => '服务器系统及 PHP',
+            'php'        => 'PHP版本',
             'webserver'  => 'Web服务器',
             'db'         => '数据库',
             'cache'      => '缓存驱动',
@@ -301,7 +278,7 @@ return [
         ],
         'edit' => [
             'success' => '设置已更新.',
-            'failure' => 'Settings could not be saved.',
+            'failure' => '设置更新失败，请重试。',
         ],
     ],
 

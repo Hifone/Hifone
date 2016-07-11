@@ -12,6 +12,7 @@
 namespace Hifone\Composers;
 
 use Cache;
+use Config;
 use Hifone\Models\Link;
 use Hifone\Models\Reply;
 use Hifone\Models\Tag;
@@ -38,6 +39,7 @@ class SidebarComposer
         $view->withTip($this->getRandTip());
         $view->withLinks($this->getLinks());
         $view->withTopTags($this->getTopTags());
+        $view->withNewThreadDropdowns(Config::get('setting.new_thread_dropdowns'));
     }
 
     protected function getTopUsers()

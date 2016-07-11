@@ -12,9 +12,9 @@
             @foreach($users as $user)
             <div class="user col-sm-1">
                 <div class="avatar">
-                    <a href=""><img class="media-object avatar-48" src="{{ $user->avatar }}"></a>
+                    <a href="{{ route('user.home', $user->username) }}"><img class="media-object avatar-48" src="{{ $user->avatar }}"></a>
                 </div>
-                <div class="name"><a href="{{ route('user.show', $user->username) }}">{{ $user->username }}</a></div>
+                <div class="name"><a href="{{ route('user.home', $user->username) }}">{{ $user->username }}</a></div>
             </div>
             @endforeach
         </div>

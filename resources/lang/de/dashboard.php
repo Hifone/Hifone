@@ -28,11 +28,6 @@ return [
         ],
     ],
 
-    'attentions' => [
-        'attentions' => 'Attentions',
-        'add'        => 'Attention hinzufügen',
-    ],
-
     'content' => [
         'content'       => 'Inhalt',
         'thread_title'  => 'Thread Titel',
@@ -43,7 +38,7 @@ return [
         'actions'       => 'Aktionen',
         'reply'         => 'Antwort',
     ],
-    
+
     'pages' => [
         'pages'   => 'Seiten',
         'slug'    => 'Slug',
@@ -96,17 +91,17 @@ return [
         ],
     ],
     'nodes' => [
-        'nodes'        => 'Forum',
-        'name'         => 'Name',
-        'parent'       => 'Eltern-Forum',
-        'root'         => 'root??',
-        'status_name'  => 'Zustand',
-        'description'  => 'Beschreibung',
-        'icon'         => 'Icon',
-        'slug'         => 'Slug',
-        'slug_help'    => 'Schnellpfad',
+        'nodes'           => 'Forum',
+        'name'            => 'Name',
+        'parent'          => 'Eltern-Forum',
+        'root'            => 'root??',
+        'status_name'     => 'Zustand',
+        'description'     => 'Beschreibung',
+        'icon'            => 'Icon',
+        'slug'            => 'Slug',
+        'slug_help'       => 'Schnellpfad',
         'select_category' => 'Bitte Kategorie auswählen',
-        'add'          => [
+        'add'             => [
             'title'   => 'Forum hinzufügen',
             'success' => 'Das Forum wurde erfolgreich angelegt',
             'failure' => 'Das Forum konnte nicht erstellt werden.',
@@ -121,25 +116,6 @@ return [
             0 => 'Normal',
             1 => 'Versteckt',
             2 => 'Nur für Mitglieder sichtbar',
-        ],
-        // Node parents
-        'parents' => [
-            'parents'        => 'Forum|Platte??',
-            'no_nodes'       => 'Es sind keine Foren vorhanden',
-            'add'            => [
-                'title'   => 'Eltern-Forum erstellen',
-                'success' => 'Forum Gruppe hinzugefügt.',
-                'failure' => 'Es konnte keine Forengruppe erstellt werden.',
-            ],
-            'edit' => [
-                'title'   => 'Elter-Forum bearbeiten',
-                'success' => 'Forum Gruppe wurde bearbeitet.',
-                'failure' => 'Die Foren-Gruppe konnte nicht bearbeitet werden.',
-            ],
-            'delete' => [
-                'success' => 'Elter-Forum löschen',
-                'failure' => 'Die Forengruppe konnte nicht gelöscht werden.',
-            ],
         ],
     ],
 
@@ -273,6 +249,7 @@ return [
             'site_logo'                     => 'Seitenlogo',
             'site_cdn'                      => 'Seiten CDN',
             'site_about'                    => 'Über',
+            'new_thread_dropdowns'          => 'New thread dropdowns',
             'captcha_login_disabled'        => 'Captcha Login deaktiviert',
             'captcha_register_disabled'     => 'Captcha Registrierung deaktiviert',
             'logo'                          => 'Logo',
