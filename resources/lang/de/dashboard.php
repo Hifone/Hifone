@@ -249,7 +249,7 @@ return [
             'site_logo'                     => 'Seitenlogo',
             'site_cdn'                      => 'Seiten CDN',
             'site_about'                    => 'Über',
-            'new_thread_dropdowns'          => 'New thread dropdowns',
+            'new_thread_dropdowns'          => 'Neuer Thread erstellen Dropdown',
             'footer_html'                   => 'Footer(Support HTML)',
             'captcha_login_disabled'        => 'Captcha Login deaktiviert',
             'captcha_register_disabled'     => 'Captcha Registrierung deaktiviert',

@@ -7,7 +7,7 @@
 @section('content')
  <div id="users" class="box">
     <div id="hot_users" class="panel panel-default user-list">
-        <div class="panel-heading">{{ $location->name }}的会员</div>
+        <div class="panel-heading">{{ $location->name }} {{ trans('hifone.member') }}</div>
         <div class="panel-body row">
             @foreach($users as $user)
             <div class="user col-sm-1">
