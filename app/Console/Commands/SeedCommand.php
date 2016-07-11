@@ -143,7 +143,7 @@ FOOTER;
             ], [
                 'name'  => 'site_about',
                 'value' => 'This is the demo instance of [Hifone](https://hifone.com?ref=demo). The open source forum software.',
-            ],[
+            ], [
                 'name'  => 'footer_html',
                 'value' => $footerHtml,
             ], [
