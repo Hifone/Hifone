@@ -40,6 +40,12 @@
                                     <textarea name="site_about" class="form-control autosize" rows="4">{{ $raw_site_about }}</textarea>
                                 </div>
                             </div>
+                             <div class="form-group">
+                                <label>{{ trans('dashboard.settings.general.new_thread_dropdowns') }}</label>
+                                <div class='markdown-control'>
+                                    <textarea name="new_thread_dropdowns" class="form-control autosize" rows="4">{!! $new_thread_dropdowns !!}</textarea>
+                                </div>
+                            </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="hidden" value="0" name="captcha_register_disabled">
