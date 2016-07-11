@@ -34,8 +34,15 @@ return [
     ],
 
     'content' => [
-        'content' => 'Content',
+        'content'       => 'Content',
+        'thread_title'  => 'Thread Title',
+        'node'          => 'Node',
+        'created_by'    => 'Created by',
+        'reply_count'   => 'Reply Count',
+        'created_at'    => 'Created at',
+        'actions'       => 'Actions',
     ],
+    
     'pages' => [
         'pages'   => 'Page',
         'slug'    => 'Slug',

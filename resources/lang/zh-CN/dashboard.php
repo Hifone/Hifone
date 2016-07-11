@@ -34,7 +34,14 @@ return [
     ],
 
     'content' => [
-        'content' => '内容管理',
+        'content'       => 'Content',
+        'thread_title'  => '标题',
+        'node'          => '节点',
+        'created_by'    => '发帖人',
+        'reply_count'   => '回帖',
+        'created_at'    => '时间',
+        'actions'       => '操作',
+        'reply'         => '标题',
     ],
     'pages' => [
         'pages'   => '页面',

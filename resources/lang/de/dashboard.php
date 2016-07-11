@@ -34,8 +34,15 @@ return [
     ],
 
     'content' => [
-        'content' => 'Inhalt',
+        'content'       => 'Inhalt',
+        'thread_title'  => 'Thread Titel',
+        'node'          => 'Forum',
+        'created_by'    => 'Erstellt von',
+        'reply_count'   => 'Antworten',
+        'created_at'    => 'Erstellt am',
+        'actions'       => 'Aktionen',
     ],
+    
     'pages' => [
         'pages'   => 'Seiten',
         'slug'    => 'Slug',
