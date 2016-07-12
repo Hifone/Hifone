@@ -143,7 +143,7 @@ window.ForumView = Backbone.View.extend
     return
 
   initTimeAgo: ->
-    moment.locale 'zh-cn'
+    moment.locale Hifone.Config.locale
     $('.timeago').each ->
       time_str = $(this).text()
       if moment(time_str, 'YYYY-MM-DD HH:mm:ss', true).isValid()

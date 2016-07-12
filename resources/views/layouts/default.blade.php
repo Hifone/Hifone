@@ -15,6 +15,7 @@
         <script src="{{ elixir('dist/js/all.js') }}"></script>
         <script type="text/javascript">
             Hifone.Config = {
+                'locale' : '{{ App::getLocale() }}',
                 'current_user_id' : {{ Auth::user() ? Auth::user()->id : 'null' }},
                 'token' : '{{ csrf_token() }}',
                 'emoj_cdn' : '{{ cdn() }}',

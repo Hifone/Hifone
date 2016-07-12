@@ -54,15 +54,6 @@ window.Hifone =
     asset_url : ''
     root_url : ''
 
-  locale: 'zh-CN'
-  current_user_id: null
-  token : ''
-  emoj_cdn : ''
-  notification_url: ''
-  uploader_url: ''
-  asset_url : ''
-  root_url : ''
-
   isLogined : ->
     Hifone.Config.current_user_id != null
 
