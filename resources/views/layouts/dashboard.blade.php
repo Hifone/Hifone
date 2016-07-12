@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ $user_locale or $site_locale }}">
 @include('dashboard.partials.head')
 
 <body class="dashboard" data-page="dashboard">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ $user_locale or $site_locale }}">
 	<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
         <script src="{{ elixir('dist/js/all.js') }}"></script>
         <script type="text/javascript">
             Hifone.Config = {
-                'locale' : '{{ App::getLocale() }}',
+                'locale' : '{{ $user_locale or $site_locale }}',
                 'current_user_id' : {{ Auth::user() ? Auth::user()->id : 'null' }},
                 'token' : '{{ csrf_token() }}',
                 'emoj_cdn' : '{{ cdn() }}',

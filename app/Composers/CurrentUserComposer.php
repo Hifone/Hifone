@@ -27,5 +27,6 @@ class CurrentUserComposer
     public function compose(View $view)
     {
         $view->withCurrentUser(AutoPresenter::decorate(Auth::user()));
+        $view->withUserLocale(Auth::check() && Auth::user()->locale ? Auth::user()->locale : Config::get('setting.site_locale'));
     }
 }
