@@ -109,17 +109,17 @@ class SeedCommand extends Command
         $footerHtml = <<<'FOOTER'
 <div class="copyright">
     <blockquote class="pull-left">
-        <p>小而美的手机极客社区</p>
-        <p>Copyright &copy; 2015-2016 <a href="http://hifone.com">Hifone</a>  {HIFONE_VERSION} <span class="pipe">|</span>Inspired by ruby-china & phphub.</p>
+        <p>{!! Config::get('setting.site_about') !!}</p>
+        <p>{!! trans('hifone.powered_by') !!} {{ HIFONE_VERSION }} <span class="pipe">|</span>Inspired by ruby-china & phphub.</p>
     </blockquote>
 </div>
 <div class="pull-right hidden-sm hidden-xs">
     <p>
-        <a href="/about">关于我们</a>
+        <a href="/about">{{ trans('hifone.footer.about') }}</a>
         <span class="pipe">|</span>
-        <a href="/contact">联系我们</a>
+        <a href="/contact">{{ trans('hifone.footer.contact') }}</a>
         <span class="pipe">|</span>
-        <a href="/faq">常见问题解答</a>
+        <a href="/faq">{{ trans('hifone.footer.faq') }}</a>
     </p>
     <p>
         <a href="http://hifone.com/" target="_blank"><img src="/images/hifone-logo.png" border="0" height="40" data-toggle="tooltip" data-placement="top" title="Powered by Hifone" /></a>
