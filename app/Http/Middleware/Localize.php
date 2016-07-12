@@ -20,7 +20,7 @@ use Jenssegers\Date\Date;
 class Localize
 {
     /**
-     * Array of languages Cachet can use.
+     * Array of languages Hifone can use.
      *
      * @var array
      */

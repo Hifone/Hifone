@@ -19,7 +19,7 @@ return [
     | Determines if compiled strings should be cached
     |
     */
-    'cache' => true,
+    'cache' => false,
 
     /*
     |--------------------------------------------------------------------------

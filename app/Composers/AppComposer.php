@@ -33,8 +33,12 @@ class AppComposer
         $view->withSiteLogo(Config::get('setting.site_logo'));
         $view->withSiteTitle(Config::get('setting.site_name').' | Hifone');
         $view->withSiteLocale(Config::get('setting.site_locale'));
+        $view->withSiteTimezone(Config::get('setting.site_timezone'));
         $view->withStylesheet(Config::get('setting.stylesheet'));
 
-        $view->withFooterHtml(StringBlade::make(Config::get('setting.footer_html'))->render());
+        $view->withFooterHtml(StringBlade::make(Config::get('setting.footer_html'))
+                ->withSiteAbout(Config::get('setting.site_about'))
+                ->withSiteTimezone(Config::get('setting.site_timezone'))
+                    ->render());
     }
 }

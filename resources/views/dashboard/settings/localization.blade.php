@@ -19,7 +19,26 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label>{{ trans('dashboard.settings.localization.localization') }}</label>
+                                <label>{{ trans('dashboard.settings.localization.timezone') }}</label>
+                                <select name="site_timezone" class="form-control" required>
+                                    <option disabled>Select Timezone</option>
+                                    @foreach($timezones as $region => $list)
+                                        <optgroup label="{{ $region }}">
+                                            @foreach($list as $timezone => $name)
+                                                <option value="{{ $timezone }}" @if(Config::get('app.timezone') == $timezone) selected @endif>
+                                                    {{ $name }}
+                                                </option>
+                                            @endforeach
+                                        </optgroup>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>{{ trans('dashboard.settings.localization.language') }}</label>
                                 <select name="site_locale" class="form-control" required>
                                     <option value="">Select Language</option>
                                     @foreach($langs as $key => $lang)
