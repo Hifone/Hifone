@@ -206,6 +206,11 @@ return [
     'pms'   => [
         'pms'       => 'PN',
         'recipient' => 'Empfänger',
+        'new_pm'    => 'Neue PN',
+        'view_inbox'=> 'Mein Posteingang',
+        'nav_create'=> 'PN senden',
+        'nav_inbox' => 'Posteingang',
+        'nav_outbox'=> 'Postausgang',
     ],
 
 // Credits
@@ -256,6 +261,15 @@ return [
         'tips'                 => '',
         'account_available'    => 'Wenn du schon einen Account registriert hast, oder dich mit Google Auth anmelden willst klicke <a href="/auth/login">Login</a>.',
         'login_with_oauth'     => 'Anmelden mit alternativ Anbieter',
+        //OAuth Strings
+        'oauth' => [
+            //OAuth Landing Page
+            'landing' => [
+                'title' => 'Fremdanbieter Login',
+                'welcome' => ', um deine Registrierung abschließen zu können, wähle aus folgenden Möglichkeiten:',
+                'choice_1' => 'Direkter Login über Hifone',
+            ],
+        ],
     ],
 
     // Footer

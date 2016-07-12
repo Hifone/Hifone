@@ -258,8 +258,8 @@ return [
         ],
         'localization' => [
             'localization' => 'Spracheinstellungen',
-            'language'     => 'Select Language',
-            'timezone'     => 'Select Timezone',
+            'language'     => 'Wähle Sprache',
+            'timezone'     => 'Wähle Zeitzone',
         ],
         'customization' => [
             'customization' => 'Startseiten-Routing',

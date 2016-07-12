@@ -206,6 +206,11 @@ return [
     'pms'   => [
         'pms'       => '站内短信',
         'recipient' => '收件人',
+        'new_pm'    => '新建 Pm',
+        'view_inbox'=> '查看我的收件箱',
+        'nav_create'=> '发送站短',
+        'nav_inbox' => '收件箱',
+        'nav_outbox'=> '发件箱',
     ],
 
 //积分
@@ -256,6 +261,15 @@ return [
         'tips'                 => '',
         'account_available'    => '已注册或使用社交账号登录，请点击 <a href="/auth/login">这里</a> 进行登录。',
         'login_with_oauth'     => '用其他平台的帐号登录',
+        //OAuth Strings
+        'oauth' => [
+            //OAuth Landing Page
+            'landing' => [
+                'title' => '第三方接入',
+                'welcome' => '，你好。还差最后一步完成注册。请选择：',
+                'choice_1' => '已有Hifone账号',
+            ],
+        ],
     ],
 
     // Footer
