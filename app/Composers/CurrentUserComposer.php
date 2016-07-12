@@ -13,6 +13,7 @@ namespace Hifone\Composers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use McCool\LaravelAutoPresenter\Facades\AutoPresenter;
 
 class CurrentUserComposer
