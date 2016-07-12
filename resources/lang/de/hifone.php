@@ -204,13 +204,13 @@ return [
 
 // Pm
     'pms'   => [
-        'pms'       => 'PN',
-        'recipient' => 'Empfänger',
-        'new_pm'    => 'Neue PN',
-        'view_inbox'=> 'Mein Posteingang',
-        'nav_create'=> 'PN senden',
-        'nav_inbox' => 'Posteingang',
-        'nav_outbox'=> 'Postausgang',
+        'pms'        => 'PN',
+        'recipient'  => 'Empfänger',
+        'new_pm'     => 'Neue PN',
+        'view_inbox' => 'Mein Posteingang',
+        'nav_create' => 'PN senden',
+        'nav_inbox'  => 'Posteingang',
+        'nav_outbox' => 'Postausgang',
     ],
 
 // Credits
@@ -265,8 +265,8 @@ return [
         'oauth' => [
             //OAuth Landing Page
             'landing' => [
-                'title' => 'Fremdanbieter Login',
-                'welcome' => ', um deine Registrierung abschließen zu können, wähle aus folgenden Möglichkeiten:',
+                'title'    => 'Fremdanbieter Login',
+                'welcome'  => ', um deine Registrierung abschließen zu können, wähle aus folgenden Möglichkeiten:',
                 'choice_1' => 'Direkter Login über Hifone',
             ],
         ],

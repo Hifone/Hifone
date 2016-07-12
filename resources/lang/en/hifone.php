@@ -204,13 +204,13 @@ return [
 
 // Pms
     'pms'   => [
-        'pms'       => 'Pm',
-        'recipient' => 'Recipient',
-        'new_pm'    => 'New PM',
-        'view_inbox'=> 'View my Inbox',
-        'nav_create'=> 'Send PM',
-        'nav_inbox' => 'View Inbox',
-        'nav_outbox'=> 'View Outbox',
+        'pms'        => 'Pm',
+        'recipient'  => 'Recipient',
+        'new_pm'     => 'New PM',
+        'view_inbox' => 'View my Inbox',
+        'nav_create' => 'Send PM',
+        'nav_inbox'  => 'View Inbox',
+        'nav_outbox' => 'View Outbox',
     ],
 
 // Credits
@@ -265,8 +265,8 @@ return [
         'oauth' => [
             //OAuth Landing Page
             'landing' => [
-                'title' => 'Thirdparty Login',
-                'welcome' => ', to complete the Registration please select one of the following:',
+                'title'    => 'Thirdparty Login',
+                'welcome'  => ', to complete the Registration please select one of the following:',
                 'choice_1' => 'Direct login with Hifone',
             ],
         ],
