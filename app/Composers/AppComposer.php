@@ -13,7 +13,6 @@ namespace Hifone\Composers;
 
 use Hifone\StringBlade\Facades\StringBlade;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
 class AppComposer
