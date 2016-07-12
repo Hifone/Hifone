@@ -14,7 +14,6 @@ namespace Hifone\Composers;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Config;
 
 class TimezoneComposer
 {
@@ -27,7 +26,7 @@ class TimezoneComposer
      */
     public function compose(View $view)
     {
-       $regions = [
+        $regions = [
             'Africa'     => DateTimeZone::AFRICA,
             'America'    => DateTimeZone::AMERICA,
             'Antarctica' => DateTimeZone::ANTARCTICA,
@@ -52,6 +51,6 @@ class TimezoneComposer
                 $timezones[$name] = str_replace('_', ' ', $timezones[$name]);
             }
         }
-        $view->withTimezones($timezones); 
+        $view->withTimezones($timezones);
     }
 }
