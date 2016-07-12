@@ -256,7 +256,9 @@ return [
             'logo_help'                     => '推荐使用90*40大小的logo.',
         ],
         'localization' => [
-            'localization' => '系统语言',
+            'localization' => '国际化',
+            'language'     => '语言',
+            'timezone'     => '时区',
         ],
         'customization' => [
             'customization' => '首页路由',

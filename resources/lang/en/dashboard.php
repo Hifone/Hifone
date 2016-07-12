@@ -258,6 +258,8 @@ return [
         ],
         'localization' => [
             'localization' => 'Site Language',
+            'language'     => 'Select Language',
+            'timezone'     => 'Select Timezone',
         ],
         'customization' => [
             'customization' => 'Homepage Route',

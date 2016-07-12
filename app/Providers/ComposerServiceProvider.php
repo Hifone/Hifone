@@ -20,6 +20,7 @@ use Hifone\Composers\Dashboard\SettingComposer;
 use Hifone\Composers\Dashboard\UserMenuComposer;
 use Hifone\Composers\LocaleComposer;
 use Hifone\Composers\SidebarComposer;
+use Hifone\Composers\TimezoneComposer;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,25 +40,31 @@ class ComposerServiceProvider extends ServiceProvider
         $factory->composer('*', CurrentUserComposer::class);
         $factory->composer('partials.sidebar', SidebarComposer::class);
 
+        // Locale
         $factory->composer([
             'install.*',
             'users.edit',
             'dashboard.settings.*', ], LocaleComposer::class);
 
-        // 广告
+        //Timezone
+        $factory->composer([
+            'install.*',
+            'dashboard.settings.*', ], TimezoneComposer::class);
+
+        // Advertisement
         $factory->composer([
             'dashboard.adblocks.*',
             'dashboard.advertisements.*',
             'dashboard.adspaces.*', ], AdvertisementMenuComposer::class);
 
-        //内容
+        // Content
         $factory->composer([
             'dashboard.threads.*',
             'dashboard.replies.*',
             'dashboard.photos.*',
             'dashboard.pages.*', ], ContentMenuComposer::class);
 
-        // 节点
+        // Nodes
         $factory->composer(['dashboard.nodes.*', 'dashboard.sections.*'], NodeMenuComposer::class);
         $factory->composer(['dashboard.users.*'], UserMenuComposer::class);
         $factory->composer([
