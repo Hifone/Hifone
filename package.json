@@ -1,10 +1,16 @@
 {
-  "private": true,
+  "name": "Hifone",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "~3.9.1",
+    "gulp-coffee": "~2.3.2",
+    "notify-send": "~0.1.2",
+    "gulp-notify": "~2.2.0",
+    "gulp-util": "~3.0.7"
   },
   "dependencies": {
-    "laravel-elixir": "^2.0.0",
-    "bootstrap-sass": "^3.0.0"
-  }
+  	"bower": "~1.7.9",
+    "laravel-elixir": "~5.0.0",
+    "bootstrap-sass": "^3.3.6"
+  },
+  "private": true
 }
