@@ -28,7 +28,7 @@
                   @if($current_user && $current_user->id != $user->id)
                    @if (Auth::check() && $user->follows()->forUser(Auth::user()->id)->count())
                       <a class="button followable" data-type="User" data-id="{{ $user->id }}" data-url="{{ route('follow.user',$user->id) }}">
-                          <i class="fa fa-plus"></i> {!! trans('hifone.follow') !!}
+                          <i class="fa fa-minus"></i> {!! trans('hifone.unfollow') !!}
                       </a>
                     @else
                       <a class="button followable active" data-type="User" data-id="{{ $user->id }}" data-url="{{ route('follow.user',$user->id) }}">
