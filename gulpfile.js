@@ -46,7 +46,7 @@ elixir(function (mix) {
             'vendor/bower_components/prism/components/prism-php*.min.js',
             'vendor/bower_components/localforage/dist/localforage.min.js',
             'vendor/bower_components/emoji/lib/emoji.js',
-            'vendor/bower_components/emojify/dist/js/emojify.min.js',
+            'vendor/bower_components/emojify/emojify.js',
             'vendor/bower_components/ekko-lightbox/dist/ekko-lightbox.min.js',
             'vendor/bower_components/Sortable/Sortable.js',
             'vendor/bower_components/select2/dist/js/select2.min.js',
