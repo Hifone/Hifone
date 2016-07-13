@@ -35,13 +35,19 @@ class SettingComposer
             'localization' => [
                 'title'  => trans('dashboard.settings.localization.localization'),
                 'url'    => route('dashboard.settings.localization'),
-                'icon'   => 'fa fa-language',
+                'icon'   => 'fa fa-map',
                 'active' => false,
             ],
             'stylesheet' => [
                 'title'  => trans('dashboard.settings.stylesheet.stylesheet'),
                 'url'    => route('dashboard.settings.stylesheet'),
-                'icon'   => 'fa fa-language',
+                'icon'   => 'fa fa-magic',
+                'active' => false,
+            ],
+            'customization' => [
+                'title'  => trans('dashboard.settings.customization.customization'),
+                'url'    => route('dashboard.settings.customization'),
+                'icon'   => 'fa fa-puzzle-piece',
                 'active' => false,
             ],
             'tips' => [
@@ -62,12 +68,6 @@ class SettingComposer
                 'icon'   => 'fa fa-location-arrow',
                 'active' => 'false',
             ],
-            'customization' => [
-                'title'  => trans('dashboard.settings.customization.customization'),
-                'url'    => route('dashboard.settings.customization'),
-                'icon'   => 'fa fa-plug',
-                'active' => false,
-            ],
             'aboutus' => [
                 'title'  => trans('dashboard.settings.aboutus.aboutus'),
                 'url'    => route('dashboard.settings.aboutus'),
@@ -78,6 +78,8 @@ class SettingComposer
 
         $view->withSubMenu($subMenu);
         $view->withSubTitle(trans('dashboard.settings.settings'));
+        $view->withThreadsPerPage(Config::get('threads_per_page', 15));
+        $view->withRepliesPerPage(Config::get('replies_per_page', 30));
 
         $view->withNewThreadDropdowns(Config::get('setting.new_thread_dropdowns'));
         $view->withFooterHtml(Config::get('setting.footer_html'));

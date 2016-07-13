@@ -40,18 +40,16 @@
                                     <textarea name="site_about" class="form-control autosize" rows="4">{{ $raw_site_about }}</textarea>
                                 </div>
                             </div>
-                             <div class="form-group">
-                                <label>{{ trans('dashboard.settings.general.new_thread_dropdowns') }}</label>
-                                <div class='markdown-control'>
-                                    <textarea name="new_thread_dropdowns" class="form-control autosize" rows="4">{!! $new_thread_dropdowns !!}</textarea>
-                                </div>
+                            <hr>
+                            <div class="form-group">
+                                <label>{{ trans('dashboard.settings.general.threads_per_page') }}</label>
+                                <input type="text" class="form-control" name="threads_per_page" value="{{ $threads_per_page }}" />
                             </div>
                             <div class="form-group">
-                                <label>{{ trans('dashboard.settings.general.footer_html') }}</label>
-                                <div class='markdown-control'>
-                                    <textarea name="footer_html" class="form-control autosize" rows="4">{!! $footer_html !!}</textarea>
-                                </div>
+                                <label>{{ trans('dashboard.settings.general.replies_per_page') }}</label>
+                                <input type="text" class="form-control" name="replies_per_page" value="{{ $replies_per_page }}" />
                             </div>
+                            <hr>
                             <div class="checkbox">
                                 <label>
                                     <input type="hidden" value="0" name="captcha_register_disabled">

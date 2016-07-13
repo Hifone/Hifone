@@ -249,6 +249,8 @@ return [
             'site_logo'                    => 'Site logo',
             'site_cdn'                     => 'CDN Address',
             'site_about'                   => 'About Us',
+            'threads_per_page'             => 'Threads per page',
+            'replies_per_page'             => 'Replies per page',
             'new_thread_dropdowns'         => 'New thread dropdowns',
             'footer_html'                  => 'Footer(Support HTML)',
             'captcha_login_disabled'       => 'Disable Captcha for Login',
@@ -262,9 +264,7 @@ return [
             'timezone'     => 'Select Timezone',
         ],
         'customization' => [
-            'customization' => 'Homepage Route',
-            'controller'    => 'Controller',
-            'method'        => 'Method',
+            'customization' => 'Customization',
         ],
         'stylesheet' => [
             'stylesheet' => 'Stylesheet',

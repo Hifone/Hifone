@@ -18,22 +18,21 @@
                 <fieldset>
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="form-group">
-                                <label>{{ trans('dashboard.settings.customization.controller') }}</label>
-                                <input name="home_controller" class="form-control" value="{{ Config::get('setting.home_controller','PagesController') }}" />
+                           <div class="form-group">
+                                <label>{{ trans('dashboard.settings.general.new_thread_dropdowns') }}</label>
+                                <div class='markdown-control'>
+                                    <textarea name="new_thread_dropdowns" class="form-control autosize" rows="4">{!! $new_thread_dropdowns !!}</textarea>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
                             <div class="form-group">
-                                <label>{{ trans('dashboard.settings.customization.method') }}</label>
-                                <input name="home_method" class="form-control" value="{{ Config::get('setting.home_method','excellent') }}" />
+                                <label>{{ trans('dashboard.settings.general.footer_html') }}</label>
+                                <div class='markdown-control'>
+                                    <textarea name="footer_html" class="form-control autosize" rows="4">{!! $footer_html !!}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </fieldset>
-
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
