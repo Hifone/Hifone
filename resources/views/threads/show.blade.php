@@ -106,7 +106,7 @@
     {!! Form::close() !!}
     @else
     <div style="padding:20px;">
-    {{ trans('hifone.threads.login_needed') }}
+    {!! trans('hifone.threads.login_needed') !!}
   </div>
     @endif
     </div>
