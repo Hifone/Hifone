@@ -449,6 +449,9 @@ embed {
       background-image: -ms-linear-gradient(#fafafa,#eaeaea);
       background-image: linear-gradient(#fafafa,#eaeaea);
   }
+  .followable {
+     cursor: pointer;
+  }
 
   ul {
     text-transform: uppercase;
