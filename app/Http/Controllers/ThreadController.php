@@ -54,7 +54,7 @@ class ThreadController extends Controller
         $repository->pushCriteria(new Filter(Input::query('filter')));
         $repository->pushCriteria(new Search(Input::query('q')));
 
-        $threads = $repository->model(Thread::class)->getThreadList(Config::get('setting.per_page'));
+        $threads = $repository->model(Thread::class)->getThreadList(Config::get('setting.threads_per_page', 15));
 
         return $this->view('threads.index')
             ->withThreads($threads)
@@ -77,7 +77,7 @@ class ThreadController extends Controller
 
         $replies = $thread->replies()
                     ->orderBy('id', 'asc')
-                    ->paginate(Config::get('setting.per_page'));
+                    ->paginate(Config::get('setting.replies_per_page', 30));
 
         $repository = app('repository');
         $repository->pushCriteria(new BelongsToNode($thread->node_id));

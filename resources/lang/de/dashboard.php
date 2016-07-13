@@ -249,6 +249,8 @@ return [
             'site_logo'                     => 'Seitenlogo',
             'site_cdn'                      => 'Seiten CDN',
             'site_about'                    => 'Über',
+            'threads_per_page'              => 'Threads per page',
+            'replies_per_page'              => 'Replies per page',
             'new_thread_dropdowns'          => 'Neuer Thread erstellen Dropdown',
             'footer_html'                   => 'Footer(Support HTML)',
             'captcha_login_disabled'        => 'Captcha Login deaktiviert',
@@ -262,9 +264,7 @@ return [
             'timezone'     => 'Wähle Zeitzone',
         ],
         'customization' => [
-            'customization' => 'Startseiten-Routing',
-            'controller'    => 'Controller',
-            'method'        => 'Method',
+            'customization' => 'Customization',
         ],
         'stylesheet' => [
             'stylesheet' => 'Stylesheet',

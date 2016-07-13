@@ -248,6 +248,8 @@ return [
             'site_logo'                     => '网站logo',
             'site_cdn'                      => 'CDN地址',
             'site_about'                    => '关于我们',
+            'threads_per_page'              => '每页显示多少话题',
+            'replies_per_page'              => '每页显示多少回帖',
             'new_thread_dropdowns'          => '新建话题快捷选项',
             'footer_html'                   => '页脚(支持HTML)',
             'captcha_login_disabled'        => '登录时无需验证码',
@@ -261,9 +263,7 @@ return [
             'timezone'     => '时区',
         ],
         'customization' => [
-            'customization' => '首页路由',
-            'controller'    => 'Controller',
-            'method'        => 'Method',
+            'customization' => '页面定制',
         ],
         'stylesheet' => [
             'stylesheet' => '自定义样式',
