@@ -23,6 +23,7 @@ return [
     'at'               => 'at',
     'view_count'       => 'Views',
     'follow'           => 'Follow',
+    'unfollow'         => 'Unfollow',
     'favorite'         => 'Favorite',
     'like'             => 'Like',
     'unlike'           => 'Unlike',

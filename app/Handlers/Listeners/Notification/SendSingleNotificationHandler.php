@@ -60,7 +60,7 @@ class SendSingleNotificationHandler
         if ($type == 'thread_follow') {
             app('notifier')->notify($type, Auth::user(), $target->user, $target);
         } else {
-            app('notifier')->notify($type, Auth::user(), $target);
+            app('notifier')->notify($type, Auth::user(), $target, $target);
         }
     }
 

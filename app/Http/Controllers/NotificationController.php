@@ -21,7 +21,7 @@ class NotificationController extends Controller
 {
     public function index()
     {
-        $notifications = Auth::user()->notifications()->orderBy('created_at', 'desc')->paginate(20)->groupBy(function (Notification $notification) {
+        $notifications = Notification::forUser(Auth::user()->id)->recent()->paginate(20)->groupBy(function (Notification $notification) {
             return app(DateFactory::class)->make($notification->created_at)->toDateString();
         });
 
@@ -39,7 +39,7 @@ class NotificationController extends Controller
 
     public function clean()
     {
-        Auth::user()->notifications()->delete();
+        Notification::forUser(Auth::user()->id)->delete();
 
         return Redirect::route('notification.index')
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));

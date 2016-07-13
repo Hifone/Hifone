@@ -23,6 +23,7 @@ return [
     'at'               => '于',
     'view_count'       => '阅读',
     'follow'           => '关注',
+    'unfollow'         => '取消关注',
     'favorite'         => '收藏',
     'like'             => '赞',
     'unlike'           => '踩',
