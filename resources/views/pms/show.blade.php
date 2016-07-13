@@ -42,9 +42,9 @@
 
     <div class="panel panel-default">
     <div class="panel-body">
-      <a href="/pm/create" class="btn btn-success btn-block">新建 Pm</a>
+      <a href="/pm/create" class="btn btn-success btn-block">{{ trans('hifone.pms.new_pm') }}</a>
     </div>
-    <div class="panel-footer"><a href="/pm?tab=inbox">查看我的收件箱</a></div>
+    <div class="panel-footer"><a href="/pm?tab=inbox">{{ trans('hifone.pms.view_inbox') }}</a></div>
     </div>
 
   </div>

@@ -40,7 +40,7 @@
           {!! Form::submit(trans('forms.publish'), ['class' => 'btn btn-primary col-xs-2', 'id' => 'pm-create-submit']) !!}
           <div class="pull-right">
             <small>{!! trans('hifone.photos.drag_drop') !!}</small>
-            <a href="/markdown" target="_blank"><i class="fa fa-lightbulb-o"></i> 排版说明</a>
+            <a href="/markdown" target="_blank"><i class="fa fa-lightbulb-o"></i> {{ trans('hifone.photos.markdown_desc') }}</a>
             </small>
           </div>
         </div>
@@ -57,9 +57,9 @@
   <div class="col-md-3 side-bar">
     <div class="panel panel-default">
     <div class="panel-body">
-      <a href="/pm/create" class="btn btn-success btn-block">新建 Pm</a>
+      <a href="/pm/create" class="btn btn-success btn-block">{{ trans('hifone.pms.new_pm') }}</a>
     </div>
-    <div class="panel-footer"><a href="/pm?tab=inbox">查看我的收件箱</a></div>
+    <div class="panel-footer"><a href="/pm?tab=inbox">{{ trans('hifone.pms.view_inbox') }}</a></div>
     </div>
 
   </div>

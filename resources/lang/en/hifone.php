@@ -204,8 +204,13 @@ return [
 
 // Pms
     'pms'   => [
-        'pms'       => 'Pm',
-        'recipient' => 'Recipient',
+        'pms'        => 'Pm',
+        'recipient'  => 'Recipient',
+        'new_pm'     => 'New PM',
+        'view_inbox' => 'View my Inbox',
+        'nav_create' => 'Send PM',
+        'nav_inbox'  => 'View Inbox',
+        'nav_outbox' => 'View Outbox',
     ],
 
 // Credits
@@ -256,6 +261,15 @@ return [
         'tips'                 => '',
         'account_available'    => 'If you have a account or do you want do login with Goolge Auth, klick <a href="/auth/login">Login</a>.',
         'login_with_oauth'     => 'Login with other platform',
+        //OAuth Strings
+        'oauth' => [
+            //OAuth Landing Page
+            'landing' => [
+                'title'    => 'Thirdparty Login',
+                'welcome'  => ', to complete the Registration please select one of the following:',
+                'choice_1' => 'Direct login with Hifone',
+            ],
+        ],
     ],
 
     // Footer
