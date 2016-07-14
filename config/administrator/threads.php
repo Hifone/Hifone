@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
     'title'   => '话题',
     'heading' => '话题',
@@ -62,7 +71,6 @@ return [
         'operation' => [
             'title'  => '管理',
             'output' => function ($value, $model) {
-
             },
             'sortable' => false,
         ],
@@ -77,14 +85,14 @@ return [
             'type'               => 'relationship',
             'name_field'         => 'username',
             'autocomplete'       => true,
-            'search_fields'      => array("CONCAT(id, ' ', username)"),
+            'search_fields'      => ["CONCAT(id, ' ', username)"],
             'options_sort_field' => 'id',
         ],
         'node' => [
             'title'              => '分类',
             'type'               => 'relationship',
             'name_field'         => 'name',
-            'search_fields'      => array("CONCAT(id, ' ', name)"),
+            'search_fields'      => ["CONCAT(id, ' ', name)"],
             'options_sort_field' => 'id',
         ],
         'body_original' => [
@@ -135,14 +143,14 @@ return [
             'type'               => 'relationship',
             'name_field'         => 'name',
             'autocomplete'       => true,
-            'search_fields'      => array("CONCAT(id, ' ', username)"),
+            'search_fields'      => ["CONCAT(id, ' ', username)"],
             'options_sort_field' => 'id',
         ],
         'node' => [
             'title'              => '分类',
             'type'               => 'relationship',
             'name_field'         => 'name',
-            'search_fields'      => array("CONCAT(id, ' ', screen_name)"),
+            'search_fields'      => ["CONCAT(id, ' ', screen_name)"],
             'options_sort_field' => 'id',
         ],
         'body_original' => [
@@ -177,7 +185,7 @@ return [
         ],
     ],
     'rules'   => [
-        'title' => 'required'
+        'title' => 'required',
     ],
     'messages' => [
         'title.required' => '请填写标题',

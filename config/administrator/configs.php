@@ -1,11 +1,20 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
 
-    'title' => 'Settings',
-    'single'=>'setting',
-    'model'=>'Hifone\Models\Setting',
-    'columns'=>[
+    'title'   => 'Settings',
+    'single'  => 'setting',
+    'model'   => 'Hifone\Models\Setting',
+    'columns' => [
         'id' => [
             'title' => 'ID',
         ],
@@ -16,9 +25,9 @@ return [
             'title' => 'Value',
         ],
     ],
-    'edit_fields'=>[
+    'edit_fields' => [
         'name' => [
-            'type'=>'text',
+            'type' => 'text',
         ],
         'value' => [
             'type' => 'textarea',

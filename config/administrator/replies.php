@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
     'title'   => '回复',
     'heading' => '回复',
@@ -42,7 +51,6 @@ return [
         'operation' => [
             'title'  => '管理',
             'output' => function ($value, $model) {
-
             },
             'sortable' => false,
         ],
@@ -53,7 +61,7 @@ return [
             'type'               => 'relationship',
             'name_field'         => 'name',
             'autocomplete'       => true,
-            'search_fields'      => array("CONCAT(id, ' ', name)"),
+            'search_fields'      => ["CONCAT(id, ' ', name)"],
             'options_sort_field' => 'id',
         ],
         'thread' => [
@@ -61,7 +69,7 @@ return [
             'type'               => 'relationship',
             'name_field'         => 'title',
             'autocomplete'       => true,
-            'search_fields'      => array("CONCAT(id, ' ', title)"),
+            'search_fields'      => ["CONCAT(id, ' ', title)"],
             'options_sort_field' => 'id',
         ],
         'body_original' => [
@@ -88,7 +96,7 @@ return [
             'type'               => 'relationship',
             'name_field'         => 'name',
             'autocomplete'       => true,
-            'search_fields'      => array("CONCAT(id, ' ', name)"),
+            'search_fields'      => ["CONCAT(id, ' ', name)"],
             'options_sort_field' => 'id',
         ],
         'thread' => [
@@ -96,7 +104,7 @@ return [
             'type'               => 'relationship',
             'name_field'         => 'title',
             'autocomplete'       => true,
-            'search_fields'      => array("CONCAT(id, ' ', title)"),
+            'search_fields'      => ["CONCAT(id, ' ', title)"],
             'options_sort_field' => 'id',
         ],
         'is_block' => [
@@ -118,7 +126,7 @@ return [
         ],
     ],
     'rules'   => [
-        'body_original' => 'required'
+        'body_original' => 'required',
     ],
     'messages' => [
         'body_original.required' => '请填写回复内容',

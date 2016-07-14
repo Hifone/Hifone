@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
     'title'   => '第三方接入',
     'heading' => '第三方接入',

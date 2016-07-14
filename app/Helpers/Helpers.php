@@ -150,13 +150,13 @@ if (!function_exists('checkbox_is_active')) {
 if (!function_exists('admin_link')) {
     function admin_link($title, $path, $id = '')
     {
-        return '<a href="'.admin_url($path, $id).'" target="_blank">' . $title . '</a>';
+        return '<a href="'.admin_url($path, $id).'" target="_blank">'.$title.'</a>';
     }
 }
 
 if (!function_exists('admin_url')) {
     function admin_url($path, $id = '')
     {
-        return env('APP_URL') . "/admin/$path" . ($id ? '/'.$id : '');
+        return env('APP_URL')."/admin/$path".($id ? '/'.$id : '');
     }
 }

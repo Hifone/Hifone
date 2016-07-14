@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
     'title'   => '标签',
     'heading' => '标签',
@@ -48,7 +57,7 @@ return [
     ],
     'actions' => [],
     'rules'   => [
-        'name' => 'required|min:1|unique:tags'
+        'name' => 'required|min:1|unique:tags',
     ],
     'messages' => [
         'name.unique'   => '标签名在数据库里有重复，请选用其他名称。',

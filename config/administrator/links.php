@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
     'title'   => '友情链接',
     'heading' => '友情链接',
@@ -20,7 +29,7 @@ return [
         ],
         'cover' => [
             'title'    => '图片',
-            'output' => function ($value) {
+            'output'   => function ($value) {
                 return empty($value) ? 'N/A' : <<<EOD
     <img src="$value" width="180">
 EOD;
