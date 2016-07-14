@@ -168,6 +168,7 @@ return [
         GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
         Roumen\Feed\FeedServiceProvider::class,
+        Frozennode\Administrator\AdministratorServiceProvider::class,
 
         /*
          * Application Service Providers...

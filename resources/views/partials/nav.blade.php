@@ -47,7 +47,7 @@
           @if(Auth::check())
             @if($current_user->hasRole(['Founder','Admin']))
                  <li>
-                   <a href="{{ route('dashboard.index') }}" data-pjax="no" title="{{ trans('dashboard.dashboard') }}"><i class="fa fa-wrench"></i> <span class="hidden-xs hidden-sm">{{ trans('dashboard.dashboard') }}</span></a>
+                   <a href="/admin" data-pjax="no" title="{{ trans('dashboard.dashboard') }}"><i class="fa fa-wrench"></i> <span class="hidden-xs hidden-sm">{{ trans('dashboard.dashboard') }}</span></a>
                  </li>
             @endif
           <li {!! set_active('notification*', ['notification']) !!}>
