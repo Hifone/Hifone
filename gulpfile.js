@@ -3,12 +3,6 @@ var elixir = require('laravel-elixir'),
     gutil = require('gulp-util'),
     coffee = require('gulp-coffee');
 
-gulp.task('coffee', function() {
-  gulp.src('./resources/assets/coffee/**/*.coffee')
-    .pipe(gulp.dest('./public/dist/coffee/'))
-    .pipe(coffee({bare: true}).on('error', gutil.log));
-});
-
 elixir.config.production = true;
 elixir.config.sourcemaps = false;
 
@@ -23,7 +17,9 @@ elixir(function (mix) {
             'vendor/bower_components/ekko-lightbox/dist/ekko-lightbox.css',
             'public/dist/css/hifone.css'
         ], 'public/dist/css/all.css', './')
-        .coffee()
+        .coffee([
+            'resources/assets/coffee/**/*.coffee'
+        ])
         .scripts([
             'vendor/bower_components/jquery/dist/jquery.js',
             'vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
