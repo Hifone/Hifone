@@ -24,6 +24,13 @@ return [
         'value' => [
             'title' => 'Value',
         ],
+        'operation' => [
+            'title'  => '管理',
+            'output' => function ($value, $model) {
+                return $value;
+            },
+            'sortable' => false,
+        ],
     ],
     'edit_fields' => [
         'name' => [

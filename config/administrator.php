@@ -37,7 +37,7 @@ return [
      *
      * @type string
      */
-    'title' => 'Admin',
+    'title' => 'Hifone Dashboard',
 
     /*
      * The path to your model config directory
