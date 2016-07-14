@@ -14,7 +14,7 @@
                 <div class="panel-body">
                     <div class="reply-box form box-block">
                         @if (isset($thread))
-                            {!! Form::model($thread, ['route' => ['thread.update', $thread->id], 'id' => 'thread_edit_form', 'method' => 'patch']) !!}
+                            {!! Form::model($thread, ['route' => ['thread.update', $thread->id], 'id' => 'thread_edit_form', 'class' => 'create_form', 'method' => 'patch']) !!}
                         @else
                             {!! Form::open(['route' => 'thread.store','id' => 'thread_create_form', 'class' => 'create_form', 'method' => 'post']) !!}
                         @endif

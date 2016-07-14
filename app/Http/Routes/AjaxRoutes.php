@@ -87,7 +87,7 @@ class AjaxRoutes
                 'uses'   => 'NotificationController@count',
             ]);
 
-            $router->post('upload_image', [
+            $router->any('upload_image', [
                 'as'     => 'upload_image',
                 'uses'   => 'UploadController@uploadImage',
             ]);
