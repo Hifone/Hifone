@@ -12,6 +12,7 @@
         "arrilot/laravel-widgets": "^3.3",
         "backup-manager/laravel": "^1.1",
         "doctrine/dbal": "^2.5",
+        "hifone/dashboard": "~1.0",
         "graham-campbell/exceptions": "^5.1",
         "gregwar/captcha": "~1.1",
         "guzzlehttp/guzzle": "~6.0",

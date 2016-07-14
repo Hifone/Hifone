@@ -146,3 +146,17 @@ if (!function_exists('checkbox_is_active')) {
         return (old($haystack) == '1') || ($resource && $resource->$haystack == 1) ? 'checked' : '';
     }
 }
+
+if (!function_exists('admin_link')) {
+    function admin_link($title, $path, $id = '')
+    {
+        return '<a href="'.admin_url($path, $id).'" target="_blank">' . $title . '</a>';
+    }
+}
+
+if (!function_exists('admin_url')) {
+    function admin_url($path, $id = '')
+    {
+        return env('APP_URL') . "/admin/$path" . ($id ? '/'.$id : '');
+    }
+}
