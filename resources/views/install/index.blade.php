@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="{{ $user_locale or $site_locale }}">
 @include('dashboard.partials.head')
 
 <body class="install" data-page="install">
@@ -38,8 +38,8 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Requirement</th>
-                        <th>Pass?</th>
+                        <th>{{ trans("install.requirement") }}</th>
+                        <th>{{ trans("install.password_qm") }}</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -23,6 +23,8 @@ return [
     'finish_install'      => 'Go to dashboard',
     'next_step'           => '下一步',
     'prev_step'           => '上一步',
+    'requirements'        => 'Requirements',
+    'password_qm'         => 'Password?',
 
     'email'            => 'Email',
     'username'         => 'Username',

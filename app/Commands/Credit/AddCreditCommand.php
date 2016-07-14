@@ -30,7 +30,8 @@ final class AddCreditCommand
     /**
      * Create a new add credit command instance.
      *
-     * @param string $body
+     * @param $action
+     * @param $user
      */
     public function __construct($action, $user)
     {
