@@ -168,7 +168,7 @@ return [
      *
      * @type int
      */
-    'global_rows_per_page' => 5,
+    'global_rows_per_page' => 20,
 
     /*
      * An array of available locale strings. This determines which locales are available in the languages menu at the top right of the Administrator
