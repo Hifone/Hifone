@@ -1318,16 +1318,16 @@
         },
         {
             "name": "hifone/dashboard",
-            "version": "v1.0.10",
+            "version": "v1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Hifone/Dashboard.git",
-                "reference": "f2c43015008dfd6306c5ab908e91910285c64783"
+                "reference": "3147b7fc07eb1e276748d5bacc9ccfb64cad16d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hifone/Dashboard/zipball/f2c43015008dfd6306c5ab908e91910285c64783",
-                "reference": "f2c43015008dfd6306c5ab908e91910285c64783",
+                "url": "https://api.github.com/repos/Hifone/Dashboard/zipball/3147b7fc07eb1e276748d5bacc9ccfb64cad16d1",
+                "reference": "3147b7fc07eb1e276748d5bacc9ccfb64cad16d1",
                 "shasum": ""
             },
             "require": {
@@ -1367,7 +1367,7 @@
                 "laravel",
                 "laravel-administrator"
             ],
-            "time": "2016-07-19 05:50:08"
+            "time": "2016-07-19 10:59:30"
         },
         {
             "name": "hifone/stringblade",
