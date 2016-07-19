@@ -15,6 +15,7 @@ return [
     'home'             => 'Home',
     'excellent'        => 'Ausgezeichnet',
     'search'           => 'Suche',
+    'dashboard'        => 'Admin',
     'logout'           => 'Abmelden',
     'logout_confirm'   => 'Sicher, das du dich abmelden willst?',
     'signup'           => 'Registrierung',
@@ -37,6 +38,7 @@ return [
     'registered_users' => 'Schon registriert?',
     'ranking'          => 'Platzierung',
     'member'           => 'Mitglied',
+
 // Nodes
     'nodes'            => [
         'all'               => 'Forennavigation',

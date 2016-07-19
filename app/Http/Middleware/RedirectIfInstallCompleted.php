@@ -29,7 +29,7 @@ class RedirectIfInstallCompleted
     public function handle(Request $request, Closure $next)
     {
         if (Config::get('setting.site_name')) {
-            return Redirect::to('dashboard');
+            return Redirect::to('admin');
         }
 
         return $next($request);

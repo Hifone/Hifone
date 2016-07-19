@@ -15,6 +15,7 @@ return [
     'home'             => '首页',
     'excellent'        => '精华',
     'search'           => '搜索',
+    'dashboard'        => '控制台',
     'logout'           => '退出',
     'logout_confirm'   => '你确定要退出吗?',
     'signup'           => '注册',
@@ -148,7 +149,6 @@ return [
         'location'                  => '城市',
         'location_help'             => '请用中文填写所在城市',
         'blog'                      => '博客',
-        'edit'                      => '修改信息',
         'block'                     => '封锁',
         'unblock'                   => '解封',
         'role'                      => '角色',
@@ -178,6 +178,15 @@ return [
         'password_update'           => 'Update password',
         'select_language'           => 'Select Language',
         'register_date'             => '注册:',
+        'add'         => [
+            'title'   => '注册用户',
+            'success' => '用户注册成功.',
+            'failure' => '用户注册失败',
+        ],
+        'edit'     => [
+            'title'   => '编辑信息',
+            'success' => '用户更新成功.',
+        ],
     ],
 
 // 通知
