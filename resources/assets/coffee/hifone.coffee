@@ -9,9 +9,6 @@ HifoneView = Backbone.View.extend
     if $('body').data('page') in ['forum']
       window._forumView = new ForumView({parentView: @})
 
-    if $('body').data('page') in ['dashboard']
-      window._dashboardView = new DashboardView({parentView: @})
-
     if $('body').data('page') in ['install']
       window._installView = new InstallView({parentView: @})
 

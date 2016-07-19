@@ -24,7 +24,7 @@
             </button>
             <ul class="dropdown-menu" role="menu"><li class=""><a href="{{ route('user.home', $current_user->username) }}">{{ trans('hifone.users.profile') }}</a></li>
             <li><div class='divider'></div></li>
-                <li><a href="{!! route('user.edit', Auth::user()->id) !!}">{{ trans('hifone.users.edit') }}</a></li>
+                <li><a href="{!! route('user.edit', Auth::user()->id) !!}">{{ trans('hifone.users.edit.title') }}</a></li>
                 <li><a href="{{ route('user.favorites',$current_user->id) }}">{{ trans('hifone.users.favorites') }}</a></li>
                 <li><a href="{{ route('credit.index')}}">{{ trans('hifone.users.credits') }}</a></li>
                 <li class='divider'></li>
@@ -47,7 +47,7 @@
           @if(Auth::check())
             @if($current_user->hasRole(['Founder','Admin']))
                  <li>
-                   <a href="/admin" data-pjax="no" title="{{ trans('dashboard.dashboard') }}"><i class="fa fa-wrench"></i> <span class="hidden-xs hidden-sm">{{ trans('dashboard.dashboard') }}</span></a>
+                   <a href="/admin" data-pjax="no" title="{{ trans('hifone.dashboard') }}"><i class="fa fa-wrench"></i> <span class="hidden-xs hidden-sm">{{ trans('hifone.dashboard') }}</span></a>
                  </li>
             @endif
           <li {!! set_active('notification*', ['notification']) !!}>

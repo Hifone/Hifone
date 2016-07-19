@@ -65,7 +65,7 @@ class AuthController extends Controller
             ->withCaptcha(route('captcha', ['random' => time()]))
             ->withConnectData(Session::get('connect_data'))
             ->withProviders($providers)
-            ->withPageTitle(trans('dashboard.login.login'));
+            ->withPageTitle(trans('hifone.login.login'));
     }
 
     public function landing()
@@ -125,7 +125,7 @@ class AuthController extends Controller
             ->withCaptchaRegisterDisabled(Config::get('setting.captcha_register_disabled'))
             ->withCaptcha(route('captcha', ['random' => time()]))
             ->withConnectData($connect_data)
-            ->withPageTitle(trans('dashboard.login.login'));
+            ->withPageTitle(trans('hifone.login.login'));
     }
 
     public function postRegister()
@@ -148,7 +148,7 @@ class AuthController extends Controller
             $verifycode = array_pull($registerData, 'verifycode');
             if (!Config::get('setting.captcha_register_disabled') && $verifycode != Session::get('phrase')) {
                 return Redirect::to('auth/register')
-                    ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
+                    ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('hifone.users.add.failure')))
                     ->withInput(Input::all())
                     ->withErrors([trans('hifone.captcha.failure')]);
             }
@@ -157,7 +157,7 @@ class AuthController extends Controller
             $user = $this->create($registerData);
         } catch (ValidationException $e) {
             return Redirect::to('auth/register')
-                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('dashboard.users.add.failure')))
+                ->withTitle(sprintf('%s %s', trans('hifone.whoops'), trans('hifone.users.add.failure')))
                 ->withInput(Input::all())
                 ->withErrors($e->getMessageBag());
         }
