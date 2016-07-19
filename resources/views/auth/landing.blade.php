@@ -30,7 +30,7 @@
                 </div>
                 <div class="panel panel-default">
                 <div class="panel-footer">
-                    <i class="fa fa-user"></i> {{ trans('hifone.login.oauth.landing.note', ['provider' => $connect_data['provider_id'], 'name' => $connect_data['nickname']]) }}
+                    <i class="fa fa-user"></i> {{ trans('hifone.login.oauth.landing.note', ['provider' => $connect_data['provider_name'], 'name' => $connect_data['nickname']]) }}
                 </div>
             </div>
                     </div>

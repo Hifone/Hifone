@@ -239,7 +239,7 @@ class AuthController extends Controller
             $identity = Identity::where('provider_id', '=', $provider->id)->where('extern_uid', '=', $extern_user->id)->first();
 
             if (is_null($identity)) {
-                Session::put('connect_data', ['provider_id' => $provider->id, 'extern_uid' => $extern_user->id, 'nickname' => $extern_user->nickname]);
+                Session::put('connect_data', ['provider_id' => $provider->id, 'provider_name' => $provider->name, 'extern_uid' => $extern_user->id, 'nickname' => $extern_user->nickname]);
 
                 return Redirect::to('/auth/landing');
             }
