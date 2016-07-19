@@ -54,6 +54,16 @@ class Credit extends Model implements HasPresenter
     }
 
     /**
+     * Credits can belong to a user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * A credit belongs to a credit rule.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

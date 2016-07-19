@@ -72,7 +72,7 @@ return [
 
         // Create or Edit
         'pick_node'      => 'Select node',
-        'mark_excellent' => 'Mark excelent',
+        'mark_excellent' => 'Mark excellent',
         'mark_stick'     => 'Mark stick',
         'mark_sink'      => 'Mark sink',
         // Posting Tips
