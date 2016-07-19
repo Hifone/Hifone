@@ -216,12 +216,13 @@ return [
 
 // Credits
     'credits' => [
-        'credits' => 'Credits',
-        'mine'    => 'Meine Punkte',
-        'time'    => 'Zeit',
-        'type'    => 'Typ',
-        'reward'  => 'Betrag',
-        'balance' => 'Kontostand',
+        'credits'         => 'Credits',
+        'mine'            => 'Meine Credits',
+        'time'            => 'Zeit',
+        'type'            => 'Typ',
+        'reward'          => 'Betrag',
+        'balance'         => 'Kontostand',
+        'balance_current' => 'Aktueller Kontostand:',
     ],
 
 // Tips
@@ -264,11 +265,24 @@ return [
         'login_with_oauth'     => 'Anmelden mit alternativ Anbieter',
         //OAuth Strings
         'oauth' => [
+            'unbound' => 'Verbindung zu :provider trennen',
+            'bound'   => 'Verbinden zu :provider',
+            //OAuth Messages for Login
+            'login' => [
+                'note' => 'Nach einem erfolgreichem Login, wird der :provider Account für :name mti dem Login verbunden.',
+            ],
             //OAuth Landing Page
             'landing' => [
                 'title'    => 'Fremdanbieter Login',
                 'welcome'  => ', um deine Registrierung abschließen zu können, wähle aus folgenden Möglichkeiten:',
-                'choice_1' => 'Direkter Login über Hifone',
+                'choice_1' => '1. Vorhandener Account',
+                'button_1' => 'Login',
+                'choice_2' => '2. Neuer Account',
+                'button_2' => 'Auto Registrierung',
+                'note'     => 'Diese 2 Möglichkeiten erstellen aus deinem :provider Account :name automatisch einen Account in Hifone.',
+            ],
+            'errors' => [
+                'invalidstate' => 'Authentifizierung fehlgeschlagen.',
             ],
         ],
     ],

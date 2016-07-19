@@ -232,14 +232,14 @@ class AuthController extends Controller
                 $extern_user = \Socialite::with($slug)->user();
             } catch (InvalidStateException $e) {
                 return Redirect::to('/auth/login')
-                    ->withErrors(['授权失效']);
+                    ->withErrors([trans('hifone.oauth.errors.invalidstate')]);
             }
 
             //检查是否已经连接过
             $identity = Identity::where('provider_id', '=', $provider->id)->where('extern_uid', '=', $extern_user->id)->first();
 
             if (is_null($identity)) {
-                Session::put('connect_data', ['provider_id' => $provider->id, 'extern_uid' => $extern_user->id, 'nickname' => $extern_user->nickname]);
+                Session::put('connect_data', ['provider_id' => $provider->id, 'provider_name' => $provider->name, 'extern_uid' => $extern_user->id, 'nickname' => $extern_user->nickname]);
 
                 return Redirect::to('/auth/landing');
             }

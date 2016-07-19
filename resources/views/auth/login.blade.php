@@ -9,7 +9,7 @@
 				<div class="panel-body">
 					@if($connect_data)
 					<div class="alert alert-info">
-						登录成功后，即可自动与你的账号 {{  $connect_data['nickname'] }} 进行关联。
+						{{ trans('hifone.login.oauth.login.note', ['provider' => $connect_data['provider_id'], 'name' => $connect_data['nickname']]) }}
 					</div>
 					@endif
 					<form role="form" method="POST" action="/auth/login">
