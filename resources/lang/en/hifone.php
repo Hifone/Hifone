@@ -184,7 +184,7 @@ return [
             'failure' => 'The user could not be created, please try again.',
         ],
         'edit'     => [
-            'title'   => 'Edit User',
+            'title'   => 'Profile settings',
             'success' => 'User information is updated.',
         ],
     ],

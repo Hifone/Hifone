@@ -150,7 +150,6 @@ return [
         'location'                  => 'Ort',
         'location_help'             => 'Bitte gebe die exakte Stadt an.',
         'blog'                      => 'Blog',
-        'edit'                      => 'Profil bearbeiten',
         'block'                     => 'Blockieren',
         'unblock'                   => 'Blockieren rückgängig',
         'role'                      => 'Rolle',
@@ -180,6 +179,15 @@ return [
         'password_update'           => 'Passwort ändern',
         'select_language'           => 'Sprache auswählen',
         'register_date'             => 'Reg.-Datum:',
+        'add'                       => [
+            'title'   => 'Create',
+            'success' => 'User is created successfully.',
+            'failure' => 'The user could not be created, please try again.',
+        ],
+        'edit'     => [
+            'title'   => 'Profil bearbeiten',
+            'success' => 'User information is updated.',
+        ],
     ],
 
 // Notifications
