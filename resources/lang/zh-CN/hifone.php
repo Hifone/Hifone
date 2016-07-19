@@ -216,12 +216,12 @@ return [
 
 //积分
     'credits' => [
-        'credits' => '积分',
-        'mine'    => '我的积分',
-        'time'    => '日期',
-        'type'    => '类型',
-        'reward'  => '数额',
-        'balance' => '余额',
+        'credits'         => '积分',
+        'mine'            => '我的积分',
+        'time'            => '日期',
+        'type'            => '类型',
+        'reward'          => '数额',
+        'balance'         => '余额',
         'balance_current' => '当前余额:',
     ],
 
@@ -266,10 +266,10 @@ return [
         //OAuth Strings
         'oauth' => [
             'unbound' => '解绑 :provider 账号',
-            'bound' => '绑定 :provider 账号',
+            'bound'   => '绑定 :provider 账号',
             //OAuth Messages for Login
             'login' => [
-                'note' => 'After successful login, your :provider Account for :name is connected with your Hifone Account.'
+                'note' => 'After successful login, your :provider Account for :name is connected with your Hifone Account.',
             ],
             //OAuth Landing Page
             'landing' => [
@@ -279,7 +279,7 @@ return [
                 'button_1' => '直接登录',
                 'choice_2' => '2. 还没有Hifone账号',
                 'button_2' => '自动注册',
-                'note' => '以上两种方式都会自动将:provider账号: :name 与你的Hifone账号进行绑定。',
+                'note'     => '以上两种方式都会自动将:provider账号: :name 与你的Hifone账号进行绑定。',
             ],
             'errors' => [
                 'InvalidState' => 'Authentication failed.',

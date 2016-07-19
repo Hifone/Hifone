@@ -216,12 +216,12 @@ return [
 
 // Credits
     'credits' => [
-        'credits' => 'Credits',
-        'mine'    => 'My credits',
-        'time'    => 'Time',
-        'type'    => 'Type',
-        'reward'  => 'Reward',
-        'balance' => 'Balance',
+        'credits'         => 'Credits',
+        'mine'            => 'My credits',
+        'time'            => 'Time',
+        'type'            => 'Type',
+        'reward'          => 'Reward',
+        'balance'         => 'Balance',
         'balance_current' => 'Current balance',
     ],
 
@@ -266,10 +266,10 @@ return [
         //OAuth Strings
         'oauth' => [
             'unbound' => 'Disconnect from :provider',
-            'bound' => 'Connect to :provider',
+            'bound'   => 'Connect to :provider',
             //OAuth Messages for Login
             'login' => [
-                'note' => 'After successful login, your :provider Account for :name is connected with your Hifone Account.'
+                'note' => 'After successful login, your :provider Account for :name is connected with your Hifone Account.',
             ],
             //OAuth Landing Page
             'landing' => [
@@ -279,7 +279,7 @@ return [
                 'button_1' => 'Login',
                 'choice_2' => '2. Create new Hifone Account',
                 'button_2' => 'Automatic registration',
-                'note' => 'Both choices conneting your :provider Account :name with a Hifone Account.',
+                'note'     => 'Both choices conneting your :provider Account :name with a Hifone Account.',
             ],
             'errors' => [
                 'InvalidState' => 'Authentication failed.',
