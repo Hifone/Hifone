@@ -222,6 +222,7 @@ return [
         'type'    => '类型',
         'reward'  => '数额',
         'balance' => '余额',
+        'balance_current' => '当前余额:',
     ],
 
 // 小贴士
@@ -264,11 +265,24 @@ return [
         'login_with_oauth'     => '用其他平台的帐号登录',
         //OAuth Strings
         'oauth' => [
+            'unbound' => '解绑 :provider 账号',
+            'bound' => '绑定 :provider 账号',
+            //OAuth Messages for Login
+            'login' => [
+                'note' => 'After successful login, your :provider Account for :name is connected with your Hifone Account.'
+            ],
             //OAuth Landing Page
             'landing' => [
                 'title'    => '第三方接入',
                 'welcome'  => '，你好。还差最后一步完成注册。请选择：',
-                'choice_1' => '已有Hifone账号',
+                'choice_1' => '1. 已有Hifone账号',
+                'button_1' => '直接登录',
+                'choice_2' => '2. 还没有Hifone账号',
+                'button_2' => '自动注册',
+                'note' => '以上两种方式都会自动将:provider账号: :name 与你的Hifone账号进行绑定。',
+            ],
+            'errors' => [
+                'InvalidState' => 'Authentication failed.',
             ],
         ],
     ],

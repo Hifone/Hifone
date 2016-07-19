@@ -50,11 +50,11 @@
     @foreach($providers as $provider)
       @if(in_array($provider->id, $bind_oauth_ids))
        <a class="btn btn-default btn-block" data-method='post' data-url="/users/{{$user->id}}/unbind?provider_id={{ $provider->id }}" id="user-edit-button">
-      <i class="fa fa-minus"></i> 解绑 {{ $provider->name }} 账号
+      <i class="fa fa-minus"></i> {{ trans('hifone.login.oauth.unbound', ['provider' => $provider->name]) }}
     </a>
       @else
      <a class="btn btn-success btn-block" href="/auth/{{ $provider->slug }}" id="user-edit-button">
-      <i class="{{ $provider->icon ? $provider->icon : 'fa fa-plus' }}"></i> 绑定 {{ $provider->name }} 账号
+      <i class="{{ $provider->icon ? $provider->icon : 'fa fa-plus' }}"></i> {{ trans('hifone.login.oauth.bound', ['provider' => $provider->name]) }}
     </a>
       @endif
     @endforeach
