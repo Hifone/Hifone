@@ -223,7 +223,7 @@ class InstallController extends Controller
                 return Response::json(['status' => 1]);
             }
 
-            return Redirect::to('dashboard');
+            return Redirect::to('admin');
         }
         if (Request::ajax()) {
             return Response::json(['errors' => $v->getMessageBag()], 400);

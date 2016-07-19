@@ -15,6 +15,7 @@ return [
     'home'             => 'Home',
     'excellent'        => 'Excellent',
     'search'           => 'Search',
+    'dashboard'        => 'Admin',
     'logout'           => 'Sign out',
     'logout_confirm'   => 'Are you sure want to sign out?',
     'signup'           => 'Sign up',
@@ -148,7 +149,6 @@ return [
         'location'                  => 'City',
         'location_help'             => 'Please fill in the city name exactly.',
         'blog'                      => 'Blog',
-        'edit'                      => 'Settings',
         'block'                     => 'Block',
         'unblock'                   => 'Unblock',
         'role'                      => 'Role',
@@ -178,6 +178,15 @@ return [
         'password_update'           => 'Update password',
         'select_language'           => 'Select language',
         'register_date'             => 'Reg.-date:',
+        'add'                       => [
+            'title'   => 'Create',
+            'success' => 'User is created successfully.',
+            'failure' => 'The user could not be created, please try again.',
+        ],
+        'edit'     => [
+            'title'   => 'Profile settings',
+            'success' => 'User information is updated.',
+        ],
     ],
 
 // Notifications
