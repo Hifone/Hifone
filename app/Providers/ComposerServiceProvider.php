@@ -38,11 +38,11 @@ class ComposerServiceProvider extends ServiceProvider
         // Locale
         $factory->composer([
             'install.*',
-            'users.edit'], LocaleComposer::class);
+            'users.edit', ], LocaleComposer::class);
 
         //Timezone
         $factory->composer([
-            'install.*'], TimezoneComposer::class);
+            'install.*', ], TimezoneComposer::class);
     }
 
     /**
