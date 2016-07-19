@@ -178,7 +178,7 @@ return [
         'password_update'           => 'Update password',
         'select_language'           => 'Select Language',
         'register_date'             => '注册:',
-        'add'         => [
+        'add'                       => [
             'title'   => '注册用户',
             'success' => '用户注册成功.',
             'failure' => '用户注册失败',

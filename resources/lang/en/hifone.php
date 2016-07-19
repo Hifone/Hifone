@@ -178,7 +178,7 @@ return [
         'password_update'           => 'Update password',
         'select_language'           => 'Select language',
         'register_date'             => 'Reg.-date:',
-        'add'         => [
+        'add'                       => [
             'title'   => 'Create',
             'success' => 'User is created successfully.',
             'failure' => 'The user could not be created, please try again.',
