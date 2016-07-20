@@ -13,10 +13,11 @@ namespace Hifone\Models;
 
 use AltThree\Validator\ValidatingTrait;
 use Illuminate\Database\Eloquent\Model;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Link extends Model
 {
-    use ValidatingTrait;
+    use ValidatingTrait, RevisionableTrait;
 
     /**
      * The fillable properties.

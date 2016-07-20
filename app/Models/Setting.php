@@ -12,9 +12,11 @@
 namespace Hifone\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Setting extends Model
 {
+    use RevisionableTrait;
     /**
      * The attributes that should be casted to native types.
      *

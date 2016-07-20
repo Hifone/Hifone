@@ -12,8 +12,9 @@
 namespace Hifone\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Provider extends Model
 {
-    //
+    use RevisionableTrait;
 }

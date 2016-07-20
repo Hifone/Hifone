@@ -15,10 +15,11 @@ use AltThree\Validator\ValidatingTrait;
 use Hifone\Presenters\NodePresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Node extends Model implements HasPresenter
 {
-    use ValidatingTrait;
+    use ValidatingTrait, RevisionableTrait;
     /**
      * List of attributes that have default values.
      *

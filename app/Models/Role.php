@@ -13,10 +13,13 @@ namespace Hifone\Models;
 
 use Cache;
 use DB;
+use Venturecraft\Revisionable\RevisionableTrait;
 use Zizaco\Entrust\EntrustRole;
 
 class Role extends EntrustRole
 {
+    use RevisionableTrait;
+
     public static function relationArrayWithCache()
     {
         return Cache::remember('all_assigned_roles', $minutes = 60, function () {

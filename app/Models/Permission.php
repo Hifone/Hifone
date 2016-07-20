@@ -12,7 +12,9 @@
 namespace Hifone\Models;
 
 use Zizaco\Entrust\EntrustPermission;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Permission extends EntrustPermission
 {
+    use RevisionableTrait;
 }

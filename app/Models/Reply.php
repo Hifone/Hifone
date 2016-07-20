@@ -17,10 +17,11 @@ use Hifone\Models\Scopes\Recent;
 use Hifone\Presenters\ReplyPresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Reply extends Model implements HasPresenter
 {
-    use ValidatingTrait, ForUser, Recent;
+    use ValidatingTrait, ForUser, Recent, RevisionableTrait;
 
     /**
      * The fillable properties.
