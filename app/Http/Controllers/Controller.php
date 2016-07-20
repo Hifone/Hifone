@@ -12,6 +12,7 @@
 namespace Hifone\Http\Controllers;
 
 use Auth;
+use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Services\Breadcrumb\Breadcrumb;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
