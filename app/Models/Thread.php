@@ -22,10 +22,11 @@ use Hifone\Services\Tag\TaggableInterface;
 use Illuminate\Database\Eloquent\Model;
 use Input;
 use McCool\LaravelAutoPresenter\HasPresenter;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Thread extends Model implements HasPresenter, TaggableInterface
 {
-    use ValidatingTrait, Taggable, ForUser, Recent;
+    use ValidatingTrait, Taggable, ForUser, Recent, RevisionableTrait;
 
     // manually maintain
     public $timestamps = false;

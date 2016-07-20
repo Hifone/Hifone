@@ -14,10 +14,11 @@ namespace Hifone\Models\Ad;
 use AltThree\Validator\ValidatingTrait;
 use Hifone\Models\Advertisement;
 use Illuminate\Database\Eloquent\Model;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Adspace extends Model
 {
-    use ValidatingTrait;
+    use ValidatingTrait, RevisionableTrait;
 
     /**
      * List of attributes that have default values.

@@ -15,10 +15,11 @@ use AltThree\Validator\ValidatingTrait;
 use Hifone\Models\Ad\Adspace;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Advertisement extends Model
 {
-    use ValidatingTrait;
+    use ValidatingTrait, RevisionableTrait;
 
     /**
      * The attributes that should be casted to native types.
