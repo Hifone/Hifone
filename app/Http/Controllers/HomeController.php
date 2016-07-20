@@ -11,6 +11,8 @@
 
 namespace Hifone\Http\Controllers;
 
+use Auth;
+use Hifone\Events\User\UserWasLoggedinEvent;
 use Hifone\Models\Section;
 use Hifone\Models\Thread;
 use Hifone\Repositories\Criteria\Thread\Filter;
@@ -25,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) {
+            $activeDate = app('session')->get('active_date');
+
+            if (!$activeDate || $activeDate != date('Ymd')) {
+                event(new UserWasLoggedinEvent(Auth::user()));
+                app('session')->put('active_date', date('Ymd'));
+            }
+        }
+
         $class = Config::get('setting.home_controller') ?: 'ThreadController';
         $method = Config::get('setting.home_method') ?: 'index';
 
