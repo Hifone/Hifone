@@ -27,10 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             $activeDate = app('session')->get('active_date');
 
-            if(!$activeDate || $activeDate != date('Ymd')) {
+            if (!$activeDate || $activeDate != date('Ymd')) {
                 event(new UserWasLoggedinEvent(Auth::user()));
                 app('session')->put('active_date', date('Ymd'));
             }
