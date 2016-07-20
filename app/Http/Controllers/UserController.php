@@ -59,7 +59,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $this->needAuthorOrAdminPermission($user->id);
-        $providers = Provider::orderBy('created_at', 'desc')->get();
+        $providers = Provider::recent()->get();
         $ids = $user->identities()->pluck('provider_id')->all();
 
         return $this->view('users.edit')

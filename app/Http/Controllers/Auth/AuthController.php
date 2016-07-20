@@ -57,7 +57,7 @@ class AuthController extends Controller
 
     public function getLogin()
     {
-        $providers = Provider::orderBy('created_at', 'desc')->get();
+        $providers = Provider::recent()->get();
 
         return $this->view('auth.login')
             ->withCaptchaLoginDisabled(Config::get('setting.captcha_login_disabled'))

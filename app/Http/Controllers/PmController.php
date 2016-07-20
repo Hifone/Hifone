@@ -108,11 +108,11 @@ class PmController extends Controller
 
     protected function inbox($userId)
     {
-        return Pm::forUser($userId)->orderBy('created_at', 'desc')->paginate(10);
+        return Pm::forUser($userId)->recent()->paginate(10);
     }
 
     protected function outbox($userId)
     {
-        return Pm::where('author_id', $userId)->orderBy('created_at', 'desc')->paginate(10);
+        return Pm::where('author_id', $userId)->recent()->paginate(10);
     }
 }
