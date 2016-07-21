@@ -55,6 +55,7 @@ class AddCreditCommandHandler
             'user_id'           => $command->user->id,
             'rule_id'           => $credit_rule->id,
             'balance'           => $command->user->score + $credit_rule->reward,
+            'body'              => $credit_rule->reward,
             'created_at'        => Carbon::now()->toDateTimeString(),
         ];
 
