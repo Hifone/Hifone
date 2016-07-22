@@ -12,7 +12,7 @@
     {{ $notification->labelUp }}
   </div>
     <div class="media-content summary markdown-reply">
-      {{ trans('hifone.credits.credits') }}: {{ $notification->object->body or $notification->object->rule->reward }}
+      {{ trans('hifone.credits.credits') }}: {{ $notification->object->body ? null : $notification->object->rule->reward }}
     {!! $notification->body !!}
     </div>
 
