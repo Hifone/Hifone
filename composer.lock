@@ -1318,16 +1318,16 @@
         },
         {
             "name": "hifone/dashboard",
-            "version": "v1.0.12",
+            "version": "v1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Hifone/Dashboard.git",
-                "reference": "a88fc1ad956677269e45e66868fba1b7f888d07b"
+                "reference": "45b35879e74d99164db9c8a34da40cdb53d25e90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hifone/Dashboard/zipball/a88fc1ad956677269e45e66868fba1b7f888d07b",
-                "reference": "a88fc1ad956677269e45e66868fba1b7f888d07b",
+                "url": "https://api.github.com/repos/Hifone/Dashboard/zipball/45b35879e74d99164db9c8a34da40cdb53d25e90",
+                "reference": "45b35879e74d99164db9c8a34da40cdb53d25e90",
                 "shasum": ""
             },
             "require": {
@@ -1367,7 +1367,7 @@
                 "laravel",
                 "laravel-administrator"
             ],
-            "time": "2016-07-20 02:13:48"
+            "time": "2016-07-22 06:57:03"
         },
         {
             "name": "hifone/stringblade",
@@ -4971,16 +4971,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.4.6",
+            "version": "5.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2f1fc94b77ea6418bd6a06c64a1dac0645fbce59"
+                "reference": "6c8a756c17a1a92a066c99860eb57922e8b723da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2f1fc94b77ea6418bd6a06c64a1dac0645fbce59",
-                "reference": "2f1fc94b77ea6418bd6a06c64a1dac0645fbce59",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6c8a756c17a1a92a066c99860eb57922e8b723da",
+                "reference": "6c8a756c17a1a92a066c99860eb57922e8b723da",
                 "shasum": ""
             },
             "require": {
@@ -5045,7 +5045,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-06-16 06:01:15"
+            "time": "2016-07-21 06:55:27"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
