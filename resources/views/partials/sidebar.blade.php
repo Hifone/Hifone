@@ -48,10 +48,9 @@
       <tbody>
       @foreach($top_users as $index => $user)
         <tr>
-        <td style="vertical-align: middle;">{{ $index + 1 }}</td>
-        <td style="text-align: center;"><div class="avatar"><a href="{{ route('user.home',$user->username) }}"><img class="media-object img-thumbnail avatar-48" alt="{{ $user->username }}" src="{{ $user->avatar }}"></a></div></td>
-        <td style="vertical-align: middle;"><a href="{{ route('user.home',$user->username) }}">{{ $user->username }}</a><td>
-        <td style="vertical-align: middle;"><span data-toggle="tooltip" data-placement="top" title="{{ $user->score }}">{!! $user->coins !!}</span></td>
+        <td style="text-align: center;"><div class="avatar"><a href="{{ route('user.home',$user->username) }}"><img class="media-object img-thumbnail avatar-32" alt="{{ $user->username }}" src="{{ $user->avatar }}"></a></div></td>
+        <td style="vertical-align: middle; font-size: 80%;"><a href="{{ route('user.home',$user->username) }}">{{ $user->username }}</a><td>
+        <td style="vertical-align: middle;"><small data-toggle="tooltip" data-placement="top" title="{{ $user->score }}">{!! $user->coins !!}</small></td>
         </tr>
       @endforeach
       </tbody>
