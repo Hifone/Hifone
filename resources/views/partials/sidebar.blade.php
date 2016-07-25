@@ -68,7 +68,9 @@
     </div>
     <div class="panel-body">
     @foreach($top_tags as $index => $tag)
-    <a href="/tag/{{ urlencode($tag->name) }}">{{ $tag->name }}</a>({{ $tag->count }}) 
+    <div class="badge badge-tag-cloud">
+        <a href="/tag/{{ urlencode($tag->name) }}">{{ $tag->name }}</a>({{ $tag->count }})
+    </div>
     @endforeach
     </div>
 </div>
