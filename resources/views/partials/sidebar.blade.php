@@ -44,18 +44,14 @@
       <h3 class="panel-title">{{ trans('hifone.ranking') }}</h3>
     </div>
     <div class="panel-body">
-      <table class="table table-bordered table-striped">
+      <table class="table table-striped">
       <tbody>
-      <tr>
-        <th>#</th>
-        <th>{{ trans('hifone.users.users') }}</th>
-        <th>{{ trans('hifone.users.score') }}</th>
-      </tr>
       @foreach($top_users as $index => $user)
         <tr>
-        <td>{{ $index + 1 }}</td>
-        <td><a href="{{ route('user.home',$user->username) }}">{{ $user->username }}</a></td>
-        <td>{{ $user->score }}</td>
+        <td style="vertical-align: middle;">{{ $index + 1 }}</td>
+        <td style="text-align: center;"><div class="avatar"><a href="{{ route('user.home',$user->username) }}"><img class="media-object img-thumbnail avatar-48" alt="{{ $user->username }}" src="{{ $user->avatar }}"></a></div></td>
+        <td style="vertical-align: middle;"><a href="{{ route('user.home',$user->username) }}">{{ $user->username }}</a><td>
+        <td style="vertical-align: middle;">{{ $user->score }}</td>
         </tr>
       @endforeach
       </tbody>
