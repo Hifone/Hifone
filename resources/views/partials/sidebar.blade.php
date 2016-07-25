@@ -51,7 +51,7 @@
         <td style="vertical-align: middle;">{{ $index + 1 }}</td>
         <td style="text-align: center;"><div class="avatar"><a href="{{ route('user.home',$user->username) }}"><img class="media-object img-thumbnail avatar-48" alt="{{ $user->username }}" src="{{ $user->avatar }}"></a></div></td>
         <td style="vertical-align: middle;"><a href="{{ route('user.home',$user->username) }}">{{ $user->username }}</a><td>
-        <td style="vertical-align: middle;">{{ $user->score }}</td>
+        <td style="vertical-align: middle;"><span data-toggle="tooltip" data-placement="top" title="{{ $user->score }}">{!! $user->coins !!}</span></td>
         </tr>
       @endforeach
       </tbody>
@@ -65,7 +65,7 @@
     <div class="panel-body">
     @foreach($top_tags as $index => $tag)
     <div class="badge badge-tag-cloud">
-        <a href="/tag/{{ urlencode($tag->name) }}">{{ $tag->name }}</a>({{ $tag->count }})
+        <a href="/tag/{{ urlencode($tag->name) }}">{{ $tag->name }}</a> ({{ $tag->count }})
     </div>
     @endforeach
     </div>

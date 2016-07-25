@@ -16,11 +16,7 @@
       <div class="media-heading">
         {{ trans('hifone.credits.balance_current') }}
        <span class="coin_list" data-toggle="tooltip", data-placement="bottom" title="{{ $current_user->score }}">
-      @foreach($current_user->coins as $coin => $value)
-        @if($value)
-          <img src="/images/{{ $coin }}.png"> {{ $value }} 
-        @endif
-      @endforeach
+        {!! $current_user->coins !!}
         </span>
         </div>
       </div>

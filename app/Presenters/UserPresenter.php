@@ -30,11 +30,19 @@ class UserPresenter extends AbstractPresenter
         $silver = strrev(substr($str, 1 * $divider, $divider));
         $gold = strrev(substr($str, 2 * $divider));
 
-        return [
+        $coins = [
             'gold'   => $gold,
             'silver' => $silver,
             'bronze' => $bronze,
         ];
+
+        $coins_str = '';
+        foreach($coins as $coin => $value) {
+            if(!$value) continue;
+            $coins_str .= '<img src="/images/'. $coin .'.png"> ' . $value;
+        }
+    
+        return $coins_str;
     }
 
     public function hasBadge()
