@@ -37,11 +37,13 @@ class UserPresenter extends AbstractPresenter
         ];
 
         $coins_str = '';
-        foreach($coins as $coin => $value) {
-            if(!$value) continue;
-            $coins_str .= '<img src="/images/'. $coin .'.png"> ' . $value;
+        foreach ($coins as $coin => $value) {
+            if (!$value) {
+                continue;
+            }
+            $coins_str .= '<img src="/images/'.$coin.'.png"> '.$value;
         }
-    
+
         return $coins_str;
     }
 
