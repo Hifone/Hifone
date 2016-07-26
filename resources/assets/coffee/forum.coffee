@@ -369,7 +369,7 @@ window.ForumView = Backbone.View.extend
           id : likeable_id
         success: (result) ->
           console.log(result.status)
-          $target.text if action == 'like' then '已赞' else '已踩'
+          $target.text if action == 'like' then 'Liked' else 'Disliked'
           return
         error: (err) ->
           console.log('error')

@@ -9,7 +9,7 @@
 				<div class="panel-body">
 					@if($connect_data)
 					<div class="alert alert-info">
-						{{ trans('hifone.login.oauth.login.note', ['provider' => $connect_data['provider_id'], 'name' => $connect_data['nickname']]) }}
+						{{ trans('hifone.login.oauth.login.note', ['provider' => $connect_data['provider_name'], 'name' => $connect_data['nickname']]) }}
 					</div>
 					@endif
 					<form role="form" method="POST" action="/auth/login">
