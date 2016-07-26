@@ -217,14 +217,14 @@ return [
 
 // Pm
     'pms'   => [
-        'pms'        => 'PN',
-        'recipient'  => 'Empfänger',
+        'pms'             => 'PN',
+        'recipient'       => 'Empfänger',
         'recipient_error' => 'Empfänger existiert nicht.',
-        'new_pm'     => 'Neue PN',
-        'view_inbox' => 'Mein Posteingang',
-        'nav_create' => 'PN senden',
-        'nav_inbox'  => 'Posteingang',
-        'nav_outbox' => 'Postausgang',
+        'new_pm'          => 'Neue PN',
+        'view_inbox'      => 'Mein Posteingang',
+        'nav_create'      => 'PN senden',
+        'nav_inbox'       => 'Posteingang',
+        'nav_outbox'      => 'Postausgang',
     ],
 
 // Credits
@@ -278,9 +278,9 @@ return [
         'login_with_oauth'     => 'Anmelden mit alternativ Anbieter',
         //OAuth Strings
         'oauth' => [
-            'unbound' => 'Verbindung zu :provider trennen',
+            'unbound'         => 'Verbindung zu :provider trennen',
             'unbound_success' => 'Verbindung erfolgreich getrennt.',
-            'bound'   => 'Verbinden zu :provider',
+            'bound'           => 'Verbinden zu :provider',
             //OAuth Messages for Login
             'login' => [
                 'note' => 'Nach einem erfolgreichem Login, wird der ":provider" Account für ":name" mit dem Login verbunden.',

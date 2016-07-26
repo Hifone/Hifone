@@ -216,14 +216,14 @@ return [
 
 // Pms
     'pms'   => [
-        'pms'        => 'Pm',
-        'recipient'  => 'Recipient',
+        'pms'             => 'Pm',
+        'recipient'       => 'Recipient',
         'recipient_error' => 'Recipient not exists.',
-        'new_pm'     => 'New PM',
-        'view_inbox' => 'View my Inbox',
-        'nav_create' => 'Send PM',
-        'nav_inbox'  => 'View Inbox',
-        'nav_outbox' => 'View Outbox',
+        'new_pm'          => 'New PM',
+        'view_inbox'      => 'View my Inbox',
+        'nav_create'      => 'Send PM',
+        'nav_inbox'       => 'View Inbox',
+        'nav_outbox'      => 'View Outbox',
     ],
 
 // Credits
@@ -277,9 +277,9 @@ return [
         'login_with_oauth'     => 'Login with other platform',
         //OAuth Strings
         'oauth' => [
-            'unbound' => 'Disconnect from :provider',
+            'unbound'         => 'Disconnect from :provider',
             'unbound_success' => 'Disconnect successful.',
-            'bound'   => 'Connect to :provider',
+            'bound'           => 'Connect to :provider',
             //OAuth Messages for Login
             'login' => [
                 'note' => 'After successful login, your :provider Account for :name is connected with your Hifone Account.',

@@ -216,14 +216,14 @@ return [
 
 //Pm
     'pms'   => [
-        'pms'        => '站内短信',
-        'recipient'  => '收件人',
+        'pms'             => '站内短信',
+        'recipient'       => '收件人',
         'recipient_error' => 'Recipient not exists.',
-        'new_pm'     => '新建 Pm',
-        'view_inbox' => '查看我的收件箱',
-        'nav_create' => '发送站短',
-        'nav_inbox'  => '收件箱',
-        'nav_outbox' => '发件箱',
+        'new_pm'          => '新建 Pm',
+        'view_inbox'      => '查看我的收件箱',
+        'nav_create'      => '发送站短',
+        'nav_inbox'       => '收件箱',
+        'nav_outbox'      => '发件箱',
     ],
 
 //积分
@@ -277,9 +277,9 @@ return [
         'login_with_oauth'     => '用其他平台的帐号登录',
         //OAuth Strings
         'oauth' => [
-            'unbound' => '解绑 :provider 账号',
+            'unbound'         => '解绑 :provider 账号',
             'unbound_success' => '解绑成功',
-            'bound'   => '绑定 :provider 账号',
+            'bound'           => '绑定 :provider 账号',
             //OAuth Messages for Login
             'login' => [
                 'note' => 'After successful login, your :provider Account for :name is connected with your Hifone Account.',
