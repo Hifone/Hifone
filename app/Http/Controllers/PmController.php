@@ -87,7 +87,7 @@ class PmController extends Controller
         if (!$recipient) {
             return Redirect::route('pm.create')
                 ->withInput(Input::all())
-                ->withErrors(['Recipient not exists.']);
+                ->withErrors([trans('hifone.pms.recipient_error')]);
         }
 
         try {

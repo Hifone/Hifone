@@ -126,6 +126,7 @@ return [
     'photos' => [
         'drag_drop'     => '支持在编辑框拖拽、复制粘贴或<a class="btn-upload" href="javascript:void(0);">浏览本地文件</a>进行图片上传.',
         'markdown_desc' => '排版说明',
+        'upload_error'  => 'Error while uploading file.',
     ],
 
 // Tags
@@ -143,6 +144,7 @@ return [
         'username'                  => '用户名',
         'email'                     => '邮箱地址',
         'avatar'                    => '头像',
+        'avatar_upload_success'     => '头像更新成功',
         'nickname'                  => '昵称',
         'company'                   => '公司',
         'score'                     => '积分',
@@ -216,6 +218,7 @@ return [
     'pms'   => [
         'pms'        => '站内短信',
         'recipient'  => '收件人',
+        'recipient_error' => 'Recipient not exists.',
         'new_pm'     => '新建 Pm',
         'view_inbox' => '查看我的收件箱',
         'nav_create' => '发送站短',
@@ -275,6 +278,7 @@ return [
         //OAuth Strings
         'oauth' => [
             'unbound' => '解绑 :provider 账号',
+            'unbound_success' => '解绑成功',
             'bound'   => '绑定 :provider 账号',
             //OAuth Messages for Login
             'login' => [

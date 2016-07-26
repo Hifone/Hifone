@@ -159,7 +159,7 @@ class UserController extends Controller
         $record ? $record->delete() : null;
 
         return Redirect::route('user.edit', $user->id)
-            ->withSuccess('解绑成功');
+            ->withSuccess(trans('hifone.login.oauth.unbound_success'));
     }
 
     public function avatarupdate()
@@ -187,7 +187,7 @@ class UserController extends Controller
         $user->save();
 
         return Redirect::back()
-            ->withSuccess('头像更新成功');
+            ->withSuccess(trans('hifone.users.avatar_upload_success'));
     }
 
     protected function resetPassword()

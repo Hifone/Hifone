@@ -126,6 +126,7 @@ return [
     'photos' => [
         'drag_drop'     => 'Image files by dragging & dropping,<a class="btn-upload" href="javascript:void(0);">selecting them</a>, or pasting from the clipboard.',
         'markdown_desc' => 'Markdown Description',
+        'upload_error'  => 'Error while uploading file.',
     ],
 
 // Tags
@@ -143,6 +144,7 @@ return [
         'username'                  => 'Username',
         'email'                     => 'Email',
         'avatar'                    => 'Avatar',
+        'avatar_upload_success'     => 'Avatar updated successfully.',
         'nickname'                  => 'Nickname',
         'company'                   => 'Company',
         'score'                     => 'Score',
@@ -216,6 +218,7 @@ return [
     'pms'   => [
         'pms'        => 'Pm',
         'recipient'  => 'Recipient',
+        'recipient_error' => 'Recipient not exists.',
         'new_pm'     => 'New PM',
         'view_inbox' => 'View my Inbox',
         'nav_create' => 'Send PM',
@@ -275,6 +278,7 @@ return [
         //OAuth Strings
         'oauth' => [
             'unbound' => 'Disconnect from :provider',
+            'unbound_success' => 'Disconnect successful.',
             'bound'   => 'Connect to :provider',
             //OAuth Messages for Login
             'login' => [

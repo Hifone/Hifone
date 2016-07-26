@@ -127,6 +127,7 @@ return [
     'photos' => [
         'drag_drop'     => 'Um Bilddateien hinzuzufügen nutze Drag & Drop, <a class="btn-upload" href="javascript:void(0);">öffne die Datei</a> oder kopiere es aus der Zwischenablage.',
         'markdown_desc' => 'Markown Hilfe',
+        'upload_error'  => 'Datei konnte nicht hochgeladen werden.',
     ],
 
 // Tags
@@ -144,6 +145,7 @@ return [
         'username'                  => 'Benutzername',
         'email'                     => 'E-Mail',
         'avatar'                    => 'Avatar',
+        'avatar_upload_success'     => 'Avatar wurde erfolgreich hochgeladen.',
         'nickname'                  => 'Nickname',
         'company'                   => 'Firma',
         'score'                     => 'Punkte',
@@ -180,13 +182,13 @@ return [
         'select_language'           => 'Sprache auswählen',
         'register_date'             => 'Reg.-Datum:',
         'add'                       => [
-            'title'   => 'Create',
-            'success' => 'User is created successfully.',
-            'failure' => 'The user could not be created, please try again.',
+            'title'   => 'Benutzer erstellen',
+            'success' => 'Der Benutzer wurde erfolgreich erstellt.',
+            'failure' => 'Der Benutzer konnte nicht erstellt werden. Bitte versuche es erneut.',
         ],
         'edit'     => [
             'title'   => 'Profil bearbeiten',
-            'success' => 'User information is updated.',
+            'success' => 'Profil wurde aktualisiert.',
         ],
     ],
 
@@ -217,6 +219,7 @@ return [
     'pms'   => [
         'pms'        => 'PN',
         'recipient'  => 'Empfänger',
+        'recipient_error' => 'Empfänger existiert nicht.',
         'new_pm'     => 'Neue PN',
         'view_inbox' => 'Mein Posteingang',
         'nav_create' => 'PN senden',
@@ -276,10 +279,11 @@ return [
         //OAuth Strings
         'oauth' => [
             'unbound' => 'Verbindung zu :provider trennen',
+            'unbound_success' => 'Verbindung erfolgreich getrennt.',
             'bound'   => 'Verbinden zu :provider',
             //OAuth Messages for Login
             'login' => [
-                'note' => 'Nach einem erfolgreichem Login, wird der :provider Account für :name mti dem Login verbunden.',
+                'note' => 'Nach einem erfolgreichem Login, wird der ":provider" Account für ":name" mit dem Login verbunden.',
             ],
             //OAuth Landing Page
             'landing' => [
