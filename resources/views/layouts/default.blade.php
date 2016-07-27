@@ -4,9 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>@yield('title') {{ $site_name }}@if($site_about) - {{ $site_about }}@endif</title>
-        <meta name="keywords" content="Hifone,BBS,Forum,PHP,Laravel" />
-        <meta name="author" content="The Hifone Team." />
-        <meta name="description" content="@section('description') Hifone" />
+        <meta name="keywords" content="@if(Config::get('setting.meta_keywords')){{ Config::get('setting.meta_keywords') }}@else{{ 'Hifone,BBS,Forum,PHP,Laravel' }}@endif" />
+        <meta name="author" content="@if(Config::get('setting.meta_author')){{ Config::get('setting.meta_author') }}@else{{ 'The Hifone Team' }}@endif" />
+        <meta name="description" content="@section('description')" />
+        <meta name="generator" content="Hifone">
         <meta name="env" content="{{ app('env') }}">
         <meta name="token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ elixir('dist/css/all.css') }}">
