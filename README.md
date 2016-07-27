@@ -79,6 +79,16 @@ Now go to http://127.0.0.1:8081 (linux) or http://192.168.99.100:8081 (mac) and 
 
 You can find more information at [Install Hifone](https://github.com/Hifone/Docker/blob/master/README.md)
 
+### Additional Settings
+On the Admin Panel you can add some additional Settings
+```
+meta_author - Set Metadata for Authors
+meta_keywords - Set Metadata for Keywords
+footer_html - Write some HTML stuff for Footer
+new_thread_dropdowns - With this, you can add some DropDown Items for the "New Thread" Button
+site_about - This is for Adding a Subtitle for the Website
+```
+
 ## Upgrading
 
 ```shell
