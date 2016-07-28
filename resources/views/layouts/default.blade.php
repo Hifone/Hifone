@@ -24,7 +24,20 @@
                 'notification_url' : '{{ route('notification.count') }}'
             };
         </script>
-
+        <script type="text/javascript">
+            Hifone.jsLang = {
+                'delete_form_title' : '{{ trans('hifone.action_title') }}',
+                'delete_form_text' : '{{ trans('hifone.action_text') }}',
+                'uploading_file' : '{{ trans('hifone.uploading_file') }}',
+                'loading' : '{{ trans('hifone.loading') }}',
+                'content_is_empty' : '{{ trans('hifone.content_empty') }}',
+                'operation_success' : '{{ trans('hifone.success') }}',
+                'error_occurred' : '{{ trans('hifone.error_occurred') }}',
+                'button_yes' : '{{ trans('hifone.yes') }}',
+                'like' : '{{ trans('hifone.like') }}',
+                'dislike' : '{{ trans('hifone.unlike') }}'
+            };
+        </script>
         @if($stylesheet)
 		<style type="text/css">
 		{!! $stylesheet !!}

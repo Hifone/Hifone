@@ -112,9 +112,9 @@ window.Hifone =
       if button.hasClass('confirm-action')
         swal {
           type: 'warning'
-          title: 'Confirm your action'
-          text: 'Are you sure you want to do this?'
-          confirmButtonText: 'Yes'
+          title: Hifone.jsLang.delete_form_title
+          text: Hifone.jsLang.delete_form_text
+          confirmButtonText: Hifone.jsLang.button_yes
           confirmButtonColor: '#FF6F6F'
           showCancelButton: true
         }, ->
