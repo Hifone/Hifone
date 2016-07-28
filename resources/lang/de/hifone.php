@@ -38,7 +38,13 @@ return [
     'registered_users' => 'Schon registriert?',
     'ranking'          => 'Platzierung',
     'member'           => 'Mitglied',
-
+    'yes'              => 'Ja',
+    'error_occurred'   => 'Es ist ein Fehler aufgetreten.',
+    'content_empty'       => 'Inhalt ist leer',
+    'loading'          => 'Lade...',
+    'uploading_file'   => 'Lade Datei hoch...',
+    'action_title'     => 'Aktion bestaetigen',
+    'action_text'      => 'Sicher das diese Aktion durchgefuehrt werden soll?',
 // Nodes
     'nodes'            => [
         'all'               => 'Forennavigation',

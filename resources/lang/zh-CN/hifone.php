@@ -38,6 +38,13 @@ return [
     'registered_users' => '已注册用户请',
     'ranking'          => '积分榜',
     'member'           => '的会员',
+    'yes'              => 'Yes',
+    'error_occurred'   => 'An error occurred',
+    'content_empty'       => 'Content is empty',
+    'loading'          => 'Loading...',
+    'uploading_file'   => 'Uploading file...',
+    'action_title'     => 'Confirm your Action',
+    'action_text'      => 'Are you sure you want to do this?',
 // 节点
     'nodes'            => [
         'all'               => '节点导航',

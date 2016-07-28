@@ -159,7 +159,7 @@ window.ForumView = Backbone.View.extend
     $('.input-file').change ->
       $form = $('.create_form')
       formData = new FormData($form[0])
-      progressText = '![Uploading file...]()'
+      progressText = '![' + Hifone.jsLang.uploading_file + ']()'
       urlText = '![file]({filename})'
       filenameTag = '{filename}'
       txtBox = $('.post-editor')
@@ -223,7 +223,7 @@ window.ForumView = Backbone.View.extend
     return
 
   preview: (body) ->
-    $('#preview-box').text 'Loading...'
+    $('#preview-box').text Hifone.jsLang.loading
     replyContent = $('#body_field')
     oldContent = replyContent.val()
     if oldContent
@@ -232,7 +232,7 @@ window.ForumView = Backbone.View.extend
         emojify.run document.getElementById('preview-box')
         return
     else
-      $('#preview-box').text 'Content is empty.'
+      $('#preview-box').text Hifone.jsLang.content_is_empty
     return
 
   hookPreview: (switcher, textarea) ->
@@ -369,7 +369,7 @@ window.ForumView = Backbone.View.extend
           id : likeable_id
         success: (result) ->
           console.log(result.status)
-          $target.text if action == 'like' then 'Liked' else 'Disliked'
+          $target.text if action == 'like' then Hifone.jsLang.like else Hifone.jsLang.dislike
           return
         error: (err) ->
           console.log('error')
@@ -401,11 +401,11 @@ window.ForumView = Backbone.View.extend
           else
             $target.addClass('active')
 
-          $.notifier.notify 'Operation ran successfully.', 'success'
+          $.notifier.notify Hifone.jsLang.operation_success, 'success'
           return
         error: (err) ->
           console.log('error')
-          $.notifier.notify 'An error occurred.', 'error'
+          $.notifier.notify Hifone.jsLang.error_occurred, 'error'
     }, 'json'
     false
 
@@ -424,7 +424,7 @@ window.ForumView = Backbone.View.extend
           type : favoriteable_type
           id : favoriteable_id
         success: (result) ->
-          $.notifier.notify 'Operation ran successfully.', 'success'
+          $.notifier.notify Hifone.jsLang.operation_success, 'success'
           if $target.hasClass("active")
             $target.removeClass('active')
           else
@@ -432,7 +432,7 @@ window.ForumView = Backbone.View.extend
           return
         error: (err) ->
           console.log('error')
-          $.notifier.notify 'An error occurred.', 'error'
+          $.notifier.notify Hifone.jsLang.error_occurred, 'error'
     }, 'json'
     false
 
