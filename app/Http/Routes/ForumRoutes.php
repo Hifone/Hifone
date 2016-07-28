@@ -72,6 +72,13 @@ class ForumRoutes
                 'uses'       => 'CreditController@index',
             ]);
 
+            //PMS
+             $router->get('/pm', [
+                 'as'       => 'pm.index',
+                 'middleware' => 'auth',
+                 'uses'     => 'PmController@index',
+             ]);
+
             $router->resource('node', 'NodeController');
             $router->resource('thread', 'ThreadController');
             $router->resource('pm', 'PmController');

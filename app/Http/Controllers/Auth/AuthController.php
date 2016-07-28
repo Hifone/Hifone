@@ -229,7 +229,7 @@ class AuthController extends Controller
                 $extern_user = \Socialite::with($slug)->user();
             } catch (InvalidStateException $e) {
                 return Redirect::to('/auth/login')
-                    ->withErrors([trans('hifone.oauth.errors.invalidstate')]);
+                    ->withErrors([trans('hifone.login.oauth.errors.invalidstate')]);
             }
 
             //检查是否已经连接过
