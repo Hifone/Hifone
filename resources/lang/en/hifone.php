@@ -231,6 +231,7 @@ return [
         'nav_create'      => 'Send PM',
         'nav_inbox'       => 'View Inbox',
         'nav_outbox'      => 'View Outbox',
+        'same_user_error' => 'Recipient ID and sender ID have the same value.',
     ],
 
 // Credits
