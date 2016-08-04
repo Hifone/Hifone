@@ -27,8 +27,8 @@
         </div>
         <div class="panel-body text-center">
             <div class="btn-group">
-                <a href="{!! URL::route('pm.index') !!}" class="btn btn-primary">
-                    <i class="fa fa-pencil"> </i> Nachricht schreiben
+                <a href="{!! URL::route('messages') !!}" class="btn btn-primary">
+                    <i class="fa fa-pencil"> </i> {!! trans('hifone.pms.create') !!}
                 </a>
             </div>
         </div>

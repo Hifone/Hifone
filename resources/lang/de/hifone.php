@@ -124,7 +124,7 @@ return [
         'add'            => 'Antwort verfassen',
         'body'           => 'Text',
         'recent'         => 'Aktuelle Antworten',
-        'total'          => 'Antowrten Gesamt',
+        'total'          => 'Antworten Gesamt',
         'noitem'         => 'Es gibt noch keine Antowrt',
         'login_required' => 'Um zu Antworten musst du dich anmelden.',
     ],
@@ -223,7 +223,13 @@ return [
 
 // Pm
     'pms'   => [
-        'pms'             => 'PN',
+        'pms'             => 'Private Nachrichten',
+        'create'          => 'Neue Nachricht',
+        'list'            => 'Nachrichten Liste',
+        'home'            => 'Private Nachrichten - Übersicht',
+        'readed'          => 'Gelesen',
+        'unreaded'        => 'Neue Nachricht',
+        'send'            => 'Nachricht senden',
         'recipient'       => 'Empfänger',
         'recipient_error' => 'Empfänger existiert nicht.',
         'new_pm'          => 'Neue PN',
