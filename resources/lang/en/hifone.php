@@ -224,6 +224,12 @@ return [
 // Pms
     'pms'   => [
         'pms'             => 'Pm',
+        'create'          => 'Create new Message',
+        'list'            => 'Message List',
+        'home'            => 'Private Messages - Overview',
+        'readed'          => 'Readed',
+        'unreaded'        => 'New Message',
+        'send'            => 'Send Message',
         'recipient'       => 'Recipient',
         'recipient_error' => 'Recipient not exists.',
         'new_pm'          => 'New PM',

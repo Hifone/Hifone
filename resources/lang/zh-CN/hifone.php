@@ -224,6 +224,12 @@ return [
 //Pm
     'pms'   => [
         'pms'             => '站内短信',
+        'create'          => 'Create new Message',
+        'list'            => 'Message List',
+        'home'            => 'Private Messages - Overview',
+        'readed'          => 'Readed',
+        'unreaded'        => 'New Message',
+        'send'            => 'Send Message',
         'recipient'       => '收件人',
         'recipient_error' => 'Recipient not exists.',
         'new_pm'          => '新建 Pm',
