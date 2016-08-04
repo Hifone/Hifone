@@ -231,6 +231,7 @@ return [
         'nav_create'      => 'PN senden',
         'nav_inbox'       => 'Posteingang',
         'nav_outbox'      => 'Postausgang',
+        'same_user_error' => 'Empfänger und Sender dürfen nicht die gleichen sein.',
     ],
 
 // Credits

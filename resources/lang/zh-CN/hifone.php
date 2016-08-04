@@ -231,6 +231,7 @@ return [
         'nav_create'      => '发送站短',
         'nav_inbox'       => '收件箱',
         'nav_outbox'      => '发件箱',
+        'same_user_error' => 'Recipient ID and sender ID have the same value.',
     ],
 
 //积分

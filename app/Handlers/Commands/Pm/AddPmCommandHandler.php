@@ -47,7 +47,7 @@ class AddPmCommandHandler
     public function handle(AddPmCommand $command)
     {
         if ($command->user_id === $command->author_id) {
-            throw new \Exception('Recipient ID and sender ID have the same value.');
+            throw new \Exception(trans('hifone.pms.same_user_error'));
         }
 
         $rootId = isset($rootId) ?: dechex(mt_rand(0, 0x7fffffff));
