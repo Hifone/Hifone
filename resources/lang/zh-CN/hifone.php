@@ -224,6 +224,13 @@ return [
 //Pm
     'pms'   => [
         'pms'             => '站内短信',
+        'create'          => 'Create new Message',
+        'list'            => 'Message List',
+        'home'            => 'Private Messages - Overview',
+        'readed'          => 'Readed',
+        'unreaded'        => 'New Message',
+        'send'            => 'Send Message',
+        'pick_user'       => 'Choose Recipient',
         'recipient'       => '收件人',
         'recipient_error' => 'Recipient not exists.',
         'new_pm'          => '新建 Pm',
@@ -231,6 +238,7 @@ return [
         'nav_create'      => '发送站短',
         'nav_inbox'       => '收件箱',
         'nav_outbox'      => '发件箱',
+        'same_user_error' => 'Recipient ID and sender ID have the same value.',
     ],
 
 //积分

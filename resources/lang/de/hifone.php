@@ -124,7 +124,7 @@ return [
         'add'            => 'Antwort verfassen',
         'body'           => 'Text',
         'recent'         => 'Aktuelle Antworten',
-        'total'          => 'Antowrten Gesamt',
+        'total'          => 'Antworten Gesamt',
         'noitem'         => 'Es gibt noch keine Antowrt',
         'login_required' => 'Um zu Antworten musst du dich anmelden.',
     ],
@@ -223,7 +223,14 @@ return [
 
 // Pm
     'pms'   => [
-        'pms'             => 'PN',
+        'pms'             => 'Private Nachrichten',
+        'create'          => 'Neue Nachricht',
+        'list'            => 'Nachrichten Liste',
+        'home'            => 'Private Nachrichten - Übersicht',
+        'readed'          => 'Gelesen',
+        'unreaded'        => 'Neue Nachricht',
+        'send'            => 'Nachricht senden',
+        'pick_user'       => 'Wähle einen Empfänger',
         'recipient'       => 'Empfänger',
         'recipient_error' => 'Empfänger existiert nicht.',
         'new_pm'          => 'Neue PN',
@@ -231,6 +238,7 @@ return [
         'nav_create'      => 'PN senden',
         'nav_inbox'       => 'Posteingang',
         'nav_outbox'      => 'Postausgang',
+        'same_user_error' => 'Empfänger und Sender dürfen nicht die gleichen sein.',
     ],
 
 // Credits

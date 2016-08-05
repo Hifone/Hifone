@@ -1,58 +1,44 @@
 @extends('layouts.default')
 
 @section('title')
-{{ trans('hifone.pms.add') }}_@parent
+    {{ trans('hifone.pms.list') }}
+    - @parent
 @stop
 
 @section('content')
 
-<div class="pm_create">
+    <div class="col-md-9 threads-index main-col">
+        <div class="panel panel-default">
 
-  <div class="col-md-9 main-col">
-    <div class="panel panel-default corner-radius">
-    <div class="panel-heading">
-	
-		@include('pms.partials.nav')
-	
-	</div>
-    <div class="panel-body">
-		<ul class="list-group">
-  @foreach ($pms as $index => $pm)
-   <li class="list-group-item" >
+            <div class="panel-heading">
+                <div class="pull-left hidden-sm hidden-xs">
+                    <i class="fa fa-list"></i> {{ trans('hifone.pms.home') }}
+                </div>
+                <div class="clearfix"></div>
+            </div>
 
-      <a href="{!! route('pm.show', [$pm->id]) !!}">
-        {!! str_limit($pm->meta->body, '100') !!}
-      </a>
+            @if ($threads->count() > 0)
 
-      <span class="meta">
-        <a href="" title="">
-		{{ $pm->user->username }}
-        </a>
-        <span> • </span>
-        <span class="timeago">{!! $pm->created_at !!}</span>
-      </span>
-  </li>
-  @endforeach
-</ul>
+                <div class="panel-body remove-padding-horizontal">
+                    @include('pms.partials.messages', ['column' => false])
+                </div>
 
-		<div class="pull-right add-padding-vertically">
-	        {{ $pms->render() }}
-	    </div>
-	</div>
-	</div>
-	</div>
+                <div class="panel-footer text-right remove-padding-horizontal pager-footer">
+                    <!-- Pager -->
+                    {{-- }}{!! $threads->appends(Request::except('page', '_pjax'))->render() !!} --}}
+                </div>
 
+            @else
+                <div class="panel-body">
+                    <div class="empty-block">{{ trans('hifone.noitem') }}</div>
+                </div>
+            @endif
 
-	<div class="col-md-3 side-bar">
+        </div>
 
-    <div class="panel panel-default">
-    <div class="panel-body">
-      <a href="/pm/create" class="btn btn-success btn-block">{{ trans('hifone.pms.new_pm') }}</a>
-    </div>
-    <div class="panel-footer"><a href="/pm?tab=inbox">{{ trans('hifone.pms.view_inbox') }}</a></div>
     </div>
 
-  </div>
-</div>
+    @include('partials.sidebar')
+
 
 @stop

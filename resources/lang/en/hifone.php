@@ -224,6 +224,13 @@ return [
 // Pms
     'pms'   => [
         'pms'             => 'Pm',
+        'create'          => 'Create new Message',
+        'list'            => 'Message List',
+        'home'            => 'Private Messages - Overview',
+        'readed'          => 'Readed',
+        'unreaded'        => 'New Message',
+        'send'            => 'Send Message',
+        'pick_user'       => 'Choose Recipient',
         'recipient'       => 'Recipient',
         'recipient_error' => 'Recipient not exists.',
         'new_pm'          => 'New PM',
@@ -231,6 +238,7 @@ return [
         'nav_create'      => 'Send PM',
         'nav_inbox'       => 'View Inbox',
         'nav_outbox'      => 'View Outbox',
+        'same_user_error' => 'Recipient ID and sender ID have the same value.',
     ],
 
 // Credits

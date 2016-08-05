@@ -14,7 +14,9 @@ namespace Hifone\Handlers\Commands\Pm;
 use Hifone\Commands\Pm\AddPmCommand;
 use Hifone\Events\Pm\PmWasAddedEvent;
 use Hifone\Models\Pm;
+use Hifone\Models\Pm\Meta;
 use Hifone\Services\Dates\DateFactory;
+use Carbon\Carbon;
 
 class AddPmCommandHandler
 {
@@ -45,10 +47,10 @@ class AddPmCommandHandler
     public function handle(AddPmCommand $command)
     {
         if ($command->user_id === $command->author_id) {
-            throw new \Exception('Recipient ID and sender ID have the same value.');
+            throw new \Exception(trans('hifone.pms.same_user_error'));
         }
 
-        $rootId = $rootId ?: dechex(mt_rand(0, 0x7fffffff));
+        $rootId = isset($rootId) ?: dechex(mt_rand(0, 0x7fffffff));
 
         // Create the pm meta
         $meta = Meta::create([

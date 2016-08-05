@@ -9,10 +9,10 @@
         <a href="{!! isset($node) ? URL::route('thread.create', ['node_id' => $node->id]) : URL::route('thread.create') ; !!}" class="btn btn-primary">
           <i class="fa fa-pencil"> </i> {!! trans('hifone.threads.add') !!}
         </a>
+        @if($new_thread_dropdowns)
         <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <span class="caret"></span>
         </button>
-        @if($new_thread_dropdowns)
         <ul class="dropdown-menu">
           {!! $new_thread_dropdowns !!}
         </ul>
@@ -20,6 +20,26 @@
       </div>
     </div>
   </div>
+    @if(Config::get('setting.module_active_pms'))
+    <div class="panel panel-default corner-radius">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ trans('hifone.pms.pms') }}</h3>
+        </div>
+        <div class="panel-body text-center">
+            <div class="btn-group">
+                <a href="{!! URL::route('messages.create') !!}" class="btn btn-primary">
+                    <i class="fa fa-pencil"> </i> {!! trans('hifone.pms.create') !!}
+                </a>
+            </div>
+            <br><br>
+            <div class="btn-group">
+                <a href="{!! URL::route('messages.index') !!}" class="btn btn-primary">
+                    <i> </i> {!! trans('hifone.pms.nav_inbox') !!}
+                </a>
+            </div>
+        </div>
+    </div>
+    @endif
   @else
   <div class="panel panel-default corner-radius">
     <div class="panel-heading">
