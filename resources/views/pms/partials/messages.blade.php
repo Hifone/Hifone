@@ -32,8 +32,8 @@
                     </div>
 
                     <div class="media-body meta">
-                        <a href="{{ $thread->creator()->id }}"
-                           title="{{ $thread->creator()->username }}">{{ $thread->creator()->username }}
+                        <a href="{{ route('user.home', $thread->creator()->username) }}">
+                            {{ $thread->creator()->username }}
                         </a>
                         <span> • </span>
                         <span class="timeago" data-toggle="tooltip" data-placement="top"

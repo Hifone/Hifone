@@ -28,7 +28,7 @@
                                 <option value=""
                                         disabled {!! $node ? null : 'selected'; !!}>{{ trans('hifone.threads.pick_node') }}</option>
                                 @foreach ($sections as $section)
-                                    <optgroup label="{{{ $section->name }}}">
+                                    <optgroup label="{{ $section->name }}">
                                         @if(isset($section->nodes))
                                             @foreach ($section->nodes as $item)
                                                 <option value="{{ $item->id }}" {!! (Input::old('node_id') == $item->id || (isset($node) && $node->id==$item->id)) ? 'selected' : ''; !!} >
@@ -88,7 +88,7 @@
             @if ( $node )
                 <div class="panel panel-default corner-radius help-box">
                     <div class="panel-heading text-center">
-                        <h3 class="panel-title">{{ trans('hifone.nodes.current') }} : {{{ $node->name }}}</h3>
+                        <h3 class="panel-title">{{ trans('hifone.nodes.current') }} : {{ $node->name }}</h3>
                     </div>
                     <div class="panel-body">
                         {{ $node->description }}
@@ -111,6 +111,7 @@
                         <li>{{ trans('hifone.threads.posting_tips.pt3_title') }}
                             <p>{!! trans('hifone.threads.posting_tips.pt3_desc') !!}</p>
                         </li>
+                    </ul>
                 </div>
             </div>
 

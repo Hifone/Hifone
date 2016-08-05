@@ -27,8 +27,14 @@
         </div>
         <div class="panel-body text-center">
             <div class="btn-group">
-                <a href="{!! URL::route('messages') !!}" class="btn btn-primary">
+                <a href="{!! URL::route('messages.create') !!}" class="btn btn-primary">
                     <i class="fa fa-pencil"> </i> {!! trans('hifone.pms.create') !!}
+                </a>
+            </div>
+            <br><br>
+            <div class="btn-group">
+                <a href="{!! URL::route('messages') !!}" class="btn btn-primary">
+                    <i> </i> {!! trans('hifone.pms.nav_inbox') !!}
                 </a>
             </div>
         </div>

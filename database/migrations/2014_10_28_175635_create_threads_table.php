@@ -4,7 +4,7 @@ use Cmgmyr\Messenger\Models\Models;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateThreadsTable extends Migration
+class CreateMessengerThreadsTable extends Migration
 {
     /**
      * Run the migrations.

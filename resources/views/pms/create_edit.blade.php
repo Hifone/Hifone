@@ -17,22 +17,27 @@
 
                         <div class="form-group">
                             {!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}
-                            {!! Form::text('subject', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('subject', null, ['class' => 'form-control', 'placeholder' => trans('hifone.threads.title')]) !!}
                         </div>
 
                         <div class="form-group">
                             <select class="form-control selectpicker" name="thread[node_id]">
-                                <option value="">{{ trans('hifone.threads.pick_node') }}</option>
+                                <option value="">{{ trans('hifone.pms.pick_user') }}</option>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}"> - {{ $user->username }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <!-- editor start -->
+                        @include('pms.partials.editor_toolbar')
                     <!-- end -->
                         <div class="form-group">
-                            {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
-                            {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+                            {!! Form::textarea('message', null, [
+                            'class' => 'post-editor form-control',
+                            'rows' => 15,
+                            'style' => 'body_field',
+                            'placeholder' => trans('hifone.markdown_support')
+                            ]) !!}
                         </div>
 
                         <div class="form-group status-post-submit">
@@ -64,6 +69,7 @@
                         <li>{{ trans('hifone.threads.posting_tips.pt3_title') }}
                             <p>{!! trans('hifone.threads.posting_tips.pt3_desc') !!}</p>
                         </li>
+                    </ul>
                 </div>
             </div>
 

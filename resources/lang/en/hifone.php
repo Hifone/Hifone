@@ -230,6 +230,7 @@ return [
         'readed'          => 'Readed',
         'unreaded'        => 'New Message',
         'send'            => 'Send Message',
+        'pick_user'       => 'Choose Recipient',
         'recipient'       => 'Recipient',
         'recipient_error' => 'Recipient not exists.',
         'new_pm'          => 'New PM',

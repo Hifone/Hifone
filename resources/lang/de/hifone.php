@@ -230,6 +230,7 @@ return [
         'readed'          => 'Gelesen',
         'unreaded'        => 'Neue Nachricht',
         'send'            => 'Nachricht senden',
+        'pick_user'       => 'Wähle einen Empfänger',
         'recipient'       => 'Empfänger',
         'recipient_error' => 'Empfänger existiert nicht.',
         'new_pm'          => 'Neue PN',
