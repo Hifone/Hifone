@@ -12,7 +12,7 @@ class AddNullableToLastReadInParticipantsTable extends Migration
      */
     public function up()
     {
-        DB::statement('ALTER TABLE `' . DB::getTablePrefix() . Models::table('messenger_participants') . '` CHANGE COLUMN `last_read` `last_read` timestamp NULL ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP;');
+        DB::statement('ALTER TABLE `' . DB::getTablePrefix() . Models::table('messenger_participants') . '` CHANGE COLUMN `last_read` `last_read` timestamp NULL DEFAULT NULL;');
     }
 
     /**

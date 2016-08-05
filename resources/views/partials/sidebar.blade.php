@@ -33,7 +33,7 @@
             </div>
             <br><br>
             <div class="btn-group">
-                <a href="{!! URL::route('messages') !!}" class="btn btn-primary">
+                <a href="{!! URL::route('messages.index') !!}" class="btn btn-primary">
                     <i> </i> {!! trans('hifone.pms.nav_inbox') !!}
                 </a>
             </div>
