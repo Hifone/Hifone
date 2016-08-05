@@ -74,36 +74,36 @@ class ForumRoutes
 
             //PMS
              $router->get('/pm', [
-                 'as'       => 'pm.index',
+                 'as'         => 'pm.index',
                  'middleware' => 'auth',
-                 'uses'     => 'PmController@index',
+                 'uses'       => 'PmController@index',
              ]);
 
             //New PMS
             $router->get('/messages', [
-                'as' => 'messages.index',
+                'as'         => 'messages.index',
                 'middleware' => 'auth',
-                'uses' => 'MessagesController@index',
+                'uses'       => 'MessagesController@index',
             ]);
             $router->get('/messages/create', [
-                'as' => 'messages.create',
+                'as'         => 'messages.create',
                 'middleware' => 'auth',
-                'uses' => 'MessagesController@create',
+                'uses'       => 'MessagesController@create',
             ]);
             $router->post('/messages', [
-                'as' => 'messages.store',
+                'as'         => 'messages.store',
                 'middleware' => 'auth',
-                'uses' => 'MessagesController@store',
+                'uses'       => 'MessagesController@store',
             ]);
             $router->get('/messages/{id}', [
-                'as' => 'messages.show',
+                'as'         => 'messages.show',
                 'middleware' => 'auth',
-                'uses' => 'MessagesController@show',
+                'uses'       => 'MessagesController@show',
             ]);
             $router->put('/messages/{id}', [
-                'as' => 'messages.update',
+                'as'         => 'messages.update',
                 'middleware' => 'auth',
-                'uses' => 'MessagesController@update',
+                'uses'       => 'MessagesController@update',
             ]);
 
             $router->resource('node', 'NodeController');

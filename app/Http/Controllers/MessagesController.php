@@ -1,18 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: MHERING
- * Date: 04.08.2016
- * Time: 09:56
+
+/*
+ * This file is part of Hifone.
+ *
+ * (c) Hifone.com <hifone@hifone.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Hifone\Http\Controllers;
 
-use Hifone\Models\User;
 use Carbon\Carbon;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Participant;
 use Cmgmyr\Messenger\Models\Thread;
+use Hifone\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -45,6 +48,7 @@ class MessagesController extends Controller
      * Shows a message thread.
      *
      * @param $id
+     *
      * @return mixed
      */
     public function show($id)
@@ -52,7 +56,7 @@ class MessagesController extends Controller
         try {
             $thread = Thread::findOrFail($id);
         } catch (ModelNotFoundException $e) {
-            Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
+            Session::flash('error_message', 'The thread with ID: '.$id.' was not found.');
 
             return redirect('messages');
         }
@@ -110,7 +114,7 @@ class MessagesController extends Controller
             [
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::user()->id,
-                'last_read' => new Carbon,
+                'last_read' => new Carbon(),
             ]
         );
 
@@ -126,6 +130,7 @@ class MessagesController extends Controller
      * Adds a new message to a current thread.
      *
      * @param $id
+     *
      * @return mixed
      */
     public function update($id)
@@ -133,7 +138,7 @@ class MessagesController extends Controller
         try {
             $thread = Thread::findOrFail($id);
         } catch (ModelNotFoundException $e) {
-            Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
+            Session::flash('error_message', 'The thread with ID: '.$id.' was not found.');
 
             return redirect('messages');
         }
@@ -156,7 +161,7 @@ class MessagesController extends Controller
                 'user_id'   => Auth::user()->id,
             ]
         );
-        $participant->last_read = new Carbon;
+        $participant->last_read = new Carbon();
         $participant->save();
 
         // Recipients
@@ -164,6 +169,6 @@ class MessagesController extends Controller
             $thread->addParticipants(Input::get('recipients'));
         }
 
-        return redirect('messages/' . $id);
+        return redirect('messages/'.$id);
     }
 }
