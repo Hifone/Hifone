@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "291b3b4da2505513f5968dd5002a6d34",
-    "content-hash": "a8d2fe90d3f37233ec6d0b6986a672dd",
+    "hash": "9a5f26542c9ae6b1b4aeb8c6244bed0c",
+    "content-hash": "bba9ba3bda6184a6b43b12556c0e29de",
     "packages": [
         {
             "name": "alt-three/validator",
@@ -4200,6 +4200,52 @@
                 "environment"
             ],
             "time": "2016-06-14 14:14:52"
+        },
+        {
+            "name": "watson/sitemap",
+            "version": "2.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/sitemap.git",
+                "reference": "9d616948c1f997d500f48c8b426ac6dd5640cbff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/sitemap/zipball/9d616948c1f997d500f48c8b426ac6dd5640cbff",
+                "reference": "9d616948c1f997d500f48c8b426ac6dd5640cbff",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Watson\\": "src/Watson"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwightwatson@studious.com.au"
+                }
+            ],
+            "description": "Generate Google Sitemaps in Laravel 4/5",
+            "keywords": [
+                "laravel",
+                "sitemaps"
+            ],
+            "time": "2016-04-05 02:28:57"
         },
         {
             "name": "zizaco/entrust",
