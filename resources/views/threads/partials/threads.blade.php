@@ -55,8 +55,14 @@
             </span>
             @endif
             @if ($thread->reply_count == 0)
-                    <a href="{{ $thread->author_url }}" title="{{{ $thread->user->username }}}">{{{ $thread->user->username }}}
-                    </a>
+                    @if($thread->user->nickname)
+                        <a href="{{ $thread->author_url }}" title="{{ $thread->user->nickname }}">{{ $thread->user->nickname }}
+                        </a>
+                    @else
+                        <a href="{{ $thread->author_url }}" title="{{ $thread->user->username }}">{{ $thread->user->username }}
+                        </a>
+                    @endif
+
                 <span> • </span>
                 <span class="timeago {{ $thread->highlight }}" data-toggle="tooltip" data-placement="top" title="{{ $thread->created_at }}">{{ $thread->created_at }}</span>
             @endif

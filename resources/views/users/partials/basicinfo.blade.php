@@ -12,6 +12,10 @@
     <dt><label>{{ trans('hifone.users.role') }}:</label></dt><dd><span class="label label-warning">{!! $user->badgeName !!}</span></dd>
   @endif
 
+  @if ($user->nickname)
+    <dt><label>Nickname:</label></dt><dd><span>{!! $user->nickname !!}</span></dd>
+  @endif
+
   @if ($user->realname)
     <dt class="adr"><label> {!! trans('hifone.users.realname') !!}:</label></dt><dd><span class="org">{!! $user->realname !!}</span></dd>
   @endif
