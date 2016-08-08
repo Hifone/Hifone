@@ -106,6 +106,28 @@ class ForumRoutes
                 'uses'       => 'MessagesController@update',
             ]);
 
+            //Sitemap Stuff
+            $router->get('/sitemap/threads', [
+                'as'         => 'sitemap.threads',
+                'uses'       => 'SitemapController@showThreads',
+            ]);
+            $router->get('/sitemap/pages', [
+                'as'         => 'sitemap.pages',
+                'uses'       => 'SitemapController@showPages',
+            ]);
+            $router->get('/sitemap/users', [
+                'as'         => 'sitemap.users',
+                'uses'       => 'SitemapController@showUsers',
+            ]);
+            $router->get('/sitemap/nodes', [
+                'as'         => 'sitemap.nodes',
+                'uses'       => 'SitemapController@showNodes',
+            ]);
+            $router->get('/sitemap', [
+                'as'         => 'sitemap.show',
+                'uses'       => 'SitemapController@show',
+            ]);
+
             $router->resource('node', 'NodeController');
             $router->resource('thread', 'ThreadController');
             $router->resource('pm', 'PmController');

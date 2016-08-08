@@ -35,7 +35,8 @@
         "venturecraft/revisionable": "1.*",
         "zizaco/entrust": "dev-laravel-5",
         "cmgmyr/messenger": "2.11",
-        "barryvdh/laravel-debugbar": "dev-master"
+        "barryvdh/laravel-debugbar": "dev-master",
+        "watson/sitemap": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",

@@ -62,6 +62,11 @@ chmod -R 777 bootstrap/cache
 chmod -R 777 public/uploads
 ```
 
+If you have problems to open the Page, enter the Following:
+```shell
+php artisan vendor:publish
+```
+
 ### Step 2: Browser
 
 Now go to http://your_site_domain/ and have fun!

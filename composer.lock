@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fa5a5b0df2f7f3988c38cdc0a021e51b",
-    "content-hash": "fda70bf6c4016c255ca4c44cb485d10f",
+    "hash": "a2d12468e1d155f965cb1767f3948b14",
+    "content-hash": "b72df98954f707c8ea13ffaa327d3da5",
     "packages": [
         {
             "name": "alt-three/validator",
@@ -1250,6 +1250,7 @@
                 "rest",
                 "web service"
             ],
+            "abandoned": "guzzlehttp/guzzle",
             "time": "2014-01-28 22:29:15"
         },
         {
@@ -2725,16 +2726,16 @@
         },
         {
             "name": "psr/http-message",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
@@ -2762,6 +2763,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -2770,7 +2772,7 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -3125,16 +3127,16 @@
         },
         {
             "name": "socialiteproviders/weixin-web",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Weixin-Web.git",
-                "reference": "48b37624c3befc376eec4116cd73486f3ccc29e3"
+                "reference": "0ebcb0e9222b88cca2142574dd0315b4afd9c011"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Weixin-Web/zipball/48b37624c3befc376eec4116cd73486f3ccc29e3",
-                "reference": "48b37624c3befc376eec4116cd73486f3ccc29e3",
+                "url": "https://api.github.com/repos/SocialiteProviders/Weixin-Web/zipball/0ebcb0e9222b88cca2142574dd0315b4afd9c011",
+                "reference": "0ebcb0e9222b88cca2142574dd0315b4afd9c011",
                 "shasum": ""
             },
             "require": {
@@ -3158,7 +3160,7 @@
                 }
             ],
             "description": "Weixin-Web OAuth2 Provider for Laravel Socialite",
-            "time": "2016-07-31 10:50:24"
+            "time": "2016-08-06 06:55:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4198,6 +4200,52 @@
                 "environment"
             ],
             "time": "2016-06-14 14:14:52"
+        },
+        {
+            "name": "watson/sitemap",
+            "version": "2.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/sitemap.git",
+                "reference": "9d616948c1f997d500f48c8b426ac6dd5640cbff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/sitemap/zipball/9d616948c1f997d500f48c8b426ac6dd5640cbff",
+                "reference": "9d616948c1f997d500f48c8b426ac6dd5640cbff",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Watson\\": "src/Watson"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwightwatson@studious.com.au"
+                }
+            ],
+            "description": "Generate Google Sitemaps in Laravel 4/5",
+            "keywords": [
+                "laravel",
+                "sitemaps"
+            ],
+            "time": "2016-04-05 02:28:57"
         },
         {
             "name": "zizaco/entrust",

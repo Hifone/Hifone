@@ -171,6 +171,7 @@ return [
         Frozennode\Administrator\AdministratorServiceProvider::class,
         Cmgmyr\Messenger\MessengerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Watson\Sitemap\SitemapServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,6 +231,7 @@ return [
         'Route'        => Illuminate\Support\Facades\Route::class,
         'Schema'       => Illuminate\Support\Facades\Schema::class,
         'Session'      => Illuminate\Support\Facades\Session::class,
+        'Sitemap'      => Watson\Sitemap\Facades\Sitemap::class,
         'Storage'      => Illuminate\Support\Facades\Storage::class,
         'Str'          => Illuminate\Support\Str::class,
         'URL'          => Illuminate\Support\Facades\URL::class,

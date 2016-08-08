@@ -1,11 +1,11 @@
 @extends('layouts.default')
 
 @section('title')
-{{{ $thread->title }}} - @parent
+{{ $thread->title }} - @parent
 @stop
 
 @section('description')
-{{{ $thread->excerpt }}}
+{{ $thread->excerpt }}
 @stop
 
 @section('content')
@@ -22,7 +22,7 @@
         </a>
       </div>
 
-      <h1 class="panel-title thread-title">{{{ $thread->title }}}</h1>
+      <h1 class="panel-title thread-title">{{ $thread->title }}</h1>
 
       <div class="likes">
             <a href="javascript:void(0);" data-action="like" data-type="Thread" data-url="{{ route('like.store') }}" title="{{ trans('hifone.like') }}" class="fa fa-chevron-up likeable like" data-id="{{ $thread->id }}"> {{ $thread->like_count }}</a>
@@ -42,7 +42,7 @@
     @foreach ($thread->appends as $index => $append)
 
         <div class="appends">
-            <span class="meta">{{ trans('hifone.appends.appends') }} {{ $index + 1 }} &nbsp;·&nbsp; <abbr title="{!! $append->created_at !!}" class="timeago">{{ $append->created_at }}</abbr></span>
+            <span class="meta">{{ trans('hifone.appends.appends') }} {{ $index + 1 }} &nbsp;k·&nbsp; <abbr title="{!! $append->created_at !!}" class="timeago">{{ $append->created_at }}</abbr></span>
             <div class="sep5"></div>
             <div class="markdown-reply append-content">
                 {!! $append->content !!}
