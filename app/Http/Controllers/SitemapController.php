@@ -2,6 +2,7 @@
 
 namespace Hifone\Http\Controllers;
 
+use Hifone\Models\Node;
 use Hifone\Models\Page;
 use Hifone\Models\Thread;
 use Hifone\Models\User;
@@ -27,8 +28,17 @@ class SitemapController extends Controller
         $this->sitemap->addSitemap(URL::route('sitemap.threads'));
         $this->sitemap->addSitemap(URL::route('sitemap.pages'));
         $this->sitemap->addSitemap(URL::route('sitemap.users'));
+        $this->sitemap->addSitemap(URL::route('sitemap.nodes'));
 
         return $this->sitemap->index();
+    }
+
+    public function showNodes(){
+        $nodes = Node::all();
+        foreach ($nodes as $node){
+            $this->sitemap->addTag(route('go', $node->slug), $node->updated_at, 'daily', '0.8');
+        }
+        return $this->sitemap->render();
     }
 
     public function showThreads(){

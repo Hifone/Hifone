@@ -119,6 +119,10 @@ class ForumRoutes
                 'as'         => 'sitemap.users',
                 'uses'       => 'SitemapController@showUsers',
             ]);
+            $router->get('/sitemap/nodes', [
+                'as'         => 'sitemap.nodes',
+                'uses'       => 'SitemapController@showNodes',
+            ]);
             $router->get('/sitemap', [
                 'as'         => 'sitemap.show',
                 'uses'       => 'SitemapController@show',
