@@ -134,7 +134,7 @@ window.ForumView = Backbone.View.extend
     return
 
   initInlineAttach: ->
-    $('#body_field').inlineattach
+    $('#body_field').inlineattachment
       uploadUrl: Hifone.Config.uploader_url
       extraParams: '_token': Hifone.Config.token
       onUploadedFile: (response) ->

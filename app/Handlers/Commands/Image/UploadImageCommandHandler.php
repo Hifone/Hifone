@@ -44,7 +44,12 @@ class UploadImageCommandHandler
                 $constraint->upsize();
             });
             // finally we save the image as a new file
-            $img->save();
+            try{
+                $img->save();
+            }catch  (\ErrorException $e) {
+                dd($e);
+            }
+
         }
 
         $data['filename'] = upload_url().$folderName.'/'.$safeName;

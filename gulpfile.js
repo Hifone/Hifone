@@ -46,8 +46,8 @@ elixir(function (mix) {
             'vendor/bower_components/ekko-lightbox/dist/ekko-lightbox.min.js',
             'vendor/bower_components/Sortable/Sortable.js',
             'vendor/bower_components/select2/dist/js/select2.min.js',
-            'vendor/bower_components/inline-attachment/src/inline-attach.js',
-            'vendor/bower_components/inline-attachment/src/jquery.inline-attach.js',
+            'vendor/bower_components/inline-attachment/src/inline-attachment.js',
+            'vendor/bower_components/inline-attachment/src/jquery.inline-attachment.js',
             'public/js/app.js'
         ], 'public/dist/js/all.js', './')
         .version(['public/dist/css/all.css', 'public/dist/js/all.js'])
