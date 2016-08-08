@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "9a5f26542c9ae6b1b4aeb8c6244bed0c",
-    "content-hash": "bba9ba3bda6184a6b43b12556c0e29de",
-=======
-    "hash": "fa5a5b0df2f7f3988c38cdc0a021e51b",
-    "content-hash": "fda70bf6c4016c255ca4c44cb485d10f",
->>>>>>> upstream/1.0
+    "hash": "a2d12468e1d155f965cb1767f3948b14",
+    "content-hash": "b72df98954f707c8ea13ffaa327d3da5",
     "packages": [
         {
             "name": "alt-three/validator",
@@ -1255,6 +1250,7 @@
                 "rest",
                 "web service"
             ],
+            "abandoned": "guzzlehttp/guzzle",
             "time": "2014-01-28 22:29:15"
         },
         {
@@ -2730,16 +2726,16 @@
         },
         {
             "name": "psr/http-message",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
@@ -2767,6 +2763,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -2775,7 +2772,7 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -3130,16 +3127,16 @@
         },
         {
             "name": "socialiteproviders/weixin-web",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Weixin-Web.git",
-                "reference": "48b37624c3befc376eec4116cd73486f3ccc29e3"
+                "reference": "0ebcb0e9222b88cca2142574dd0315b4afd9c011"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Weixin-Web/zipball/48b37624c3befc376eec4116cd73486f3ccc29e3",
-                "reference": "48b37624c3befc376eec4116cd73486f3ccc29e3",
+                "url": "https://api.github.com/repos/SocialiteProviders/Weixin-Web/zipball/0ebcb0e9222b88cca2142574dd0315b4afd9c011",
+                "reference": "0ebcb0e9222b88cca2142574dd0315b4afd9c011",
                 "shasum": ""
             },
             "require": {
@@ -3163,7 +3160,7 @@
                 }
             ],
             "description": "Weixin-Web OAuth2 Provider for Laravel Socialite",
-            "time": "2016-07-31 10:50:24"
+            "time": "2016-08-06 06:55:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
