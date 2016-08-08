@@ -321,4 +321,12 @@ return [
         'contact' => 'Kontakt',
         'faq'     => 'FAQ',
     ],
+
+    //HTTP Errors
+    'errors' => [
+        '404' => [
+            'title' => 'Fehler 404 - Seite nicht gefunden.',
+            'desc' => 'Entschuldige, die Seite die du suchst existiert nicht mehr oder konnte nicht gefunden werden.',
+        ],
+    ],
 ];
