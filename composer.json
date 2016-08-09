@@ -33,7 +33,8 @@
         "symfony/css-selector": "^3.0",
         "symfony/dom-crawler": "~3.0",
         "venturecraft/revisionable": "1.*",
-        "zizaco/entrust": "dev-laravel-5"
+        "zizaco/entrust": "dev-laravel-5",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",
