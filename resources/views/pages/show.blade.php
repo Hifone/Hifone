@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-{{ $page->title }}_@parent
+{{ $page->title }} - @parent
 @stop
 
 @section('content')
