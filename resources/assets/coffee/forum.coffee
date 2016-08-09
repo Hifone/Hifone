@@ -88,7 +88,18 @@ window.ForumView = Backbone.View.extend
 
   forceImageDataType: ->
     $('.content-body img:not(.emoji)').each ->
-      $(this).attr('data-type', 'image').attr 'data-remote', $(this).attr('src')
+      thread_img = $(this).attr('src')
+      lightbox_img = $(this).attr('src').replace(/.([^.]*)$/, '_lightbox.'+'$1')
+      dataremote = thread_img
+
+      img = new Image()
+      img.onload = ->
+        dataremote = lightbox_img
+      img.onerror = ->
+        dataremote = thread_img
+      img.src = lightbox_img
+
+      $(this).attr('data-type', 'image').attr 'data-remote', dataremote
       return
     return
 
