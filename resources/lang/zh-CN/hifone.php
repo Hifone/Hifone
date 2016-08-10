@@ -315,6 +315,26 @@ return [
         ],
     ],
 
+    //HTTP Errors
+    'errors' => [
+        '401' => [
+            'title' => 'Error 401 - Unautorized.',
+            'desc' => 'You are not Authorized to View this Page.',
+        ],
+        '403' => [
+            'title' => 'Error 403 - Forbidden.',
+            'desc' => 'It is not Allowed to View this Page, sorry.',
+        ],
+        '404' => [
+            'title' => 'Error 404 - Page not found.',
+            'desc' => 'Sorry, the page does not exist. Please try another Page.',
+        ],
+        '500' => [
+            'title' => 'Error 500 - Internal Server Error.',
+            'desc' => 'A Internal Server Error Accoured. Please try Again.',
+        ],
+    ],
+
     // Footer
     'footer' => [
         'about'   => '关于我们',
