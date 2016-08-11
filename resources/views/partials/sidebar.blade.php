@@ -108,7 +108,7 @@
     </div>
     <ul class="list-group">
       @foreach ($links as $link)
-      <li class="list-group-item"><a href="{{ $link->url }}" rel="nofollow" title="{{ $link->title }}" target="_blank"><img src="{{ $link->cover }}" style="width:150px; margin:6px 0;"></a></li>
+      <li class="list-group-item"><a href="{{ $link->url }}" rel="nofollow" title="{{ $link->title }}" target="_blank"><img src="{{ $link->cover }}" alt="{{ $link->title }}" style="width:150px; margin:6px 0;"></a></li>
       @endforeach
     </ul>
   </div>
