@@ -90,15 +90,14 @@ window.ForumView = Backbone.View.extend
     $('.content-body img:not(.emoji)').each ->
       thread_img = $(this).attr('src')
       lightbox_img = $(this).attr('src').replace(/.([^.]*)$/, '_lightbox.'+'$1')
-      dataremote = lightbox_img
+
       img = new Image()
       img.onload = ->
-        dataremote = lightbox_img
+        $(this).attr('data-type', 'image').attr 'data-remote', lightbox_img
       img.onerror = ->
-        dataremote = thread_img
+        $(this).attr('data-type', 'image').attr 'data-remote', thread_img
       img.src = lightbox_img
 
-      $(this).attr('data-type', 'image').attr 'data-remote', dataremote
       return
     return
 
