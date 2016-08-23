@@ -141,7 +141,7 @@ class Thread extends Model implements HasPresenter, TaggableInterface
 
     public function scopePinAndRecentReply($query)
     {
-        return $query->whereRaw("(`created_at` > '".Carbon::today()->subMonth()->toDateString()."' or (`order` > 0) )")
+        return $query->whereRaw("(`created_at` > '".Carbon::today()->subMonths(6)->toDateString()."' or (`order` > 0) )")
                      ->orderBy('order', 'desc')
                      ->orderBy('updated_at', 'desc');
     }
