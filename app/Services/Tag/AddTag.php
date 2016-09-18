@@ -60,10 +60,10 @@ class AddTag
     {
         $existing_tags = Tag::whereIn('name', $tags)->get();
 
-        $new_tags = array_diff($tags, $existing_tags->lists('name')->all());
+        $new_tags = array_diff($tags, $existing_tags->pluck('name')->all());
         $new_ids = $this->multiInsert($new_tags);
 
-        return array_merge($existing_tags->lists('id')->all(), $new_ids);
+        return array_merge($existing_tags->pluck('id')->all(), $new_ids);
     }
 
     /**
