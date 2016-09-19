@@ -42,7 +42,7 @@ class SendAppendNotificationHandler
     {
         $thread = Thread::findOrFail($append->thread_id);
         $author = Auth::user();
-        $users = $thread->replies()->with('user')->get()->lists('user');
+        $users = $thread->replies()->with('user')->get()->pluck('user');
         // Notify commented user
         app(Notifier::class)->batchNotify(
                     'commented_thread_new_append',
