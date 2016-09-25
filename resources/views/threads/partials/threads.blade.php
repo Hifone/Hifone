@@ -11,7 +11,7 @@
 
         <div class="avatar pull-left">
             <a href="{{ $thread->author_url }}">
-                <img class="media-object img-thumbnail avatar-48" alt="{{{ $thread->user->username }}}" src="{{ $thread->user->avatar_small}}"/>
+                <img class="media-object img-thumbnail avatar-48" alt="{{ $thread->user->username }}" src="{{ $thread->user->avatar_small}}"/>
             </a>
         </div>
 
@@ -25,8 +25,8 @@
                 <i class="{{ $thread->icon }}"></i>
             @endif
 
-            <a href="{{ route('thread.show', [$thread->id]) }}" title="{{{ $thread->title }}}">
-                {{{ $thread->title }}}
+            <a href="{{ route('thread.show', [$thread->id]) }}" title="{{ $thread->title }}">
+                {{ $thread->title }}
             </a>
             
           </div>
@@ -40,8 +40,8 @@
             @endif
 
             @if(!isset($node))
-            <a href="{{ $thread->node->url }}" title="{{{ $thread->node->name }}}" {{ $thread->like_count == 0 || 'class="remove-padding-left"'}}>
-                {{{ $thread->node->name }}}
+            <a href="{{ $thread->node->url }}" title="{{ $thread->node->name }}" @if($thread->like_count == 0)class="remove-padding-left"@endif>
+                {{ $thread->node->name }}
             </a>
             <span> • </span>
                 <!-- <span> • </span> -->

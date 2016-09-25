@@ -40,9 +40,11 @@ class UploadImageCommandHandler
         //Path to LightBox Size
         $safeNameLightbox = $random_string.'_lightbox.'.$extension;
         // Copy the File for Preserving the Original Image
-        copy($file, $destinationPath.'/'.$safeNameOrig);
-        copy($file, $destinationPath.'/'.$safeNameLightbox);
+
         $file->move($destinationPath, $safeName);
+        copy($destinationPath.'/'.$safeName, $destinationPath.'/'.$safeNameOrig);
+        copy($destinationPath.'/'.$safeName, $destinationPath.'/'.$safeNameLightbox);
+
 
         // If is not gif file, we will try to reduse the file size
         // This is for the Lightbox Version.

@@ -41,7 +41,7 @@ class UserPresenter extends AbstractPresenter
             if (!$value) {
                 continue;
             }
-            $coins_str .= '<img src="/images/'.$coin.'.png"> '.$value;
+            $coins_str .= '<img src="/images/'.$coin.'.png" alt="'.$coin.'"> '.$value;
         }
 
         return $coins_str;

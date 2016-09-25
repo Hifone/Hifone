@@ -18,7 +18,7 @@
 
       <div class="pull-right avatar">
         <a href="{{ route('user.home', $thread->user->username) }}">
-          <img src="{{ $thread->user->avatar }}" class="media-object img-thumbnail avatar-64" />
+          <img src="{{ $thread->user->avatar }}" class="media-object img-thumbnail avatar-64" alt="Avatar" />
         </a>
       </div>
 

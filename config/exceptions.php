@@ -26,7 +26,9 @@ return [
     */
 
     'transformers' => [
+        'GrahamCampbell\Exceptions\Transformers\AuthTransformer',
         'GrahamCampbell\Exceptions\Transformers\CsrfTransformer',
+        'GrahamCampbell\Exceptions\Transformers\ModelTransformer',
         Hifone\Exceptions\Transformers\ModelNotFoundTransformer::class,
     ],
 
@@ -48,6 +50,7 @@ return [
         Hifone\Exceptions\Displayers\JsonValidationDisplayer::class,
         Hifone\Exceptions\Displayers\RedirectDisplayer::class,
         'GrahamCampbell\Exceptions\Displayers\DebugDisplayer',
+        'GrahamCampbell\Exceptions\Displayers\ViewDisplayer',
         'GrahamCampbell\Exceptions\Displayers\HtmlDisplayer',
         'GrahamCampbell\Exceptions\Displayers\JsonDisplayer',
         'GrahamCampbell\Exceptions\Displayers\JsonApiDisplayer',
@@ -85,7 +88,7 @@ return [
     |
     */
 
-    'default' => 'GrahamCampbell\Exceptions\Displayers\HtmlDisplayer',
+    'default' => 'GrahamCampbell\Exceptions\Displayers\ViewDisplayer',
 
     /*
     |--------------------------------------------------------------------------
@@ -100,11 +103,14 @@ return [
     */
 
     'levels' => [
-        'Illuminate\Session\TokenMismatchException'                     => 'notice',
-        'Illuminate\Database\Eloquent\ModelNotFoundException'           => 'warning',
-        'Symfony\Component\HttpKernel\Exception\HttpExceptionInterface' => 'warning',
-        'Symfony\Component\Debug\Exception\FatalErrorException'         => 'critical',
-        'Exception'                                                     => 'error',
+        'Illuminate\Auth\Access\AuthorizationException'                           => 'warning',
+        'Illuminate\Database\Eloquent\ModelNotFoundException'                     => 'warning',
+        'Illuminate\Session\TokenMismatchException'                               => 'notice',
+        'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'            => 'notice',
+        'Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException' => 'error',
+        'Symfony\Component\HttpKernel\Exception\HttpExceptionInterface'           => 'warning',
+        'Symfony\Component\Debug\Exception\FatalErrorException'                   => 'critical',
+        'Exception'                                                               => 'error',
     ],
 
 ];
