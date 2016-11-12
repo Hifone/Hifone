@@ -45,7 +45,6 @@ class CreateIdentitiesTable extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->index('extern_uid');
-            $table->index('user_id');
             $table->index('provider_id');
             $table->unique(['user_id', 'provider_id']);
         });
