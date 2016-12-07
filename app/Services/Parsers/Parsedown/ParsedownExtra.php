@@ -38,8 +38,8 @@ class ParsedownExtra extends Parsedown
             throw new Exception('ParsedownExtra requires a later version of Parsedown');
         }
 
-        $this->BlockTypes[':'] [] = 'DefinitionList';
-        $this->BlockTypes['*'] [] = 'Abbreviation';
+        $this->BlockTypes[':'][] = 'DefinitionList';
+        $this->BlockTypes['*'][] = 'Abbreviation';
 
         // identify footnote definitions before reference definitions
         array_unshift($this->BlockTypes['['], 'Footnote');
@@ -154,7 +154,7 @@ class ParsedownExtra extends Parsedown
         $terms = explode("\n", $Block['element']['text']);
 
         foreach ($terms as $term) {
-            $Element['text'] [] = [
+            $Element['text'][] = [
                 'name'    => 'dt',
                 'handler' => 'line',
                 'text'    => $term,
@@ -344,7 +344,7 @@ class ParsedownExtra extends Parsedown
             unset($Block['interrupted']);
         }
 
-        $Block['element']['text'] [] = &$Block['dd'];
+        $Block['element']['text'][] = &$Block['dd'];
 
         return $Block;
     }
@@ -396,7 +396,7 @@ class ParsedownExtra extends Parsedown
                 $text .= "\n".'<p>'.$backLinksMarkup.'</p>';
             }
 
-            $Element['text'][1]['text'] [] = [
+            $Element['text'][1]['text'][] = [
                 'name'       => 'li',
                 'attributes' => ['id' => 'fn:'.$definitionId],
                 'text'       => "\n".$text."\n",
@@ -420,7 +420,7 @@ class ParsedownExtra extends Parsedown
             } else {
                 // "."
 
-                $classes [] = substr($attribute, 1);
+                $classes[] = substr($attribute, 1);
             }
         }
 

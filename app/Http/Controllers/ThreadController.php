@@ -134,7 +134,6 @@ class ThreadController extends Controller
                 ->withErrors($e->getMessageBag());
         }
 
-
         return Redirect::route('thread.show', [$thread->id])
             ->withSuccess(sprintf('%s %s', trans('hifone.awesome'), trans('hifone.success')));
     }

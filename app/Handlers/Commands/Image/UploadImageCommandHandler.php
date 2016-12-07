@@ -74,7 +74,6 @@ class UploadImageCommandHandler
 
         $data['filename'] = upload_url().$folderName.'/'.$safeName;
 
-
         event(new ImageWasUploadedEvent($data));
 
         return $data;

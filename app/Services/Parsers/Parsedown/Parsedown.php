@@ -192,7 +192,7 @@ class Parsedown
 
             if (isset($this->BlockTypes[$marker])) {
                 foreach ($this->BlockTypes[$marker] as $blockType) {
-                    $blockTypes [] = $blockType;
+                    $blockTypes[] = $blockType;
                 }
             }
 
@@ -206,7 +206,7 @@ class Parsedown
                     $Block['type'] = $blockType;
 
                     if (!isset($Block['identified'])) {
-                        $Blocks [] = $CurrentBlock;
+                        $Blocks[] = $CurrentBlock;
 
                         $Block['identified'] = true;
                     }
@@ -226,7 +226,7 @@ class Parsedown
             if (isset($CurrentBlock) and !isset($CurrentBlock['type']) and !isset($CurrentBlock['interrupted'])) {
                 $CurrentBlock['element']['text'] .= "\n".$text;
             } else {
-                $Blocks [] = $CurrentBlock;
+                $Blocks[] = $CurrentBlock;
 
                 $CurrentBlock = $this->paragraph($Line);
 
@@ -242,7 +242,7 @@ class Parsedown
 
         // ~
 
-        $Blocks [] = $CurrentBlock;
+        $Blocks[] = $CurrentBlock;
 
         unset($Blocks[0]);
 
@@ -483,7 +483,7 @@ class Parsedown
                 ],
             ];
 
-            $Block['element']['text'] [] = &$Block['li'];
+            $Block['element']['text'][] = &$Block['li'];
 
             return $Block;
         }
@@ -493,7 +493,7 @@ class Parsedown
     {
         if ($Block['indent'] === $Line['indent'] and preg_match('/^'.$Block['pattern'].'(?:[ ]+(.*)|$)/', $Line['text'], $matches)) {
             if (isset($Block['interrupted'])) {
-                $Block['li']['text'] [] = '';
+                $Block['li']['text'][] = '';
 
                 unset($Block['interrupted']);
             }
@@ -510,7 +510,7 @@ class Parsedown
                 ],
             ];
 
-            $Block['element']['text'] [] = &$Block['li'];
+            $Block['element']['text'][] = &$Block['li'];
 
             return $Block;
         }
@@ -522,17 +522,17 @@ class Parsedown
         if (!isset($Block['interrupted'])) {
             $text = preg_replace('/^[ ]{0,4}/', '', $Line['body']);
 
-            $Block['li']['text'] [] = $text;
+            $Block['li']['text'][] = $text;
 
             return $Block;
         }
 
         if ($Line['indent'] > 0) {
-            $Block['li']['text'] [] = '';
+            $Block['li']['text'][] = '';
 
             $text = preg_replace('/^[ ]{0,4}/', '', $Line['body']);
 
-            $Block['li']['text'] [] = $text;
+            $Block['li']['text'][] = $text;
 
             unset($Block['interrupted']);
 
@@ -562,18 +562,18 @@ class Parsedown
     {
         if ($Line['text'][0] === '>' and preg_match('/^>[ ]?(.*)/', $Line['text'], $matches)) {
             if (isset($Block['interrupted'])) {
-                $Block['element']['text'] [] = '';
+                $Block['element']['text'][] = '';
 
                 unset($Block['interrupted']);
             }
 
-            $Block['element']['text'] [] = $matches[1];
+            $Block['element']['text'][] = $matches[1];
 
             return $Block;
         }
 
         if (!isset($Block['interrupted'])) {
-            $Block['element']['text'] [] = $Line['text'];
+            $Block['element']['text'][] = $Line['text'];
 
             return $Block;
         }
@@ -753,7 +753,7 @@ class Parsedown
                     $alignment = $alignment === 'left' ? 'center' : 'right';
                 }
 
-                $alignments [] = $alignment;
+                $alignments[] = $alignment;
             }
 
             // ~
@@ -784,7 +784,7 @@ class Parsedown
                     ];
                 }
 
-                $HeaderElements [] = $HeaderElement;
+                $HeaderElements[] = $HeaderElement;
             }
 
             // ~
@@ -798,18 +798,18 @@ class Parsedown
                 ],
             ];
 
-            $Block['element']['text'] [] = [
+            $Block['element']['text'][] = [
                 'name'    => 'thead',
                 'handler' => 'elements',
             ];
 
-            $Block['element']['text'] [] = [
+            $Block['element']['text'][] = [
                 'name'    => 'tbody',
                 'handler' => 'elements',
                 'text'    => [],
             ];
 
-            $Block['element']['text'][0]['text'] [] = [
+            $Block['element']['text'][0]['text'][] = [
                 'name'    => 'tr',
                 'handler' => 'elements',
                 'text'    => $HeaderElements,
@@ -850,7 +850,7 @@ class Parsedown
                     ];
                 }
 
-                $Elements [] = $Element;
+                $Elements[] = $Element;
             }
 
             $Element = [
@@ -859,7 +859,7 @@ class Parsedown
                 'text'    => $Elements,
             ];
 
-            $Block['element']['text'][1]['text'] [] = $Element;
+            $Block['element']['text'][1]['text'][] = $Element;
 
             return $Block;
         }

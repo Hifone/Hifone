@@ -17,7 +17,6 @@ final class AddCreditCommand
 
     public $user;
 
-
     /**
      * The validation rules.
      *

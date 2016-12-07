@@ -67,7 +67,6 @@ class PmController extends Controller
         $repository = app('repository');
         $recipient = Input::has('user_id') ? $repository->model(User::class)->findBy('id', Input::get('user_id')) : $repository->model(User::class)->findBy('username', Input::get('username'));
 
-
         return $this->view('pms.create_edit')
             ->withRecipient($recipient);
     }
