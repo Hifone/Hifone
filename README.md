@@ -25,6 +25,7 @@ This package is currently in (very-)alpha stage, so all of the following feature
 * Advertisements
 * RSS Feeds
 * Localization: language files, time zone and UTF-8 support
+* Pjax support
 
 ## Requirements
 
