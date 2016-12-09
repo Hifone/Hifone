@@ -295,16 +295,16 @@
         },
         {
             "name": "ckeditor/ckeditor",
-            "version": "4.6.0",
+            "version": "4.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ckeditor/ckeditor-releases.git",
-                "reference": "2530c9c5d26f275882da192ba2231ac69e967474"
+                "reference": "075b649ec6b160ae9fe78c393dca28024bb7aa14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/2530c9c5d26f275882da192ba2231ac69e967474",
-                "reference": "2530c9c5d26f275882da192ba2231ac69e967474",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/075b649ec6b160ae9fe78c393dca28024bb7aa14",
+                "reference": "075b649ec6b160ae9fe78c393dca28024bb7aa14",
                 "shasum": ""
             },
             "type": "library",
@@ -332,7 +332,7 @@
                 "text",
                 "wysiwyg"
             ],
-            "time": "2016-11-16 15:14:40"
+            "time": "2016-12-08 15:32:52"
         },
         {
             "name": "classpreloader/classpreloader",
