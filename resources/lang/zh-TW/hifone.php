@@ -48,9 +48,9 @@ return [
 
 // 節點
     'nodes'            => [
-        'all'               => '节点导航',
-        'current'           => '当前节点',
-        'same_node_threads' => '同节点推荐',
+        'all'               => '頁面導覽',
+        'current'           => '目前頁面',
+        'same_node_threads' => '相同頁面推薦',
     ],
 
 // 话题
