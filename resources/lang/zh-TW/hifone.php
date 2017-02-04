@@ -80,69 +80,69 @@ return [
         'share2facebook' => '分享到 Facebook',
 
         // Create or Edit
-        'pick_node'      => '选择节点',
-        'mark_excellent' => '设为推荐主题',
-        'mark_stick'     => '置顶此主题',
+        'pick_node'      => '選擇頁面',
+        'mark_excellent' => '設定為推薦主題',
+        'mark_stick'     => '置頂此主题',
         'mark_sink'      => '下沉此主题',
         // Posting Tips
         'posting_tips'   => [
-            'title'     => '发帖提示',
-            'pt1_title' => '主题标题',
-            'pt1_desc'  => '请在标题中描述内容要点。',
-            'pt2_title' => '选择节点',
-            'pt2_desc'  => '请为你的主题选择一个节点。恰当的归类会让你发布的信息更有用。',
-            'pt3_title' => '正文',
-            'pt3_desc'  => 'Hifone 支持 <span style="font-family: Consolas, \'Panic Sans\', mono"><a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">GitHub Flavored Markdown</a></span> 文本标记语法。你可以在页面下方实时预览正文的实际渲染效果。',
+            'title'     => '新文章提示',
+            'pt1_title' => '文章標題',
+            'pt1_desc'  => '請在標題中描述內容摘要。',
+            'pt2_title' => '選擇頁面',
+            'pt2_desc'  => '請問你的主題選擇一個頁面，切當的分類會讓你發布的文章更有用。',
+            'pt3_title' => '內文',
+            'pt3_desc'  => 'Hifone 支持 <span style="font-family: Consolas, \'Panic Sans\', mono"><a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">GitHub Flavored Markdown</a></span> 內文標記語法。你可以在頁面下方即時預覽內文的實際顯示結果。',
         ],
         //Community Guidlines
         'community_guidelines' => [
-            'title'     => '社区指导原则',
-            'cg1_title' => '尊重原创',
-            'cg1_desc'  => '请不要在 Hifone 发布任何盗版链接，包括软件、音乐、电影等。',
+            'title'     => '社區指導原則',
+            'cg1_title' => '尊重原創',
+            'cg1_desc'  => '請不要在 Hifone 發布任何盜版連結，包括軟體、音樂、電影等。',
             'cg2_title' => '友好互助',
-            'cg2_desc'  => '保持对陌生人的友善。用知识去帮助别人。',
+            'cg2_desc'  => '保持對播生人的友善，用知識去幫助别人。',
         ],
-        'insert_code'  => '插入代码',
-        'upload_image' => '上传图片',
+        'insert_code'  => '插入代碼',
+        'upload_image' => '上傳圖片',
     ],
 
 // 备注
     'appends' => [
-        'appends' => '备注',
-        'content' => '备注内容',
-        'notice'  => '附加备注, 使用此功能的话, 会给所有参加过讨论的人发送通知.',
+        'appends' => '備註',
+        'content' => '備註內容',
+        'notice'  => '新增備註, 使用此功能的话, 會給所有參加過討論的人發出通知。',
     ],
 
 // 收藏
     'favorites' => [
         'favorites' => '收藏',
-        'noitem'    => '暂未收藏任何主题',
+        'noitem'    => '尚未收藏任何主题',
     ],
 
 // 回复
     'replies' => [
-        'replies'        => '回复',
-        'add'            => '发表回复',
+        'replies'        => '回覆',
+        'add'            => '發表回覆',
         'body'           => '内容',
-        'recent'         => '最近回帖',
-        'total'          => '回复总数',
-        'noitem'         => '暂无回复',
-        'login_required' => '需要登录后才能发表评论.',
+        'recent'         => '最近的回覆',
+        'total'          => '回覆總數',
+        'noitem'         => '暫無回覆',
+        'login_required' => '需要登入後才能發表評論。',
     ],
 
 // 图片
     'photos' => [
-        'drag_drop'     => '支持在编辑框拖拽、复制粘贴或<a class="btn-upload" href="javascript:void(0);">浏览本地文件</a>进行图片上传.',
-        'markdown_desc' => '排版说明',
-        'upload_error'  => 'Error while uploading file.',
+        'drag_drop'     => '支援在编辑框拖曳、複製貼上或<a class="btn-upload" href="javascript:void(0);">瀏覽本機檔案</a>進行圖片上傳。',
+        'markdown_desc' => '排版說明',
+        'upload_error'  => '上傳檔案時發生問題',
     ],
 
 // Tags
     'tags' => [
-        'tags'      => '标签',
-        'name'      => '标签名',
-        'hot'       => '热门标签',
-        'tags_help' => '请填写标签，多个标签之间用 , 分隔',
+        'tags'      => '標籤',
+        'name'      => '標籤名稱',
+        'hot'       => '熱門標籤',
+        'tags_help' => '請填寫標籤名稱，多個標籤之間請用「,」分隔',
     ],
 
 // 用户
