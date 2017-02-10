@@ -189,13 +189,13 @@ return [
         'select_language'           => 'Select Language',
         'register_date'             => '注册:',
         'add'                       => [
-            'title'   => '注册用户',
-            'success' => '用户注册成功.',
-            'failure' => '用户注册失败',
+            'title'   => '使用者註冊',
+            'success' => '使用者註冊成功',
+            'failure' => '使用者註冊失敗',
         ],
         'edit'     => [
-            'title'   => '个人设置',
-            'success' => '用户更新成功.',
+            'title'   => '個人設定',
+            'success' => '使用者更新成功',
         ],
     ],
 
