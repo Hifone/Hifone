@@ -255,26 +255,26 @@ return [
 
 // 小贴士
     'tips' => [
-        'tips' => '小贴士',
+        'tips' => '小貼士',
     ],
 
 // 友情链接
     'links' => [
-        'links' => '友情链接',
+        'links' => '友情連結',
     ],
 
 // 统计
     'stats' => [
-        'title'   => '统计信息',
-        'users'   => '社区会员',
-        'threads' => '主题数',
-        'replies' => '回帖数',
+        'title'   => '統計資料',
+        'users'   => '會員總數',
+        'threads' => '文章總數',
+        'replies' => '回覆數量',
     ],
 
     'captcha' => [
-        'captcha' => '验证码',
-        'refresh' => '看不清，点击图片刷新',
-        'failure' => '验证码有误，请重新输入',
+        'captcha' => '圖形驗證碼',
+        'refresh' => '看不清楚，點擊圖片換一個驗證碼',
+        'failure' => '驗證碼錯誤，請重新輸入',
     ],
 
 // 登录
