@@ -318,8 +318,8 @@ return [
 
     // Footer
     'footer' => [
-        'about'   => '关于我们',
-        'contact' => '联系我们',
-        'faq'     => '常见问题解答',
+        'about'   => '關於我們',
+        'contact' => '與我們聯繫',
+        'faq'     => '常見問題',
     ],
 ];
