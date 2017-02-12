@@ -244,13 +244,13 @@ return [
 
 //积分
     'credits' => [
-        'credits'         => '积分',
-        'mine'            => '我的积分',
+        'credits'         => '積分',
+        'mine'            => '我的積分',
         'time'            => '日期',
-        'type'            => '类型',
-        'reward'          => '数额',
-        'balance'         => '余额',
-        'balance_current' => '当前余额:',
+        'type'            => '類型',
+        'reward'          => '總數',
+        'balance'         => '餘額',
+        'balance_current' => '目前餘額：',
     ],
 
 // 小贴士
