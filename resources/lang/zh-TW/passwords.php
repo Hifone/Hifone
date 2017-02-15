@@ -22,10 +22,10 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'user'     => "We can't find a user with that e-mail address.",
-    'token'    => 'This password reset token is invalid.',
-    'sent'     => 'We have e-mailed your password reset link!',
-    'reset'    => 'Your password has been reset!',
+    'password' => '密碼至少需要六個字，且二次輸入的密碼必須一致',
+    'user'     => '找不到用這個 email 註冊的使用者',
+    'token'    => '用來重新設定密碼的代碼有誤',
+    'sent'     => '我們已寄送一封含有密碼重新設定連結的 email 給您。',
+    'reset'    => '您的密碼已經重新設定完畢',
 
 ];
