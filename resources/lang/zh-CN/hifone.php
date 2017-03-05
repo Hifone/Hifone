@@ -321,4 +321,12 @@ return [
         'contact' => '联系我们',
         'faq'     => '常见问题解答',
     ],
+
+    //HTTP Errors
+    'errors' => [
+        '404' => [
+            'title' => 'Error 404 - Page not found.',
+            'desc' => 'Sorry, the page does not exist. Please try another Page.',
+        ],
+    ],
 ];

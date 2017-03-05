@@ -22,7 +22,7 @@ class PageController extends Controller
         $page = Page::where('slug', $slug)->first();
 
         if (!$page) {
-            throw new NotFoundHttpException();
+            return $this->view('errors.404');
         }
 
         return $this->view('pages.show')
