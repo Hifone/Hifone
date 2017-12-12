@@ -73,6 +73,7 @@ class UserController extends Controller
     {
         $this->needAuthorOrAdminPermission($user->id);
         $data = Input::only('nickname', 'location', 'company', 'website', 'signature', 'bio', 'locale');
+
         try {
             if ($data['location']) {
                 $location = Location::where('name', $data['location'])->first();

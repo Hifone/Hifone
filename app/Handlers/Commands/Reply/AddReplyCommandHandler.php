@@ -56,7 +56,7 @@ class AddReplyCommandHandler
         // Create the reply
         $reply = Reply::create($data);
 
-         // Add the reply user
+        // Add the reply user
         if ($reply->thread) {
             $reply->thread->last_reply_user_id = $reply->user_id;
             $reply->thread->reply_count++;

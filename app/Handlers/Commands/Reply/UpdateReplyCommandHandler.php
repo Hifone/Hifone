@@ -12,7 +12,6 @@
 namespace Hifone\Handlers\Commands\Reply;
 
 use Hifone\Commands\Reply\UpdateReplyCommand;
-use Hifone\Models\Reply;
 
 class UpdateReplyCommandHandler
 {

@@ -150,6 +150,7 @@ class AuthController extends Controller
                     ->withErrors([trans('hifone.captcha.failure')]);
             }
         }
+
         try {
             $user = $this->create($registerData);
         } catch (ValidationException $e) {
@@ -225,6 +226,7 @@ class AuthController extends Controller
     {
         if (Input::has('code')) {
             $provider = Provider::where('slug', '=', $slug)->firstOrFail();
+
             try {
                 $extern_user = \Socialite::with($slug)->user();
             } catch (InvalidStateException $e) {

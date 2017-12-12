@@ -35,7 +35,7 @@ class AjaxRoutes
                 'middleware' => ['permission:manage_threads'],
                 'uses'       => 'ThreadController@sink',
             ]);
-             //推荐
+            //推荐
             $router->post('thread/{thread}/recommend', [
                 'as'         => 'thread.recommend',
                 'middleware' => ['permission:manage_threads'],

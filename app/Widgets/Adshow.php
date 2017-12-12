@@ -16,7 +16,6 @@ use Cache;
 use Hifone\Models\Ad\Adspace;
 use Illuminate\Support\Facades\View;
 use Request;
-use Route;
 
 class Adshow extends AbstractWidget
 {

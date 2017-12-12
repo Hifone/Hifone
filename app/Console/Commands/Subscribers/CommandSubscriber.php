@@ -65,6 +65,7 @@ class CommandSubscriber
         $command->line('Clearing settings cache...');
         $command->line('Settings cache cleared!');
         $command->line('Backing up database...');
+
         try {
             $command->call('db:backup', [
                 '--compression'     => 'gzip',

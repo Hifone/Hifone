@@ -13,7 +13,6 @@ namespace Hifone\Handlers\Listeners\Thread;
 
 use Hifone\Events\Thread\ThreadWasRemovedEvent;
 use Hifone\Models\Notification;
-use Hifone\Models\Thread;
 
 class CleanupThreadRepliesHandler
 {

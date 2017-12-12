@@ -43,27 +43,27 @@ class EventServiceProviderTest extends AbstractTestCase
         $this->assertGreaterThan(0, count($map));
     }
 
-   /**
-    * @depends testListenerMapIsAnArray
-    */
-   public function testListenerMapEventsExist()
-   {
-       $map = $this->getListenerMap();
-       foreach (array_keys($map) as $event) {
-           $this->assertTrue(class_exists($event));
-       }
-   }
+    /**
+     * @depends testListenerMapIsAnArray
+     */
+    public function testListenerMapEventsExist()
+    {
+        $map = $this->getListenerMap();
+        foreach (array_keys($map) as $event) {
+            $this->assertTrue(class_exists($event));
+        }
+    }
 
-   /**
-    * @depends testListenerMapIsAnArray
-    */
-   public function testListenerMapKeysAreSorted()
-   {
-       $map = $this->getListenerMap();
-       $events = array_keys($map);
-       sort($events);
-       $this->assertSame($events, array_keys($map));
-   }
+    /**
+     * @depends testListenerMapIsAnArray
+     */
+    public function testListenerMapKeysAreSorted()
+    {
+        $map = $this->getListenerMap();
+        $events = array_keys($map);
+        sort($events);
+        $this->assertSame($events, array_keys($map));
+    }
 
     protected function getListenerMap()
     {

@@ -53,7 +53,7 @@ class ForumRoutes
                 'uses' => 'NodeController@showBySlug',
             ]);
 
-             //通知中心
+            //通知中心
             $router->get('/notification', [
                 'as'         => 'notification.index',
                 'middleware' => 'auth',
@@ -66,14 +66,14 @@ class ForumRoutes
             ]);
 
             //积分
-             $router->get('/credit', [
+            $router->get('/credit', [
                 'as'         => 'credit.index',
                 'middleware' => 'auth',
                 'uses'       => 'CreditController@index',
             ]);
 
             //PMS
-             $router->get('/pm', [
+            $router->get('/pm', [
                  'as'         => 'pm.index',
                  'middleware' => 'auth',
                  'uses'       => 'PmController@index',

@@ -12,7 +12,6 @@
 namespace Hifone\Handlers\Listeners\Thread;
 
 use Hifone\Events\Thread\ThreadWasViewedEvent;
-use Hifone\Models\Thread;
 
 class UpdateThreadViewCountHandler
 {
